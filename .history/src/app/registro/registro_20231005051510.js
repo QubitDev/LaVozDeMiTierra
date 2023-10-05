@@ -41,7 +41,7 @@ function onSubmit(event) {
 //   })
 //     .then((response) => response.json())
 //     .then((data) => {
-//       alert(data.mensaje);
+//       alert(data.mensaje)
 //       resetForm();
 //     })
 //     .catch((error) => {

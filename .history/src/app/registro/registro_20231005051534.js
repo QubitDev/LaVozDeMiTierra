@@ -34,7 +34,7 @@ function onSubmit(event) {
   formData.append("audioFile", audioFile);
   formData.append("textFile", textFile);
 
-//   // Envía los archivos al servidor utilizando fetch
+//   //envia los
 //   fetch("/guardar-archivos", {
 //     method: "POST",
 //     body: formData,

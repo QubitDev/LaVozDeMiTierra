@@ -23,7 +23,7 @@ function onSubmit(event) {
       tipoAudioSeleccionado = tipoAudioElements[i].value;
       break;
     }
-  }
+ }
     
     // Obtén el archivo de audio y el archivo de texto seleccionados
   const audioFile = document.getElementById("audioFileInput").files[0];
@@ -34,19 +34,20 @@ function onSubmit(event) {
   formData.append("audioFile", audioFile);
   formData.append("textFile", textFile);
 
-//   // Envía los archivos al servidor utilizando fetch
-//   fetch("/guardar-archivos", {
-//     method: "POST",
-//     body: formData,
-//   })
-//     .then((response) => response.json())
-//     .then((data) => {
-//       alert(data.mensaje);
-//       resetForm();
-//     })
-//     .catch((error) => {
-//       alert("Error al enviar los archivos");
-//     });
+  // Envía los archivos al servidor utilizando fetch
+  fetch("/guardar-archivos", {
+    method: "POST",
+    body: formData,
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data.mensaje); // Mensaje de respuesta del servidor
+      resetForm();
+    })
+    .catch((error) => {
+      console.error("Error al enviar los archivos:", error);
+    });
+}
 
   // Realizar lógica de envío o procesamiento aquí
   console.log("Título:", titulo);

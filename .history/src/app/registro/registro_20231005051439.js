@@ -41,11 +41,11 @@ function onSubmit(event) {
 //   })
 //     .then((response) => response.json())
 //     .then((data) => {
-//       alert(data.mensaje);
+//       console.log(data.mensaje); // Mensaje de respuesta del servidor
 //       resetForm();
 //     })
 //     .catch((error) => {
-//       alert("Error al enviar los archivos");
+//       alert("Error al enviar los archivos:", error);
 //     });
 
   // Realizar lógica de envío o procesamiento aquí
