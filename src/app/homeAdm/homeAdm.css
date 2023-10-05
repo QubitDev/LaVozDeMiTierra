@@ -12,7 +12,7 @@
   
     display: flex;
   }
-  #contenido{
+  .contenido{
     top:1px;
     left:1px ;
   }
@@ -22,8 +22,7 @@
     height: 90px;
   }
   
-  .CUENTOS,
-  .LEYENDAS{
+  h2{
       font-family: sans-serif;
       font-size: 16px;
       margin-top: 10px;
