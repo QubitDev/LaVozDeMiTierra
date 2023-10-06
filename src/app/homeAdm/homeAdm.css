@@ -18,54 +18,57 @@
 img{
     width: 90px;
     height: 90px;
+    margin-left: 2%;
+    margin-top: 2%;
 }
   
 h2{
     font-family: sans-serif;
     font-size: 16px;
     margin-top: 10px;
+    margin-left: 10px;
     color: white;
 }
   .iconoUno{
       transition: background-color 0.3s;
       position: absolute;
-      right:10%;
+      right:11%;
       top: 18%;
     }
   .iconoDos{
       position: absolute;
-      right:10%;
+      right:11%;
       top: 38%;
   }
   .iconoTres{
       position: absolute;
-      right:10%;
+      right:11%;
       top: 58%;
   }
   .iconoCuatro{
       position: absolute;
-      right:10%;
+      right:11%;
       top: 78%;
   }
   
   .iconosUno{
       position: absolute;
-      right:10%;
+      right:11%;
       top: 11%;
   }
   .iconosDos{
       position: absolute;
-      right:10%;
+      right:11%;
       top: 31%;
   }
   .iconosTres{
       position: absolute;
-      right:10%;
+      right:11%;
       top: 51%;
   }
   .iconosCuatro{
       position: absolute;
-      right:10%;
+      right:11%;
       top: 71%;
   }
   
@@ -77,8 +80,7 @@ h2{
       position: absolute;
       top: 10px;
       left: 10px;
-      border: 5% solid #000
-      color white;
+      color: #ffffff; 
   }
   .scroll-div{
       background: linear-gradient(black,purple);
@@ -93,7 +95,7 @@ h2{
       font-size: 13px;
       position: absolute;
       top: 10%;
-      left: 45%;
+      left: 20%;
   }
   .DosScroll-bg{
       background: linear-gradient(black,purple);
@@ -119,5 +121,5 @@ h2{
     font-size: 13px;
     position: absolute;
     top: 10%;
-    left: 45%;
+    left: 20%;
 }
