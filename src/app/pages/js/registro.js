@@ -12,7 +12,7 @@ const popup = document.getElementById('popup');
 const windowAorE =document.getElementById('window_A_E');
 const messagePopup = document.getElementById("message");
 
-
+  
 
 // Captura de audio
 audioInput.addEventListener("change", function () {
@@ -23,7 +23,7 @@ audioInput.addEventListener("change", function () {
     // Validar el peso del archivo de audio
     const maxSizeInBytes = 20 * 1024 * 1024; // 20 MB en bytes
     if (selectedAudioFile.size > maxSizeInBytes) {
-      onMessagePopup(`❌¡Error!\nEl archivo de audio es demasiado grande. Debe ser menor o igual a 20 MB.`, 400);
+      onMessagePopup(`❌¡Error!\nDebe ser menor o igual a 20 MB.`, 400);
       this.value = null;
       return;
     }
@@ -42,7 +42,7 @@ textInput.addEventListener("change", function () {
     // Validar el peso del archivo de texto
     const maxSizeInBytes = 500 * 1024; // 500KB en bytes
     if (selectedTextFile.size > maxSizeInBytes) {
-      onMessagePopup(`❌¡Error!\nEl archivo de texto es demasiado grande. Debe ser menor o igual a 500 KB.`,400);
+      onMessagePopup(`❌¡Error!\nDebe ser menor o igual a 500 KB.`,400);
       this.value = null;
       return;
     }
@@ -214,7 +214,7 @@ function validateTitle(inputElement) {
   const placeholderText = inputElement.getAttribute("placeholder");
 
   if (!/^[a-zA-Z\s]+$/.test(inputValue)) {
-    onMessagePopup(`❌¡Error!<br>No se admiten caracteres especiales en: ${placeholderText}`, 450);
+    onMessagePopup(`❌¡Error!\nNo se admiten caracteres especiales en: ${placeholderText}`, 450);
     return;
   }
 }

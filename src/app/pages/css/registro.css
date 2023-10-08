@@ -16,7 +16,7 @@
   font-family: Arial, Helvetica, sans-serif;
 
   width: 200px;
-  background: linear-gradient(to left, #43cea2, #185a9d);
+  background: linear-gradient(to left bottom, #43cea2, #185a9d);
   color: #fff;
   padding: 14px;
   position: fixed;
@@ -34,7 +34,7 @@
   left: 0;
   right: 0;
   z-index: 999; /* Asegura que esté por delante de otros elementos */
-  background: linear-gradient(to top, #43cea2, #185a9d);
+  background: linear-gradient(to top left, #43cea2, #185a9d);
   color: #fff;
   padding: 10px 20px;
   display: flex;
@@ -85,7 +85,7 @@
   height: 100%; 
   /* width: 1170px;
   height: 800px; */
-  background: linear-gradient(to right, #43cea2, #185a9d);
+  background: linear-gradient(to right bottom, #43cea2, #185a9d);
 }
 
 .container__form {
