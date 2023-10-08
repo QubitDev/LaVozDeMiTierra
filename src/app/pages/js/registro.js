@@ -15,7 +15,6 @@ const messagePopup = document.getElementById("message");
 
 
 // Captura de audio
-// Captura de audio
 audioInput.addEventListener("change", function () {
   const selectedAudioFile = this.files[0];
   textInput.disabled = false;
@@ -34,6 +33,26 @@ audioInput.addEventListener("change", function () {
     console.log("Tipo del archivo de audio:", selectedAudioFile.type);
   }
 });
+
+// Captura de texto
+textInput.addEventListener("change", function () {
+  const selectedTextFile = this.files[0];
+
+  if (selectedTextFile) {
+    // Validar el peso del archivo de texto
+    const maxSizeInBytes = 500 * 1024; // 500KB en bytes
+    if (selectedTextFile.size > maxSizeInBytes) {
+      onMessagePopup(`❌¡Error!\nEl archivo de texto es demasiado grande. Debe ser menor o igual a 500 KB.`,400);
+      this.value = null;
+      return;
+    }
+
+    // Aquí puedes trabajar con el archivo de texto seleccionado
+    console.log("Nombre del archivo de texto:", selectedTextFile.name);
+    console.log("Tipo del archivo de texto:", selectedTextFile.type);
+  }
+});
+
 
 // Validación de elección de elemento en el file chooser de audio
 function updateAcceptAttribute() {
