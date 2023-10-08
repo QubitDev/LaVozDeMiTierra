@@ -15,10 +15,20 @@ const messagePopup = document.getElementById("message");
 
 
 // Captura de audio
+// Captura de audio
 audioInput.addEventListener("change", function () {
   const selectedAudioFile = this.files[0];
   textInput.disabled = false;
+
   if (selectedAudioFile) {
+    // Validar el peso del archivo de audio
+    const maxSizeInBytes = 20 * 1024 * 1024; // 20 MB en bytes
+    if (selectedAudioFile.size > maxSizeInBytes) {
+      onMessagePopup(`❌¡Error!\nEl archivo de audio es demasiado grande. Debe ser menor o igual a 20 MB.`, 400);
+      this.value = null;
+      return;
+    }
+
     // Aquí puedes trabajar con el archivo de audio seleccionado
     console.log("Nombre del archivo de audio:", selectedAudioFile.name);
     console.log("Tipo del archivo de audio:", selectedAudioFile.type);
@@ -160,14 +170,14 @@ function onMessagePopup(messageX, length){
   windowAorE.style.width = `${length}px`;
   messagePopup.style.whiteSpace = 'pre-line'; 
   popup.style.display = 'flex';
-  messageX.includes("❌") 
+  messageX.includes("Error") 
     ? okButton.style.display = 'block'
     : verifyButton.style.display = 'block';
 }
 
 // cerrar popup
 function closePopup(){
-  this.popup.style.display = 'none';
+  popup.style.display = 'none';
 }
 
 // Función para manejar el botón "Verificar"
@@ -186,7 +196,6 @@ function validateTitle(inputElement) {
 
   if (!/^[a-zA-Z\s]+$/.test(inputValue)) {
     onMessagePopup(`❌¡Error!<br>No se admiten caracteres especiales en: ${placeholderText}`, 450);
-    this.messagePopup.style.whiteSpace = 'pre-line'; 
     return;
   }
 }
