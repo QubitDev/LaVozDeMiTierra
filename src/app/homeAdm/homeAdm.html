@@ -9,85 +9,94 @@
         <title>Home de Administrador</title>
     </head>
     <body>
-        <div class="contenedor">
-            <div id="contenido">
-              <div class="scroll-bg">
-                  <div class="scroll-div">
+        <div class="container">
+            <div class="profile-picture">
+              <img
+                src="./../../assets/images/LogoLDMT.jpg"
+                alt="Imagen de perfil"
+                class="logo"
+              />
+            </div>
+            <header class="header">
+              <div class="greeting">
+                <p><font size="16">La voz de mi Tierra</font></p>
+              </div>
+             
+            </header>
+      
+            <div class="menu">
+              <div class="menu__item" data-page="app">
+                <i class="fas fa-home"></i> Inicio
+              </div>              
+              <div class="menu__item" data-page="registro">
+                <i class="fa-solid fa-plus"></i> Registrar
+              </div>        
+            </div>
+          </div>
+      
+          <div id="page-content"></div>
+      
+          <script src="app.js"></script>
+        <div class="contenedor">           
+              <div class="scrollBg">
+                  <div class="scrollDiv">
                       <div class="CUENTOS">
                         <h2>CUENTOS:</h2>
                     </div>
                     <div class="imageUno">
                         <img src="/src/assets/images/CuentoUno.jpg" alt="Quechua"/>
                     </div>
-                    <div class="iconosUno">
-                        <button>
+                    <div class="iconoUno">
+                        <button onclick="eliminarCuento()">
                             <i class="fas fa-trash-can fa"></i>
                         </button>
-                    </div>
-                    <div class="iconoUno">
-                        <button>
-                            <i class="fas fa-screwdriver-wrench fa"></i>
-                        </button>
-                    </div>
+                    </div>                    
                     <div class="imageDos">
                         <img src="/src/assets/images/CuentoDos.jpg" alt="Quechua"/>
                     </div>
-                    <div class="iconosDos">
+                    <div class="iconoDos">
                         <button>
                             <i class="fas fa-trash-can fa"></i>
                         </button>
-                    </div>
-                    <div class="iconoDos">
-                        <button>
-                            <i class="fas fa-screwdriver-wrench fa"></i>
-                        </button>
-                    </div>
+                    </div>                   
                     <div class="imageTres">
                         <img src="/src/assets/images/CuentoTres.jpg" alt="Quechua"/>
                     </div>
-                    <div class="iconosTres">
+                    <div class="iconoTres">
                         <button>
                             <i class="fas fa-trash-can fa"></i>
                         </button>
                     </div>
-                    <div class="iconoTres">
-                        <button>
-                            <i class="fas fa-screwdriver-wrench fa"></i>
-                        </button>
-                    </div>
+                    
                     <div class="imageCuatro">
                         <img src="/src/assets/images/CuentoCuatro.jpg" alt="Quechua"/>
                     </div>
-                    <div class="iconosCuatro">
+                    <div class="iconoCuatro">
                         <button>
                             <i class="fas fa-trash-can fa"></i>
                         </button>
                     </div>
-                    <div class="iconoCuatro">
-                        <button>
-                            <i class="fas fa-screwdriver-wrench fa"></i>
-                        </button>
-                    </div>
-                    <div class="scroll-object">
+                    
+                    <div class="scrollObject">
                         <div class="contenidoUno">
                             <h3>Titulo de audio<br>
                                 Procedencia<br>
                                 Nombre del narrador<br>
-                                Nombre musica de fondo<br>
+                                Nombre musica de fondo<br><br><br>
                             </h3>
                         </div>
                         <div class="contenidoDos">
                             <h3>Titulo de audio<br>
                                 Procedencia<br>
                                 Nombre del narrador<br>
-                                Nombre musica de fondo<br>
+                                Nombre musica de fondo<br><br><br>
                             </h3>
                         </div>
                         <div class="contenidoTres">
                             <h3>Titulo de audio<br>
                                 Procedencia<br>
                                 Nombre del narrador<br>
-                                Nombre musica de fondo<br>
+                                Nombre musica de fondo<br><br><br>
                             </h3>
                         <div>
           
@@ -101,99 +110,79 @@
                       </div>
                   </div>
               </div>
-              <div class="DosScroll-bg">
-                  <div class="DosScroll-div">
+              <div class="DosScrollBg">
+                  <div class="DosScrollDiv">
                     <div class="LEYENDAS">
                         <h2>LEYENDAS:</h2>
                     </div>
                     <div class="imageUno">
                         <img src="/src/assets/images/LeyendaUno.jpg" alt="Quechua"/>
                     </div>
-                    <div class="iconosUno">
+                    <div class="iconoUno">
                         <button>
                             <i class="fas fa-trash-can fa"></i>
                         </button>
-                    </div>
-                    <div class="iconoUno">
-                        <button>
-                            <i class="fas fa-screwdriver-wrench fa"></i>
-                        </button>
-                    </div>
+                    </div>                    
                     <div class="imageDos">
                         <img src="/src/assets/images/LeyendaDos.jpg" alt="Quechua"/>
                     </div>
-                    <div class="iconosDos">
+                    <div class="iconoDos">
                         <button>
                             <i class="fas fa-trash-can fa"></i>
                         </button>
                     </div>
-                    <div class="iconoDos">
-                        <button>
-                            <i class="fas fa-screwdriver-wrench fa"></i>
-                        </button>
-                    </div>
+                   
                     <div class="imageTres">
                         <img src="/src/assets/images/LeyendaTres.jpg" alt="Quechua"/>
                     </div>
-                    <div class="iconosTres">
+                    <div class="iconoTres">
                         <button>
                             <i class="fas fa-trash-can fa"></i>
                         </button>
                     </div>
-                    <div class="iconoTres">
-                        <button>
-                            <i class="fas fa-screwdriver-wrench fa"></i>
-                        </button>
-                    </div>
+                    
                     <div class="imageCuatro">
                         <img src="/src/assets/images/LeyendaCuatro.jpg" alt="Quechua"/>
                     </div>
-                    <div class="iconosCuatro">
-                        <button>
-                            <i class="fas fa-trash-can fa-2x"></i>
-                        </button>
-                    </div>
                     <div class="iconoCuatro">
-                        <button>
-                            <i class="fas fa-screwdriver-wrench fa-2x"></i>
+                        <button id="eliminar">
+                            <i class="fas fa-trash-can fa"></i>
                         </button>
                     </div>
-                    <div class="DosScroll-object">                        
+                    
+                    <div class="DosScrollObject">                        
                         <div class="contenidoUno">
                             <h3>Titulo de audio<br>
                                 Procedencia<br>
                                 Nombre del narrador<br>
-                                Nombre musica de fondo<br>
+                                Nombre musica de fondo<br><br><br>
                             </h3>
                         </div>
-          
                         <div class="contenidoDos">
                             <h3>Titulo de audio<br>
                                 Procedencia<br>
                                 Nombre del narrador<br>
-                                Nombre musica de fondo<br>
+                                Nombre musica de fondo<br><br><br>
                             </h3>
                         </div>
-          
                         <div class="contenidoTres">
                             <h3>Titulo de audio<br>
                                 Procedencia<br>
                                 Nombre del narrador<br>
-                                Nombre musica de fondo<br>
+                                Nombre musica de fondo<br><br><br>
                             </h3>
-                        </div>
+                        <div>
           
-                        <div class="contenidoCuatro">
-                            <h3>Titulo de audio<br>
-                                Procedencia<br>
-                                Nombre del narrador<br>
-                                Nombre musica de fondo<br>
-                            </h3>
-                        </div>
+                          <div class="contenidoCuatro">
+                              <h3>Titulo de audio<br>
+                                  Procedencia<br>
+                                  Nombre del narrador<br>
+                                  Nombre musica de fondo<br>
+                              </h3>
+                          </div> 
                       </div>
                   </div>
               </div>
-            </div>
           </div>
         <script src="homeAdm.js"></script>
     </body>   
