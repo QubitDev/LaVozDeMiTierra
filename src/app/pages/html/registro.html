@@ -35,6 +35,10 @@
 
     <link rel="stylesheet" href="./../css/registro.css" />
     <title>Registrar Audio</title>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <!-- Firebase App (la biblioteca base) - es obligatorio siempre -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
   </head>
   <body>
     
@@ -123,9 +127,9 @@
                 onchange="updateAcceptAttribute()"
               >
                 <option value="null">Seleccionar formato</option>
-                <option value="MP3">MP3</option>
-                <option value="WAV">WAV</option>
-                <option value="AIFF">AIFF</option>
+                <option value="MP3" >MP3</option>
+                <option value="WAV" >WAV</option>
+                <option value="AIFF" >AIFF</option>
               </select>
               <div class="message__error">
                 <p class="error-message" id="error_formato_audio"></p>
@@ -139,7 +143,7 @@
                     <input
                       type="radio"
                       class="form__radio__input"
-                      id="cuento"
+                      id="tipo_audio"
                       name="tipo_audio"
                       value="Cuento"
                       required
@@ -152,7 +156,7 @@
                     <input
                       type="radio"
                       class="form__radio__input"
-                      id="leyenda"
+                      id="tipo_audio"
                       name="tipo_audio"
                       value="Leyenda"
                       required
@@ -208,7 +212,7 @@
               <label for="textFile" class="form__label">Subir archivo de texto:</label>
                 <div class="file__chooser">
                   <div class="container__upload">
-                    <input type="file" id="textFileInput" accept=".txt, .doc, .docx" disabled/>
+                    <input type="file" id="textFileInput" accept=".txt" disabled/>
                   </div>
                 </div>
             </div>
@@ -237,7 +241,7 @@
       </div>
     </div>
 
-
+    <script src="./../../../api/firebase.js"></script>
     <script src="./../js/registro.js"></script>
   </body>
 </html>

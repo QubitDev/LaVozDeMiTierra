@@ -5,14 +5,16 @@ document.getElementById("verifyButton").addEventListener("click",onVerifyButton)
 
 const audioInput = document.getElementById("audioFileInput");
 const textInput = document.getElementById("textFileInput");
-// const mensajeError = document.getElementById();
 const okButton = document.getElementById('okButton');
 const verifyButton = document.getElementById('verifyButton');
 const popup = document.getElementById('popup');
 const windowAorE =document.getElementById('window_A_E');
 const messagePopup = document.getElementById("message");
 
-  
+const storage = firebase.storage();
+const narracion1 = {};
+
+
 
 // Captura de audio
 audioInput.addEventListener("change", function () {
@@ -34,6 +36,31 @@ audioInput.addEventListener("change", function () {
   }
 });
 
+
+// Obtener la duración del audio
+audioInput.addEventListener("change", function () {
+  const audio = this.files[0];
+  const durationField = document.getElementById("duracion");
+
+  if (audio) {
+    getAudioDuration(audio).then((duration) => {
+      const minutes = parseFloat(duration);
+
+      if (!isNaN(minutes) && minutes >= 3 && minutes <= 20) {
+        durationField.value = duration;
+      } else {
+        alert("La duración del audio debe estar entre 3 y 10 minutos.");
+        this.value = "";
+        durationField.value = "";
+        document.getElementById("formato_audio").value = "";
+      }
+    });
+  } else {
+    durationField.value = "";
+  }
+});
+
+
 // Captura de texto
 textInput.addEventListener("change", function () {
   const selectedTextFile = this.files[0];
@@ -52,6 +79,7 @@ textInput.addEventListener("change", function () {
     console.log("Tipo del archivo de texto:", selectedTextFile.type);
   }
 });
+
 
 
 // Validación de elección de elemento en el file chooser de audio
@@ -101,23 +129,18 @@ function onSubmit(event) {
   const duracion = getValue("duracion");
 
   const typeAudioElements = document.getElementsByName("tipo_audio");
-  let selectedAudioType = false;
-  let tipoAudio = "";
+  let tipoAudio = false;
   for (let i = 0; i < typeAudioElements.length; i++) {
     if (typeAudioElements[i].checked) {
-      selectedAudioType = typeAudioElements[i].value;
+      tipoAudio = typeAudioElements[i].value;
       break;
     }
   }
 
-  // Obtén el archivo de audio y el archivo de texto seleccionados
+  // // Obtén el archivo de audio y el archivo de texto seleccionados
   const audio = audioInput.files[0];
   const text = textInput.files[0];
 
-  // Crea un objeto FormData para enviar los archivos al servidor
-  const formData = new FormData();
-  formData.append("audio", audio);
-  formData.append("text", text);
 
   // Validar longitud mínima de los campos
   if (!titulo || !musica || !procedencia || !formato || !narrador ||!duracion|| !audio || !text) {
@@ -126,7 +149,7 @@ function onSubmit(event) {
   }
   
   // validar que este seleccionado un tipo de audio
-  if (!selectedAudioType) {
+  if (!tipoAudio) {
     onMessagePopup(`❌¡Error!\nPor favor, seleccione un tipo de audio.`,400);
     return;
   }
@@ -154,21 +177,10 @@ function onSubmit(event) {
     return;
   }
   
-
-
-  //   // Envía los archivos al servidor utilizando fetch
-  //   fetch("/guardar-archivos", {
-  //     method: "POST",
-  //     body: formData,
-  //   })
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       alert(data.mensaje);
-  //       resetForm();
-  //     })
-  //     .catch((error) => {
-  //       alert("Error al enviar los archivos");
-  //     });
+  Object.assign(narracion1, { titulo, musica, procedencia, formato, tipoAudio, narrador, duracion });
+  
+  handleSubmit();
+ 
 
   // Realizar lógica de envío o procesamiento aquí
   console.log("Título:", titulo);
@@ -177,10 +189,9 @@ function onSubmit(event) {
   console.log("Formato de Audio:", formato);
   console.log("Tipo de Audio:", tipoAudio);
   console.log("Narrador:", narrador);
-
-  resetForm();
+  console.log("Duracion:", duracion )
   
-  onMessagePopup(`✅¡Se subio correctamente el audio!🎉`,400);
+  onMessagePopup(`✅¡Se subio correctamente el audio!🎉`,450);
 }
 
 
@@ -189,9 +200,14 @@ function onMessagePopup(messageX, length){
   windowAorE.style.width = `${length}px`;
   messagePopup.style.whiteSpace = 'pre-line'; 
   popup.style.display = 'flex';
-  messageX.includes("Error") 
-    ? okButton.style.display = 'block'
-    : verifyButton.style.display = 'block';
+  if(messageX.includes("Error")){
+    okButton.style.display = 'block';
+    verifyButton.style.display = 'none';
+    
+  } else{
+    verifyButton.style.display = 'block';
+    okButton.style.display = 'none';
+  }
 }
 
 // cerrar popup
@@ -202,12 +218,9 @@ function closePopup(){
 // Función para manejar el botón "Verificar"
 function onVerifyButton() {
   window.location.href = "./../app.html";
+  resetForm();
 }
 
-
-// function getValue(elementId) {
-//   return document.getElementById(elementId).value;
-// }
 
 function validateTitle(inputElement) {
   const inputValue = inputElement.value;
@@ -222,30 +235,6 @@ function validateTitle(inputElement) {
 function getValue(id) {
   return document.getElementById(id).value;
 }
-
-
-// Obtener la duración del audio
-audioInput.addEventListener("change", function () {
-  const audio = this.files[0];
-  const durationField = document.getElementById("duracion");
-
-  if (audio) {
-    getAudioDuration(audio).then((duration) => {
-      const minutes = parseFloat(duration);
-
-      if (!isNaN(minutes) && minutes >= 3 && minutes <= 20) {
-        durationField.value = duration;
-      } else {
-        alert("La duración del audio debe estar entre 3 y 10 minutos.");
-        this.value = "";
-        durationField.value = "";
-        document.getElementById("formato_audio").value = "";
-      }
-    });
-  } else {
-    durationField.value = "";
-  }
-});
 
 // Función para obtener la duración del archivo de audio
 function getAudioDuration(file) {
@@ -264,4 +253,55 @@ function getAudioDuration(file) {
       resolve(formattedDuration);
     });
   });
+}
+
+
+
+
+function uploadFile(file, path) {
+  return new Promise((resolve, reject) => {
+      const storageRef = storage.ref(path);
+      const uploadTask = storageRef.put(file);
+
+      uploadTask.on('state_changed', 
+          (snapshot) => {
+          }, 
+          (error) => {
+              reject(error);
+          }, 
+          () => {
+              uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
+                  resolve(downloadURL);
+              });
+          }
+      );
+  });
+}
+
+async function handleSubmit() {
+  const audioFile = document.getElementById('audioFileInput').files[0];
+  const textFile = document.getElementById('textFileInput').files[0];
+
+  try {
+      const audioURL = await uploadFile(audioFile, 'audios/' + audioFile.name);
+      const textURL = await uploadFile(textFile, 'texts/' + textFile.name);
+
+      const narracion = {
+          audioURL: audioURL,
+          textURL: textURL,
+      };
+
+      const combinado = { narracion1, narracion };
+      
+      await db.collection("narraciones").add(combinado)
+      .then((docRef) => {
+          console.log("Documento escrito con ID: ", docRef.id);
+      })
+      .catch((error) => {
+          console.error("Error al agregar el documento: ", error);
+      });
+
+  } catch (error) {
+      console.error("Error: ", error);
+  }
 }
