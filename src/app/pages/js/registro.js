@@ -11,7 +11,7 @@ const popup = document.getElementById('popup');
 const windowAorE =document.getElementById('window_A_E');
 const messagePopup = document.getElementById("message");
 
-const storage = firebase.storage();
+
 const narracion1 = {};
 
 
@@ -283,8 +283,8 @@ async function handleSubmit() {
   const textFile = document.getElementById('textFileInput').files[0];
 
   try {
-      const audioURL = await uploadFile(audioFile, 'audios/' + audioFile.name);
-      const textURL = await uploadFile(textFile, 'texts/' + textFile.name);
+      const audioURL = await uploadFile(audioFile, 'audio/' + audioFile.name);
+      const textURL = await uploadFile(textFile, 'texto/' + textFile.name);
 
       const narracion = {
           audioURL: audioURL,
@@ -293,7 +293,7 @@ async function handleSubmit() {
 
       const combinado = { narracion1, narracion };
       
-      await db.collection("narraciones").add(combinado)
+      await db.collection("audio").add(combinado)
       .then((docRef) => {
           console.log("Documento escrito con ID: ", docRef.id);
       })
