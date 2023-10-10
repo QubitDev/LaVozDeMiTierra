@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario para Audio</title>
+</head>
+<body>
+    <h1>Formulario para Audio</h1>
+     <form>
+        <label for="titulo_audio">Título del Audio:</label>
+        <input type="text" id="titulo_audio" required><br>
+
+        <label for="musica_fondo">Música de Fondo:</label>
+        <input type="text" id="musica_fondo" required><br>
+
+        <label for="procedencia">Procedencia:</label>
+        <input type="text" id="procedencia" required><br>
+
+        <label for="formato_audio">Formato del Audio:</label>
+        <input type="text" id="formato_audio" required><br>
+
+        <label for="tipo_audio">Tipo de Audio:</label>
+        <input type="text" id="tipo_audio" required><br>
+
+        <label for="narrador">Narrador:</label>
+        <input type="text" id="narrador" required><br>
+
+        <label for="duracion">Duración:</label>
+        <input type="text" id="duracion" required><br>
+
+        <label for="archivo_audio">Archivo de Audio:</label>
+        <input type="file" id="archivo_audio" accept=".mp3" required><br>
+
+        <label for="archivo_texto">Archivo de Texto:</label>
+        <input type="file" id="archivo_texto" accept=".txt" required><br>
+
+        <button type="button" onclick="agregarAudio()">Subir Archivos</button>
+    </form>
+</body>
+<script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-storage-compat.js"></script>
+<script src="configuracion.js"></script>
+<script src="agregarAudio.js"></script>
+</html>
