@@ -4,13 +4,13 @@ const boton1 = document.querySelector(".boton1");
 boton1.addEventListener("click", hideConfirma);
 
 const botones = document.querySelector(".boton");
-botones.addEventListener("click", hideConfirma);
+botones.addEventListener("click", deleteCamp);
 
 const deleteCs = document.querySelectorAll(".deleteC");
 for(let i = 0 ;i<=deleteCs.length;i++){
     deleteCs[i].addEventListener("click",confirmar);
-
 }
+
 function confirmar(){    
     document.getElementById('confirmacion').style.display = 'block';
     document.getElementById('header').style.background = "#3C3C3C";
@@ -35,7 +35,9 @@ function hideConfirma(){
 
 }
 
-function subir(){
+function deleteCamp(){
+    document.getElementById('camp').style.display = 'none';
+
 
 }
 

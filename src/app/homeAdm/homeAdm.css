@@ -88,13 +88,13 @@
 }
 
 .menu__item:hover {
-  background: linear-gradient(to right, #422abe, #185a9d);
+  background: linear-gradient(to right,#43cea2, #185a9d);
   
 }
 
 /* Estilos para resaltar el elemento "Inicio" como activo (se puede usar una clase adicional para esto) */
 .menu__item--active {
-  background: linear-gradient(to right, #4f00a9, #185a9d);
+  background: linear-gradient(to right,#43cea2, #185a9d);
 }
 
 #page-content {
@@ -135,7 +135,9 @@ h2{
     color: rgb(255, 255, 255);
 }
  
-  
+#camp{
+  display: block;
+}  
 #scrollBg{
     background: linear-gradient(to right, #43cea2, #185a9d);
     padding: 10px;
@@ -178,22 +180,22 @@ h2{
   font-size: 13px;
 }  
 
-.contenidoUno{
+#contenidoUno{
   position: absolute;
   top: 9%;
   left: 25%;
 }
-.contenidoDos{
+#contenidoDos{
   position: absolute;
   top: 23%;
   left: 25%;
 }
-.contenidoTres{
+#contenidoTres{
   position: absolute;
   top: 37%;
   left: 25%;
 }
-.contenidoCuatro{
+#contenidoCuatro{
   position: absolute;
   top: 51%;
   left: 25%;
