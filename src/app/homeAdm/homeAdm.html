@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon" type="image/x-icon" href="../assets/imageFolder/LogoLDMT.ico"/>
+        <link rel="icon" type="image/x-icon" href="/src/assets/images/LogoLDMT.ico"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"/>
         <link rel="stylesheet" href="homeAdm.css" />
         <title>Home de Administrador</title>
@@ -11,7 +11,7 @@
     <body>
         <div id="container">
             <div class="profile-picture">
-              <img src="./../../assets/images/LogoLDMT.jpg" alt="Imagen de perfil"class="logo"/>
+              <img src="/src/assets/images/LogoLDMT.jpg" alt="Imagen de perfil"class="logo"/>
             </div>
             <header id="header">
                 <div class="greeting">
@@ -19,13 +19,18 @@
                 </div>
             </header>
             <div id="menu">
-                <div class="menu__item" data-page="app">
-                    <i class="fas fa-home"></i> Inicio
-                </div>              
-                <div class="menu__item" data-page="registro">
-                    <i class="fa-solid fa-plus"></i> Registrar
-                </div>        
-            </div>
+                <div class="content">
+                 <div class="menu__item" data-page="app">
+                   <i class="fas fa-home"></i> 
+                   <a href="http://localhost/LaVozDeMiTierra/src/app/homeAdm/homeAdm.html">Inicio</a>
+                 </div>
+                 <div class="menu__item" data-page="registro">
+                   <i class="fa-solid fa-plus"></i>
+                   <a href="http://localhost/LaVozDeMiTierra/src/app/homeAdm/homeAdm.html">Registrar</a>
+                 </div>
+                </div>
+               </div>
+             </div>
         </div>
         <div id="page-content"></div>     
         <div id="contenedor">  
@@ -183,7 +188,7 @@
             <button class="boton1">Cancelar</button>
             <button class="boton">Confirmar</button>   
         </div>
-        <script src="app.js"></script>
+        <script src="/src/app/homeAdm/homeAdm.js"></script>
         <script src="homeAdm.js"></script>
     </body>   
 </html>

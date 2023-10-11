@@ -108,7 +108,7 @@ function updateAcceptAttribute() {
 
 function onCancel() {
   resetForm();
-  window.location.href = "./../app.html";
+  window.location.src = "./../app.html";
 }
 
 function resetForm() {
@@ -217,7 +217,7 @@ function closePopup(){
 
 // Función para manejar el botón "Verificar"
 function onVerifyButton() {
-  window.location.href = "./../app.html";
+  window.location.href = "./../app/app.html";
   resetForm();
 }
 

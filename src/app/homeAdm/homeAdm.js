@@ -1,5 +1,3 @@
-
-
 const boton1 = document.querySelector(".boton1");
 boton1.addEventListener("click", hideConfirma);
 
@@ -11,8 +9,21 @@ for(let i = 0 ;i<=deleteCs.length;i++){
     deleteCs[i].addEventListener("click",confirmar);
 }
 
+const campos = document.querySelectorAll(".camp");
+
+let formas = {
+    document: querySelector('header'),
+    document: querySelector('menu'),
+    document: querySelector('contenedor'),
+    document: querySelector('scrollBg'),
+    document: querySelector('DosScrollBg'),
+    document: querySelector('page-content')
+}
 function confirmar(){    
     document.getElementById('confirmacion').style.display = 'block';
+    for(let i = 0 ;i<=formas.length;i++){
+        formas[i]
+    }
     document.getElementById('header').style.background = "#3C3C3C";
     document.getElementById('menu').style.background ="#3C3C3C";
     document.getElementById('contenedor').style.background ="#3C3C3C";
@@ -37,8 +48,7 @@ function hideConfirma(){
 
 function deleteCamp(){
     document.getElementById('camp').style.display = 'none';
-
-
 }
+
 
 
