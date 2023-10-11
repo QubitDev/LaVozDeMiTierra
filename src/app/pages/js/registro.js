@@ -13,7 +13,7 @@ const messagePopup = document.getElementById("message");
 
 
 const narracion1 = {};
-const combinado = {};
+window.combinado = {};
 
 
 
