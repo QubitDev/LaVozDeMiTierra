@@ -4,7 +4,7 @@
   height: 150px;
   width: 150px;
   position: absolute;
-  top: 50px; /* Ajusta la posición vertical según sea necesario */
+  top: 60px; /* Ajusta la posición vertical según sea necesario */
   left: 20px; /* Ajusta la posición horizontal según sea necesario */
   z-index: 9999; /* Asegura que esté por encima de todo */
   display: inline-block;
@@ -36,7 +36,7 @@
   right: 0;
   z-index: 999; /* Asegura que esté por delante de otros elementos */
   background: linear-gradient(to top left, #43cea2, #185a9d);
-  color: #fff;
+  color: #ffffff;
   padding: 10px 20px;
   display: flex;
   align-items: center;
