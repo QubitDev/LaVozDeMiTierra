@@ -4,9 +4,6 @@ boton1.addEventListener("click", hideConfirma);
 const botones = document.querySelector(".boton");
 botones.addEventListener("click",deleteCampc1);
 
-
-
-
 const deleteCs = document.querySelectorAll(".deleteC");
 for(let i = 0 ;i<=deleteCs.length;i++){
     deleteCs[i].addEventListener("click",confirmar);
@@ -42,7 +39,14 @@ function hideConfirma(){
 
 function deleteCampc1(){
     document.getElementById('campC1').style.display = 'none';
-    hideConfirma();
+    hideConfirma();    
+    document.getElementById('contenidoDos').style.top = '9%';
+    document.getElementById('contenidoTres').style.top = '23%';
+    document.getElementById('contenidoCuatro').style.top = '37%';
+
+    document.getElementById('iconoDos').style.top = '14%';
+    document.getElementById('iconoTres').style.top = '28%';
+    document.getElementById('iconoCuatro').style.top = '42%';   
 }
 function deleteCampc2(){
     document.getElementById('campC2').style.display = 'none';

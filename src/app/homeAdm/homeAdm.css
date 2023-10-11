@@ -203,25 +203,25 @@ h2{
   left: 25%;
 }
 
-.iconoUno{
+#iconoUno{
   position: absolute;
   right:11%;
   top: 14%;
 }
 
-.iconoDos{
+#iconoDos{
   position: absolute;
   right:11%;
   top: 28%;
 }
 
-.iconoTres{
+#iconoTres{
   position: absolute;
   right:11%;
   top: 42%;
 }
 
-.iconoCuatro{
+#iconoCuatro{
   position: absolute;
   right:11%;
   top: 55%;
