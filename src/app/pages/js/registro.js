@@ -298,10 +298,10 @@ async function handleSubmit() {
           console.log("Documento escrito con ID: ", docRef.id);
       })
       .catch((error) => {
-          console.error("Error al agregar el documento: ", error);
+          Alert(`Error al agregar el documento: ${error}`);
       });
 
   } catch (error) {
-      console.error("Error: ", error);
+    Alert(`Error: ${error}`);
   }
 }
