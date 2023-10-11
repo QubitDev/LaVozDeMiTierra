@@ -109,7 +109,7 @@ function updateAcceptAttribute() {
 
 function onCancel() {
   resetForm();
-  window.location.href = "./../app.html";
+  window.location.src = "./../app.html";
 }
 
 function resetForm() {
