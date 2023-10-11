@@ -13,6 +13,7 @@ const messagePopup = document.getElementById("message");
 
 
 const narracion1 = {};
+const combinado = {};
 
 
 
@@ -217,6 +218,7 @@ function closePopup(){
 
 // Función para manejar el botón "Verificar"
 function onVerifyButton() {
+  export{combinado}
   window.location.href = "./../app.html";
   resetForm();
 }
@@ -291,7 +293,7 @@ async function handleSubmit() {
           textURL: textURL,
       };
 
-      const combinado = { narracion1, narracion };
+      Object.assign(combinado, { narracion1, narracion });
       
       await db.collection("audio").add(combinado)
       .then((docRef) => {
