@@ -57,13 +57,14 @@
       </header>
 
       <div class="menu">
+       <div class="content">
         <div class="menu__item" data-page="app">
           <i class="fas fa-home"></i> <a href="http://localhost/LaVozDeMiTierra/src/app/homeAdm/homeAdm.html">Inicio</a>
         </div>
         <div class="menu__item" data-page="registro">
           <i class="fa-solid fa-plus"></i> Registrar
         </div>
-
+       </div>
       </div>
     </div>
 
@@ -82,7 +83,7 @@
                 required
                 maxlength="70"
                 placeholder="Título de audio"
-                oninput="validateTitle(this)"
+                oninput="validateInput(this)"
               />
               <div class="menssage__error">
                 <p class="error-message" id="error_titulo_audio"></p>
@@ -97,7 +98,7 @@
                 maxlength="50"
                 minlength="50"
                 placeholder="Música de fondo"
-                oninput="validateTitle(this)"
+                oninput="validateInput(this)"
               />
               <div class="menssage__error">
                 <p class="error-message" id="error_musica_fondo"></p>
@@ -112,7 +113,7 @@
                 maxlength="30"
                 minlength="4"
                 placeholder="Procedencia"
-                oninput="validateTitle(this)"
+                oninput="validateInput(this)"
               />
               <div class="menssage__error">
                 <p class="error-message" id="error_procedencia"></p>
@@ -176,7 +177,7 @@
                 maxlength="50"
                 minlength="2"
                 placeholder="Narrador"
-                oninput="validateTitle(this)"
+                oninput="validateInput(this)"
               />
               <div class="menssage__error">
                 <p class="error-message" id="error_narrador"></p>
@@ -191,10 +192,6 @@
                 name="duracion"
                 placeholder="Duracion"
               />
-              <!-- <div class="message__error">
-                <p class="error-mensaje" id="error_duracion"></p>
-              </div> -->
-              <!-- <p class="error-mensaje" id="error_falta_datos"></p> -->
             </div>
           </div>
 

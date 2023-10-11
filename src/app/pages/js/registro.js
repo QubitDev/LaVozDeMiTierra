@@ -222,11 +222,12 @@ function onVerifyButton() {
 }
 
 
-function validateTitle(inputElement) {
+function validateInput(inputElement) {
   const inputValue = inputElement.value;
   const placeholderText = inputElement.getAttribute("placeholder");
 
-  if (!/^[a-zA-Z\s]+$/.test(inputValue)) {
+  // Comprobar si el valor contiene caracteres no válidos después de eliminar un carácter
+  if (inputValue && !/^[a-zA-Z\s]+$/.test(inputValue)) {
     onMessagePopup(`❌¡Error!\nNo se admiten caracteres especiales en: ${placeholderText}`, 450);
     return;
   }
