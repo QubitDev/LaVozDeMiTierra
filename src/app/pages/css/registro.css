@@ -35,7 +35,7 @@
   right: 0;
   z-index: 999; /* Asegura que esté por delante de otros elementos */
   background: linear-gradient(to top left, #43cea2, #185a9d);
-  color: #fff;
+  color: #ffffff;
   padding: 10px 20px;
   display: flex;
   align-items: center;
