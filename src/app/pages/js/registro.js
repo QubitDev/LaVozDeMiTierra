@@ -13,6 +13,7 @@ const messagePopup = document.getElementById("message");
 
 
 const narracion1 = {};
+window.combinado = {};
 
 
 
@@ -291,7 +292,7 @@ async function handleSubmit() {
           textURL: textURL,
       };
 
-      const combinado = { narracion1, narracion };
+      Object.assign(combinado, { narracion1, narracion });
       
       await db.collection("audio").add(combinado)
       .then((docRef) => {
