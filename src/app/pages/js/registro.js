@@ -13,6 +13,7 @@ const messagePopup = document.getElementById("message");
 
 
 const narracion1 = {};
+window.combinado = {};
 
 
 
@@ -108,7 +109,7 @@ function updateAcceptAttribute() {
 
 function onCancel() {
   resetForm();
-  window.location.href = "./../app.html";
+  window.location.href = "http://localhost/LaVozDeMiTierra/src/app/homeAdm/homeAdm.html";
 }
 
 function resetForm() {
@@ -217,16 +218,17 @@ function closePopup(){
 
 // Función para manejar el botón "Verificar"
 function onVerifyButton() {
-  window.location.href = "./../app.html";
+  window.location.href = "http://localhost/LaVozDeMiTierra/src/app/pages/html/reproducir.html";
   resetForm();
 }
 
 
-function validateTitle(inputElement) {
+function validateInput(inputElement) {
   const inputValue = inputElement.value;
   const placeholderText = inputElement.getAttribute("placeholder");
 
-  if (!/^[a-zA-Z\s]+$/.test(inputValue)) {
+  // Comprobar si el valor contiene caracteres no válidos después de eliminar un carácter
+  if (inputValue && !/^[a-zA-Z\s]+$/.test(inputValue)) {
     onMessagePopup(`❌¡Error!\nNo se admiten caracteres especiales en: ${placeholderText}`, 450);
     return;
   }
@@ -291,17 +293,17 @@ async function handleSubmit() {
           textURL: textURL,
       };
 
-      const combinado = { narracion1, narracion };
+      Object.assign(combinado, { narracion1, narracion });
       
       await db.collection("audio").add(combinado)
       .then((docRef) => {
           console.log("Documento escrito con ID: ", docRef.id);
       })
       .catch((error) => {
-          console.error("Error al agregar el documento: ", error);
+          Alert(`Error al agregar el documento: ${error}`);
       });
 
   } catch (error) {
-      console.error("Error: ", error);
+    Alert(`Error: ${error}`);
   }
 }
