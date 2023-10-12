@@ -12,18 +12,22 @@
   box-shadow: 10px 10px 15px 5px black;
 
 }
-.all{
-  padding-left: 50px;
-  color: #ffffff;
-  height: 80px;
-  width: 300px;
+body{
+  background: linear-gradient(to left bottom, #43cea2, #185a9d);
+
+}
+#all{  
+  height: 100%;
+  width: 100%;
   font-size: 16;
   font-family: Arial, Helvetica, sans-serif;
   position: absolute;
-  top: 45%; 
-  left: 45%; 
-  background: linear-gradient(to left bottom, #43cea2, #185a9d);
+  top: 0%; 
+  left: 0%;
+  z-index: 9998;
+  display: none;
 }
+
 #confirmacion{
   padding-left: 50px;
   color: #ffffff;
@@ -38,7 +42,9 @@
   background: linear-gradient(to left bottom, #43cea2, #185a9d);
   .texto{
     position: relative;
+    top: -10px;
     left: 9%;
+    margin-bottom: 10px;
   }
   .boton{
     position: relative;
@@ -131,12 +137,6 @@ a{
   background: linear-gradient(to right, #43cea2, #185a9d);  
 }
 
-a{
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 16px;
-  color: #ffffff;
-  text-decoration: none;
-}
 
 #contenedor{
     background: linear-gradient(to left, #43cea2, #185a9d);

@@ -12,19 +12,23 @@ for(let i = 0 ;i<=deleteCs.length;i++){
     deleteCs[i].addEventListener("click",confirmar);
 }
 
-const deleteLs = document.querySelectorAll(".deleteL");
-for(let i = 0 ;i<=deleteLs.length; i++){
-    deleteLs[i].addEventListener("click",confirmar);
+const deleteLe = document.querySelectorAll(".deleteLe");
+for(let i = 0 ;i<=deleteLe.length; i++){
+    deleteLe[i].addEventListener("click",confirmar);
 }
 
 function confirmar(){    
     document.getElementById('confirmacion').style.display = 'block'; 
-    document.getElementById('menu').style.disable;
+    document.getElementById('confirmacion').style.zIndex = '9999';
+    document.getElementById('all').style.display = 'block';
+    document.getElementById('all').style.background = 'linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0, 0.5))';
     cambioBack();    
 }
 
 function hideConfirma(){    
     document.getElementById('confirmacion').style.display = 'none';
+    document.getElementById('all').style.display = 'none';
+    document.getElementById('all').style.background = '';
     returnBack();
 }
 
