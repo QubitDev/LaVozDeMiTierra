@@ -19,6 +19,7 @@ for(let i = 0 ;i<=deleteLs.length; i++){
 
 function confirmar(){    
     document.getElementById('confirmacion').style.display = 'block'; 
+    document.getElementById('menu').style.disable;
     cambioBack();    
 }
 
@@ -28,12 +29,7 @@ function hideConfirma(){
 }
 
 function cambioBack(){
-    document.getElementById('header').style.background = "#3C3C3C";
-    document.getElementById('menu').style.background ="#3C3C3C";
-    document.getElementById('contenedor').style.background ="#3C3C3C";
-    document.getElementById('scrollBg').style.background ="#3C3C3C";
-    document.getElementById('DosScrollBg').style.background ="#3C3C3C";
-    document.getElementById('page-content').style.background ="#3C3C3C";
+    
 }
 function returnBack(){
     

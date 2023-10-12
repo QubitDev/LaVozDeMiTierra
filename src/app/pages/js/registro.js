@@ -12,9 +12,7 @@ const windowAorE =document.getElementById('window_A_E');
 const messagePopup = document.getElementById("message");
 
 
-const narracion1 = {};
-window.combinado = {};
-
+const datos = {};
 
 
 // Captura de audio
@@ -178,7 +176,7 @@ function onSubmit(event) {
     return;
   }
   
-  Object.assign(narracion1, { titulo, musica, procedencia, formato, tipoAudio, narrador, duracion });
+  Object.assign(datos, { titulo, musica, procedencia, formato, tipoAudio, narrador, duracion });
   
   handleSubmit();
  
@@ -202,7 +200,8 @@ function onMessagePopup(messageX, length){
   messagePopup.style.whiteSpace = 'pre-line'; 
   popup.style.display = 'flex';
   if(messageX.includes("Error")){
-    okButton.style.display = 'block';
+    okBut
+    ton.style.display = 'block';
     verifyButton.style.display = 'none';
     
   } else{

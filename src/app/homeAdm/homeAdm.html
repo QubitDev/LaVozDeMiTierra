@@ -3,12 +3,13 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon" type="image/x-icon" href="./../../assets/images/LogoLDMT.jpg"/>
+        <link rel="icon" type="image/x-icon" href="/src/assets/images/LogoLDMT.ico"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"/>
         <link rel="stylesheet" href="homeAdm.css" />
         <title>Home de Administrador</title>
     </head>
-    <body>
+    <body>   
+        <div class="all"><p>Fondo</p></div>     
         <div id="container">
             <div class="profile-picture">
               <img src="./../../assets/images/LogoLDMT.jpg" alt="Logo"class="logo"/>
@@ -26,7 +27,7 @@
                  </div>
                  <div class="menu__item" data-page="registro">
                    <i class="fa-solid fa-plus"></i>
-                   <a href="http://localhost/LaVozDeMiTierra/src/app/pages/html/registro.html">Registrar</a>
+                   <a href="http://localhost/LaVozDeMiTierra/src/app/homeAdm/homeAdm.html">Registrar</a>
                  </div>
                 </div>
                </div>
@@ -39,9 +40,9 @@
                         <h2>Cuentos:</h2>
                     </div>
                     <div class="Object">
-                        <div id="campC1">
+                        <div class="campC1" id="campC1">
                             <div class="imageUno">
-                                <img src="./../../assets/images/im.jpg" alt="Quechua"/>
+                                <img src="/src/assets/images/im.jpg" alt="Quechua"/>
                             </div>
                             <div id="iconoUno">
                                 <button class="deleteC">
@@ -56,9 +57,9 @@
                                 </h3>
                             </div>
                         </div> 
-                        <div id="campC2">
+                        <div class="campC2" id="campC2">
                             <div class="imageDos">
-                                <img src="./../../assets/images/im.jpg" alt="Quechua"/>
+                                <img src="/src/assets/images/im.jpg" alt="Quechua"/>
                             </div>
                             <div id="iconoDos">
                                 <button class="deleteC">
@@ -73,9 +74,9 @@
                                 </h3>
                             </div>
                         </div>   
-                        <div id = "campC3">
+                        <div class = "campC3" id="campC3">
                             <div class="imageTres">
-                                <img src="./../../assets/images/im.jpg" alt="Quechua"/>
+                                <img src="/src/assets/images/im.jpg" alt="Quechua"/>
                             </div>
                             <div id="iconoTres">
                                 <button class="deleteC">
@@ -91,9 +92,9 @@
                             </div>
                         </div>                    
                     
-                        <div id="campC4">
+                        <div class="campC4" id="campC4">
                             <div class="imageCuatro">
-                                <img src="./../../assets/images/im.jpg" alt="Quechua"/>
+                                <img src="/src/assets/images/im.jpg" alt="Quechua"/>
                             </div>
                             <div id="iconoCuatro">
                                 <button class="deleteC">
@@ -118,9 +119,9 @@
                         <h2>Leyendas:</h2>
                     </div>                   
                     <div class="Object">   
-                        <div id="campL1">
+                        <div class="campL1" id="campL1">
                             <div class="imageUno">
-                                <img src="./../../assets/images/im.jpg" alt="Quechua"/>
+                                <img src="/src/assets/images/im.jpg" alt="Quechua"/>
                             </div>
                             <div id="iconoUno">
                                 <button class="deleteL">
@@ -135,9 +136,9 @@
                                 </h3>
                             </div>
                         </div> 
-                        <div id="campL2">
+                        <div class="campL2" id="campL2">
                             <div class="imageDos">
-                                <img src="./../../assets/images/im.jpg" alt="Quechua"/>
+                                <img src="/src/assets/images/im.jpg" alt="Quechua"/>
                             </div>
                             <div id="iconoDos">
                                 <button class="deleteL">
@@ -153,9 +154,9 @@
                             </div>
                         </div>
                         
-                        <div id="campL3">
+                        <div class="campL3" id="campL3">
                             <div class="imageTres">
-                                <img src="./../../assets/images/im.jpg" alt="Quechua"/>
+                                <img src="/src/assets/images/im.jpg" alt="Quechua"/>
                             </div>
                             <div id="iconoTres">
                                 <button class="deleteL">
@@ -171,9 +172,9 @@
                             </div>
                         </div>
                         
-                        <div id="campL4">
+                        <div class="campL4" id="campL4">
                             <div class="imageCuatro">
-                                <img src="./../../assets/images/im.jpg" alt="Quechua"/>
+                                <img src="/src/assets/images/im.jpg" alt="Quechua"/>
                             </div>
                             <div id="iconoCuatro">
                                 <button class="deleteL">
@@ -198,6 +199,9 @@
             <button class="boton1">Cancelar</button>
             <button class="boton">Confirmar</button> 
             <button class="botonL">Confirmar</button>  
+        </div>
+        <div id="all">
+            <h3 class="texto">Estas seguro de eliminar?</h3>            
         </div>
         
         <script src="/src/app/homeAdm/homeAdm.js"></script>

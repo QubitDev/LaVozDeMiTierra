@@ -4,15 +4,28 @@
   height: 150px;
   width: 150px;
   position: absolute;
-  top: 3%; 
-  left: 4%; 
+  top:3%; 
+  left: 2%; 
   z-index: 9999;
   display: inline-block;
   box-sizing: border-box;
-}
+  box-shadow: 10px 10px 15px 5px black;
 
+}
+.all{
+  padding-left: 50px;
+  color: #ffffff;
+  height: 80px;
+  width: 300px;
+  font-size: 16;
+  font-family: Arial, Helvetica, sans-serif;
+  position: absolute;
+  top: 45%; 
+  left: 45%; 
+  background: linear-gradient(to left bottom, #43cea2, #185a9d);
+}
 #confirmacion{
-  padding-left: 15px;
+  padding-left: 50px;
   color: #ffffff;
   height: 80px;
   width: 300px;
@@ -23,16 +36,16 @@
   left: 50%; 
   display: none;
   background: linear-gradient(to left bottom, #43cea2, #185a9d);
-
   .texto{
-    color: #0000;
+    position: relative;
+    left: 9%;
   }
   .boton{
-    position: absolute;
-    left: 71%;
+    position: relative;
+    left: 40%;
   }
   .botonL{
-    position: absolute;
+    position: relative;
     left: 71%;
     display: none;
   }
@@ -140,9 +153,7 @@ a{
 
 img{
     width: 90px;
-    height: 90px;
-    left: 2%;
-    top: 1%;
+    height: 90px;   
 }  
 
 h2{
@@ -161,8 +172,7 @@ h2{
 
 .scrollDiv{
   border-radius: 4%;
-  background: linear-gradient(to right, #8e9290, #9dbdde);
-  background-repeat: no-repeat;
+  background-color: #ffffff2d;
   position: relative;
   top: 3%;
   left: 4%;
@@ -174,8 +184,7 @@ h2{
 
 .DosScrollDiv{
   border-radius: 4%;
-
-  background: linear-gradient(to right, #43cea2, #185a9d);
+  background-color: #ffffff2d;
   position: relative;
   z-index: 2;
   top: -72%;
@@ -191,97 +200,50 @@ h2{
   font-family: Arial, Helvetica, sans-serif;
   font-size: 13px;
 }  
-
-#contenidoUno{
-  position: absolute;
-  top: 11%;
-  left: 55%;
+.imageUno,.imageDos, .imageTres, .imageCuatro{
+  position: relative;
+  margin-top: 0.5%;
+  left: 2%;
 }
-#contenidoDos{
-  position: absolute;
-  top: 23%;
-  left: 25%;
-}
-#contenidoTres{
-  position: absolute;
-  top: 37%;
-  left: 25%;
-}
-#contenidoCuatro{
-  position: absolute;
-  top: 51%;
-  left: 25%;
+#contenidoUno, #contenidoDos, #contenidoTres, #contenidoCuatro{
+  position: relative;
+  top: 2%;
+  left: 10%;
 }
 
-#iconoUno{
-  position: absolute;
-  right:11%;
-  top: 14%;
+#iconoUno, #iconoDos, #iconoTres, #iconoCuatro{
+  position: relative;
+  left:70%;
+  margin-top: 5%;
 }
 
-#iconoDos{
-  position: absolute;
-  right:11%;
-  top: 28%;
-}
-
-#iconoTres{
-  position: absolute;
-  right:11%;
-  top: 42%;
-}
-
-#iconoCuatro{
-  position: absolute;
-  right:11%;
-  top: 55%;
-} 
-/*#campL1{
-  position: fixed; 
-  width: 90%;
+#campC1, #campC2, #campC3, #campC4{
+  position: relative; 
+  width: 693px;
   height: 100px;
-  background-color: #185a9d;
+  display: flex;
 }
-#campL2{
-  position: fixed;  
-  width: 90%;
-  height: 100px;
-  background-color: #185a9d; 
-  top: 50px;
+#campC2{  
+  top: 20px;
 }
-#campL3{
-  position: fixed;  
-  width: 90%;
-  height: 100px;
-  background-color: #185a9d;
+#campC3{  
+  top: 40px;
 }
-#campL4{
-  position: fixed; 
-  width: 90%;
-  height: 100px;
-  background-color: #185a9d; 
+#campC4{  
+  top: 60px;
 }
-#campC1{
-  position: fixed;
-  width: 90%;
+#campL1, #campL2, #campL3, #campL4{
+  position: relative; 
+  width: 693px;
   height: 100px;
-  background-color: #185a9d;  
+  display: flex;
 }
-#campC2{
-  position: fixed;
-  width: 90%;
-  height: 100px;
-  background-color: #185a9d;  
+#campL2{  
+  top: 20px;
 }
-#campC3{
-  position: fixed;
-  width: 90%;
-  height: 100px;
-  background-color: #185a9d;  
+#campL3{  
+  top: 40px;
 }
-#campC4{
-  position: fixed; 
-  width: 90%;
-  height: 100px;
-  background-color: #185a9d; 
+#campL4{  
+  top: 60px;
 }
