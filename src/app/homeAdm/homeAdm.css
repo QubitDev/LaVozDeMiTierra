@@ -4,18 +4,16 @@
   height: 150px;
   width: 150px;
   position: absolute;
-  top: 0%; /* Ajusta la posición vertical según sea necesario */
-  left: -0.5%; /* Ajusta la posición horizontal según sea necesario */
-  z-index: 9999; /* Asegura que esté por encima de todo */
+  top: 3%; 
+  left: 4%; 
+  z-index: 9999;
   display: inline-block;
   box-sizing: border-box;
-  box-shadow: 10px 10px 15px 5px black;
 }
 
 #confirmacion{
   padding-left: 15px;
-  background-color: #ffffff;
-  color: #000;
+  color: #ffffff;
   height: 80px;
   width: 300px;
   font-size: 16;
@@ -24,13 +22,19 @@
   top: 50%; 
   left: 50%; 
   display: none;
-  box-shadow: 10px 10px 15px 5px black;
+  background: linear-gradient(to left bottom, #43cea2, #185a9d);
+
   .texto{
-    color: #000;
+    color: #0000;
   }
   .boton{
     position: absolute;
     left: 71%;
+  }
+  .botonL{
+    position: absolute;
+    left: 71%;
+    display: none;
   }
 }
 
@@ -55,7 +59,7 @@
   left: 0;
   right: 0;
   z-index: 999; /* Asegura que esté por delante de otros elementos */
-  background: linear-gradient(to top, #43cea2, #185a9d);
+  background: linear-gradient(to top left, #43cea2, #185a9d);
   color: #ffffff;
   padding: 10px 20px;
   display: flex;
@@ -64,11 +68,7 @@
   z-index: 9998;
 }
 
-.greeting {
-  /*
-  height:  300px;
-  width: 300px;
-  */
+.greeting {  
   font-family: Arial, Helvetica, sans-serif; 
   padding-right: 600px;
   padding-left: 250px;
@@ -90,8 +90,7 @@
 }
 
 .menu__item:hover {
-  background-color: #ffffff6e;
-  
+  background: linear-gradient(to top left, #01081d, #185a9d);  
 }
 
 /* Estilos para resaltar el elemento "Inicio" como activo (se puede usar una clase adicional para esto) */
@@ -109,24 +108,31 @@
   background: linear-gradient(to right, #43cea2, #185a9d);  
 }
 
+a{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  color: #ffffff;
+  text-decoration: none;
+}
+
 #contenedor{
-    background: linear-gradient(to right, #43cea2, #185a9d);
+    background: linear-gradient(to left, #43cea2, #185a9d);
     padding: 14px;
     margin-left: 1%;
-    position: absolute;
-    top: 102px;
-    left: 200px;
-    height: 85%;
-    width: 82%;  
-    display: flex;
+    position: fixed;
+    top: 107px;
+    left: 208px;
+    height: 100%;
+    width: 100%;     
+    padding: 10px;    
 }  
 
 
 img{
     width: 90px;
     height: 90px;
-    margin-left: 2%;
-    margin-top: 2%;
+    left: 2%;
+    top: 1%;
 }  
 
 h2{
@@ -140,40 +146,34 @@ h2{
 #camp{
   display: block;
 }  
-#scrollBg{
-    background: linear-gradient(to right, #43cea2, #185a9d);
-    padding: 10px;
-    width: 45%;
-    height: 90%;
-    position: absolute;
-    top: 2%;
-    left: 7%;
-}
 
-#DosScrollBg{
-    background: linear-gradient(to right, #43cea2, #185a9d);
-    padding: 10px;
-    width: 45%;
-    height: 90%;
-    position: absolute;
-    top: 2%;
-    left: 55%;
-}
+
 
 .scrollDiv{
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    overflow-y: scroll;
-    box-shadow: 5px 5px 5px 5px rgb(0, 62, 144);
+  border-radius: 4%;
+  background: linear-gradient(to right, #8e9290, #9dbdde);
+  background-repeat: no-repeat;
+  position: relative;
+  top: 3%;
+  left: 4%;
+  width: 37%;
+  height: 75%;
+  overflow: hidden;
+  overflow-y: scroll;
 } 
 
 .DosScrollDiv{
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    overflow-y: scroll;
-    box-shadow: 5px 5px 5px 5px rgb(0, 62, 144);
+  border-radius: 4%;
+
+  background: linear-gradient(to right, #43cea2, #185a9d);
+  position: relative;
+  z-index: 2;
+  top: -72%;
+  left: 45%;
+  width: 37%;
+  height: 75%;
+  overflow: hidden;
+  overflow-y: scroll;
 }
 
 .Object{
@@ -184,8 +184,8 @@ h2{
 
 #contenidoUno{
   position: absolute;
-  top: 9%;
-  left: 25%;
+  top: 11%;
+  left: 55%;
 }
 #contenidoDos{
   position: absolute;
@@ -226,4 +226,52 @@ h2{
   right:11%;
   top: 55%;
 } 
- 
+/*#campL1{
+  position: fixed; 
+  width: 90%;
+  height: 100px;
+  background-color: #185a9d;
+}
+#campL2{
+  position: fixed;  
+  width: 90%;
+  height: 100px;
+  background-color: #185a9d; 
+  top: 50px;
+}
+#campL3{
+  position: fixed;  
+  width: 90%;
+  height: 100px;
+  background-color: #185a9d;
+}
+#campL4{
+  position: fixed; 
+  width: 90%;
+  height: 100px;
+  background-color: #185a9d; 
+}
+#campC1{
+  position: fixed;
+  width: 90%;
+  height: 100px;
+  background-color: #185a9d;  
+}
+#campC2{
+  position: fixed;
+  width: 90%;
+  height: 100px;
+  background-color: #185a9d;  
+}
+#campC3{
+  position: fixed;
+  width: 90%;
+  height: 100px;
+  background-color: #185a9d;  
+}
+#campC4{
+  position: fixed; 
+  width: 90%;
+  height: 100px;
+  background-color: #185a9d; 
+}

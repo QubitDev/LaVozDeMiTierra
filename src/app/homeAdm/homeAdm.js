@@ -4,17 +4,29 @@ boton1.addEventListener("click", hideConfirma);
 const botones = document.querySelector(".boton");
 botones.addEventListener("click",deleteCampc1);
 
+const botonesL = document.querySelector(".botonL");
+botonesL.addEventListener("click",deleteCampc2);
+
 const deleteCs = document.querySelectorAll(".deleteC");
 for(let i = 0 ;i<=deleteCs.length;i++){
     deleteCs[i].addEventListener("click",confirmar);
 }
 
+const deleteLs = document.querySelectorAll(".deleteL");
+for(let i = 0 ;i<=deleteLs.length; i++){
+    deleteLs[i].addEventListener("click",confirmar);
+}
 
 function confirmar(){    
     document.getElementById('confirmacion').style.display = 'block'; 
-    cambioBack();   
-    
+    cambioBack();    
 }
+
+function hideConfirma(){    
+    document.getElementById('confirmacion').style.display = 'none';
+    returnBack();
+}
+
 function cambioBack(){
     document.getElementById('header').style.background = "#3C3C3C";
     document.getElementById('menu').style.background ="#3C3C3C";
@@ -24,18 +36,10 @@ function cambioBack(){
     document.getElementById('page-content').style.background ="#3C3C3C";
 }
 function returnBack(){
-    document.getElementById('header').style.background ="linear-gradient(to top, #43cea2, #185a9d)";
-    document.getElementById('menu').style.background ="linear-gradient(to top, #43cea2, #185a9d)";
-    document.getElementById('contenedor').style.background ="linear-gradient(to top, #43cea2, #185a9d)";
-    document.getElementById('scrollBg').style.background ="linear-gradient(to top, #43cea2, #185a9d)";
-    document.getElementById('DosScrollBg').style.background ="linear-gradient(to top, #43cea2, #185a9d)";
-    document.getElementById('page-content').style.background ="linear-gradient(to top, #43cea2, #185a9d)";
+    
 }
 
-function hideConfirma(){    
-    document.getElementById('confirmacion').style.display = 'none';
-    returnBack();
-}
+
 
 function deleteCampc1(){
     document.getElementById('campC1').style.display = 'none';
@@ -49,8 +53,17 @@ function deleteCampc1(){
     document.getElementById('iconoCuatro').style.top = '42%';   
 }
 function deleteCampc2(){
-    document.getElementById('campC2').style.display = 'none';
-    hideConfirma();
+    document.getElementById('campC1').style.display = 'none';
+    document.getElementById('').style.display = 'none';
+    document.getElementById('').style.display = 'block';
+    hideConfirma();    
+    document.getElementById('contenidoDos').style.top = '9%';
+    document.getElementById('contenidoTres').style.top = '23%';
+    document.getElementById('contenidoCuatro').style.top = '37%';
+
+    document.getElementById('iconoDos').style.top = '14%';
+    document.getElementById('iconoTres').style.top = '28%';
+    document.getElementById('iconoCuatro').style.top = '42%';
 }
 function deleteCampc3(){
     document.getElementById('campC3').style.display = 'none';
@@ -76,6 +89,3 @@ function deleteCampc8(){
     document.getElementById('campL4').style.display = 'none';
     hideConfirma();
 }
-
-
-
