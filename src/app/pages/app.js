@@ -1,21 +1,21 @@
-const contentContainer = document.getElementById("page-content");
-const menuLinks = document.querySelectorAll("menu");
+// const contentContainer = document.getElementById("page-content");
+// const menuLinks = document.querySelectorAll("menu");
 
-function loadPage(url) {
-  fetch(url)
-    .then((response) => response.text())
-    .then((html) => {
-      contentContainer.innerHTML = html;
-    })
-    .catch((error) => {
-      console.error("Error al cargar la página:", error);
-    });
-}
+// function loadPage(url) {
+//   fetch(url)
+//     .then((response) => response.text())
+//     .then((html) => {
+//       contentContainer.innerHTML = html;
+//     })
+//     .catch((error) => {
+//       console.error("Error al cargar la página:", error);
+//     });
+// }
 
-menuLinks.forEach((link) => {
-  link.addEventListener("click", (event) => {
-    event.preventDefault();
-    const pageUrl = link.getAttribute("href");
-    loadPage(pageUrl);
-  });
-});
+// menuLinks.forEach((link) => {
+//   link.addEventListener("click", (event) => {
+//     event.preventDefault();
+//     const pageUrl = link.getAttribute("href");
+//     loadPage(pageUrl);
+//   });
+// });
