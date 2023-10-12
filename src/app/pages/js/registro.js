@@ -12,7 +12,9 @@ const windowAorE =document.getElementById('window_A_E');
 const messagePopup = document.getElementById("message");
 
 
+const narracion1 = {};
 const datos = {};
+
 
 
 // Captura de audio
@@ -176,7 +178,7 @@ function onSubmit(event) {
     return;
   }
   
-  Object.assign(datos, { titulo, musica, procedencia, formato, tipoAudio, narrador, duracion });
+  Object.assign(datos,{titulo, musica, procedencia, formato, tipoAudio, narrador, duracion});
   
   handleSubmit();
  
@@ -287,14 +289,10 @@ async function handleSubmit() {
       const audioURL = await uploadFile(audioFile, 'audio/' + audioFile.name);
       const textURL = await uploadFile(textFile, 'texto/' + textFile.name);
 
-      const narracion = {
-          audioURL: audioURL,
-          textURL: textURL,
-      };
-
-      Object.assign(combinado, { narracion1, narracion });
+      datos.audioURL = audioURL;
+      datos.textURL = textURL;
       
-      await db.collection("audio").add(combinado)
+      await db.collection("audio").add(datos)
       .then((docRef) => {
           console.log("Documento escrito con ID: ", docRef.id);
       })
