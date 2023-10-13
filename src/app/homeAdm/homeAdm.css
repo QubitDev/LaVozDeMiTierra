@@ -12,10 +12,7 @@
   box-shadow: 10px 10px 15px 5px black;
 
 }
-body{
-  background: linear-gradient(to left bottom, #43cea2, #185a9d);
 
-}
 #all{  
   height: 100%;
   width: 100%;
@@ -46,14 +43,14 @@ body{
     left: 9%;
     margin-bottom: 10px;
   }
+  .boton1{
+    position: relative;
+    left: 2%;
+  }
   .boton{
     position: relative;
-    left: 40%;
-  }
-  .botonL{
-    position: relative;
-    left: 71%;
-    display: none;
+    left: 61%;
+    top: -22px;
   }
 }
 
@@ -131,7 +128,6 @@ a{
   position: fixed;
   top: 102px;
   left: 227px;
-
   width: 89%;
   height: 89%;  
   background: linear-gradient(to right, #43cea2, #185a9d);  
@@ -208,7 +204,7 @@ h2{
 #contenidoUno, #contenidoDos, #contenidoTres, #contenidoCuatro{
   position: relative;
   top: 2%;
-  left: 10%;
+  left: 10%;  
 }
 
 #iconoUno, #iconoDos, #iconoTres, #iconoCuatro{
