@@ -4,18 +4,30 @@
   height: 150px;
   width: 150px;
   position: absolute;
-  top: 0%; /* Ajusta la posición vertical según sea necesario */
-  left: -0.5%; /* Ajusta la posición horizontal según sea necesario */
-  z-index: 9999; /* Asegura que esté por encima de todo */
+  top:3%; 
+  left: 2%; 
+  z-index: 9999;
   display: inline-block;
   box-sizing: border-box;
   box-shadow: 10px 10px 15px 5px black;
+
+}
+
+#all{  
+  height: 100%;
+  width: 100%;
+  font-size: 16;
+  font-family: Arial, Helvetica, sans-serif;
+  position: absolute;
+  top: 0%; 
+  left: 0%;
+  z-index: 9998;
+  display: none;
 }
 
 #confirmacion{
-  padding-left: 15px;
-  background-color: #ffffff;
-  color: #000;
+  padding-left: 50px;
+  color: #ffffff;
   height: 80px;
   width: 300px;
   font-size: 16;
@@ -24,13 +36,21 @@
   top: 50%; 
   left: 50%; 
   display: none;
-  box-shadow: 10px 10px 15px 5px black;
+  background: linear-gradient(to left bottom, #43cea2, #185a9d);
   .texto{
-    color: #000;
+    position: relative;
+    top: -10px;
+    left: 9%;
+    margin-bottom: 10px;
+  }
+  .boton1{
+    position: relative;
+    left: 2%;
   }
   .boton{
-    position: absolute;
-    left: 71%;
+    position: relative;
+    left: 61%;
+    top: -22px;
   }
 }
 
@@ -64,11 +84,7 @@
   z-index: 9998;
 }
 
-.greeting {
-  /*
-  height:  300px;
-  width: 300px;
-  */
+.greeting {  
   font-family: Arial, Helvetica, sans-serif; 
   padding-right: 600px;
   padding-left: 250px;
@@ -112,30 +128,28 @@ a{
   position: fixed;
   top: 102px;
   left: 227px;
-
   width: 89%;
   height: 89%;  
   background: linear-gradient(to right, #43cea2, #185a9d);  
 }
 
+
 #contenedor{
-    background: linear-gradient(to right, #43cea2, #185a9d);
+    background: linear-gradient(to left, #43cea2, #185a9d);
     padding: 14px;
     margin-left: 1%;
-    position: absolute;
-    top: 102px;
-    left: 200px;
-    height: 85%;
-    width: 82%;  
-    display: flex;
+    position: fixed;
+    top: 107px;
+    left: 208px;
+    height: 100%;
+    width: 100%;     
+    padding: 10px;    
 }  
 
 
 img{
     width: 90px;
-    height: 90px;
-    margin-left: 2%;
-    margin-top: 2%;
+    height: 90px;   
 }  
 
 h2{
@@ -149,40 +163,32 @@ h2{
 #camp{
   display: block;
 }  
-#scrollBg{
-    background: linear-gradient(to right, #43cea2, #185a9d);
-    padding: 10px;
-    width: 45%;
-    height: 90%;
-    position: absolute;
-    top: 2%;
-    left: 7%;
-}
 
-#DosScrollBg{
-    background: linear-gradient(to right, #43cea2, #185a9d);
-    padding: 10px;
-    width: 45%;
-    height: 90%;
-    position: absolute;
-    top: 2%;
-    left: 55%;
-}
+
 
 .scrollDiv{
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    overflow-y: scroll;
-    box-shadow: 5px 5px 5px 5px rgb(0, 62, 144);
+  border-radius: 4%;
+  background-color: #ffffff2d;
+  position: relative;
+  top: 3%;
+  left: 4%;
+  width: 37%;
+  height: 75%;
+  overflow: hidden;
+  overflow-y: scroll;
 } 
 
 .DosScrollDiv{
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    overflow-y: scroll;
-    box-shadow: 5px 5px 5px 5px rgb(0, 62, 144);
+  border-radius: 4%;
+  background-color: #ffffff2d;
+  position: relative;
+  z-index: 2;
+  top: -72%;
+  left: 45%;
+  width: 37%;
+  height: 75%;
+  overflow: hidden;
+  overflow-y: scroll;
 }
 
 .Object{
@@ -190,49 +196,50 @@ h2{
   font-family: Arial, Helvetica, sans-serif;
   font-size: 13px;
 }  
-
-#contenidoUno{
-  position: absolute;
-  top: 9%;
-  left: 25%;
+.imageUno,.imageDos, .imageTres, .imageCuatro{
+  position: relative;
+  margin-top: 0.5%;
+  left: 2%;
 }
-#contenidoDos{
-  position: absolute;
-  top: 23%;
-  left: 25%;
-}
-#contenidoTres{
-  position: absolute;
-  top: 37%;
-  left: 25%;
-}
-#contenidoCuatro{
-  position: absolute;
-  top: 51%;
-  left: 25%;
+#contenidoUno, #contenidoDos, #contenidoTres, #contenidoCuatro{
+  position: relative;
+  top: 2%;
+  left: 10%;  
 }
 
-#iconoUno{
-  position: absolute;
-  right:11%;
-  top: 14%;
+#iconoUno, #iconoDos, #iconoTres, #iconoCuatro{
+  position: relative;
+  left:70%;
+  margin-top: 5%;
 }
 
-#iconoDos{
-  position: absolute;
-  right:11%;
-  top: 28%;
+#campC1, #campC2, #campC3, #campC4{
+  position: relative; 
+  width: 693px;
+  height: 100px;
+  display: flex;
 }
-
-#iconoTres{
-  position: absolute;
-  right:11%;
-  top: 42%;
+#campC2{  
+  top: 20px;
 }
-
-#iconoCuatro{
-  position: absolute;
-  right:11%;
-  top: 55%;
-} 
- 
+#campC3{  
+  top: 40px;
+}
+#campC4{  
+  top: 60px;
+}
+#campL1, #campL2, #campL3, #campL4{
+  position: relative; 
+  width: 693px;
+  height: 100px;
+  display: flex;
+}
+#campL2{  
+  top: 20px;
+}
+#campL3{  
+  top: 40px;
+}
+#campL4{  
+  top: 60px;
+}

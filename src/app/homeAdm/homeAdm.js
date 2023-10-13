@@ -1,57 +1,138 @@
 const boton1 = document.querySelector(".boton1");
 boton1.addEventListener("click", hideConfirma);
+/**FALTA APLICAR PROCESO DE REFACTORING*/
+const botones = document.querySelectorAll(".boton");
+botones[0].addEventListener("click",deleteCampc1);
+botones[1].addEventListener("click",deleteCampc2);
+botones[2].addEventListener("click",deleteCampc3);
+botones[3].addEventListener("click",deleteCampc4);
+botones[4].addEventListener("click",deleteCampc5);
+botones[5].addEventListener("click",deleteCampc6);
+botones[6].addEventListener("click",deleteCampc7);
+botones[7].addEventListener("click",deleteCampc8);
 
-const botones = document.querySelector(".boton");
-botones.addEventListener("click",deleteCampc1);
 
 const deleteCs = document.querySelectorAll(".deleteC");
-for(let i = 0 ;i<=deleteCs.length;i++){
-    deleteCs[i].addEventListener("click",confirmar);
-}
+deleteCs[0].addEventListener("click",confirmar1);
+deleteCs[1].addEventListener("click",confirmar2);
+deleteCs[2].addEventListener("click",confirmar3);
+deleteCs[3].addEventListener("click",confirmar4);
+deleteCs[4].addEventListener("click",confirmar6);
+deleteCs[5].addEventListener("click",confirmar7);
+deleteCs[6].addEventListener("click",confirmar7);
+deleteCs[7].addEventListener("click",confirmar8);
 
 
-function confirmar(){    
+
+function genConfirmar(){
     document.getElementById('confirmacion').style.display = 'block'; 
-    cambioBack();   
-    
+    document.getElementById('confirmacion').style.zIndex = '9999';
+    document.getElementById('all').style.display = 'block';
+    document.getElementById('all').style.background = 'linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0, 0.5))';
 }
-function cambioBack(){
-    document.getElementById('header').style.background = "#3C3C3C";
-    document.getElementById('menu').style.background ="#3C3C3C";
-    document.getElementById('contenedor').style.background ="#3C3C3C";
-    document.getElementById('scrollBg').style.background ="#3C3C3C";
-    document.getElementById('DosScrollBg').style.background ="#3C3C3C";
-    document.getElementById('page-content').style.background ="#3C3C3C";
+function confirmar1(){
+    genConfirmar();
+    for(let i = 1;i<=8;i++){
+        if(i != 1){
+            document.getElementById('campc'+(i)).style.display = 'none';
+        }else{
+            document.getElementById('campc'+(i)).style.display = 'block';
+        }
+    }  
 }
-function returnBack(){
-    document.getElementById('header').style.background ="linear-gradient(to top, #43cea2, #185a9d)";
-    document.getElementById('menu').style.background ="linear-gradient(to top, #43cea2, #185a9d)";
-    document.getElementById('contenedor').style.background ="linear-gradient(to top, #43cea2, #185a9d)";
-    document.getElementById('scrollBg').style.background ="linear-gradient(to top, #43cea2, #185a9d)";
-    document.getElementById('DosScrollBg').style.background ="linear-gradient(to top, #43cea2, #185a9d)";
-    document.getElementById('page-content').style.background ="linear-gradient(to top, #43cea2, #185a9d)";
+function confirmar2(){
+    genConfirmar();
+    for(let i = 1;i<=8;i++){
+        if(i != 2){
+            document.getElementById('campc'+(i)).style.display = 'none';
+        }else{
+            document.getElementById('campc'+(i)).style.display = 'block';
+        }
+    }  
 }
-
+function confirmar3(){
+    genConfirmar();
+    for(let i = 1;i<=8;i++){
+        if(i != 3){
+            document.getElementById('campc'+(i)).style.display = 'none';
+        }else{
+            document.getElementById('campc'+(i)).style.display = 'block';
+        }
+    }  
+}
+function confirmar4(){
+    genConfirmar();
+    for(let i = 1;i<=8;i++){
+        if(i != 4){
+            document.getElementById('campc'+(i)).style.display = 'none';
+        }else{
+            document.getElementById('campc'+(i)).style.display = 'block';
+        }
+    }  
+}
+function confirmar5(){
+    genConfirmar();
+    for(let i = 1;i<=8;i++){
+        if(i != 5){
+            document.getElementById('campc'+(i)).style.display = 'none';
+        }else{
+            document.getElementById('campc'+(i)).style.display = 'block';
+        }
+    }  
+}
+function confirmar6(){
+    genConfirmar();
+    for(let i = 1;i<=8;i++){
+        if(i != 6){
+            document.getElementById('campc'+(i)).style.display = 'none';
+        }else{
+            document.getElementById('campc'+(i)).style.display = 'block';
+        }
+    }  
+}
+function confirmar7(){
+    genConfirmar();
+    for(let i = 1;i<=8;i++){
+        if(i != 7){
+            document.getElementById('campc'+(i)).style.display = 'none';
+        }else{
+            document.getElementById('campc'+(i)).style.display = 'block';
+        }
+    }  
+}
+function confirmar8(){
+    genConfirmar();
+    for(let i = 1;i<=8;i++){
+        if(i != 8){
+            document.getElementById('campc'+(i)).style.display = 'none';
+        }else{
+            document.getElementById('campc'+(i)).style.display = 'block';
+        }
+    }  
+}
 function hideConfirma(){    
     document.getElementById('confirmacion').style.display = 'none';
+    document.getElementById('all').style.display = 'none';    
+    document.getElementById('all').style.background = '';
     returnBack();
 }
 
+function cambioBack(){
+    
+}
+function returnBack(){
+    
+}
+
+
 function deleteCampc1(){
     document.getElementById('campC1').style.display = 'none';
-    hideConfirma();    
-    document.getElementById('contenidoDos').style.top = '9%';
-    document.getElementById('contenidoTres').style.top = '23%';
-    document.getElementById('contenidoCuatro').style.top = '37%';
-
-    document.getElementById('iconoDos').style.top = '14%';
-    document.getElementById('iconoTres').style.top = '28%';
-    document.getElementById('iconoCuatro').style.top = '42%';   
+    hideConfirma();       
 }
 function deleteCampc2(){
-    document.getElementById('campC2').style.display = 'none';
-    hideConfirma();
-}
+    document.getElementById('campC2').style.display = 'none';    
+    hideConfirma();  
+}  
 function deleteCampc3(){
     document.getElementById('campC3').style.display = 'none';
     hideConfirma();
@@ -76,6 +157,3 @@ function deleteCampc8(){
     document.getElementById('campL4').style.display = 'none';
     hideConfirma();
 }
-
-
-
