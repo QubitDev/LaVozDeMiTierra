@@ -127,12 +127,12 @@
 .contenedor{
     font-family: Arial, Helvetica, sans-serif;
     width: 90%;
-    max-width: 90%;
+    max-width: 60%;
     margin:auto;
     margin-top: 2%;
     background: #ffff;
     padding: 15px;
-    height: 190px;
+    height: 200px;
     overflow-y: scroll;
     border-radius: 5px;
     box-shadow: 0px 1px 10px    
