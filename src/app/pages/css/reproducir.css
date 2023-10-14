@@ -105,18 +105,30 @@
     margin-top: 5%;
     margin-left: 5%;
 }
-.descripcion{
-    margin-top: 3%;
-    margin-left: 3%;
-    color: #fff;
-    font-family: Arial, Helvetica, sans-serif;
+
+#datos_Audio{
+  margin-top: 3%;
+  margin-left: 3%;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.audio-info {
+
+padding: 10px;
+margin: 10px;
+cursor: pointer;
 }
 
-.h3{
-    font-size: 20px;
+.audio-info h3 {
+font-size: 25px;
+margin: 0;
+color: rgb(255, 254, 254);
 }
-.h4{
-    font-size: 15px;
+
+.audio-info p {
+margin: 5px 0;
+font-size: 18px;
+color: rgb(250, 247, 247);
 }
 
 .audio{
@@ -138,9 +150,4 @@
     box-shadow: 0px 1px 10px    
     rgba(0, 0, 0, 45);
  }
- a{
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 16px;
-  color:#ffffff;
-  text-decoration: none;
-}
+ 
