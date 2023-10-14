@@ -10,56 +10,79 @@ const verifyButton = document.getElementById('verifyButton');
 const popup = document.getElementById('popup');
 const windowAorE =document.getElementById('window_A_E');
 const messagePopup = document.getElementById("message");
-
-
-const narracion1 = {};
+const formatoSelect = document.getElementById("formato_audio");
+const durationField = document.getElementById("duracion");
+var idDoc='';
 const datos = {};
+var bandera = true;
 
 
 
 // Captura de audio
 audioInput.addEventListener("change", function () {
   const selectedAudioFile = this.files[0];
+  
+  durationField.style.display ='inline-block';
   textInput.disabled = false;
 
   if (selectedAudioFile) {
-    // Validar el peso del archivo de audio
-    const maxSizeInBytes = 20 * 1024 * 1024; // 20 MB en bytes
-    if (selectedAudioFile.size > maxSizeInBytes) {
-      onMessagePopup(`❌¡Error!\nDebe ser menor o igual a 20 MB.`, 400);
-      this.value = null;
-      return;
-    }
-
-    // Aquí puedes trabajar con el archivo de audio seleccionado
-    console.log("Nombre del archivo de audio:", selectedAudioFile.name);
-    console.log("Tipo del archivo de audio:", selectedAudioFile.type);
-  }
-});
-
-
-// Obtener la duración del audio
-audioInput.addEventListener("change", function () {
-  const audio = this.files[0];
-  const durationField = document.getElementById("duracion");
-
-  if (audio) {
-    getAudioDuration(audio).then((duration) => {
+    // obtener duracion del audio
+    getAudioDuration(selectedAudioFile).then((duration) => {
       const minutes = parseFloat(duration);
 
       if (!isNaN(minutes) && minutes >= 3 && minutes <= 20) {
-        durationField.value = duration;
-      } else {
-        alert("La duración del audio debe estar entre 3 y 10 minutos.");
-        this.value = "";
-        durationField.value = "";
+        durationField.textContent = duration; 
+        
+      }
+
+      const maxSizeInBytes = 20 * 1024 * 1024; 
+      const peso = selectedAudioFile.size;
+
+      if (selectedAudioFile.size > maxSizeInBytes) {
+        let sizeArch =parseInt( (peso /1024)/1024);
+        onMessagePopup(`❌¡Error!\nEl archivo exede el peso con: ${sizeArch} MB`, 400);
+        this.value = null;
+        durationField.textContent = ""; 
         document.getElementById("formato_audio").value = "";
+        bandera = false;
+        return;
+      } else if(isNaN(minutes) || !(minutes >= 3 && minutes <= 20)){
+        onMessagePopup(`❌¡Error!\nSubir audio de 3 a 10 minutos`, 400);
+        this.value = null;
+        durationField.textContent = ""; 
+        document.getElementById("formato_audio").value = "";
+        bandera = false;
+        return;
       }
     });
-  } else {
+  }else {
     durationField.value = "";
   }
 });
+
+
+// // Obtener la duración del audio
+// audioInput.addEventListener("change", function () {
+//   const audio = this.files[0];
+//   const durationField = document.getElementById("duracion");
+
+//   if (audio) {
+//     getAudioDuration(audio).then((duration) => {
+//       const minutes = parseFloat(duration);
+
+//       if (!isNaN(minutes) && minutes >= 3 && minutes <= 20) {
+//         durationField.value = duration;
+//       } else {
+//         alert("La duración del audio debe estar entre 3 y 10 minutos.");
+//         this.value = "";
+//         durationField.value = "";
+//         document.getElementById("formato_audio").value = "";
+//       }
+//     });
+//   } else {
+//     durationField.value = "";
+//   }
+// });
 
 
 // Captura de texto
@@ -85,7 +108,11 @@ textInput.addEventListener("change", function () {
 
 // Validación de elección de elemento en el file chooser de audio
 function updateAcceptAttribute() {
-  const formatoSelect = document.getElementById("formato_audio");
+  audioInput.value = null;
+  textInput.value = null;
+  textInput.disabled = true;
+  durationField.textContent = '';
+  durationField.style.display='none';
 
   switch (formatoSelect.value) {
     case "MP3":
@@ -127,7 +154,7 @@ function onSubmit(event) {
   const procedencia = getValue("procedencia");
   const formato = getValue("formato_audio");
   const narrador = getValue("narrador");
-  const duracion = getValue("duracion");
+  const duracion = durationField.textContent;
 
   const typeAudioElements = document.getElementsByName("tipo_audio");
   let tipoAudio = false;
@@ -144,7 +171,7 @@ function onSubmit(event) {
 
 
   // Validar longitud mínima de los campos
-  if (!titulo || !musica || !procedencia || !formato || !narrador ||!duracion|| !audio || !text) {
+  if (!titulo || !musica || !procedencia || !formato || !narrador || !audio || !text) {
     onMessagePopup(`❌¡Error! Faltan Datos.`,350);
     return;
   }
@@ -184,14 +211,14 @@ function onSubmit(event) {
  
 
   // Realizar lógica de envío o procesamiento aquí
-  console.log("Título:", titulo);
-  console.log("Música de Fondo:", musica);
-  console.log("Procedencia:", procedencia);
-  console.log("Formato de Audio:", formato);
-  console.log("Tipo de Audio:", tipoAudio);
-  console.log("Narrador:", narrador);
-  console.log("Duracion:", duracion )
-  
+  // console.log("Título:", titulo);
+  // console.log("Música de Fondo:", musica);
+  // console.log("Procedencia:", procedencia);
+  // console.log("Formato de Audio:", formato);
+  // console.log("Tipo de Audio:", tipoAudio);
+  // console.log("Narrador:", narrador);
+  // console.log("Duracion:", duracion )
+
   onMessagePopup(`✅¡Se subio correctamente el audio!🎉`,450);
 }
 
@@ -201,9 +228,8 @@ function onMessagePopup(messageX, length){
   windowAorE.style.width = `${length}px`;
   messagePopup.style.whiteSpace = 'pre-line'; 
   popup.style.display = 'flex';
-  if(messageX.includes("Error")){
-    okBut
-    ton.style.display = 'block';
+  if(messageX.includes("❌")){
+    okButton.style.display = 'block';
     verifyButton.style.display = 'none';
     
   } else{
@@ -217,23 +243,47 @@ function closePopup(){
   popup.style.display = 'none';
 }
 
-// Función para manejar el botón "Verificar"
 function onVerifyButton() {
-  window.location.href = "http://localhost/LaVozDeMiTierra/src/app/pages/html/reproducir.html";
+  window.location.href = `http://localhost/LaVozDeMiTierra/src/app/pages/html/prueba.html?doc=${idDoc}`;
   resetForm();
 }
 
-
 function validateInput(inputElement) {
-  const inputValue = inputElement.value;
+  const inputValue = inputElement.value.trim(); // Eliminar espacios en blanco al principio y al final
   const placeholderText = inputElement.getAttribute("placeholder");
 
-  // Comprobar si el valor contiene caracteres no válidos después de eliminar un carácter
-  if (inputValue && !/^[a-zA-Z\s]+$/.test(inputValue)) {
-    onMessagePopup(`❌¡Error!\nNo se admiten caracteres especiales en: ${placeholderText}`, 450);
+  if (!inputValue) {
+    // El campo está vacío después de eliminar espacios en blanco
+    onMessagePopup(`❌¡Error!\n${placeholderText} no puede estar vacío.`, 450);
+    inputElement.value = '';
     return;
   }
+
+  // Comprueba si el primer carácter es una letra
+  if (!/^[a-zA-Z]/.test(inputValue)) {
+    onMessagePopup(`❌¡Error!\nEl primer carácter de ${placeholderText} debe ser una letra.`, 450);
+    inputElement.value = '';
+    return;
+  }
+
+    // Comprueba si el valor contiene números
+    if (/\d/.test(inputValue)) {
+      onMessagePopup(`❌¡Error!\n${placeholderText} no puede contener números.`, 450);
+      inputElement.value = '';
+      return;
+    }
+
+  // Comprueba si el valor contiene caracteres no válidos después de eliminar un carácter
+  if (!/^[a-zA-Z\s]+$/.test(inputValue)) {
+    onMessagePopup(`❌¡Error!\nCaracteres especiales en: ${placeholderText}`, 450);
+    inputElement.value = '';
+    return;
+  }
+
+
 }
+
+
 // obtener el valor del elemento por id
 function getValue(id) {
   return document.getElementById(id).value;
@@ -294,13 +344,15 @@ async function handleSubmit() {
       
       await db.collection("audio").add(datos)
       .then((docRef) => {
+          idDoc = docRef.id;
           console.log("Documento escrito con ID: ", docRef.id);
       })
       .catch((error) => {
-          Alert(`Error al agregar el documento: ${error}`);
+          alert(`Error al agregar el documento: ${error}`);
       });
+  console.log("id__doc",idDoc);
 
   } catch (error) {
-    Alert(`Error: ${error}`);
+    alert(`Error: ${error}`);
   }
 }
