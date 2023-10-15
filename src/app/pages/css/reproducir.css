@@ -88,7 +88,8 @@
     background: linear-gradient(to right, #43cea2, #185a9d); 
     position: fixed;
     flex-direction: column;
-    
+    top:102px;
+    left:200px;
     width: 85%;
     height: 86%;
     margin-top: 6.5%;
