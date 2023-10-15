@@ -29,18 +29,7 @@ db.collection("audio").doc(docId).get().then((doc) => {
       console.log("url: ",textURL);
       
       audioElement.src = data.audioURL;
-
-  } else {
-      console.log("No se encontró el documento en Firestore.");
-  }
-}).catch((error) => {
-  console.error("Error al obtener el documento:", error);
-});
-
-
-console.log("url: ",textURL.URLt);
-
-fetch("./../../../assets/Documentacion/El abuelo y el raton.txt")
+    fetch(textURL.URLt)
 .then(response => {
   if (!response.ok) {
     throw new Error(`Error al cargar el archivo de texto: ${response.status} - ${response.statusText}`);
@@ -53,3 +42,15 @@ fetch("./../../../assets/Documentacion/El abuelo y el raton.txt")
 .catch(error => {
   console.error(error);
 });
+
+  } else {
+      console.log("No se encontró el documento en Firestore.");
+  }
+}).catch((error) => {
+  console.error("Error al obtener el documento:", error);
+});
+
+
+console.log("url: ",textURL.URLt);
+
+
