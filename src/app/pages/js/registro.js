@@ -211,13 +211,13 @@ function onSubmit(event) {
  
 
   // Realizar lógica de envío o procesamiento aquí
-  // console.log("Título:", titulo);
-  // console.log("Música de Fondo:", musica);
-  // console.log("Procedencia:", procedencia);
-  // console.log("Formato de Audio:", formato);
-  // console.log("Tipo de Audio:", tipoAudio);
-  // console.log("Narrador:", narrador);
-  // console.log("Duracion:", duracion )
+  console.log("Título:", titulo);
+  console.log("Música de Fondo:", musica);
+  console.log("Procedencia:", procedencia);
+  console.log("Formato de Audio:", formato);
+  console.log("Tipo de Audio:", tipoAudio);
+  console.log("Narrador:", narrador);
+  console.log("Duracion:", duracion )
 
   onMessagePopup(`✅¡Se subio correctamente el audio!🎉`,450);
 }
