@@ -83,6 +83,9 @@
   }
   
 .play{
+
+    top: 102px;
+    left: 200px;
     background: #43cea2; 
     background: -webkit-linear-gradient(to right, #43cea2, #185a9d); 
     background: linear-gradient(to right, #43cea2, #185a9d); 
@@ -91,9 +94,6 @@
     
     width: 85%;
     height: 86%;
-    margin-top: 6.5%;
-    margin-left: 14.5%;
-
 }
 .caja{
     display:flex;

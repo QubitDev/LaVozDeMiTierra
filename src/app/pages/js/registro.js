@@ -254,14 +254,14 @@ function validateInput(inputElement) {
 
   if (!inputValue) {
     // El campo está vacío después de eliminar espacios en blanco
-    onMessagePopup(`❌¡Error!\n${placeholderText} no puede estar vacío.`, 450);
+    onMessagePopup(`❌¡Error!\nFaltan Datos.`, 450);
     inputElement.value = '';
     return;
   }
 
   // Comprueba si el primer carácter es una letra
   if (!/^[a-zA-Z]/.test(inputValue)) {
-    onMessagePopup(`❌¡Error!\nEl primer carácter de ${placeholderText} debe ser una letra.`, 450);
+    onMessagePopup(`❌¡Error!\nNo puede contener caracteres especiales.`, 450);
     inputElement.value = '';
     return;
   }
@@ -275,7 +275,7 @@ function validateInput(inputElement) {
 
   // Comprueba si el valor contiene caracteres no válidos después de eliminar un carácter
   if (!/^[a-zA-Z\s]+$/.test(inputValue)) {
-    onMessagePopup(`❌¡Error!\nCaracteres especiales en: ${placeholderText}`, 450);
+    onMessagePopup(`❌¡Error!\nNo puede contener caracteres especiales.`, 450);
     inputElement.value = '';
     return;
   }
