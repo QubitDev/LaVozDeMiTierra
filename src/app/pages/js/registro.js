@@ -136,7 +136,7 @@ function updateAcceptAttribute() {
 
 function onCancel() {
   resetForm();
-  window.location.href = "http://localhost/LaVozDeMiTierra/src/app/homeAdm/homeAdm.html";
+  window.location.href = "./../../homeAdm/homeAdm.html";
 }
 
 function resetForm() {
@@ -244,7 +244,7 @@ function closePopup(){
 }
 
 function onVerifyButton() {
-  window.location.href = `http://localhost/LaVozDeMiTierra/src/app/pages/html/reproducir.html?doc=${idDoc}`;
+  window.location.href = `./../html/reproducir.html?doc=${idDoc}`;
   resetForm();
 }
 
