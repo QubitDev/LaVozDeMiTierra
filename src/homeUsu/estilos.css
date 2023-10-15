@@ -4,25 +4,19 @@
 	height: 150px;
 	width: 150px;
 	position: absolute;
-	top: 50px;
-	/* Ajusta la posición vertical según sea necesario */
-	left: 20px;
-	/* Ajusta la posición horizontal según sea necesario */
+	top:3%; 
+	left: 2%; 
 	z-index: 9999;
-	/* Asegura que esté por encima de todo */
 	display: inline-block;
 	box-sizing: border-box;
-	text-align: center;
 	box-shadow: 10px 10px 15px 5px black;
-}
+  
+  }
 
-.menu {
-	font-family: Arial, Helvetica, sans-serif;
+.menu {  
+	font-family: Arial, Helvetica, sans-serif;  
 	width: 200px;
-	background: linear-gradient(to left, #43cea2, #185a9d);
-
-	/*background: linear-gradient(black, purple);
-    */
+	background: linear-gradient(to left bottom, #43cea2, #185a9d);
 	color: #fff;
 	padding: 14px;
 	position: fixed;
@@ -31,80 +25,87 @@
 	height: 100%;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
-}
-
+	  /* justify-content: ; */
+  }
 .header {
 	position: fixed;
 	top: 0;
 	left: 0;
 	right: 0;
-	z-index: 999;
-	/* Asegura que esté por delante de otros elementos */
-	background: linear-gradient(to top, #43cea2, #185a9d);
-	color: #fff;
+	z-index: 999; /* Asegura que esté por delante de otros elementos */
+	background: linear-gradient(to top left, #43cea2, #185a9d);
+	color: #ffffff;
 	padding: 10px 20px;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	height: 102px;
-}
+	z-index: 9998;
+  }
 
 
-.greeting {
-	/*
-    height:  300px;
-    width: 300px;
-    */
+.greeting {  
+	font-family: Arial, Helvetica, sans-serif; 
 	padding-right: 600px;
 	padding-left: 250px;
 	display: inline-block;
 	text-align: left;
 	text-shadow: 4px 4px 10px black;
-}
-
-/* Estilos para el margen superior del contenido principal para dejar espacio para el encabezado */
-.content {
+  }
+  
+  /* Estilos para el margen superior del contenido principal para dejar espacio para el encabezado */
+  .content {
 	margin-top: 120px;
-	/* Ajusta la altura del encabezado más un margen */
-}
+  }
 
-/* Estilos de los elementos del menú */
-.menu__item {
+  .menu__item {
 	padding: 18px;
 	cursor: pointer;
 	transition: background-color 0.3s;
-}
+	border-radius:10px;
+	/* font-size: 20px; */
+	color: #ffffff;
+  }
 
 .menu__item:hover {
-	background-color: #ffffff6e;
-}
+	background: linear-gradient(to top left, #01081d, #185a9d);
+	/* background-color: #ffffff6e; */
+	
+  }
+  
+  /* Estilos para resaltar el elemento "Inicio" como activo (se puede usar una clase adicional para esto) */
+  .menu__item--active {
+	background: linear-gradient(to right,#43cea2, #185a9d);
+  }
 
-/* Estilos para resaltar el elemento "Inicio" como activo (se puede usar una clase adicional para esto) */
-.menu__item--active {
-
-	background-color: #43cea2;
-}
+  a{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	color:#ffffff;
+	text-decoration: none;
+  }
 
 /* body------------------------------------------------------------------- */
 /* @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap'); */
+.page-content {
+	position: fixed;
+	top: 102px;
+	left: 227px;
+	width: 89%;
+	height: 89%;  
+	background: linear-gradient(to right, #43cea2, #185a9d);  
+  }
 
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	font-family: 'Montserrat', sans-serif;
-}
+
 
 .contenedor_todo {
 	top: 102px;
-	left: 200px;
+	left: 227px;
 	position: fixed;
 	width: 95%;
 	height: 95%;
 
 
-	background: linear-gradient(to right, #43cea2, #185a9d);
+	background: linear-gradient(to left, #43cea2, #185a9d);
 	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 	overflow-y: scroll;
@@ -210,13 +211,10 @@
 	.container-card {
 		flex-wrap: wrap;
 	}
-
 	.card {
 		margin: 15px;
 	}
 }
-
-
 
 button {
 	align-items: center;
