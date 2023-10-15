@@ -244,7 +244,7 @@ function closePopup(){
 }
 
 function onVerifyButton() {
-  window.location.href = `http://localhost/LaVozDeMiTierra/src/app/pages/html/prueba.html?doc=${idDoc}`;
+  window.location.href = `http://localhost/LaVozDeMiTierra/src/app/pages/html/reproducir.html?doc=${idDoc}`;
   resetForm();
 }
 

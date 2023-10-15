@@ -1,5 +1,10 @@
-import { datos } from "./registro.js";
+//import { datos } from "./registro.js";
 
+const urlParams = new URLSearchParams(window.location.search);
+const docId= urlParams.get("doc");
+console.log("id:: ",docId);
+
+/*
 const datos = JSON.parse(sessionStorage.getItem("misDatos"));
 if (datos) {
   // Usa los datos como necesites
@@ -17,3 +22,4 @@ console.log(datos.tipoAudio);
 console.log(datos.narrador);
 console.log(datos.dura)
 }
+*/
