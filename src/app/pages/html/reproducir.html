@@ -7,7 +7,7 @@
     <link
       rel="icon"
       type="image/x-icon"
-      href="./../../assets/images/LogoLDMT.ico"
+      href="./../../../assets/images/LogoLDMT.ico"
     />
     <link
       rel="stylesheet"
@@ -27,6 +27,13 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
     />
     <title>Reproduccion</title>
+
+    <!-- Firebase App (la biblioteca base) - es obligatorio siempre -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <!-- Firebase Storage -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
+
 </head>
 <body>  
   <!-- main -->
@@ -48,7 +55,7 @@
     <div class="menu">
       <div class="content">
         <div class="menu__item" data-page="app">
-          <i class="fas fa-home"></i> <a href="http://localhost/LaVozDeMiTierra/src/app/homeAdm/homeAdm.html">Inicio</a>
+          <i class="fas fa-home"></i> <a href="./../../homeAdm/homeAdm.html">Inicio</a>
         </div>
     </div>
   </div>
@@ -65,42 +72,25 @@
           <div class = "imagen">
             <img src="./../../../assets/images/im.jpg" alt="" height="171px" width="153px" >
           </div>
-          <div class = "audio-info" id = "datos_Audio">
-            
-          </div>  
+          <div class = "descripcion">
+            <h2 id="tipo__audio"></h2>
+            <h3 id="titulo__audio"></h3>
+            <h4 id="narrador"></h4> 
+            <h4 id="musica"></h4>
+          </div>      
         </div>
-        <div id="text-container">
+        <div class="contenedor">
+            <p id="text_content"></p>
         </div>
-        <script>
-          const url = "https://firebasestorage.googleapis.com/v0/b/qubit-2499b.appspot.com/o/texto%2FEl%20abuelo%20y%20el%20raton-cuento.txt?alt=media&token=11a286b3-1816-41af-829d-bfa8d5db5d27";
-        
-          // Ahora que tienes la URL, puedes mostrar el contenido del archivo en tu página
-          const textContainer = document.getElementById('text-container');
-        
-          // Crea un elemento de tipo iframe y establece la URL como fuente
-          const iframe = document.createElement('iframe');
-          iframe.src = url;
-          iframe.style.margin = '0 auto';
-          iframe.style.textAlign = 'center';
-          iframe.style.justifyContent = 'center';
-          iframe.style.alignItems = 'center';
-          iframe.style.width = '99.9%';
-          iframe.style.height = '98.8%';
-          iframe.style.backgroundColor = 'white';
-          // Agrega el iframe al contenedor de texto en tu página
-          textContainer.appendChild(iframe);
-        </script>
-
-        <div class="audio">
-          <audio controls = "controls" loop="loop">
-            <source src = "https://firebasestorage.googleapis.com/v0/b/qubit-2499b.appspot.com/o/audio%2FEL%20ABUELO%20Y%20EL%20RAT%C3%93N%20cuento.mp3?alt=media&token=b966dcb5-5d1d-4dbc-a8e7-ef66271c4edd" type="audio/mp3">
+        <div class="audio" id="audioPlayer"  >
+          <audio controls = "controls" loop="loop" id="audioE">
+            <source type="audio/mp3">
             tu navegador no es compatible
           </audio>
         </div>
-      </div>
-    <script src="reproduccion.js"></script>
-    <script src="registro.js"></script>
+    </div>
     <script src="./../../../api/configuracion.js"></script>
     <script src="./../js/reproducir.js"></script>
+    
 </body>
 </html>

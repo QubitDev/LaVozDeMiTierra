@@ -1,43 +1,55 @@
-const doc = document.getElementById('id-doc').value;
-
-function getAllAudios() {
-   // Obtén una referencia a la colección "audio"
-   var audioCollection = db.collection("audio");
  
-   // Realiza una consulta para obtener todos los documentos de la colección
-   audioCollection.get().then((querySnapshot) => {
-     querySnapshot.forEach((doc) => {
-       // Accede al ID del documento
-       console.log("ID del documento:", doc.id);
+ const urlParams = new URLSearchParams(window.location.search);
+ const docId = urlParams.get("doc");
+ const docIdHome = urlParams.get("docHome");
  
-       // Accede a atributos específicos del documento
-       var data = doc.data();
-       console.log("Tipo audio", data.tipoAudio);
-       console.log("Titulo:", data.titulo);
-       console.log("Narrado por:", data.narrador);
-       console.log("Musica:", data.musica);
-     });
-   }).catch((error) => {
-     console.error("Error al recuperar documentos:", error);
-   });
- }
-
-
- function getAllAudios() {
-   var audioCollection = db.collection("audio");
-   var documentList = document.getElementById("id-doc"); // Obtén el elemento ul
- 
-   audioCollection.get().then((querySnapshot) => {
-     querySnapshot.forEach((doc) => {
-       var listItem = document.createElement("li"); // Crea un elemento li para cada documento
-       listItem.textContent = "ID: " + doc.id + ", Tipo de audio: " + doc.data().tipoAudio + ", Titulo: " + doc.data().titulo;
-       documentList.appendChild(listItem); // Agrega el elemento li a la lista ul
-     });
-   }).catch((error) => {
-     console.error("Error al recuperar documentos:", error);
-   });
- }
- 
-
+ console.log("id:: ",docId);
  
  
+ const tipo = document.getElementById("tipo__audio");
+ const  titulo = document.getElementById("titulo__audio");
+ const narradorAudio = document.getElementById("narrador");
+ const musicaF = document.getElementById("musica");
+ 
+ const audioElement = document.getElementById("audioE");
+ const textURL={};
+ const textContentElement = document.getElementById("text_content");
+ 
+ db.collection("audio").doc(docId).get().then((doc) => {
+   if (doc.exists) {
+       const data = doc.data();
+       tipo.innerText = data.tipoAudio;
+       titulo.innerText = data.titulo;
+       narradorAudio.innerText = `Narrado por: ${data.narrador}`;
+       musicaF.innerText = `Música de Fondo: ${data.musica}`;
+       
+ 
+       textURL.URLt = data.textURL;
+       
+       console.log("url: ",textURL);
+       
+       audioElement.src = data.audioURL;
+ 
+   } else {
+       console.log("No se encontró el documento en Firestore.");
+   }
+ }).catch((error) => {
+   console.error("Error al obtener el documento:", error);
+ });
+ 
+ 
+ console.log("url: ",textURL.URLt);
+ 
+ fetch("./../../../assets/Documentacion/El abuelo y el raton.txt")
+ .then(response => {
+   if (!response.ok) {
+     throw new Error(`Error al cargar el archivo de texto: ${response.status} - ${response.statusText}`);
+   }
+   return response.text();
+ })
+ .then(text => {
+   textContentElement.textContent = text;
+ })
+ .catch(error => {
+   console.error(error);
+ });
