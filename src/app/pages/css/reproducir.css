@@ -83,16 +83,19 @@
   }
   
 .play{
+
+    top: 102px;
+    left: 200px;
     background: #43cea2; 
     background: -webkit-linear-gradient(to right, #43cea2, #185a9d); 
     background: linear-gradient(to right, #43cea2, #185a9d); 
     position: fixed;
     flex-direction: column;
+    top:102px;
+    left:200px;
+    width: 100%;
+    height: 100%;
     
-    width: 85%;
-    height: 86%;
-    margin-top: 6.5%;
-    margin-left: 14.5%;
 
 }
 .caja{
@@ -150,4 +153,4 @@ color: rgb(250, 247, 247);
     box-shadow: 0px 1px 10px    
     rgba(0, 0, 0, 45);
  }
- 
+

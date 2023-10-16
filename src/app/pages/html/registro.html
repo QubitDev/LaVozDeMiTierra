@@ -59,10 +59,10 @@
       <div class="menu">
        <div class="content">
         <div class="menu__item" data-page="app">
-          <i class="fas fa-home"></i> <a href="http://localhost/LaVozDeMiTierra/src/app/homeAdm/homeAdm.html">Inicio</a>
+          <i class="fas fa-home"></i> <a href="./../../homeAdm/homeAdm.html">Inicio</a>
         </div>
         <div class="menu__item" data-page="registro">
-          <i class="fa-solid fa-plus"></i> <a href="http://localhost/LaVozDeMiTierra/src/app/pages/html/registro.html">Registrar</a>
+          <i class="fa-solid fa-plus"></i> <a href="./../html/registro.html">Registrar Audio</a>
         </div>
        </div>
       </div>
@@ -119,6 +119,8 @@
                 <p class="error-message" id="error_procedencia"></p>
               </div>
 
+             
+
               <label for="formato" class="form__label">Formato De Audio:</label>
               <select
                 name="formato_audio"
@@ -137,6 +139,23 @@
               </div>
             </div>
             <div class="container__input2">
+
+              <label for="Narrador" class="form__label">Narrador:</label>
+              <input
+                type="text"
+                class="form__control"
+                id="narrador"
+                name="narrador"
+                required
+                maxlength="50"
+                minlength="2"
+                placeholder="Narrador"
+                oninput="validateInput(this)"
+              />
+              <div class="menssage__error">
+                <p class="error-message" id="error_narrador"></p>
+              </div>
+
               <label class="form__label">Tipo De Audio:</label>
               <div class="container_radio_group">
                 <div class="radio-group">
@@ -167,31 +186,18 @@
                 </div>
               </div>
 
-              <label for="Narrador" class="form__label">Narrador:</label>
-              <input
-                type="text"
-                class="form__control"
-                id="narrador"
-                name="narrador"
-                required
-                maxlength="50"
-                minlength="2"
-                placeholder="Narrador"
-                oninput="validateInput(this)"
-              />
-              <div class="menssage__error">
-                <p class="error-message" id="error_narrador"></p>
-              </div>
+             
 
-              <label for="duracion" class="form__label">Duración (Minutos):</label>
-              <input
-                type="text"
-                readonly
-                class="form__control"
-                id="duracion"
-                name="duracion"
-                placeholder="Duracion"
-              />
+              <label for="duracion" class="form__label">Duración (Minutos): 
+                <a
+                  id="duracion"
+                  name="duracion"
+                  placeholder="Duración"
+                  class="form__control"
+                  style="text-decoration: none; display: none;"
+                  onclick="return false;"
+                ></a>
+              </label>
             </div>
           </div>
 

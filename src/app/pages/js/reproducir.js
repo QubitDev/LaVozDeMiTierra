@@ -1,15 +1,53 @@
-//const doc = document.getElementById('id-doc').value;
+const urlParams = new URLSearchParams(window.location.search);
+const docId = urlParams.get("doc");
+const docIdHome = urlParams.get("docHome");
 
-db.collection("audio").get().then((querySnapshot) =>{
-   querySnapshot.forEach((doc) => {
-      document.getElementById("datos_Audio").innerHTML=`<br><br><h3> ${doc.data().tipoAudio}</h3> 
-      <br>
-      <p>${doc.data().titulo}</p>
-      <p> Narrado por: ${doc.data().narrador}</p>
-      <p> Musica: ${doc.data().musica}</p>`;
+console.log("id:: ",docId);
 
-      datos.appendChild(div);
+const tipo = document.getElementById("tipo__audio");
+const  titulo = document.getElementById("titulo__audio");
+const narradorAudio = document.getElementById("narrador");
+const musicaF = document.getElementById("musica");
+
+const audioElement = document.getElementById("audioE");
+const textURL={};
+const textContentElement = document.getElementById("text_content");
+
+db.collection("audio").doc(docId).get().then((doc) => {
+  if (doc.exists) {
+      const data = doc.data();
+      tipo.innerText = data.tipoAudio;
+      titulo.innerText = data.titulo;
+      narradorAudio.innerText = `Narrado por: ${data.narrador}`;
+      musicaF.innerText = `Música de Fondo: ${data.musica}`;
       
-   });
 
+      textURL.URLt = data.textURL;
+      
+      console.log("url: ",textURL);
+      
+      audioElement.src = data.audioURL;
+    fetch(textURL.URLt)
+.then(response => {
+  if (!response.ok) {
+    throw new Error(`Error al cargar el archivo de texto: ${response.status} - ${response.statusText}`);
+  }
+  return response.text();
+})
+.then(text => {
+  textContentElement.textContent = text;
+})
+.catch(error => {
+  console.error(error);
 });
+
+  } else {
+      console.log("No se encontró el documento en Firestore.");
+  }
+}).catch((error) => {
+  console.error("Error al obtener el documento:", error);
+});
+
+
+console.log("url: ",textURL.URLt);
+

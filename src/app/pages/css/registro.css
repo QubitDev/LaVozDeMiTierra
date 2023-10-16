@@ -4,9 +4,9 @@
   height: 150px;
   width: 150px;
   position: absolute;
-  top: 60px; /* Ajusta la posición vertical según sea necesario */
-  left: 20px; /* Ajusta la posición horizontal según sea necesario */
-  z-index: 9999; /* Asegura que esté por encima de todo */
+  top: 60px; 
+  left: 20px; 
+  z-index: 9999; 
   display: inline-block;
   box-sizing: border-box;
   text-align: center;
@@ -45,10 +45,7 @@
 
 
 .greeting {
-  /*
-  height:  300px;
-  width: 300px;
-  */
+ 
   font-family: Arial, Helvetica, sans-serif;
   padding-right: 600px;
   padding-left: 250px;
@@ -95,20 +92,17 @@ a{
   width: 100%;
   height: 100%;
   background: linear-gradient(to top left, #43cea2, #185a9d);
-  /* background-image: url("./../../../assets/images/bolivia_img.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed; */
+
   position: fixed;
 }
 
 .container__form {
   position: fixed;
-  top: 150px;
-  left: 350px;
+  top: 130px;
+  left: 300px;
 
-  width: 1000px;
-  height: 500px;
+  width: 70%;
+  height: 70%;
 
   display: flex;
   flex-direction: column;
@@ -120,8 +114,8 @@ a{
   font-size: 16px;
   font-family: Arial, Helvetica, sans-serif;
 
-  padding: 20px;
-  margin: 20px auto;
+  padding: 10px;
+  margin: 10px auto;
   border-radius: 20px;
 }
 
@@ -144,6 +138,10 @@ form {
   flex-direction: row;
   justify-content: space-between;
 }
+
+/* #narrador{
+  margin-bottom: 30px;
+} */
 
 .container__input1,
 .container__input2 {
@@ -168,7 +166,16 @@ form {
 
 .form__control,
 .form-select {
+  /* width: 350px; */
   padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+.form__control__time{
+  padding: 5px;
+  height: 30px;
   border: 1px solid #ccc;
   border-radius: 5px;
   margin-bottom: 5px;
@@ -177,7 +184,6 @@ form {
 .form__label {
   font-weight: bold;
   margin-bottom: 5px;
-
   font-size: 16px;
 }
 
@@ -188,8 +194,11 @@ form {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+
+  margin: 5px;
   
-  margin: 7px;
+  margin: 20px 0;
+
 }
 
 .radio-group {
@@ -201,19 +210,6 @@ form {
   margin-right: 20px;
 }
 
-/* .form__submit {
-  background-color: #007bff;
-  color: #fff;
-  padding: 5px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.form__submit:hover {
-  background-color: #0056b3;
-} */
 
 .radio-group input[type="radio"] {
   margin-right: 10px;
@@ -222,10 +218,10 @@ form {
 .radio-group label {
   margin: 10px;
   border-radius: 5px;
+  /* display: inline-block; */
 }
 
 /* stilo de botones */
-
 .button-container {
   display: fixed;
   bottom: 20px;
@@ -238,12 +234,11 @@ form {
 .button__submit button,
 .button__cancel button {
   padding: 10px 20px;
-  /* margin: 20px; */
-
+  margin-right: 20px;
+  margin-bottom: 10px;
   font-size: 13px;
 
   background: linear-gradient(to top left, #01081d, #185a9d);
-  /* background-color: #01081d; */
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -252,8 +247,6 @@ form {
 
   width: 100px;
   height: 30px;
-
-  cursor: pointer;
   transition: background-color 0.3s;
 }
 
@@ -270,7 +263,7 @@ form {
   background: #ffffff8f;
   color: #070064dc;
   transform: translate(0, -3px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.445);
+  box-shadow: 0 6px 12px #00000071;
   z-index: 2;
 }
 
@@ -280,27 +273,27 @@ form {
   flex-direction: row;
   justify-content: space-between;
 }
-.container_file_left{
+
+.container_file_left, .container_file_rigth{
   flex: 1;
   display: flex;
   flex-direction: column;
+}
+.container_file_left{
   padding-left: 5px;
 }
 
 .container_file_rigth {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
   padding-left: 30px;
 }
 
 .file__chooser {
   display: flex;
-  align-items: center; 
+  align-items: start; 
 } 
 
 .container_file_left .file__chooser,.container_file_rigth .file__chooser {
-  justify-content: center;
+  justify-content: start;
   margin-top: 10px;
   margin-bottom: 20px;
 }
@@ -356,7 +349,6 @@ form {
 
   font-size: 13px;
   background: linear-gradient(to top left, #01081d, #185a9d);
-  /* background-color: #ffffff6e; */
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -371,11 +363,11 @@ form {
 }
 
 .button__verify:hover {
-  background-color: #0978c2b0;
+  background: #0978c2b0;
   color: #fff;
 }
 
 .button__ok:hover {
-  background-color: #e90000a6;
+  background: #e90000a6;
   color: #fff;
 }
