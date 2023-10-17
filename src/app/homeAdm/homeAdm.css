@@ -201,7 +201,12 @@ h2{
   margin-top: 0.5%;
   left: 2%;
 }
-#contenidoUno, #contenidoDos, #contenidoTres, #contenidoCuatro{
+#contenidoUno{
+  position: relative;
+  left: 10%; 
+  margin-top: -10px;  
+}
+#contenidoDos, #contenidoTres, #contenidoCuatro{
   position: relative;
   top: 2%;
   left: 10%;  
@@ -212,6 +217,7 @@ h2{
   left:70%;
   margin-top: 5%;
 }
+
 
 #campC1, #campC2, #campC3, #campC4{
   position: relative; 
