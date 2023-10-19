@@ -133,15 +133,15 @@ async function onSubmit(event) {
   const narrador = getValue("narrador");
   
   const duracion = durationField.textContent;
-  // const isUnique = await isTitleUnique(titulo);
+  const isUnique = await isTitleUnique(titulo);
 
   
   
-  // if(!isUnique){
-  //   onMessagePopup(`❌¡Error!\nEl título ya existe en la base de datos.`, 450);
-  //   overlay.style.display = 'none';
-  //   return
-  // }
+  if(!isUnique){
+    onMessagePopup(`❌¡Error!\nEl título ya existe en la base de datos.`, 450);
+    overlay.style.display = 'none';
+    return
+  }
 
   const typeAudioElements = document.getElementsByName("tipo_audio");
   let tipoAudio = false;
@@ -355,8 +355,8 @@ async function handleSubmit() {
   }
 }
 
-// // verificacion de documento con el mismo titulo
-// async function isTitleUnique(title){
-//   const querySnapshot = await db.collection('audio').where('titulo','==',title).get();
-//   return querySnapshot.empty;
-// }
+// verificacion de documento con el mismo titulo
+async function isTitleUnique(title){
+  const querySnapshot = await db.collection('audio').where('titulo','==',title).get();
+  return querySnapshot.empty;
+}
