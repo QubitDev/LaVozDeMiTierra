@@ -375,7 +375,7 @@ form {
 /* pantalla de carga */
 .overlay {
   display: none;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -391,8 +391,12 @@ form {
 }
 
 #loading {
+  position:absolute;
+  top: 45%;
+  left: 45%;
+  /* justify-content: center;
   align-items: center;
-  text-align: center;
+  text-align: center; */
   padding: 20px;
   border-radius: 5px;
 }
@@ -421,7 +425,7 @@ form {
 
 /* Animación de carga para los tres puntos */
 
-@keyframes loadingDots {
+/* @keyframes loadingDots {
   0%, 100% {
     content: "Cargando";
   }
@@ -434,5 +438,5 @@ form {
   75% {
     content: "Cargando.......";
   }
-}
+} */
 
