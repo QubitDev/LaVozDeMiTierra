@@ -11,10 +11,10 @@ const cargarDocumentos = (documentos) => {
         ultimoDoc = documentos[documentos.length - 1];
         primerDoc = documentos[0];
 
-        contenedorCards.innerHTML = '';
+        contenedorSearch.innerHTML = '';
 
         documentos.forEach(documento => {
-            contenedorCards.innerHTML += `
+            contenedorSearch.innerHTML += `
                 
             <div class="card">
                 <figure class="image"><img src="./../../../assets/images/CuentoDos.jpg" width="60px" height="70px"></figure>
