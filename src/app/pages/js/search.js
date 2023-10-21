@@ -11,8 +11,9 @@ db.collection('audio').onSnapshot((snapshot) => {
 searchInput.addEventListener('input', () => {
     const searchTerm = searchInput.value.trim();
     
-    // Verificar si el término de búsqueda contiene números o caracteres especiales
-    if (contieneCaracteresNoDeseados(searchTerm)) {
+    if (searchTerm === '') {
+        contenedorSearch.innerHTML = "";
+    } else if (contieneCaracteresNoDeseados(searchTerm)) {
         mostrarError("No se permiten números ni caracteres especiales en el término de búsqueda.");
         limpiarInput(searchInput);
     } else {
@@ -21,12 +22,10 @@ searchInput.addEventListener('input', () => {
             const titulo = documento.data().titulo.toLowerCase();
             const procedencia = documento.data().procedencia.toLowerCase();
             const narrador = documento.data().narrador.toLowerCase();
-            const duracion = documento.data().duracion.toLowerCase();
             return (
                 titulo.includes(searchTermLowerCase) ||
                 procedencia.includes(searchTermLowerCase) ||
-                narrador.includes(searchTermLowerCase) ||
-                duracion.includes(searchTermLowerCase)
+                narrador.includes(searchTermLowerCase)
             );
         });
         cargarDocumentos(filteredDocumentos);
@@ -53,7 +52,6 @@ const cargarDocumentos = (documentos) => {
 }
 
 function contieneCaracteresNoDeseados(texto) {
-    // Utiliza una expresión regular para verificar si el texto contiene números o caracteres especiales
     return /[\d~!@#$%\^&*+=\[\]\\';,/{}|\\":<>\?()\._]/.test(texto);
 }
 
@@ -63,4 +61,12 @@ function mostrarError(mensaje) {
 
 function limpiarInput(inputElement) {
     inputElement.value = '';
+    contenedorSearch.innerHTML = "";
 }
+
+
+
+
+
+
+
