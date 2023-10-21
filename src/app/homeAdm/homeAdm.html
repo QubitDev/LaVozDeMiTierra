@@ -7,6 +7,10 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"/>
         <link rel="stylesheet" href="homeAdm.css" />
         <title>Home de Administrador</title>
+        <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+        <!-- Firebase App (la biblioteca base) - es obligatorio siempre -->
+        <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
     </head>
     <body>   
         <div id="container">
@@ -20,14 +24,14 @@
             </header>
             <div id="menu">
                 <div class="content">
-                    <div class="menu__item" data-page="app">
-                        <i class="fas fa-home"></i>
-                        <a href="./../homeAdm/homeAdm.html">Inicio</a>
-                    </div>
-                    <div class="menu__item" data-page="registro">
-                        <i class="fa-solid fa-plus"></i>
-                        <a href="./../pages/html/registro.html">Registrar</a>
-                    </div>
+                 <div class="menu__item" data-page="app">
+                   <i class="fas fa-home"></i> 
+                   <a href="./../homeAdm/homeAdm.html">Inicio</a>
+                 </div>
+                 <div class="menu__item" data-page="registro">
+                   <i class="fa-solid fa-plus"></i>
+                   <a href="./../pages/html/registro.html">Registrar Audio</a>
+                 </div>
                 </div>
             </div>
         </div>
@@ -206,8 +210,9 @@
             <button class="boton" id="campc7">Confirmar</button> 
             <button class="boton" id="campc8">Confirmar</button> 
         </div>
-        <div id="all"></div> 
+        <div id="all"></div>
 
+        <script src="./../../api/configuracion.js"></script>
         <script src="homeAdm.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>

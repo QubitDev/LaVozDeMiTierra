@@ -52,3 +52,5 @@ db.collection("audio").doc(docId).get().then((doc) => {
 
 
 console.log("url: ",textURL.URLt);
+
+

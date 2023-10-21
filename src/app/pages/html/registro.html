@@ -41,7 +41,8 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
   </head>
   <body>
-    
+   
+
     <div class="container">
       <div class="profile-picture">
         <img
@@ -243,6 +244,14 @@
         <button class="button__ok" id="okButton" style="display: none;">OK</button>
       </div>
     </div>
+    
+    <div class="overlay" id="overlay" style="display: none;">
+      <div id="loading">
+        <div class="loader"></div>
+        <p class="loading-dots">Cargando</p>
+      </div>
+    </div>
+    
 
     <script src="./../../../api/configuracion.js"></script>
     <script src="./../js/registro.js"></script>
