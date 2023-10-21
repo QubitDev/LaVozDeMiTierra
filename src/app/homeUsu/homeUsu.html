@@ -2,6 +2,13 @@
 <html lang="es">
 
 <head>
+
+	<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+
 	<meta charset="UTF-8">
 	<meta name="viewport"
 		content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -12,41 +19,34 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" />
 	<title>cuento y leyenda</title>
-	<link rel="stylesheet" href="estilos.css">
+	<link rel="stylesheet" href="homeUsu.css">
 </head>
 
 <body>
-	<!-- main -->
+
 	<div class="container">
 		<div class="profile-picture">
-			<img src="https://i.ibb.co/JC8NQXL/2.jpg" alt="Imagen de perfil" class="logo" />
+			<img src="./../../assets/images/LogoLDMT.jpg" alt="logo" class="logo" />
 		</div>
 		<header class="header">
 			<div class="greeting">
 				<p>
-					<font size="3">Hola, Admin </font>
+					<font size="8">La Voz De Mi Tierra</font>
 				</p>
-				<p>
-					<font size="3">Bienvenido a la voz de mi Tierra</font>
-				</p>
-			</div>
-			<div class="user-indicator">
-				<span>Usuario</span>
-				<img src="mini-logo-activo.png" alt="Usuario activo" />
 			</div>
 		</header>
 
 		<div class="menu">
-			<div class="menu__item" data-page="app">
-				<i class="fas fa-home"></i> Inicio
+			<div class="content">
+				<div class="menu__item" data-page="app">
+					<i class="fas fa-home"></i> <a href="./../../homeAdm/homeAdm.html">Inicio</a>
+				</div>
+
 			</div>
-			
-			<div class="menu__item" data-page="registro">
-				<i class="fa-solid fa-plus"></i> Registrar
-			</div>
-			
 		</div>
 	</div>
+
+	<!-- main del home usuario -->
 
 	<div id="page-content"></div>
 	<!--   la argeta--->
@@ -57,75 +57,19 @@
 		</div>
 		<div class="container-card">
 
-			<div class="card">
-				<figure>
-					<img src="https://i.ibb.co/85zrDW7/1-Quirquincho-musico.jpg">
-				</figure>
-				<a href="#">
-					<button>
-						<span class="text">▷</span>
-					</button>
-				</a>
-				<div class="contenido-card">
-					<h3>El quirquincho músico</h3>
-					<p>Quirquincho que le gustaba la música. Iba en busca de poder aprender a cantar hasta que un dia
-						finalmente lo logro a cambio de su vida.</p>
+			<div class="card" id="card">
 
 
-				</div>
 			</div>
-			<!--   -->
-			<div class="card">
-				<figure>
-					<img src="https://i.ibb.co/9WK9vJz/2-condor-y-sapo.jpg">
-				</figure>
-				<a href="#">
-					<button>
-						<span class="text">▷</span>
-					</button>
-				</a>
-				<div class="contenido-card">
-					<h3>El Sapo y el Condor</h3>
-					<p>Un sapo trata de engañar al condor</p>
-
-				</div>
-			</div>
-			<!--   -->
-			<div class="card">
-				<figure>
-					<img src="https://i.ibb.co/Kr15dfH/3-zorro-y-cuy.jpg" alt="3-zorro-y-cuy">
-				</figure>
-				<a href="#">
-					<button>
-						<span class="text">▷</span>
-					</button>
-				</a>
-				<div class="contenido-card">
-					<h3>El Zorro y el Cuy</h3>
-					<p>Muestra a un zorro extremadamente ingenuo que cae fácilmente en los engaños de un cuy que logra
-						huir de su suerte.</p>
 
 
-				</div>
-			</div>
-			<!--   -->
-			<div class="card">
-				<figure>
-					<img src="https://i.ibb.co/4FVHmMv/4-abuelo-y-raton.jpg" alt="4-abuelo-y-raton">
-				</figure>
-				<a href="#">
-					<button>
-						<span class="text">▷</span>
-					</button>
-				</a>
-				<div class="contenido-card">
-					<h3>El abuelo y el Raton</h3>
-					<p>Un abuelo es engañado por un ratón, creyendo que el roedor iba a pagarle la entrega de toda su
-						mercancía.</p>
+			<nav class="paginacion">
+				<button type="button" class="boton" href="#" id="botonAnterior"><i
+						class="icono-izquierda fas fa-chevron-left"></i> Anterior</button>
+				<button type="button" class="boton" href="#" id="botonSiguiente">Siguiente <i
+						class="icono-derecha fas fa-chevron-right"></i></button>
+			</nav>
 
-
-				</div>
-			</div>
 		</div>
 		<!--Fin   Tarjetas-->
 
@@ -218,6 +162,13 @@
 
 
 	</div>
+
+
+
+
+	<script src="./../../api/configuracion.js"></script>
+	<script src="homeUsu.js"></script>
+
 </body>
 
 </html>
