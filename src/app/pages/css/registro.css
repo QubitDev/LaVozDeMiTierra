@@ -113,6 +113,7 @@ a{
   height: 100%;
   /* background: linear-gradient(to top left, #43cea2, #185a9d); */
   background: radial-gradient(ellipse at bottom, #647c74, #587a7c, #15242e,  #3a615e,#749e8a, #15242e 80%);
+
   background-size: 150% 150%;
   background-position: top center;
   color: #fff;

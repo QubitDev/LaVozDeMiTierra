@@ -1,4 +1,10 @@
+const contenedorSearch = document.getElementById("coincident__container");
 
+db.collection('audio').onSnapshot((snapshot) => {
+    //console.log(snapshot.docs[0].data());
+
+    cargarDocumentos(snapshot.docs);
+});
 
 const cargarDocumentos = (documentos) => {
     if (documentos.length > 0) {
@@ -8,24 +14,15 @@ const cargarDocumentos = (documentos) => {
         contenedorCards.innerHTML = '';
 
         documentos.forEach(documento => {
-            //iddoc1.doc1 = documento.data().id;
             contenedorCards.innerHTML += `
                 
-                <figure>
-					<img src="./../../assets/images/CuentoUno.jpg"
-						alt="La-leyenda-de-la-quinua-y-la-sal">
-				</figure>
-				
-					<button >
-						<span class="text">▷</span>
-					</button>
-				
-				<div class="contenido-card">
-					<h3>${documento.data().titulo}</h3>
-					<p>${documento.data().musica}</p>
-
-
-				</div>
+            <div class="card">
+                <figure class="image"><img src="./../../../assets/images/CuentoDos.jpg" width="60px" height="70px"></figure>
+                <p class="card__c" id="titulo">${documento.data().titulo}</p>
+                <p class="card__c" id="Cultura">${documento.data().procedencia}</p>
+                <p class="card__c" id="narrador">${documento.data().narrador}</p>
+                <p class="card__c" id="duracion">${documento.data().duracion}</p>
+            </div>
             `;
         });
     }
