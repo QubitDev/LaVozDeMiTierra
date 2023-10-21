@@ -161,7 +161,7 @@ function deleteCampc8(){
 }
 
 
-/*const urlParams = new URLSearchParams(window.location.search);
+const urlParams = new URLSearchParams(window.location.search);
 const docId = urlParams.get("doc");
 const docIdHome = urlParams.get("docHome");
 
@@ -193,7 +193,7 @@ db.collection("audio").doc(docId).get().then((doc) => {
   }
 }).catch((error) => {
   console.error("Error al obtener el documento:", error);
-});*/
+});
 
 
 

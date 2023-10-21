@@ -16,7 +16,7 @@
   font-family: Arial, Helvetica, sans-serif;
 
   width: 200px;
-  background: linear-gradient(to left bottom, #43cea2, #185a9d);
+  background: radial-gradient(#8ba9407e, #559697c9,#1b6768c9, #03292ac9,#000000);
   color: #fff;
   padding: 14px;
   position: fixed;
@@ -91,8 +91,8 @@ a{
 
   width: 100%;
   height: 100%;
-  background: linear-gradient(to top left, #43cea2, #185a9d);
-
+  background: radial-gradient(#8ba9407e, #559697c9,#1b6768c9, #03292ac9,#000000);
+  /*background: radial-gradient(circle, #7c8a59, #78784dc9, #375f5fc9, #315454c9, #305f5fc9, #194546c9, #0e3a3bc9, #03292ac9, #000 80%);*/
   position: fixed;
 }
 
@@ -109,7 +109,7 @@ a{
   justify-content: center;
 
   background-color: #ffffff2d;
-  color: #fff;
+  
 
   font-size: 16px;
   font-family: Arial, Helvetica, sans-serif;
@@ -185,6 +185,9 @@ form {
   font-weight: bold;
   margin-bottom: 5px;
   font-size: 16px;
+  color: #ffffff;
+  text-shadow: 0 0 5px rgb(3, 103, 53) ,0 0 5px red, 0 0 5px rgb(89, 0, 255);
+ /* text-shadow: 2px 2px 5px #4a0c0c;*/
 }
 
 
