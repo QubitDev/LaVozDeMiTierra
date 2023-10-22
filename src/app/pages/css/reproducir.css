@@ -93,10 +93,21 @@
     flex-direction: column;
     top:102px;
     left:200px;
-    width: 100%;
+    width: 65%;
     height: 100%;
-    
-
+}
+.caja2{
+    top: 102px;
+    left: 800px;
+    background: #43cea2; 
+    background: -webkit-linear-gradient(to right, #43cea2, #185a9d); 
+    background: linear-gradient(to right, #43cea2, #185a9d); 
+    position: fixed;
+    flex-direction: column;
+    top:102px;
+    left:200px;
+    width: 20%;
+    height: 100%;
 }
 .caja{
     display:flex;
