@@ -83,17 +83,29 @@
   }
   
 .play{
+    top: 102px;
+    left: 200px;
     background: #43cea2; 
     background: -webkit-linear-gradient(to right, #43cea2, #185a9d); 
     background: linear-gradient(to right, #43cea2, #185a9d); 
     position: fixed;
     flex-direction: column;
-    
-    width: 85%;
-    height: 86%;
-    margin-top: 6.5%;
-    margin-left: 14.5%;
-
+    top:102px;
+    left:200px;
+    width: 65%;
+    height: 100%;
+}
+.caja2{
+  float: right;
+  background: #43cea2; 
+  background: -webkit-linear-gradient(to right, #43cea2, #185a9d); 
+  background: linear-gradient(to right, #43cea2, #185a9d); 
+  position: fixed;
+  flex-direction: column;
+  top:102px;
+  left:77%;
+  width: 23%;
+  height: 100%;
 }
 .caja{
     display:flex;
