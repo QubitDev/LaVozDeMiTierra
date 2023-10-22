@@ -1,9 +1,115 @@
 
+/*Actualizamos el contenido de la base de datos*/
+const campc1 =document.getElementById('campoUno');
+const deleteCs = document.querySelectorAll(".deleteC");
+const boton1 = document.querySelector(".boton1");
 
+boton1.addEventListener("click", hideConfirma);
+
+
+db.collection('audio').onSnapshot((snapshot) => {
+    console.log(snapshot.docs[0].data());
+    cargarMaterial(snapshot.docs);
+    cargarMaterialDos(snapshot.docs);
+})
+
+const cargarMaterial = (documentos) => {
+    if (documentos.length > 0){
+        documentos.forEach(documento => {
+            if(documento.data().tipoAudio == "Cuento"){                
+                campc1.innerHTML += ` 
+                <div class="campC1" id="campC1">
+                    <div class="imageUno">
+                        <button class="reproducirUno">
+                            <img src="./../../assets/images/im.jpg" alt="Quechua"/>
+                        </button>
+                    </div>
+                    <div id="iconoUno">
+                        <button class="deleteC" onclick ="genConfirmar()">
+                             <i class="fas fa-trash-can fa"></i>
+                        </button>
+                    </div> 
+                    <div class="contenidoUno" id="contenidoUno">
+                        <h3 id="tituloAudio">${documento.data().titulo}<h3>
+                        <h3 id="procedencia">${documento.data().procedencia}<h3>
+                        <h3 id="narrador">${documento.data().narrador}<h3>
+                        <h3 id="musica_fondo">${documento.data().musica}</h3>
+                    </div> 
+                    
+                </div>
+                
+            `;
+             } 
+                      
+        });
+    }
+}
+const campc2 =document.getElementById('campoDos');
+
+const cargarMaterialDos = (documentosDos) => {
+    if (documentosDos.length > 0){
+        documentosDos.forEach(documento => {
+            if(documento.data().tipoAudio == "Leyenda"){
+                campc2.innerHTML += ` 
+                <div class="campL1" id="campL1">           
+                    <div class="imageUno">
+                        <button class="reproducirUno">
+                            <img src="./../../assets/images/im.jpg" alt="Quechua"/>
+                        </button>
+                    </div>
+                    <div id="iconoUno">
+                        <button class="deleteC" onclick ="genConfirmar()">
+                            <i class="fas fa-trash-can fa"></i>
+                        </button>
+                    </div> 
+                    <div class="contenidoUno" id="contenidoUno">
+                        <h3 id="tituloAudio">${documento.data().titulo}<h3>
+                        <h3 id="procedencia">${documento.data().procedencia}<h3>
+                        <h3 id="narrador">${documento.data().narrador}<h3>
+                        <h3 id="musica_fondo">${documento.data().musica}</h3>
+                    </div>
+                    
+                </div>
+                            
+            `;
+            }   
+         
+        });
+    }
+}
+
+deleteCs.addEventListener("click",remover(documento.key));
+
+function remover(KeyImagen){
+    bd.child(KeyImagen).remove();
+}
+function genConfirmar(){
+    document.getElementById('confirmacion').style.display = 'block'; 
+    document.getElementById('confirmacion').style.zIndex = '9999';
+    document.getElementById('all').style.display = 'block';
+    document.getElementById('all').style.background = 'linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0, 0.5))';
+}
+function confirmar1(){
+    genConfirmar();
+    for(let i = 1;i<=8;i++){
+        if(i != 1){
+            document.getElementById('campc'+(i)).style.display = 'none';
+        }else{
+            document.getElementById('campc'+(i)).style.display = 'block';
+        }
+    }  
+}
+function hideConfirma(){    
+    document.getElementById('confirmacion').style.display = 'none';
+    document.getElementById('all').style.display = 'none';    
+    document.getElementById('all').style.background = '';
+    returnBack();
+}
+/*
 const boton1 = document.querySelector(".boton1");
 boton1.addEventListener("click", hideConfirma);
 /**FALTA APLICAR PROCESO DE REFACTORING*/
-const botones = document.querySelectorAll(".boton");
+/*const botones = document.querySelectorAll(".boton");
 botones[0].addEventListener("click",deleteCampc1);
 botones[1].addEventListener("click",deleteCampc2);
 botones[2].addEventListener("click",deleteCampc3);
@@ -16,7 +122,7 @@ botones[7].addEventListener("click",deleteCampc8);
 
 const deleteCs = document.querySelectorAll(".deleteC");
 deleteCs[0].addEventListener("click",confirmar1);
-deleteCs[1].addEventListener("click",confirmar2);
+deleteCs[1].addEventListener("click",confirmar2);	
 deleteCs[2].addEventListener("click",confirmar3);
 deleteCs[3].addEventListener("click",confirmar4);
 deleteCs[4].addEventListener("click",confirmar6);
@@ -159,41 +265,7 @@ function deleteCampc8(){
     document.getElementById('campL4').style.display = 'none';
     hideConfirma();
 }
-
-
-const urlParams = new URLSearchParams(window.location.search);
-const docId = urlParams.get("doc");
-const docIdHome = urlParams.get("docHome");
-
-console.log("id:: ",docId);
-
-const tipo = document.getElementById("tipo__audio");
-const  titulo = document.getElementById("titulo__audio");
-const narradorAudio = document.getElementById("narrador");
-const musicaF = document.getElementById("musica");
-const audioElement = document.getElementById("audioE");
-
-db.collection("audio").doc(docId).get().then((doc) => {
-  if (doc.exists) {
-      const data = doc.data();
-      tipo.innerText = data.tipoAudio;
-      titulo.innerText = data.titulo;
-      narradorAudio.innerText = `Narrado por: ${data.narrador}`;
-      musicaF.innerText = `Música de Fondo: ${data.musica}`;
-      
-
-      textURL.URLt = data.textURL;
-      
-      console.log("url: ",textURL);
-      
-      audioElement.src = data.audioURL;
-
-  } else {
-      console.log("No se encontró el documento en Firestore.");
-  }
-}).catch((error) => {
-  console.error("Error al obtener el documento:", error);
-});
+*/
 
 
 
