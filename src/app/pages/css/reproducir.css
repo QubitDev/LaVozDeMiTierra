@@ -15,11 +15,11 @@
   .menu {
     font-family: Arial, Helvetica, sans-serif;
     width: 200px;
-    background: linear-gradient(to left bottom, #43cea2, #185a9d); 
-
-    /*background: linear-gradient(black, purple);
-    */
+    background: radial-gradient(ellipse at bottom right, #647c74, #587a7c, #15242e,  #3a615e,#749e8a 80%);
+    background-size: 150% 150%;
+    background-position: top center;
     color: #fff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
     padding: 14px;
     position: fixed;
     top: 102px;
@@ -36,8 +36,11 @@
     left: 0;
     right: 0;
     z-index: 999; /* Asegura que esté por delante de otros elementos */
-    background : linear-gradient(to top left, #43cea2, #185a9d); 
+    background: radial-gradient(ellipse at right top, #647c74, #587a7c,#15242e,  #3a615e,#749e8a 80%);
+    background-size: 150% 150%;
+    background-position: top center;
     color: #fff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
     padding: 10px 20px;
     display: flex;
     align-items: center;
@@ -67,7 +70,7 @@
   }
   
   .menu__item:hover {
-    background: linear-gradient(to top left, #01081d, #185a9d);
+    background: radial-gradient(ellipse at left top, #01081d, #011c38 80%);
   }
   
   /* Estilos para resaltar el elemento "Inicio" como activo (se puede usar una clase adicional para esto) */
@@ -85,9 +88,11 @@
 .play{
     top: 102px;
     left: 200px;
-    background: #43cea2; 
-    background: -webkit-linear-gradient(to right, #43cea2, #185a9d); 
-    background: linear-gradient(to right, #43cea2, #185a9d); 
+    background: radial-gradient(ellipse at bottom, #647c74, #587a7c, #15242e,  #3a615e,#749e8a, #15242e 80%);
+    background-size: 150% 150%;
+    background-position: top center;
+    color: #fff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856); 
     position: fixed;
     flex-direction: column;
     top:102px;
@@ -97,9 +102,11 @@
 }
 .caja2{
   float: right;
-  background: #43cea2; 
-  background: -webkit-linear-gradient(to right, #43cea2, #185a9d); 
-  background: linear-gradient(to right, #43cea2, #185a9d); 
+  background: radial-gradient(ellipse at bottom, #647c74, #587a7c, #15242e,  #3a615e,#749e8a, #15242e 80%);
+  background-size: 150% 150%;
+  background-position: top center;
+  color: #fff;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);  
   position: fixed;
   flex-direction: column;
   top:102px;
