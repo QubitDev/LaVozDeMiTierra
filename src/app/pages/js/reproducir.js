@@ -1,6 +1,7 @@
 const urlParams = new URLSearchParams(window.location.search);
 const docId = urlParams.get("doc");
 const docIdHome = urlParams.get("docHome");
+const contenedorCards = document.getElementById('card');
 
 console.log("id:: ",docId);
 
@@ -51,3 +52,41 @@ db.collection("audio").doc(docId).get().then((doc) => {
 
 console.log("url: ",textURL.URLt);
 
+const cargarDocumentos = (documentos) => {
+  if (documentos.length > 0) {
+      ultimoDoc = documentos[documentos.length - 1];
+      primerDoc = documentos[0];
+
+      contenedorCards.innerHTML = '';
+
+      documentos.forEach(documento => {
+          //iddoc1.doc1 = documento.data().id;
+          contenedorCards.innerHTML += `
+          <div class="carta" id="carta" onClick="enviar('${documento.id}')">
+              <figure>
+        <img src="./../../assets/images/CuentoUno.jpg"
+          alt="La-leyenda-de-la-quinua-y-la-sal">
+      </figure>
+      
+        <button >
+          <span class="text">▷</span>
+        </button>
+      
+      <div class="contenido-card">
+        <h3>${documento.data().titulo}</h3>
+        <p>${documento.data().musica}</p>
+
+      </div>
+
+              
+                </div>
+          </div>
+          `;
+      });
+  }
+}
+
+
+function enviar(doc) {
+  window.location.href = `./../pages/html/reproducir.html?doc=${doc}`;
+}
