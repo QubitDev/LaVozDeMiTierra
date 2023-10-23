@@ -10,7 +10,6 @@
   display: inline-block;
   box-sizing: border-box;
   box-shadow: 10px 10px 15px 5px black;
-
 }
 
 #all{  
@@ -27,7 +26,6 @@
 
 #confirmacion{
   padding-left: 50px;
-  color: #ffffff;
   height: 80px;
   width: 300px;
   font-size: 16;
@@ -36,10 +34,14 @@
   top: 50%; 
   left: 50%; 
   display: none;
-  background: linear-gradient(to left bottom, #43cea2, #185a9d);
+  background: radial-gradient(ellipse at right top, #647c74, #587a7c,#15242e,  #3a615e,#749e8a 80%);
+  background-size: 150% 150%;
+  background-position: top center;
+  color: #fff;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
   .texto{
     position: relative;
-    top: -10px;
+    top: 2px;
     left: 9%;
     margin-bottom: 10px;
   }
@@ -49,16 +51,14 @@
   }
   .boton{
     position: relative;
-    left: 61%;
-    top: -22px;
+    left: 45%;
+    top: 0px;
   }
 }
 
 #menu {  
   font-family: Arial, Helvetica, sans-serif;  
-  width: 200px;
-  background: linear-gradient(to left bottom, #43cea2, #185a9d);
-  color: #fff;
+  width: 200px;  
   padding: 14px;
   position: fixed;
   top: 102px;
@@ -67,6 +67,11 @@
   display: flex;
   flex-direction: column;
     /* justify-content: ; */
+  background: radial-gradient(ellipse at bottom right, #647c74, #587a7c, #15242e,  #3a615e,#749e8a 80%);
+  background-size: 150% 150%;
+  background-position: top center;
+  color: #fff;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
 }
 
 #header {
@@ -75,13 +80,16 @@
   left: 0;
   right: 0;
   z-index: 999; /* Asegura que esté por delante de otros elementos */
-  background: linear-gradient(to top left, #43cea2, #185a9d);
-  color: #ffffff;
   padding: 10px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   z-index: 9998;
+  background: radial-gradient(ellipse at right top, #647c74, #587a7c,#15242e,  #3a615e,#749e8a 80%);
+  background-size: 150% 150%;
+  background-position: top center;
+  color: #fff;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
 }
 
 .greeting {  
@@ -135,7 +143,6 @@ a{
 
 
 #contenedor{
-    background: linear-gradient(to left, #43cea2, #185a9d);
     padding: 14px;
     margin-left: 1%;
     position: fixed;
@@ -143,7 +150,12 @@ a{
     left: 208px;
     height: 100%;
     width: 100%;     
-    padding: 10px;    
+    padding: 10px; 
+    background: radial-gradient(ellipse at bottom, #647c74, #587a7c, #15242e,  #3a615e,#749e8a, #15242e 80%);
+    background-size: 150% 150%;
+    background-position: top center;
+    color: #fff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
 }  
 
 
@@ -191,55 +203,49 @@ h2{
   overflow-y: scroll;
 }
 
-.Object{
+.Object{   
   color: rgb(255, 255, 255);
   font-family: Arial, Helvetica, sans-serif;
   font-size: 13px;
+  
 }  
-.imageUno,.imageDos, .imageTres, .imageCuatro{
-  position: relative;
-  margin-top: 0.5%;
+.imageUno{
+  position: relative;  
   left: 2%;
+  top: 20px;
 }
-#contenidoUno, #contenidoDos, #contenidoTres, #contenidoCuatro{
+
+#contenidoUno{
   position: relative;
   top: 2%;
-  left: 10%;  
+  left: 10%;
+  margin-top: 5px;
+
+}
+h3{
+  position: relative;
+  margin-top: 5px;
 }
 
-#iconoUno, #iconoDos, #iconoTres, #iconoCuatro{
+#iconoUno{
   position: relative;
   left:70%;
+  top: 20px;
   margin-top: 5%;
+  
+}
+#campC1{
+  position: relative; 
+  width: 693px;
+  height: 100px;
+  display: flex;
+  margin-top: 40px;
 }
 
-#campC1, #campC2, #campC3, #campC4{
+#campL1{
   position: relative; 
   width: 693px;
   height: 100px;
   display: flex;
-}
-#campC2{  
-  top: 20px;
-}
-#campC3{  
-  top: 40px;
-}
-#campC4{  
-  top: 60px;
-}
-#campL1, #campL2, #campL3, #campL4{
-  position: relative; 
-  width: 693px;
-  height: 100px;
-  display: flex;
-}
-#campL2{  
-  top: 20px;
-}
-#campL3{  
-  top: 40px;
-}
-#campL4{  
-  top: 60px;
+  margin-top: 40px;
 }
