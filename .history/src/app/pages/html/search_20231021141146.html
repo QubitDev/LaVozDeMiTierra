@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link
+    rel="icon"
+    type="image/x-icon"
+    href="./../../../assets/images/LogoLDMT.ico"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
+  />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet"
+  />
+  <!-- body links -->
+  <link rel="stylesheet" href="./../css/search.css" />
+  <title>Home Usuario</title>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="profile-picture">
+          <img
+            src="./../../../assets/images/LogoLDMT.jpg"
+            alt="logo"
+            class="logo"
+          />
+        </div>
+        <header class="header">
+          <div class="greeting">
+            <p><font size="8">La Voz De Mi Tierra</font></p>
+          </div>
+        </header>
+  
+        <div class="menu">
+         <div class="content">
+          <div class="menu__item" data-page="registro">
+            <i class="fa-solid fa-magnifying-glass"></i> <a href="./../html/search.html">Buscar</a>
+          </div>
+         </div>
+        </div>
+      </div>
+  
+    <div class="container__search">
+
+        <div class="search__content">
+            <input type="search" class="search" id="search"/>
+            <button class="search__button" id="search__button"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+        <div class="popup__cards">
+          
+        </div>
+        <div class="header__cards">
+          <p class="header__c"></p>
+          <p class="header__c">Titulo:</p>
+          <p class="header__c">Procedencia Cultural:</p>
+          <p class="header__c">Narrado por:</p>
+          <p class="header__c">duracion:</p>
+        </div>
+
+        <div class="coincident__container">
+            <div class="card">
+              <figure ><img src="./../../../assets/images/CuentoDos.jpg" width="60px" height="70px"></figure>
+              <p class="header__c" id="titulo">Titulo</p>
+              <p class="header__c" id="Cultura">Procedencia Cultural</p>
+              <p class="header__c" id="narrador">Narrado por</p>
+              <p class="header__c" id="duracion">duracion</p>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

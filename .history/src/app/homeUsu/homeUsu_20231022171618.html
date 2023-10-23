@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+	<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="icon" type="image/x-icon" href="./../../assets/images/LogoLDMT.ico" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" />
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" />
+	<title>cuento y leyenda</title>
+	<link rel="stylesheet" href="homeUsu.css">
+</head>
+
+<body>
+
+	<div class="container">
+		<div class="profile-picture">
+			<img src="./../../assets/images/LogoLDMT.jpg" alt="logo" class="logo" />
+		</div>
+		<header class="header">
+			<div class="greeting">
+				<p>
+					<font size="8">La Voz De Mi Tierra</font>
+				</p>
+			</div>
+		</header>
+
+		<div class="menu">
+			<div class="content">
+				<div class="menu__item" data-page="app">
+					<i class="fas fa-home"></i> <a href="home.html">Inicio</a>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<!-- main del home usuario -->
+
+	<div id="page-content"></div>
+	<!--   la argeta--->
+	<div class="contenedor_todo">
+		<!--   Tarjetas-->
+		<div class="title-cards">
+			<h2 class="subTituloCard">Cuentos</h2>
+		</div>
+		<div class="container-card">
+			<div class="card" id="card">
+
+			</div>
+			<nav class="paginacion">
+				<button type="button" class="boton" href="#" id="botonAnterior"><i
+						class="icono-izquierda fas fa-chevron-left"></i> Anterior</button>
+				<button type="button" class="boton" href="#" id="botonSiguiente">Siguiente <i
+						class="icono-derecha fas fa-chevron-right"></i></button>
+			</nav>
+		</div>
+
+		<!--Fin   Tarjetas-->
+
+
+		<!--   Tarjetas-->
+		<div class="title-cards">
+			<h2 class="subTituloCard">Leyendas</h2>
+		</div>
+		<div class="container-card">
+
+			<div class="card">
+				<figure>
+					<img src="https://i.ibb.co/VBLzYHK/La-leyenda-de-la-quinua-y-la-sal.jpg"
+						alt="La-leyenda-de-la-quinua-y-la-sal">
+				</figure>
+				<a href="#">
+					<button>
+						<span class="text">▷</span>
+					</button>
+				</a>
+				<div class="contenido-card">
+					<h3>La leyenda de la quinua y la sal</h3>
+					<p>En el pueblo de Qullqi Chata los vivos convivían con sus ancestros, las Chullpas. Los cuales
+						trabajaban, en las noches recuperaban sus fuerzas comiendo quinua pero sin sal.</p>
+
+
+				</div>
+			</div>
+			<!--   -->
+			<div class="card">
+				<figure>
+					<img src="https://i.ibb.co/BcwKDxt/Leyenda-de-la-yuca.jpg" alt="Leyenda-de-la-yuca">
+				</figure>
+				<a href="#">
+					<button>
+						<span class="text">▷</span>
+					</button>
+				</a>
+				<div class="contenido-card">
+					<h3>Leyenda de la yuca</h3>
+					<p>Nace una niña blanca entre los guarani llamada Mani que no podía salir a cocechar por su delicada
+						piel. Pidiendo a Tupa ser mas útil recibió instrucciones precisas logrando formar parte de la
+						tierra convirtiéndose en una planta.</p>
+
+
+				</div>
+			</div>
+			<!--   -->
+			<div class="card">
+				<figure>
+					<img src="https://i.ibb.co/3hSPLSf/La-Leyenda-del-Toborochi.jpg" alt="La-Leyenda-del-Toborochi">
+				</figure>
+				<a href="#">
+					<button>
+						<span class="text">▷</span>
+					</button>
+				</a>
+				<div class="contenido-card">
+					<h3>La Leyenda del Toborochi</h3>
+					<p>Hace muchos años atrás Araberá, se había casado con el dios Colibrí; esperaban a su primer hijo.
+						Los Añas de la oscuridad querian acabar con Arabera antes de que nazca el niño. Pero el árbol
+						Toborochi se ofreció para protegerla ocultándola en su interior.</p>
+
+				</div>
+			</div>
+			<!--   -->
+			<div class="card">
+
+				<figure>
+					<img src="https://i.ibb.co/mh5XJsx/el-ori-de-guajojo.jpg" alt="el-ori-de-guajojo">
+				</figure>
+
+				<a href="#">
+					<button>
+						<span class="text">▷</span>
+					</button>
+				</a>
+
+				<div class="contenido-card">
+					<h3>El origen del guajojó </h3>
+					<p>La hija del cacique de la tribu Chiquitania se enamora de un joven con un estatus menor al de
+						ella. El Cacique no aprueba este amor dejando que un hechicero convirtiera a su hija en un
+						guajojo</p>
+
+
+				</div>
+			</div>
+		</div>
+		<!--Fin   Tarjetas-->
+
+
+	</div>
+
+
+
+
+	<script src="./../../api/configuracion.js"></script>
+	<script src="homeUsu.js"></script>
+
+</body>
+
+</html>
