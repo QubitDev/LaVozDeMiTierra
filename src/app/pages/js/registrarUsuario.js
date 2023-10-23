@@ -1,4 +1,4 @@
-document.getElementById("registroForm").addEventListener("submit", (e) => {
+document.getElementById("registration-form").addEventListener("submit", (e) => {
     e.preventDefault();
 });
 const validationRules = {
@@ -36,6 +36,7 @@ const validationRules = {
       errorMessage: "El campo número de celular debe tener hasta 8 caracteres numéricos.",
     },
     contrasena: {
+      minLength: 8,
       maxLength: 32,
       pattern: /^[A-Za-z0-9]+$/,
       errorElementId: "contrasenaError",
@@ -47,13 +48,13 @@ const validationRules = {
     },
   };
 function registrarUsuario() {
-    const nombre = document.getElementById("nombre").value;
-    const apellido = document.getElementById("apellido").value;
-    const correoElectronico = document.getElementById("correoElectronico").value;
-    const nombreDeUsuario = document.getElementById("nombreDeUsuario").value;
-    const contrasena = document.getElementById("contrasena").value;
-    const repitaContrasena = document.getElementById("repitaContrasena").value;
-    const numeroCelular = document.getElementById("numeroCelular").value;
+    const nombre = document.getElementById("name").value;
+    const apellido = document.getElementById("lastName").value;
+    const correoElectronico = document.getElementById("email").value;
+    const nombreDeUsuario = document.getElementById("userName").value;
+    const contrasena = document.getElementById("password").value;
+    const repitaContrasena = document.getElementById("passwordRepeat").value;
+    const numeroCelular = document.getElementById("phone").value;
   
     // Validación: Nombre de usuario repetido
     db.collection("users");
