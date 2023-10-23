@@ -19,6 +19,11 @@ db.collection('audio').onSnapshot((snapshot) => {
 var cityRef = db.collection('audio').doc('BJ');
 
 // Remove the 'capital' field from the document
+function remover(){
+    FieldValue.delete();
+    bd.child(KeyImagen).remove();
+    hideConfirma();
+}
 var removeCapital = cityRef.update({
     capital: firebase.firestore.FieldValue.delete()
 });
@@ -102,11 +107,7 @@ const cargarMaterialDos = (documentosDos) => {
 }
 
 
-function remover(){
-    FieldValue.delete();
-    bd.child(KeyImagen).remove();
-    hideConfirma();
-}
+
 function genConfirmar(){
     document.getElementById('confirmacion').style.display = 'block'; 
     document.getElementById('confirmacion').style.zIndex = '9999';
