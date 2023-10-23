@@ -316,7 +316,7 @@ button:active {
 }
 
   /*--------------------------------------------------------------------------------------------------------------*/
-  .container__search {
+.container__search {
     display: none;
     /* display: absolute; */
     position: fixed;
@@ -446,12 +446,22 @@ button:active {
 
 }
 
-.header__c,.card__c {
-  flex-basis: 20%;
+.header__c{
+  flex-basis: 30%;
   margin: 0;
   display: flex; 
   flex-direction: column; 
   align-items: center; 
+   /* margin-left: 100px;  */
+}
+
+.card__c {
+  flex-basis: 30%;
+  margin: 0;
+  display: flex; 
+  flex-direction: row; 
+  align-items: center; 
+  margin-left: 120px;
 }
 
 .card__c{
@@ -498,3 +508,6 @@ button:active {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.resaltado {
+  background-color: #00aff579; 
+}
