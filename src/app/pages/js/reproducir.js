@@ -1,5 +1,3 @@
-
-
 const urlParams = new URLSearchParams(window.location.search);
 const docId = urlParams.get("doc");
 const docIdHome = urlParams.get("docHome");
@@ -52,5 +50,4 @@ db.collection("audio").doc(docId).get().then((doc) => {
 
 
 console.log("url: ",textURL.URLt);
-
 
