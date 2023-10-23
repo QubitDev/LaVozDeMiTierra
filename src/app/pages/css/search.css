@@ -243,11 +243,10 @@ a{
   text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.856);
 }
 
-.card {
+.card__s {
   width: 97.5%;
   max-width: 99%;
   margin-bottom: 5px;
-  /* background-color: #27222294; */
 
   background: radial-gradient(ellipse at left top, #01081d, #011c38 80%);
 
@@ -276,7 +275,7 @@ a{
   justify-content: center;
   align-items: center;
   height: 100%;
-
+  color: #ffffff;
   font-size: 16px;
   font-family: Arial, Helvetica, sans-serif;
 }

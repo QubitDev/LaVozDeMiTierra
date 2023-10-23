@@ -82,7 +82,6 @@
 
 .menu__item:hover {
 	background: linear-gradient(to top left, #01081d, #185a9d);
-	/* background-color:#01081d; */
 }
 
 /* Estilos para resaltar el elemento "Inicio" como activo (se puede usar una clase adicional para esto) */
@@ -316,25 +315,24 @@ button:active {
 	padding: 5em 0;
 }
 
-
-
-  /*------------------------------------------------------search--------------------------------------------------------*/
+  /*--------------------------------------------------------------------------------------------------------------*/
   .container__search {
     display: none;
     /* display: absolute; */
     position: fixed;
 
-    top: 17%;
-    left: 13%;
-    width: 90%;
-    height: 75%;
+    top: 13%;
+    left: 14%;
+    width: 83%;
+    height: 80%;
     
     display: flex;
     flex-direction: column;
     gap: 10px;
     justify-content: center;
+    background-color: #0000007a;
 
-    background: radial-gradient(ellipse at bottom right, #647c74, #587a7c, #15242e,  #3a615e,#749e8a 80%);
+    /* background: radial-gradient(ellipse at bottom right, #647c74, #587a7c, #15242e,  #3a615e,#749e8a 80%); */
     background-size: 150% 150%;
     background-position: top center;
     
@@ -348,9 +346,19 @@ button:active {
   max-height: 100%; /* Ajusta la altura deseada */
 }
 
-#searchButton{
-  text-align: center;
+.searchButton{
+	padding: 18px;
+	cursor: pointer;
+	border-radius: 10px;
+	transition: background-color 0.3s;
+  	text-align: center;
 }
+
+
+.searchButton:hover {
+	background: linear-gradient(to top left, #01081d, #185a9d);
+}
+
 
 .container__search .header__c{
   color: #fff;
@@ -453,11 +461,10 @@ button:active {
   text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.856);
 }
 
-.card {
+.card__s {
   width: 97.5%;
   max-width: 99%;
   margin-bottom: 5px;
-  /* background-color: #27222294; */
 
   background: radial-gradient(ellipse at left top, #01081d, #011c38 80%);
 
@@ -486,7 +493,9 @@ button:active {
   justify-content: center;
   align-items: center;
   height: 100%;
-
-  font-size: 16px;
+  color: #ffffff;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.856);
+  font-size: 24px;
   font-family: Arial, Helvetica, sans-serif;
 }
+

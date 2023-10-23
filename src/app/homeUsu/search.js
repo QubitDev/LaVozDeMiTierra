@@ -3,7 +3,7 @@ const contenedorSearch = document.getElementById("coincident__container");
 const searchInput = document.getElementById("search");
 let isContainerVisible = false;
 
-let documentos = []; // Almacena todos los 
+let documentos = [];
 
 db.collection('audio').onSnapshot((snapshot) => {
     documentos = snapshot.docs;
@@ -32,17 +32,48 @@ searchInput.addEventListener('input', () => {
                 narrador.includes(searchTermLowerCase)
             );
         });
-        cargarDocumentos(filteredDocumentos);
+        cargarDocumentosSearch(filteredDocumentos);
     }
 });
 
-const cargarDocumentos = (documentos) => {
+// db.collection('audio').onSnapshot((snapshot) => {
+//     documentos = snapshot.docs;
+// });
+
+
+// searchInput.addEventListener('input', () => {
+//     const searchTerm = searchInput.value.trim();
+    
+//     if (searchTerm === '') {
+//         contenedorSearch.innerHTML = "";
+//     } else if (contieneCaracteresNoDeseados(searchTerm)) {
+//         contenedorSearch.innerHTML = `<div class="mensaje-error">
+//             <p>No se permiten números ni caracteres especiales en el término de búsqueda.</p> 
+//         </div>`;
+//         limpiarInput(searchInput);
+//     } else {
+//         const searchTermLowerCase = searchTerm.toLowerCase();
+//         const filteredDocumentos = documentos.filter(documento => {
+//             const titulo = documento.data().titulo.toLowerCase();
+//             const procedencia = documento.data().procedencia.toLowerCase();
+//             const narrador = documento.data().narrador.toLowerCase();
+//             return (
+//                 titulo.includes(searchTermLowerCase) ||
+//                 procedencia.includes(searchTermLowerCase) ||
+//                 narrador.includes(searchTermLowerCase)
+//             );
+//         });
+//         cargarDocumentosSearch(filteredDocumentos);
+//     }
+// });
+
+const cargarDocumentosSearch = (documentos) => {
     if (documentos.length > 0) {
         contenedorSearch.innerHTML = '';
         documentos.forEach(documento => {
             contenedorSearch.innerHTML += `
-                <div class="card" id="card" onClick="enviar('${documento.id}')">
-                    <figure class="image"><img src="./../../../assets/images/CuentoDos.jpg" width="60px" height="70px"></figure>
+                <div class="card__s" id="card__s" onClick="enviarDeSearch('${documento.id}')">
+                    <figure class="image"><img src="./../../assets/images/CuentoUno.jpg" width="60px" height="70px"></figure>
                     <p class="card__c" id="titulo">${documento.data().titulo}</p>
                     <p class="card__c" id="Cultura">${documento.data().procedencia}</p>
                     <p class="card__c" id="narrador">${documento.data().narrador}</p>
@@ -66,26 +97,11 @@ function limpiarInput(inputElement) {
     inputElement.value = '';
 }
 
-function enviar(id){
-    window.location.href=`./../html/reproducir.html?doc=${id}`;   
+function enviarDeSearch(id){
+    window.location.href=`./../pages/html/reproducir.html?doc=${id}`;   
     inputElement.value = '';
     contenedorSearch.innerHTML = "";
 }
-
-
-
-
-// function mostrarBuscar() {
-//     console.log("Clic en Buscar");
-//   if (isContainerVisible) {
-//     // Ocultar el contenedor con un efecto de deslizamiento hacia arriba
-//     container_search.style.transform = 'translateY(-100%)';
-//   } else {
-//     // Mostrar el contenedor con un efecto de deslizamiento hacia abajo
-//     container_search.style.transform = 'translateY(0)';
-//   }
-//   isContainerVisible = !isContainerVisible;
-// }
 
 
 function mostrarBuscar() {
@@ -95,6 +111,7 @@ function mostrarBuscar() {
     if (isContainerVisible) {
         // Ocultar el contenedor con un efecto de cortina hacia arriba
         container_search.classList.remove('show-container');
+        limpiarInput(searchInput);
     } else {
         // Mostrar el contenedor con un efecto de cortina hacia abajo
         container_search.classList.add('show-container');
