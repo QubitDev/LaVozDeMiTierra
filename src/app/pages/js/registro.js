@@ -277,8 +277,6 @@ function validateInput(inputElement) {
     inputElement.value = '';
     return;
   }
-
-
 }
 
 

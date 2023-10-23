@@ -1,6 +1,7 @@
 
 const contenedorSearch = document.getElementById("coincident__container");
 const searchInput = document.getElementById("search");
+let isContainerVisible = false;
 
 let documentos = []; // Almacena todos los 
 
@@ -15,7 +16,9 @@ searchInput.addEventListener('input', () => {
     if (searchTerm === '') {
         contenedorSearch.innerHTML = "";
     } else if (contieneCaracteresNoDeseados(searchTerm)) {
-        mostrarError("No se permiten números ni caracteres especiales en el término de búsqueda.");
+        contenedorSearch.innerHTML = `<div class="mensaje-error">
+            <p>No se permiten números ni caracteres especiales en el término de búsqueda.</p> 
+        </div>`;
         limpiarInput(searchInput);
     } else {
         const searchTermLowerCase = searchTerm.toLowerCase();
@@ -49,7 +52,9 @@ const cargarDocumentos = (documentos) => {
         });
         
     } else {
-        contenedorSearch.innerHTML = 'No se encontraron resultados.';
+        contenedorSearch.innerHTML =  `<div class="mensaje-error">
+            <p> No se encontraron resultados.</p> 
+        </div>`;
     }
 }
 
@@ -57,20 +62,9 @@ function contieneCaracteresNoDeseados(texto) {
     return /[\d~!@#$%\^&*+-=\[\]\\'´``;,/{}|\\":<>\?()\._]/.test(texto);
 }
 
-function mostrarError(mensaje) {
-    contenedorSearch.innerHTML = `<div class="error">${mensaje}</div>`;
-    // contenedorSearch.style.display="flex";
-    // contenedorSearch.style.justifyContent="center";
-    // contenedorSearch.style.alignItems="center";
-
-}
-
 function limpiarInput(inputElement) {
     inputElement.value = '';
-    contenedorSearch.innerHTML = "";
 }
-
-
 
 function enviar(id){
     window.location.href=`./../html/reproducir.html?doc=${id}`;   
@@ -79,3 +73,31 @@ function enviar(id){
 }
 
 
+
+
+// function mostrarBuscar() {
+//     console.log("Clic en Buscar");
+//   if (isContainerVisible) {
+//     // Ocultar el contenedor con un efecto de deslizamiento hacia arriba
+//     container_search.style.transform = 'translateY(-100%)';
+//   } else {
+//     // Mostrar el contenedor con un efecto de deslizamiento hacia abajo
+//     container_search.style.transform = 'translateY(0)';
+//   }
+//   isContainerVisible = !isContainerVisible;
+// }
+
+
+function mostrarBuscar() {
+    console.log("Clic en Buscar");
+    const container_search = document.querySelector('.container__search');
+
+    if (isContainerVisible) {
+        // Ocultar el contenedor con un efecto de cortina hacia arriba
+        container_search.classList.remove('show-container');
+    } else {
+        // Mostrar el contenedor con un efecto de cortina hacia abajo
+        container_search.classList.add('show-container');
+    }
+    isContainerVisible = !isContainerVisible;
+}
