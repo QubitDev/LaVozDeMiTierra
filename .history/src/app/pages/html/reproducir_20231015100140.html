@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./../css/reproducir.css" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="./../../assets/images/LogoLDMT.ico"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
+    />
+    <title>Reproduccion</title>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <!-- Firebase App (la biblioteca base) - es obligatorio siempre -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
+</head>
+<body>  
+  <!-- main -->
+  <div class="container">
+    <div class="profile-picture">
+      <img
+        src="./../../../assets/images/LogoLDMT.jpg"
+        alt="Imagen de perfil"
+        class="logo"
+      />
+    </div>
+    <header class="header">
+      <div class="greeting">
+        
+        <p><font size="8">La voz de mi Tierra</font></p>
+  
+    </header>
+
+    <div class="menu">
+      <div class="content">
+        <div class="menu__item" data-page="app">
+          <i class="fas fa-home"></i> <a href="http://localhost/LaVozDeMiTierra/src/app/homeAdm/homeAdm.html">Inicio</a>
+        </div>
+    </div>
+  </div>
+
+  <div id="page-content" style="display: none;"></div>
+  <div class="content-data">
+    <p id="id-doc"></p>
+  </div>
+
+  
+  <!-- reproducir -->
+    <div class = "play">
+        <div class = "caja">
+          <div class = "imagen">
+            <img src="./../../../assets/images/im.jpg" alt="" height="171px" width="153px" >
+          </div>
+          <div class = "descripcion">
+            <h2 id="tipo__audio"></h2>
+            <h3 id="titulo__audio"></h3>
+            <h4 id="narrador"></h4> 
+            <h4 id="musicaFondo"></h4>
+          </div>      
+        </div>
+        <div class="contenedor">
+            <p>Texto</p>
+        </div>
+        <div class="audio" id="audioPlayer"  >
+          <audio controls = "controls" loop="loop" id="audio">
+            <source src = "" type="audio/mp3">
+            tu navegador no es compatible
+          </audio>
+        </div>
+      </div>
+    <script src="./../../../api/configuracion.js"></script>
+    <script src="./../js/reproducir.js"></script>
+    
+</body>
+</html>

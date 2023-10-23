@@ -8,6 +8,7 @@
       rel="icon"
       type="image/x-icon"
       href="./../../../assets/images/LogoLDMT.ico"
+      href="./../../../assets/images/LogoLDMT.ico"
     />
     <link
       rel="stylesheet"
@@ -27,6 +28,13 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
     />
     <title>Reproduccion</title>
+
+    <!-- Firebase App (la biblioteca base) - es obligatorio siempre -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <!-- Firebase Storage -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
+
 
     <!-- Firebase App (la biblioteca base) - es obligatorio siempre -->
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
@@ -56,10 +64,15 @@
       <div class="content">
         <div class="menu__item" data-page="app">
           <i class="fas fa-home"></i> <a href="./../../homeAdm/homeAdm.html">Inicio</a>
+          <i class="fas fa-home"></i> <a href="./../../homeAdm/homeAdm.html">Inicio</a>
         </div>
     </div>
   </div>
 
+  <div id="page-content" style="display: none;"></div>
+  <div class="content-data">
+    <p id="id-doc"></p>
+  </div>
   <div id="page-content" style="display: none;"></div>
   <div class="content-data">
     <p id="id-doc"></p>
@@ -77,11 +90,19 @@
             <h3 id="titulo__audio"></h3>
             <h4 id="narrador"></h4> 
             <h4 id="musica"></h4>
+            <h2 id="tipo__audio"></h2>
+            <h3 id="titulo__audio"></h3>
+            <h4 id="narrador"></h4> 
+            <h4 id="musica"></h4>
           </div>      
         </div>
         <div class="contenedor">
             <p id="text_content"></p>
+            <p id="text_content"></p>
         </div>
+        <div class="audio" id="audioPlayer"  >
+          <audio controls = "controls" loop="loop" id="audioE">
+            <source type="audio/mp3">
         <div class="audio" id="audioPlayer"  >
           <audio controls = "controls" loop="loop" id="audioE">
             <source type="audio/mp3">
