@@ -16,28 +16,21 @@ db.collection('audio').onSnapshot((snapshot) => {
 })
 
 
-var cityRef = db.collection('audio').doc('BJ');
 
 // Remove the 'capital' field from the document
 function remover(){
-    FieldValue.delete();
-    bd.child(KeyImagen).remove();
     hideConfirma();
+    db.collection('audio')[0].data().FieldValue.delete();    
+    
 }
-var removeCapital = cityRef.update({
-    capital: firebase.firestore.FieldValue.delete()
-});
+
 
 const cargarEliminar = (documentos) => {
     if (documentos.length > 0){ 
         eliminacion.innerHTML +=`
         <button class="boton1" id="boton1" onclick ="hideConfirma()">Cancelar</button>
-
-        `
-        for(let i = 0; i<documentos.length;i++){
-            eliminacion.innerHTML +=`
-        <button class="boton" id="campc1" onclick ="hideConfirma()" data-id= "${documentos[i].id}">Confirmar</button>  `
-        }   
+        <button class="boton" id="campc1" onclick ="remover()">Confirmar</button>
+        `     
     }
 }
 const cargarMaterial = (documentos) => {
@@ -47,7 +40,7 @@ const cargarMaterial = (documentos) => {
                 campc1.innerHTML += ` 
                 <div class="campC1" id="campC1">
                     <div class="imageUno">
-                        <button class="reproducirUno">
+                        <button class="reproducirUno" onclick ="enviar('${documento.id}')">
                             <img src="./../../assets/images/im.jpg" alt="Quechua"/>
                         </button>
                     </div>
@@ -81,7 +74,7 @@ const cargarMaterialDos = (documentosDos) => {
                 campc2.innerHTML += ` 
                 <div class="campL1" id="campL1">           
                     <div class="imageUno">
-                        <button class="reproducirUno">
+                        <button class="reproducirUno" onclick ="enviar('${documento.id}')">
                             <img src="./../../assets/images/im.jpg" alt="Quechua"/>
                         </button>
                     </div>
@@ -119,4 +112,7 @@ function hideConfirma(){
     document.getElementById('confirmacion').style.display = 'none';
     document.getElementById('all').style.display = 'none';    
     document.getElementById('all').style.background = '';
+}
+function enviar(doc) {
+    window.location.href = `./../pages/html/reproducir.html?doc=${doc}`;
 }
