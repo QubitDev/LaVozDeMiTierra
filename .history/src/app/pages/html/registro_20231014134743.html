@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- header links -->
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="./../../../assets/images/LogoLDMT.ico"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!-- body links -->
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="../assets/imageFolder/LogoLDMT.ico"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="./../css/registro.css" />
+    <title>Registrar Audio</title>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <!-- Firebase App (la biblioteca base) - es obligatorio siempre -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
+  </head>
+  <body>
+    
+    <div class="container">
+      <div class="profile-picture">
+        <img
+          src="./../../../assets/images/LogoLDMT.jpg"
+          alt="logo"
+          class="logo"
+        />
+      </div>
+      <header class="header">
+        <div class="greeting">
+          <p><font size="8">La Voz De Mi Tierra</font></p>
+        </div>
+      </header>
+
+      <div class="menu">
+       <div class="content">
+        <div class="menu__item" data-page="app">
+          <i class="fas fa-home"></i> <a href="http://localhost/LaVozDeMiTierra/src/app/homeAdm/homeAdm.html">Inicio</a>
+        </div>
+        <div class="menu__item" data-page="registro">
+          <i class="fa-solid fa-plus"></i> <a href="http://localhost/LaVozDeMiTierra/src/app/pages/html/registro.html">Registrar Audio</a>
+        </div>
+       </div>
+      </div>
+    </div>
+
+    <!-- -----------------------------------------------------Main------------------------------------------------------- -->
+    <div class="container__body">
+      <div class="container__form">
+        <h2>Registro de nuevo audio</h2>
+        <form id="audio__form">
+          <div class="container-inputs">
+            <div class="container__input1">
+              <label for="titulo_audio" class="form__label">Título Del Audio:</label>
+              <input
+                type="text"
+                class="form__control"
+                id="titulo_audio"
+                required
+                maxlength="70"
+                placeholder="Título de audio"
+                oninput="validateInput(this)"
+              />
+              <div class="menssage__error">
+                <p class="error-message" id="error_titulo_audio"></p>
+              </div>
+              
+              <label for="musica_fondo" class="form__label">Música De Fondo:</label>
+              <input
+                type="text"
+                class="form__control"
+                id="musica_fondo"
+                required
+                maxlength="50"
+                minlength="50"
+                placeholder="Música de fondo"
+                oninput="validateInput(this)"
+              />
+              <div class="menssage__error">
+                <p class="error-message" id="error_musica_fondo"></p>
+              </div>
+
+              <label for="procedencia" class="form__label">Procedencia:</label>
+              <input
+                type="text"
+                class="form__control"
+                id="procedencia"
+                required
+                maxlength="30"
+                minlength="4"
+                placeholder="Procedencia"
+                oninput="validateInput(this)"
+              />
+              <div class="menssage__error">
+                <p class="error-message" id="error_procedencia"></p>
+              </div>
+
+              <label for="Narrador" class="form__label">Narrador:</label>
+              <input
+                type="text"
+                class="form__control"
+                id="narrador"
+                name="narrador"
+                required
+                maxlength="50"
+                minlength="2"
+                placeholder="Narrador"
+                oninput="validateInput(this)"
+              />
+              <div class="menssage__error">
+                <p class="error-message" id="error_narrador"></p>
+              </div>
+
+              <label for="formato" class="form__label">Formato De Audio:</label>
+              <select
+                name="formato_audio"
+                id="formato_audio"
+                class="form-select form-select-sm"
+                placeholder="Formato de audio"
+                onchange="updateAcceptAttribute()"
+              >
+                <option value="null">Seleccionar formato</option>
+                <option value="MP3" >MP3</option>
+                <option value="WAV" >WAV</option>
+                <option value="AIFF" >AIFF</option>
+              </select>
+              <div class="message__error">
+                <p class="error-message" id="error_formato_audio"></p>
+              </div>
+            </div>
+            <div class="container__input2">
+              <label class="form__label">Tipo De Audio:</label>
+              <div class="container_radio_group">
+                <div class="radio-group">
+                  <label for="cuento" class="form__label">
+                    <input
+                      type="radio"
+                      class="form__radio__input"
+                      id="tipo_audio"
+                      name="tipo_audio"
+                      value="Cuento"
+                      required
+                    />
+                    Cuento 
+                  </label>
+                </div>
+                <div class="radio-group">
+                  <label for="leyenda" class="form__label">
+                    <input
+                      type="radio"
+                      class="form__radio__input"
+                      id="tipo_audio"
+                      name="tipo_audio"
+                      value="Leyenda"
+                      required
+                    />
+                    Leyenda
+                  </label>
+                </div>
+              </div>
+
+             
+
+              <label for="duracion" class="form__label">Duración (Minutos): 
+                <a
+                  id="duracion"
+                  name="duracion"
+                  placeholder="Duración"
+                  class="form__control"
+                  style="text-decoration: none;"
+                  onclick="return false;"
+                ></a>
+              </label>
+
+              <div class="container-files">
+                <label for="audioFile" class="form__label">Subir archivo de audio:</label>
+                  <div class="file__chooser">
+                    <div class="container__upload">
+                      <input type="file" accept=""  id="audioFileInput" disabled/>
+                    </div>
+                  </div>
+                
+    
+                <label for="textFile" class="form__label">Subir archivo de texto:</label>
+                <div class="file__chooser">
+                  <div class="container__upload">
+                    <input type="file" id="textFileInput" accept=".txt" disabled/>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          
+          
+          <div class="button-container">
+            <div class="button__cancel">
+              <button type="button" id="cancelButton">Cancelar</button>
+            </div>
+            <div class="button__submit">
+              <button type="button" id="submitButton">
+                <i class="fa-solid fa-arrow-up-from-bracket"></i> Subir
+              </button>
+            </div>
+          </div>
+        
+        </form>
+      </div>
+    </div>
+    
+    <div class="popup" id="popup" style="display: none;">
+      <div class="window__acept__or__error" id="window_A_E">
+        <p class="message" id="message"></p>
+        <button class="button__verify" id="verifyButton" style="display: none;">Verificar</button>
+        <button class="button__ok" id="okButton" style="display: none;">OK</button>
+      </div>
+    </div>
+
+    <script src="./../../../api/configuracion.js"></script>
+    <script src="./../js/registro.js"></script>
+  </body>
+</html>
