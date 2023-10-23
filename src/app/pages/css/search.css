@@ -16,7 +16,6 @@
   font-family: Arial, Helvetica, sans-serif;
 
   width: 200px;
-  /* background: linear-gradient(to left bottom, #43cea2, #185a9d); */
 
   background: radial-gradient(ellipse at bottom right, #647c74, #587a7c, #15242e,  #3a615e,#749e8a 80%);
   background-size: 150% 150%;
@@ -24,7 +23,7 @@
   color: #fff;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
 
-  /* color: #fff; */
+
   padding: 14px;
   position: fixed;
   top: 102px;
@@ -32,7 +31,7 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  /* justify-content: ; */
+
 }
 
 .header {
@@ -41,8 +40,8 @@
   top: 0;
   left: 0;
   right: 0;
-  z-index: 999; /* Asegura que esté por delante de otros elementos */
-  /* background: linear-gradient(to top left, #43cea2, #185a9d); */
+  z-index: 999; 
+
 
   background: radial-gradient(ellipse at right top, #647c74, #587a7c,#15242e,  #3a615e,#749e8a 80%);
   background-size: 150% 150%;
@@ -50,7 +49,7 @@
   color: #fff;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
 
-  /* color: #ffffff; */
+
   padding: 10px 20px;
   display: flex;
   align-items: center;
@@ -72,11 +71,10 @@
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
 }
 
-/* Estilos para el margen superior del contenido principal para dejar espacio para el encabezado */
 .content {
-  margin-top: 120px; /* Ajusta la altura del encabezado más un margen */
+  margin-top: 120px; 
 }
-/* Estilos de los elementos del menú */
+
 .menu__item {
   padding: 18px;
   cursor: pointer;
@@ -85,9 +83,7 @@
 }
 
 .menu__item:hover {
-    /* background: linear-gradient(to top left, #01081d, #185a9d); */
-    background: radial-gradient(ellipse at left top, #01081d, #011c38 80%);
-  /* background-color:#01081d; */
+  background: radial-gradient(ellipse at left top, #01081d, #011c38 80%);
 }
 
 body{
@@ -109,7 +105,7 @@ a{
 
   color:#ffffff;
   text-decoration: none;
-}
+} 
 
   /*--------------------------------------------------------------------------------------------------------------*/
   .container__search {
@@ -117,17 +113,18 @@ a{
     /* display: absolute; */
     position: fixed;
 
-    top: 19%;
-    left: 19%;
-    width: 80%;
+    top: 17%;
+    left: 15%;
+    width: 83%;
     height: 75%;
     
     display: flex;
     flex-direction: column;
     gap: 10px;
     justify-content: center;
+    background-color: #0000007a;
 
-    background: radial-gradient(ellipse at bottom right, #647c74, #587a7c, #15242e,  #3a615e,#749e8a 80%);
+    /* background: radial-gradient(ellipse at bottom right, #647c74, #587a7c, #15242e,  #3a615e,#749e8a 80%); */
     background-size: 150% 150%;
     background-position: top center;
     
@@ -283,14 +280,3 @@ a{
   font-size: 16px;
   font-family: Arial, Helvetica, sans-serif;
 }
-/* 
-  .card {
-      width: 100%;
-      max-width: 99%;
-      height: 90px;
-      background-color:#00000073;
-      margin:2px;
-  } */
-
-
-
