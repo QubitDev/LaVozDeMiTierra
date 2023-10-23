@@ -462,8 +462,7 @@ button:active {
 }
 
 .card__s {
-  width: 97.5%;
-  max-width: 99%;
+  max-width: 100%;
   margin-bottom: 5px;
 
   background: radial-gradient(ellipse at left top, #01081d, #011c38 80%);
