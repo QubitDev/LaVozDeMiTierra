@@ -16,15 +16,11 @@
   font-family: Arial, Helvetica, sans-serif;
 
   width: 200px;
-<<<<<<< HEAD
-  background: radial-gradient(#8ba9407e, #559697c9,#1b6768c9, #03292ac9,#000000);
-=======
   /* background: linear-gradient(to left bottom, #43cea2, #185a9d); */
 
   background: radial-gradient(ellipse at bottom right, #647c74, #587a7c, #15242e,  #3a615e,#749e8a 80%);
   background-size: 150% 150%;
   background-position: top center;
->>>>>>> 0122361b884cc69abbee514ceeeef1bebca583c8
   color: #fff;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
 
@@ -115,10 +111,6 @@ a{
 
   width: 100%;
   height: 100%;
-<<<<<<< HEAD
-  background: radial-gradient(#8ba9407e, #559697c9,#1b6768c9, #03292ac9,#000000);
-  /*background: radial-gradient(circle, #7c8a59, #78784dc9, #375f5fc9, #315454c9, #305f5fc9, #194546c9, #0e3a3bc9, #03292ac9, #000 80%);*/
-=======
   /* background: linear-gradient(to top left, #43cea2, #185a9d); */
   background: radial-gradient(ellipse at bottom, #647c74, #587a7c, #15242e,  #3a615e,#749e8a, #15242e 80%);
 
@@ -127,7 +119,6 @@ a{
   color: #fff;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
 
->>>>>>> 0122361b884cc69abbee514ceeeef1bebca583c8
   position: fixed;
 }
 
@@ -143,10 +134,6 @@ a{
   flex-direction: column;
   justify-content: center;
 
-<<<<<<< HEAD
-  background-color: #ffffff2d;
-  
-=======
   background-color: #0000006b;
   color: #fff;
 >>>>>>> 0122361b884cc69abbee514ceeeef1bebca583c8
