@@ -8,7 +8,7 @@ let primerDoc = null;
 
 
 
-db.collection('audio').limit(7).onSnapshot((snapshot) => {
+db.collection('audio').limit(4).onSnapshot((snapshot) => {
     //console.log(snapshot.docs[0].data());
 
     cargarDocumentos(snapshot.docs);
@@ -37,7 +37,7 @@ const cargarDocumentos = (documentos) => {
 					</button>
 				
 				<div class="contenido-card">
-					<h3>.d${documento.data().titulo}</h3>
+					<h3>${documento.data().titulo}</h3>
 					<p>${documento.data().musica}</p>
 
 				</div>
