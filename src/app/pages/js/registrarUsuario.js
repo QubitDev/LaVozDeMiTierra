@@ -1,7 +1,13 @@
 document.getElementById("registration-form").addEventListener("submit", (e) => {
-    e.preventDefault();
+  e.preventDefault();
 });
-const validationRules = {
+function nombreDeUsuarioExiste(nombreDeUsuario) {
+  const usersCollection = db.collection("users");
+  return usersCollection.where("nombreDeUsuario", "==", nombreDeUsuario).get()
+    .then((querySnapshot) => !querySnapshot.empty);
+}
+function realizarValidaciones() {
+  const validationRules = {
     nombre: {
       minLength: 3,
       maxLength: 20,
@@ -47,6 +53,38 @@ const validationRules = {
       errorMessage: "Las contraseñas no ",
     },
   };
+  for (const field in validationRules) {
+    const value = document.getElementById(field).value;
+    const rule = validationRules[field];
+    const errorElement = document.getElementById(rule.errorElementId);
+    errorElement.innerText = "";
+
+    if (rule.minLength && value.length < rule.minLength) {
+      errorElement.innerText = rule.errorMessage;
+      return false;
+    }
+
+    if (rule.maxLength && value.length > rule.maxLength) {
+      errorElement.innerText = rule.errorMessage;
+      return false;
+    }
+
+    if (rule.pattern && !rule.pattern.test(value)) {
+      errorElement.innerText = rule.errorMessage;
+      return false;
+    }
+  }
+
+  // Validación de contraseña repetida
+  const contrasena = document.getElementById("contrasena").value;
+  const repitaContrasena = document.getElementById("repitaContrasena").value;
+  if (contrasena !== repitaContrasena) {
+    document.getElementById("repitaContrasenaError").innerText = "Las contraseñas no coinciden.";
+    return false;
+  }
+
+  return true;
+}
 function registrarUsuario() {
     const nombre = document.getElementById("name").value;
     const apellido = document.getElementById("lastName").value;
@@ -57,68 +95,40 @@ function registrarUsuario() {
     const numeroCelular = document.getElementById("phone").value;
   
     // Validación: Nombre de usuario repetido
-    db.collection("users");
-    db.where("nombreDeUsuario", "==", nombreDeUsuario).get()
-    .then((querySnapshot) => {
-        if (!querySnapshot.empty) {
-            document.getElementById("nombreDeUsuarioError").innerText = "El nombre de usuario ya existe";
-        }else {
-            document.getElementById("nombreDeUsuarioError").innerText = "";
-            for (const field in validationRules) {
-                const value = document.getElementById(field).value;
-                const rule = validationRules[field];
-            
-                // Elimina mensajes de error anteriores
-                document.getElementById(rule.errorElementId).innerText = "";
-            
-                // Realiza la validación
-                if (rule.minLength && value.length < rule.minLength) {
-                    document.getElementById(rule.errorElementId).innerText = rule.errorMessage;
-                    return;
-                }
-            
-                if (rule.maxLength && value.length > rule.maxLength) {
-                    document.getElementById(rule.errorElementId).innerText = rule.errorMessage;
-                    return;
-                }
-            
-                if (rule.pattern && !rule.pattern.test(value)) {
-                    document.getElementById(rule.errorElementId).innerText = rule.errorMessage;
-                    return;
-                }
-            }
-            
-            // Validación de contraseña repetida
-            if (contrasena !== repitaContrasena) {
-                document.getElementById(validationRules.repitaContrasena.errorElementId).innerText = validationRules.repitaContrasena.errorMessage;
-                return;
-            }
-            
-          // Si todas las validaciones pasan, crea el usuario en Firebase Authentication
+    nombreDeUsuarioExiste(nombreDeUsuario)
+      .then((existe) => {
+        if (existe) {
+          document.getElementById("nombreDeUsuarioError").innerText = "El nombre de usuario ya existe";
+        } else {
+          document.getElementById("nombreDeUsuarioError").innerText = "";
+          // Realiza las validaciones
+          if (realizarValidaciones()) {
+            // Si todas las validaciones pasan, crea el usuario en Firebase Authentication
             firebase.auth().createUserWithEmailAndPassword(correoElectronico, contrasena)
-            .then((userCredential) => {
+              .then((userCredential) => {
                 const user = userCredential.user;
-                //guardar los datos en Firestore
-                db.add({
-                    nombre,
-                    apellido,
-                    correoElectronico,
-                    nombreDeUsuario,
-                    numeroCelular,
+                // Guardar los datos en Firestore
+                db.collection("users").add({
+                  nombre,
+                  apellido,
+                  correoElectronico,
+                  nombreDeUsuario,
+                  numeroCelular,
                 });
-  
+
                 console.log("Usuario registrado con éxito");
-                // Redirige a la pantalla de inicio de la plataforma
-            })
-            .catch((error) => {
+                // Redirigir a la pantalla de login de la plataforma
+                window.location.href = "./../html/Login.html";
+              })
+              .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
                 console.error("Error al registrar el usuario:", errorMessage);
+              });
             }
-            );
-        }
-    })
-    .catch((error) => {
+          }
+        })
+      .catch((error) => {
         console.error("Error al verificar el nombre de usuario:", error);
-    });
+      });
 }
