@@ -28,6 +28,42 @@
   display: flex;
   flex-direction: column;
 }
+<<<<<<< HEAD
+.caja{
+    display:flex;
+    flex-direction: row;
+    margin: 1%;
+    padding: 5px;
+}
+.imagen{
+    margin-top: 5%;
+    margin-left: 5%;
+}
+
+#datos_Audio{
+  margin-top: 3%;
+  margin-left: 3%;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.audio-info {
+
+padding: 10px;
+margin: 10px;
+cursor: pointer;
+}
+
+.audio-info h3 {
+font-size: 25px;
+margin: 0;
+color: rgb(255, 254, 254);
+}
+
+.audio-info p {
+margin: 5px 0;
+font-size: 18px;
+color: rgb(250, 247, 247);
+=======
 .header {
   font-family: Arial, Helvetica, sans-serif;
   height: 102px;
@@ -52,6 +88,7 @@
   display: inline-block;
   text-align: left;
   text-shadow: 4px 4px 10px black;
+>>>>>>> 0db80f1a1a6a34fca78e9eed383b183046fca4bb
 }
 
 /* Estilos para el margen superior del contenido principal para dejar espacio para el encabezado */
@@ -66,6 +103,23 @@
   border-radius: 10px;
 }
 
+<<<<<<< HEAD
+.contenedor{
+    font-family: Arial, Helvetica, sans-serif;
+    width: 90%;
+    max-width: 60%;
+    margin:auto;
+    margin-top: 2%;
+    background: #ffff;
+    padding: 15px;
+    height: 200px;
+    overflow-y: scroll;
+    border-radius: 5px;
+    box-shadow: 0px 1px 10px    
+    rgba(0, 0, 0, 45);
+ }
+
+=======
 .menu__item:hover {
   background: linear-gradient(to top left, #01081d, #185a9d);
 }
@@ -147,3 +201,4 @@ font-size: 16px;
 color:#ffffff;
 text-decoration: none;
 }
+>>>>>>> 0db80f1a1a6a34fca78e9eed383b183046fca4bb
