@@ -52,6 +52,17 @@ db.collection("audio").doc(docId).get().then((doc) => {
 
 console.log("url: ",textURL.URLt);
 
+//barra lateral
+
+
+db.collection('audio').limit(4).onSnapshot((snapshot) => {
+  //console.log(snapshot.docs[0].data());
+
+  cargarDocumentos(snapshot.docs);
+});
+
+const iddoc = {};
+
 const cargarDocumentos = (documentos) => {
   if (documentos.length > 0) {
       ultimoDoc = documentos[documentos.length - 1];
@@ -64,21 +75,15 @@ const cargarDocumentos = (documentos) => {
           contenedorCards.innerHTML += `
           <div class="carta" id="carta" onClick="enviar('${documento.id}')">
               <figure>
-        <img src="./../../assets/images/CuentoUno.jpg"
-          alt="La-leyenda-de-la-quinua-y-la-sal">
+        <img src="./../../../assets/images/CuentoUno.jpg"
+          alt="La-leyenda-de-la-quinua-y-la-sal" height="110px" width="220px">
       </figure>
       
-        <button >
-          <span class="text">▷</span>
-        </button>
+        
       
-      <div class="contenido-card">
-        <h3>${documento.data().titulo}</h3>
-        <p>${documento.data().musica}</p>
-
+      <div class="contenido-card" style="margin-top: 0%;">
+        <h4 style="margin: 1%;">${documento.data().titulo}</h4>
       </div>
-
-              
                 </div>
           </div>
           `;
@@ -88,5 +93,5 @@ const cargarDocumentos = (documentos) => {
 
 
 function enviar(doc) {
-  window.location.href = `./../pages/html/reproducir.html?doc=${doc}`;
+  window.location.href = `../html/reproducir.html?doc=${doc}`;
 }
