@@ -1,7 +1,6 @@
  
  const urlParams = new URLSearchParams(window.location.search);
  const docId = urlParams.get("doc");
- const docIdHome = urlParams.get("docHome"); 
  
  const tipo = document.getElementById("tipo__audio");
 
@@ -12,10 +11,13 @@
  const audioElement = document.getElementById("audioE");
  const textContentElement = document.getElementById('text_content');
  
- db.collection("audio").doc(docId).get().then((doc) => {
+
+
+
+ db.collection('audio').doc(docId).get().then((doc) => {
    if (doc.exists) {
        const data = doc.data();
-       tipo.innerText = data.tipoAudio;
+       tipo.innerText = doc.tipoAudio;
        titulo.innerText = data.titulo;
        narradorAudio.innerText = `Narrado por: ${data.narrador}`;
        musicaF.innerText = `Música de Fondo: ${data.musica}`;

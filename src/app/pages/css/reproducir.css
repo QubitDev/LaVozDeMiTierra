@@ -15,11 +15,19 @@
   .menu {
     font-family: Arial, Helvetica, sans-serif;
     width: 200px;
+<<<<<<< HEAD
     background: linear-gradient(to left bottom, #43cea2, #185a9d); 
 
     /*background: linear-gradient(black, purple);
     */
     color: #fff;
+=======
+    background: radial-gradient(ellipse at bottom right, #647c74, #587a7c, #15242e,  #3a615e,#749e8a 80%);
+    background-size: 150% 150%;
+    background-position: top center;
+    color: #fff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
+>>>>>>> main
     padding: 14px;
     position: fixed;
     top: 102px;
@@ -36,17 +44,28 @@
     left: 0;
     right: 0;
     z-index: 999; /* Asegura que esté por delante de otros elementos */
+<<<<<<< HEAD
     background : linear-gradient(to top left, #43cea2, #185a9d); 
     color: #fff;
+=======
+    background: radial-gradient(ellipse at right top, #647c74, #587a7c,#15242e,  #3a615e,#749e8a 80%);
+    background-size: 150% 150%;
+    background-position: top center;
+    color: #fff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
+>>>>>>> main
     padding: 10px 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
+<<<<<<< HEAD
   #id-doc{
     color: #01081d;
 
   }
+=======
+>>>>>>> main
   
   .greeting {
 
@@ -71,7 +90,11 @@
   }
   
   .menu__item:hover {
+<<<<<<< HEAD
     background: linear-gradient(to top left, #01081d, #185a9d);
+=======
+    background: radial-gradient(ellipse at left top, #01081d, #011c38 80%);
+>>>>>>> main
   }
   
   /* Estilos para resaltar el elemento "Inicio" como activo (se puede usar una clase adicional para esto) */
@@ -79,6 +102,7 @@
     background-color: #43cea2; 
   }
 
+<<<<<<< HEAD
   a{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
@@ -108,6 +132,53 @@
 .imagen{
     margin-top: 5%;
     margin-left: 5%;
+=======
+a{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  color:#ffffff;
+  text-decoration: none;
+}
+
+.play{
+    top: 102px;
+    left: 200px;
+    background: radial-gradient(ellipse at bottom, #647c74, #587a7c, #15242e,  #3a615e,#749e8a, #15242e 80%);
+    background-size: 150% 150%;
+    background-position: top center;
+    color: #fff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856); 
+    position: fixed;
+    flex-direction: column;
+    top:102px;
+    left:200px;
+    width: 65%;
+    height: 100%;
+}
+.caja2{
+  float: right;
+  background: radial-gradient(ellipse at bottom, #647c74, #587a7c, #15242e,  #3a615e,#749e8a, #15242e 80%);
+  background-size: 150% 150%;
+  background-position: top center;
+  color: #fff;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);  
+  position: fixed;
+  flex-direction: column;
+  top:102px;
+  left:77%;
+  width: 23%;
+  height: 100%;
+}
+.caja{
+  display:flex;
+  flex-direction: row;
+  margin: 1%;
+  padding: 5px;
+}
+.imagen{
+  margin-top: 5%;
+  margin-left: 5%;
+>>>>>>> main
 }
 .descripcion{
   margin-top: 3%;
@@ -147,4 +218,23 @@ font-family: Arial, Helvetica, sans-serif;
 font-size: 16px;
 color:#ffffff;
 text-decoration: none;
+<<<<<<< HEAD
+=======
+}
+.imagen1{
+  margin-top: 15%;
+  margin-left: 11%;
+}
+.imagen2{
+  margin: 5%;
+  margin-left: 11%;
+}
+.imagen3{
+  margin: 5%;
+  margin-left: 11%;
+}
+.imagen4{
+  margin: 5%;
+  margin-left: 11%;
+>>>>>>> main
 }
