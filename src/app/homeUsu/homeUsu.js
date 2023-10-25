@@ -12,7 +12,7 @@ db.collection('audio').onSnapshot((snapshot) => {
 
 
     cargarDocumentoCuento(snapshot.docs);
-   
+
 });
 
 const iddoc = {};
@@ -25,18 +25,14 @@ const cargarDocumentoCuento = (documentos) => {
         // contenedorCards.innerHTML = '';
 
         documentos.forEach(documento => {
-            if(documento.data().tipoAudio == "Cuento"){  
-            contenedorCards.innerHTML += `
+            if (documento.data().tipoAudio == "Cuento") {
+                contenedorCards.innerHTML += `
             <div class="carta" id="carta" onClick="enviar('${documento.id}')">
                 <figure>
 					<img src="./../../assets/images/CuentoUno.jpg"
 						alt="La-leyenda-de-la-quinua-y-la-sal">
 				</figure>
-				
-					<button >
-						<span class="text">▷</span>
-					</button>
-				
+			
 				<div class="contenido-card">
 					<h3>${documento.data().titulo}</h3>
 					<p>${documento.data().musica}</p>
@@ -45,10 +41,10 @@ const cargarDocumentoCuento = (documentos) => {
 
             </div>
             `;
-        }
+            }
 
         });
-    
+
     }
 }
 db.collection('audio').onSnapshot((snapshot) => {
@@ -65,17 +61,13 @@ const cargarDocumentoLeyenda = (documentos) => {
         // contenedorCards1.innerHTML = '';
 
         documentos.forEach(documento => {
-            if(documento.data().tipoAudio == "Leyenda"){  
-            contenedorCards1.innerHTML += `
+            if (documento.data().tipoAudio == "Leyenda") {
+                contenedorCards1.innerHTML += `
             <div class="carta" id="carta" onClick="enviar('${documento.id}')">
                 <figure>
 					<img src="./../../assets/images/CuentoUno.jpg"
 						alt="La-leyenda-de-la-quinua-y-la-sal">
 				</figure>
-				
-					<button >
-						<span class="text">▷</span>
-					</button>
 				
 				<div class="contenido-card">
 					<h3>${documento.data().titulo}</h3>
@@ -85,10 +77,10 @@ const cargarDocumentoLeyenda = (documentos) => {
 
             </div>
             `;
-        }
+            }
 
         });
-    
+
     }
 }
 

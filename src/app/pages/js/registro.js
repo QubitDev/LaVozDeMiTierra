@@ -214,9 +214,9 @@ async function onSubmit(event) {
 
   setTimeout(() => {
     overlay.style.display = 'none';
-    document.querySelector(".loading-dots").style.display = 'none';
+    document.querySelector(".wavi").style.display = 'none';
     onMessagePopup(`✅¡Se subió correctamente el audio!🎉`, 450); 
-  }, 10000); // 10 segundos de espera
+  }, 100000); // 10 segundos de espera
 }
 
 
@@ -304,6 +304,11 @@ function getAudioDuration(file) {
   });
 }
 
+// verificacion de documento con el mismo titulo
+async function isTitleUnique(title){
+  const querySnapshot = await db.collection('audio').where('titulo','==',title).get();
+  return querySnapshot.empty;
+}
 
 /*-----------------------------------------------KEVIN----------------------------------------------------- */
 
@@ -353,8 +358,3 @@ async function handleSubmit() {
   }
 }
 
-// verificacion de documento con el mismo titulo
-async function isTitleUnique(title){
-  const querySnapshot = await db.collection('audio').where('titulo','==',title).get();
-  return querySnapshot.empty;
-}
