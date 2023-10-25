@@ -127,7 +127,7 @@ function registrarUsuario() {
 
             alert("Usuario registrado con éxito");
             // Redirige a la pantalla de inicio de la plataforma
-            window.location.href = "./../../../pages/html/Login.html";
+            window.location.href = "./src/app/pages/html/Login.html";
           })
           .catch((error) => {
             // Error en el registro
