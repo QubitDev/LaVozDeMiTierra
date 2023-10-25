@@ -18,6 +18,19 @@ var idDoc='';
 const datos = {};
 var bandera = true;
 
+function previewImage(input) {
+  const imagePreview = document.getElementById("imagePreview");
+  if (input.files && input.files[0]) {
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      imagePreview.src = e.target.result;
+    };
+    reader.readAsDataURL(input.files[0]);
+  } else {
+    imagePreview.src = "";
+  }
+}
+
 // Captura de audio
 audioInput.addEventListener("change", function () {
   const selectedAudioFile = this.files[0];
@@ -335,13 +348,16 @@ function uploadFile(file, path) {
 async function handleSubmit() {
   const audioFile = document.getElementById('audioFileInput').files[0];
   const textFile = document.getElementById('textFileInput').files[0];
+  const imageFile = document.getElementById('imageInput').file[0];
 
   try {
       const audioURL = await uploadFile(audioFile, 'audio/' + audioFile.name);
       const textURL = await uploadFile(textFile, 'texto/' + textFile.name);
+      const imageURL = await uploadFile(imageFile, 'texto/' + imageFile.name);
 
       datos.audioURL = audioURL;
       datos.textURL = textURL;
+      datos.imageURL = imageURL;
       
       await db.collection("audio").add(datos)
       .then((docRef) => {

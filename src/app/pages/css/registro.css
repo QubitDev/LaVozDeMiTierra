@@ -164,12 +164,8 @@ form {
   justify-content: space-between;
 }
 
-/* #narrador{
-  margin-bottom: 30px;
-} */
-
 .container__input1,
-.container__input2 {
+.container__files {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -180,12 +176,12 @@ form {
   margin-right: 15px;
 }
 
-.container__input2 {
+.container__files{
   margin-left: 15px;
 }
 
 .container__input1,
-.container__input2 {
+.container__files {
   margin-bottom: 20px;
 }
 
@@ -297,31 +293,26 @@ form {
 }
 
 /* Estilo para cada contenedor de selección de archivos */
-.container-files {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
 
-.container_file_left, .container_file_rigth{
-  flex: 1;
+.container__text{
   display: flex;
   flex-direction: column;
+  margin: 0;
 }
-.container_file_left{
-  padding-left: 5px;
+.container__audio{
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  margin: 0;
 }
 
-.container_file_rigth {
-  padding-left: 30px;
-}
 
 .file__chooser {
   display: flex;
   align-items: start; 
 } 
 
-.container_file_left .file__chooser,.container_file_rigth .file__chooser {
+.container_file_text .file__chooser,.container_file_audio .file__chooser {
   justify-content: start;
   margin-top: 10px;
   margin-bottom: 20px;
@@ -481,4 +472,6 @@ form {
   }
 }
 
+
+/* estilos para la imagen */
 
