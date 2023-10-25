@@ -5,6 +5,8 @@ document.getElementById("verifyButton").addEventListener("click",onVerifyButton)
 
 const audioInput = document.getElementById("audioFileInput");
 const textInput = document.getElementById("textFileInput");
+const imageInput = document.getElementById("imageInput");
+
 const okButton = document.getElementById('okButton');
 const verifyButton = document.getElementById('verifyButton');
 const popup = document.getElementById('popup');
@@ -18,18 +20,25 @@ var idDoc='';
 const datos = {};
 var bandera = true;
 
-function previewImage(input) {
+imageInput.addEventListener("change", function (event) {
+  const selectedImage = event.target.files[0]; // Obtén el archivo de imagen seleccionado
+
   const imagePreview = document.getElementById("imagePreview");
-  if (input.files && input.files[0]) {
+  const frase = document.getElementById("frase");
+
+  frase.style.display = "none";
+  imagePreview.style.display = "block";
+
+  if (selectedImage) {
     const reader = new FileReader();
     reader.onload = function (e) {
       imagePreview.src = e.target.result;
     };
-    reader.readAsDataURL(input.files[0]);
+    reader.readAsDataURL(selectedImage);
   } else {
     imagePreview.src = "";
   }
-}
+});
 
 // Captura de audio
 audioInput.addEventListener("change", function () {
@@ -168,10 +177,11 @@ async function onSubmit(event) {
   // // Obtén el archivo de audio y el archivo de texto seleccionados
   const audio = audioInput.files[0];
   const text = textInput.files[0];
+  const image = imageInput.files[0];
 
 
   // Validar longitud mínima de los campos
-  if (!titulo || !musica || !procedencia || !formato || !narrador || !audio || !text) {
+  if (!titulo || !musica || !procedencia || !formato || !narrador || !audio || !text || !image) {
     onMessagePopup(`❌¡Error! Faltan Datos.`,350);
     overlay.style.display = 'none';
     return;
@@ -229,7 +239,7 @@ async function onSubmit(event) {
     overlay.style.display = 'none';
     document.querySelector(".wavi").style.display = 'none';
     onMessagePopup(`✅¡Se subió correctamente el audio!🎉`, 450); 
-  }, 1000); // 10 segundos de espera
+  }, 10000); // 10 segundos de espera
 }
 
 
@@ -346,14 +356,18 @@ function uploadFile(file, path) {
 }
 
 async function handleSubmit() {
-  const audioFile = document.getElementById('audioFileInput').files[0];
-  const textFile = document.getElementById('textFileInput').files[0];
-  const imageFile = document.getElementById('imageInput').file[0];
+  const audioFile = audioInput.files[0];
+  const textFile = textInput.files[0];
+  const imageFile = imageInput.file[0];
 
   try {
       const audioURL = await uploadFile(audioFile, 'audio/' + audioFile.name);
       const textURL = await uploadFile(textFile, 'texto/' + textFile.name);
       const imageURL = await uploadFile(imageFile, 'texto/' + imageFile.name);
+      
+      console.log("Documento escrito con ID: ", audioURL);
+      console.log("Documento escrito con ID: ", textURL);
+      console.log("Documento escrito con ID: ", imageURL);
 
       datos.audioURL = audioURL;
       datos.textURL = textURL;
@@ -362,7 +376,7 @@ async function handleSubmit() {
       await db.collection("audio").add(datos)
       .then((docRef) => {
           idDoc = docRef.id;
-          console.log("Documento escrito con ID: ", docRef.id);
+          console.log("Documento escrito con ID: ", idDoc);
       })
       .catch((error) => {
           alert(`Error al agregar el documento: ${error}`);

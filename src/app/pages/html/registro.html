@@ -119,6 +119,17 @@
                 <p class="error-message" id="error_narrador"></p>
               </div>
 
+              <label for="duracion" class="form__label custom_bael"> Duracion(min): 
+                <a
+                  id="duracion"
+                  name="duracion"
+                  placeholder="Duración"
+                  class="form__control"
+                  style="text-decoration: none; display: none;"
+                  onclick="return false;"
+                ></a>
+              </label>
+
               <label class="form__label">Tipo De Audio:</label>
               <div class="container_radio_group">
                 <div class="radio-group">
@@ -171,59 +182,70 @@
               <label for="audioFile" class="form__label">Subir archivo de audio:</label>
               <div class="container__audio">
                 <div class="file__chooser">
-                  <div class="container__upload">
+                  <!-- <div class="container__upload"> -->
                     <input 
                       type="file" 
                       class="form__control"
                       id="audioFileInput" 
                       name="audio"   
                       accept=""
-                      disabled/>
-                  </div>
+                      disabled
+                      ondragover="event.preventDefault()"
+                      ondrop="event.preventDefault()"
+                      />  
+                  <!-- </div> -->
                 </div>
-                <label for="duracion" class="form__label"> 
-                  <a
-                    id="duracion"
-                    name="duracion"
-                    placeholder="Duración"
-                    class="form__control"
-                    style="text-decoration: none; display: none;"
-                    onclick="return false;"
-                  ></a>
-                </label>
               </div>
+
+              <label for="duracion" class="form__label"> 
+                <a
+                  id="duracion"
+                  name="duracion"
+                  placeholder="Duración"
+                  class="form__control"
+                  style="text-decoration: none; display: none;"
+                  onclick="return false;"
+                ></a>
+              </label>
               
 
               <!-- texto -->
               <label for="textFile" class="form__label">Subir archivo de texto:</label>
               <div class="container__text">
                 <div class="file__chooser">
-                    <div class="container__upload">
+                    <!-- <div class="container__upload"> -->
                       <input 
                       type="file" 
                       class="form__control"
                       id="textFileInput" 
                       accept=".txt" 
                       name="text" 
-                      disabled/>
-                    </div>
+                      disabled
+                      ondragover="event.preventDefault()"
+                      ondrop="event.preventDefault()"
+                      />
+                    <!-- </div> -->
                   </div>
               </div>
               <!-- imagen -->
               <label for="imagen_audio" class="form__label">Imagen del Audio:</label>
-              <div class="container__image">
-                <input
-                  type="file"
-                  class="form__control"
-                  id="imageInput"
-                  accept=".jpg, .png"
-                  name="image"
-                  onchange="previewImage(this)"
-                />
-                <div class="image-preview">
-                  <img id="imagePreview" src="" alt="Vista previa de la imagen" />
+                <div class="container__image">
+                  <div class="file__chooser">
+                    <input
+                      type="file"
+                      class="form__control"
+                      id="imageInput"
+                      accept=".jpeg, .png"
+                      name="image"
+                      ondragover="event.preventDefault()"
+                      ondrop="event.preventDefault()"
+                    />
+                  </div>
+                  <div class="image-preview">
+                    <p id="frase">Vista previa</p>
+                    <img id="imagePreview" src="" alt="" style="display: none;"/>
+                  </div>
                 </div>
-              </div>
             </div>
           </div>
 
