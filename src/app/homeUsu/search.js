@@ -44,7 +44,6 @@ function resaltar(textoOriginal, searchTerm) {
   
     return textoOriginal.replace(regex, coincidencia => {
       return `<span class="resaltado">${coincidencia}</span>`;
-  
     });
   
   }
@@ -64,7 +63,7 @@ const cargarDocumentosSearch = (documentos) => {
 
             contenedorSearch.innerHTML += `
                 <div class="card__s" id="card__s" onClick="enviarDeSearch('${documento.id}')">
-                    <figure class="image"><img src="./../../assets/images/CuentoUno.jpg" width="60px" height="70px"></figure>
+                    <figure class="image"><img src="${documento.data().imageURL}" width="60px" height="70px"></figure>
                     <p class="card__c" id="titulo">${tituloTexto}</p>
                     <p class="card__c" id="Cultura">${procedenciaTexto}</p>
                     <p class="card__c" id="narrador">${narradorTexto}</p>

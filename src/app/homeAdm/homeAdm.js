@@ -11,7 +11,8 @@ for(let i = 0;i<deleteCs.length;i++){
     deleteCs[i].addEventListener('click',genConfirmar());
 }
 
-db.collection('audio').onSnapshot((snapshot) => {
+db.collection('audio').orderBy('titulo','asc').onSnapshot((snapshot) => {
+    //console.log(snapshot.docs.id);
     cargarCuentos(snapshot.docs);
 })
 let i=0;

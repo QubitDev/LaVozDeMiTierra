@@ -4,178 +4,181 @@
   height: 150px;
   width: 150px;
   position: absolute;
-  top: 50px; /* Ajusta la posición vertical según sea necesario */
-  left: 20px; /* Ajusta la posición horizontal según sea necesario */
-  z-index: 9999; /* Asegura que esté por encima de todo */
+  top: 50px;
+  /* Ajusta la posición vertical según sea necesario */
+  left: 20px;
+  /* Ajusta la posición horizontal según sea necesario */
+  z-index: 9999;
+  /* Asegura que esté por encima de todo */
   display: inline-block;
   box-sizing: border-box;
   text-align: center;
   box-shadow: 10px 10px 15px 5px black;
 }
-  .menu {
-    font-family: Arial, Helvetica, sans-serif;
-    width: 200px;
-    background: radial-gradient(ellipse at bottom right, #647c74, #587a7c, #15242e,  #3a615e,#749e8a 80%);
-    background-size: 150% 150%;
-    background-position: top center;
-    color: #fff;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
-    padding: 14px;
-    position: fixed;
-    top: 102px;
-    left: 0;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-  }
-  .header {
-    font-family: Arial, Helvetica, sans-serif;
-    height: 102px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 999; /* Asegura que esté por delante de otros elementos */
-    background: radial-gradient(ellipse at right top, #647c74, #587a7c,#15242e,  #3a615e,#749e8a 80%);
-    background-size: 150% 150%;
-    background-position: top center;
-    color: #fff;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
-    padding: 10px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
-  .greeting {
 
-    font-family: Arial, Helvetica, sans-serif;
-    padding-right: 600px;
-    padding-left: 250px;
-    display: inline-block;
-    text-align: left;
-    text-shadow: 4px 4px 10px black;
-  }
-  
-  /* Estilos para el margen superior del contenido principal para dejar espacio para el encabezado */
-  .content {
-    margin-top: 120px; /* Ajusta la altura del encabezado más un margen */
-  }
-  /* Estilos de los elementos del menú */
-  .menu__item {
-    padding: 18px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    border-radius: 10px;
-  }
-  
-  .menu__item:hover {
-    background: radial-gradient(ellipse at left top, #01081d, #011c38 80%);
-  }
-  
-  /* Estilos para resaltar el elemento "Inicio" como activo (se puede usar una clase adicional para esto) */
-  .menu__item--active {
-    background-color: #43cea2; 
-  }
-
-a{
+.menu {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 16px;
-  color:#ffffff;
-  text-decoration: none;
-}
-
-.play{
-    top: 102px;
-    left: 200px;
-    background: radial-gradient(ellipse at bottom, #647c74, #587a7c, #15242e,  #3a615e,#749e8a, #15242e 80%);
-    background-size: 150% 150%;
-    background-position: top center;
-    color: #fff;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856); 
-    position: fixed;
-    flex-direction: column;
-    top:102px;
-    left:200px;
-    width: 65%;
-    height: 100%;
-}
-.caja2{
-  float: right;
-  background: radial-gradient(ellipse at bottom, #647c74, #587a7c, #15242e,  #3a615e,#749e8a, #15242e 80%);
+  width: 200px;
+  background: radial-gradient(ellipse at bottom right, #647c74, #587a7c, #15242e, #3a615e, #749e8a 80%);
   background-size: 150% 150%;
   background-position: top center;
   color: #fff;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);  
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
+  padding: 14px;
+  position: fixed;
+  top: 102px;
+  left: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  font-family: Arial, Helvetica, sans-serif;
+  height: 102px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  /* Asegura que esté por delante de otros elementos */
+  background: radial-gradient(ellipse at right top, #647c74, #587a7c, #15242e, #3a615e, #749e8a 80%);
+  background-size: 150% 150%;
+  background-position: top center;
+  color: #fff;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.greeting {
+
+  font-family: Arial, Helvetica, sans-serif;
+  padding-right: 600px;
+  padding-left: 250px;
+  display: inline-block;
+  text-align: left;
+  text-shadow: 4px 4px 10px black;
+}
+
+/* Estilos para el margen superior del contenido principal para dejar espacio para el encabezado */
+.content {
+  margin-top: 120px;
+  /* Ajusta la altura del encabezado más un margen */
+}
+
+/* Estilos de los elementos del menú */
+.menu__item {
+  padding: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border-radius: 10px;
+}
+
+.menu__item:hover {
+  background: radial-gradient(ellipse at left top, #01081d, #011c38 80%);
+}
+
+/* Estilos para resaltar el elemento "Inicio" como activo (se puede usar una clase adicional para esto) */
+.menu__item--active {
+  background-color: #43cea2;
+}
+
+a {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.play {
+  top: 102px;
+  left: 200px;
+  background: radial-gradient(ellipse at bottom, #647c74, #587a7c, #15242e, #3a615e, #749e8a, #15242e 80%);
+  background-size: 150% 150%;
+  background-position: top center;
+  color: #fff;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
   position: fixed;
   flex-direction: column;
-  top:102px;
-  left:77%;
-  width: 23%;
+  top: 102px;
+  left: 200px;
+  width: 70%;
   height: 100%;
 }
-.caja{
-  display:flex;
+
+.container-card{
+  float: right;
+  background: radial-gradient(ellipse at bottom, #647c74, #587a7c, #15242e, #3a615e, #749e8a, #15242e 80%);
+  background-size: 150% 150%;
+  background-position: top center;
+  color: #fff;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
+  position: fixed;
+  flex-direction: column;
+  top: 102px;
+  left: 82%;
+  width: 33%;
+  height: 100%;
+}
+
+.caja {
+  display: flex;
   flex-direction: row;
   margin: 1%;
   padding: 5px;
 }
-.imagen{
+
+.imagen {
   margin-top: 5%;
   margin-left: 5%;
 }
-.descripcion{
+
+.descripcion {
   margin-top: 3%;
   margin-left: 3%;
   color: #fff;
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.h3{
+.h3 {
   font-size: 20px;
 }
-.h4{
+
+.h4 {
   font-size: 15px;
 }
 
-.audio{
+.audio {
   margin-top: 2%;
   text-align: center;
 }
 
-.contenedor{
+.contenedor {
   font-family: Arial, Helvetica, sans-serif;
   width: 90%;
   max-width: 60%;
-  margin:auto;
+  margin: auto;
   margin-top: 2%;
   background: #ffff;
   padding: 15px;
   height: 200px;
   overflow-y: scroll;
   border-radius: 5px;
-  box-shadow: 0px 1px 10px    
-  rgba(0, 0, 0, 45);
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 45);
 }
-a{
-font-family: Arial, Helvetica, sans-serif;
-font-size: 16px;
-color:#ffffff;
-text-decoration: none;
+
+a {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  color: #ffffff;
+  text-decoration: none;
 }
-.imagen1{
-  margin-top: 15%;
-  margin-left: 11%;
+
+.card {
+  margin-top: 8%;
+  margin-left: 0%;
 }
-.imagen2{
-  margin: 5%;
-  margin-left: 11%;
-}
-.imagen3{
-  margin: 5%;
-  margin-left: 11%;
-}
-.imagen4{
-  margin: 5%;
-  margin-left: 11%;
-}
+

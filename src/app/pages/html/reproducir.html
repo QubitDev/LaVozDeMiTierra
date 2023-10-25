@@ -1,63 +1,47 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./../css/reproducir.css" />
-    <link
-      rel="icon"
-      type="image/x-icon"
-      href="./../../../assets/images/LogoLDMT.ico"
-      href="./../../../assets/images/LogoLDMT.ico"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
-    />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
-    />
-    <title>Reproduccion</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./../css/reproducir.css" />
+  <link rel="icon" type="image/x-icon" href="./../../../assets/images/LogoLDMT.ico"
+    href="./../../../assets/images/LogoLDMT.ico" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" />
+  <title>Reproduccion</title>
 
-    <!-- Firebase App (la biblioteca base) - es obligatorio siempre -->
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
-    <!-- Firebase Storage -->
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
+  <!-- Firebase App (la biblioteca base) - es obligatorio siempre -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  <!-- Firebase Storage -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
 
 
-    <!-- Firebase App (la biblioteca base) - es obligatorio siempre -->
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
-    <!-- Firebase Storage -->
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
+  <!-- Firebase App (la biblioteca base) - es obligatorio siempre -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  <!-- Firebase Storage -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
 
 </head>
-<body>  
+
+<body>
   <!-- main -->
   <div class="container">
     <div class="profile-picture">
-      <img
-        src="./../../../assets/images/LogoLDMT.jpg"
-        alt="Imagen de perfil"
-        class="logo"
-      />
+      <img src="./../../../assets/images/LogoLDMT.jpg" alt="Imagen de perfil" class="logo" />
     </div>
     <header class="header">
       <div class="greeting">
-        
-        <p><font size="8">La voz de mi Tierra</font></p>
-  
+
+        <p>
+          <font size="8">La voz de mi Tierra</font>
+        </p>
+
     </header>
 
     <div class="menu">
@@ -65,70 +49,59 @@
         <div class="menu__item" data-page="app">
           <i class="fas fa-home"></i> <a href="./../../homeAdm/homeAdm.html">Inicio</a>
         </div>
-        <div class="menu__item" data-page="app">
-          <i class="fa-solid fa-plus"></i> <a href="./../../pages/html/registro.html">Registrar Audio</a>
-        </div>
+      </div>
     </div>
-  </div>
 
-  <div id="page-content" style="display: none;"></div>
-
-  
-  <div class="content-data">
-    <p id="id-doc"></p>
-  </div>
-  <div id="page-content" style="display: none;"></div>
-  <div class="content-data">
-    <p id="id-doc"></p>
-  </div>
-
-  
-  <!-- reproducir -->
-    <div class = "play">
-        <div class = "caja">
-          <div class = "imagen">
-            <img src="./../../../assets/images/im.jpg" alt="" height="171px" width="153px" >
-          </div>
-          <div class = "descripcion">
-            <h2 id="tipo__audio"></h2>
-            <h3 id="titulo__audio"></h3>
-            <h4 id="narrador"></h4> 
-            <h4 id="musica"></h4>
-            <h2 id="tipo__audio"></h2>
-            <h3 id="titulo__audio"></h3>
-            <h4 id="narrador"></h4> 
-            <h4 id="musica"></h4>
-          </div>      
-        </div>
-        <div class="contenedor">
-            <p id="text_content"></p>
-            <p id="text_content"></p>
-        </div>
-        <div class="audio" id="audioPlayer"  >
-          <audio controls = "controls" loop="loop" id="audioE">
-            <source type="audio/mp3">
-        <div class="audio" id="audioPlayer"  >
-          <audio controls = "controls" loop="loop" id="audioE">
-            <source type="audio/mp3">
-            tu navegador no es compatible
-          </audio>
-        </div>
-        <div class = "caja2">
-          <div class = "imagen1">
-            <img src="./../../../assets/images/im1.jpg" alt="" height="140px" width="280px" >
-          </div>
-          <div class = "imagen2">
-            <img src="./../../../assets/images/im2.jpg" alt="" height="140px" width="280px" >
-          </div>
-          <div class = "imagen3">
-            <img src="./../../../assets/images/im3.jpg" alt="" height="140px" width="280px" >
-          </div>
-          <div class = "imagen4">
-            <img src="./../../../assets/images/im4.jpg" alt="" height="140px" width="280px" >
-          </div>
+    <div id="page-content" style="display: none;"></div>
+    <div class="content-data">
+      <p id="id-doc"></p>
     </div>
-    <script src="./../../../api/configuracion.js"></script>
-    <script src="./../js/reproducir.js"></script>
-    
+    <div id="page-content" style="display: none;"></div>
+    <div class="content-data">
+      <p id="id-doc"></p>
+    </div>
+
+
+    <!-- reproducir -->
+    <div class="play">
+      <div class="caja">
+        <div class="imagen">
+          <img src="./../../../assets/images/im.jpg" alt="" height="171px" width="153px">
+        </div>
+        <div class="descripcion">
+          <h2 id="tipo__audio"></h2>
+          <h3 id="titulo__audio"></h3>
+          <h4 id="narrador"></h4>
+          <h4 id="musica"></h4>
+          <h2 id="tipo__audio"></h2>
+          <h3 id="titulo__audio"></h3>
+          <h4 id="narrador"></h4>
+          <h4 id="musica"></h4>
+        </div>
+      </div>
+      <div class="contenedor">
+        <p id="text_content"></p>
+        <p id="text_content"></p>
+      </div>
+      <div class="audio" id="audioPlayer">
+        <audio controls="controls" loop="loop" id="audioE">
+          <source type="audio/mp3">
+          <div class="audio" id="audioPlayer">
+            <audio controls="controls" loop="loop" id="audioE">
+              <source type="audio/mp3">
+              tu navegador no es compatible
+            </audio>
+          </div>
+      </div>
+
+      <div class="container-card">
+        <div class="card" id="card">
+
+        </div>
+      </div>
+      <script src="./../../../api/configuracion.js"></script>
+      <script src="./../js/reproducir.js"></script>
+
 </body>
+
 </html>
