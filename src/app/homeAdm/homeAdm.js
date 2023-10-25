@@ -12,9 +12,7 @@ for(let i = 0;i<deleteCs.length;i++){
 }
 
 db.collection('audio').onSnapshot((snapshot) => {
-    //console.log(snapshot.docs.id);
     cargarCuentos(snapshot.docs);
-    //cargarLeyendas(snapshot.docs);
 })
 let i=0;
 const cargarCuentos = (documentos) => {
