@@ -216,7 +216,7 @@ async function onSubmit(event) {
     overlay.style.display = 'none';
     document.querySelector(".wavi").style.display = 'none';
     onMessagePopup(`✅¡Se subió correctamente el audio!🎉`, 450); 
-  }, 100000); // 10 segundos de espera
+  }, 1000); // 10 segundos de espera
 }
 
 
@@ -251,8 +251,8 @@ function validateInput(inputElement) {
   const placeholderText = inputElement.getAttribute("placeholder");
 
   if (!inputValue) {
-    // El campo está vacío después de eliminar espacios en blanco
-    onMessagePopup(`❌¡Error!\nFaltan Datos.`, 450);
+    // // El campo está vacío después de eliminar espacios en blanco
+    // onMessagePopup(`❌¡Error!\nFaltan Datos.`, 450);
     inputElement.value = '';
     return;
   }
