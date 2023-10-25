@@ -49,7 +49,15 @@ const validationRules = {
   },
 };
 
+function limpiarMensajesDeError() {
+  for (const field in validationRules) {
+    const rule = validationRules[field];
+    document.getElementById(rule.errorElementId).innerText = "";
+  }
+}
+
 function registrarUsuario() {
+  limpiarMensajesDeError();
   const nombre = document.getElementById("name").value;
   const apellido = document.getElementById("lastName").value;
   const correoElectronico = document.getElementById("email").value;
@@ -61,31 +69,38 @@ function registrarUsuario() {
   // Verifica si las contraseñas coinciden
   if (contrasena !== repitaContrasena) {
     document.getElementById(validationRules.repitaContrasena.errorElementId).innerText = validationRules.repitaContrasena.errorMessage;
+    return;
   }
 
-  // Realiza otras validaciones de acuerdo a los criterios
-  for (const field in validationRules) {
-    const value = document.getElementById(field).value;
-    const rule = validationRules[field];
+   // Realiza la validación para cada campo
+   if (nombre.length < validationRules.nombre.minLength || nombre.length > validationRules.nombre.maxLength || !validationRules.nombre.pattern.test(nombre)) {
+    document.getElementById(validationRules.nombre.errorElementId).innerText = validationRules.nombre.errorMessage;
+    return;
+  }
 
-    // Elimina mensajes de error anteriores
-    document.getElementById(rule.errorElementId).innerText = "";
+  if (apellido.length < validationRules.apellido.minLength || apellido.length > validationRules.apellido.maxLength || !validationRules.apellido.pattern.test(apellido)) {
+    document.getElementById(validationRules.apellido.errorElementId).innerText = validationRules.apellido.errorMessage;
+    return;
+  }
 
-    // Realiza la validación
-    if (rule.minLength && value.length < rule.minLength) {
-      document.getElementById(rule.errorElementId).innerText = rule.errorMessage;
-      return;
-    }
+  if (nombreDeUsuario.length < validationRules.nombreDeUsuario.minLength || nombreDeUsuario.length > validationRules.nombreDeUsuario.maxLength || !validationRules.nombreDeUsuario.pattern.test(nombreDeUsuario)) {
+    document.getElementById(validationRules.nombreDeUsuario.errorElementId).innerText = validationRules.nombreDeUsuario.errorMessage;
+    return;
+  }
 
-    if (rule.maxLength && value.length > rule.maxLength) {
-      document.getElementById(rule.errorElementId).innerText = rule.errorMessage;
-      return;
-    }
+  if (correoElectronico.length > validationRules.correoElectronico.maxLength || !validationRules.correoElectronico.pattern.test(correoElectronico)) {
+    document.getElementById(validationRules.correoElectronico.errorElementId).innerText = validationRules.correoElectronico.errorMessage;
+    return;
+  }
 
-    if (rule.pattern && !rule.pattern.test(value)) {
-      document.getElementById(rule.errorElementId).innerText = rule.errorMessage;
-      return;
-    }
+  if (numeroCelular.length > validationRules.numeroCelular.maxLength || !validationRules.numeroCelular.pattern.test(numeroCelular)) {
+    document.getElementById(validationRules.numeroCelular.errorElementId).innerText = validationRules.numeroCelular.errorMessage;
+    return;
+  }
+
+  if (contrasena.length > validationRules.contrasena.maxLength || !validationRules.contrasena.pattern.test(contrasena)) {
+    document.getElementById(validationRules.contrasena.errorElementId).innerText = validationRules.contrasena.errorMessage;
+    return;
   }
 
   // Validación de nombre de usuario repetido
