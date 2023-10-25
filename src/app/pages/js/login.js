@@ -58,10 +58,10 @@ document.addEventListener('DOMContentLoaded', function () {
                     window.location.href = "./../../../app/homeAdm/homeAdm.html";
                     break;
                 case 'admin213':
-                    window.location.href = "./../../../app/homeUsu1/homeAdm.html";
+                    window.location.href = "./../../../app/homeAdm/homeAdm.html";
                     break;
                 case 'adminRed':
-                    window.location.href = "./../../../app/homeUsu2/homeAdm.html";
+                    window.location.href = "./../../../app/homeAdm/homeAdm.html";
                     break;
                 default:
                     errorMessage.textContent = 'Nombre de usuario o contraseña incorrectos.';
