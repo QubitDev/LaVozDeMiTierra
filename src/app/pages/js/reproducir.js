@@ -22,7 +22,7 @@ db.collection("audio").doc(docId).get().then((doc) => {
       musicaF.innerText = `Música de Fondo: ${data.musica}`;
       
 
-      textURL.URLt = data.textURL;
+      textURL = data.textURL;
       
       console.log("url: ",textURL);
       

@@ -1,25 +1,29 @@
-
+//import { deleteTaks } from "../../api/configuracion";
 /*Actualizamos el contenido de la base de datos*/
 const campc1 =document.getElementById('campoUno');
-
 const deleteCs = document.querySelectorAll(".deleteC");
-//const boton1 = document.querySelector(".boton1");
 const eliminacion = document.getElementById('confirmacion')
 const campc2 =document.getElementById('campoDos');
+
+
 //boton1.addEventListener("click", hideConfirma);
 for(let i = 0;i<deleteCs.length;i++){
     deleteCs[i].addEventListener('click',genConfirmar());
 }
 
-db.collection('audio').orderBy('titulo','asc').onSnapshot((snapshot) => {
-    console.log(snapshot.docs[0].id);
+db.collection('audio').onSnapshot((snapshot) => {
+    //console.log(snapshot.docs.id);
     cargarCuentos(snapshot.docs);
-    cargarLeyendas(snapshot.docs);
+    //cargarLeyendas(snapshot.docs);
 })
-
+let i=0;
 const cargarCuentos = (documentos) => {
-    if (documentos.length > 0){        
+    if (documentos.length > 0){  
+        let llaves = new Array(documentos.length);      
         documentos.forEach(documento => {
+            llaves[i] = documento.id;
+            
+            
             if(documento.data().tipoAudio == "Cuento"){                
                 campc1.innerHTML += ` 
                 <div class="campC1" id="campC1">
@@ -42,27 +46,18 @@ const cargarCuentos = (documentos) => {
                     <div id="confirmacion">
                         <h3 class="texto">Estas seguro de eliminar?</h3>
                         <button class="boton1" id="boton1" onclick ="hideConfirma()">Cancelar</button>
-                        <button class="boton" id="campc1" onclick ="remover()" data-id="${documento.id}">Confirmar</button>
+                        <button class='boton' id="campc1"  data-id="${documento.id}">Confirmar</button>
                     </div>
                     <div id="all"></div>
 
                     
                 </div>
                 
-            `;
+            `;           
             
-            
-            }
-        });
-         
-    }
-}
-const cargarLeyendas = (documentos) => {
-    if (documentos.length > 0){        
-        documentos.forEach(documento => {
-            if(documento.data().tipoAudio == "Leyenda"){                
+            }else{
                 campc2.innerHTML += ` 
-                <div class="campL1" id="campL1"> 
+                <div class="campL1" id="campL1" data-id="${documento.id}"> 
                     <div class="imageUno">
                         <button class="reproducirUno" onclick ="enviar('${documento.id}')">
                             <img src="./../../assets/images/im.jpg" alt="Quechua"/>
@@ -82,7 +77,7 @@ const cargarLeyendas = (documentos) => {
                     <div id="confirmacion">
                         <h3 class="texto">Estas seguro de eliminar?</h3>
                         <button class="boton1" id="boton1" onclick ="hideConfirma()">Cancelar</button>
-                        <button class="boton" id="campc1" onclick ="remover()" data-id="${documento.id}">Confirmar</button>
+                        <button class='boton' id="campc1" data-id="${documento.id}" >Confirmar</button>
                     </div>
                     <div id="all"></div>
 
@@ -90,29 +85,24 @@ const cargarLeyendas = (documentos) => {
                 </div>
                 
             `;
-           
-             }          
+            
+            }
+            const eliminarCL = campc1.querySelectorAll('.boton'); 
+            eliminarCL.forEach(btm =>{
+            btm.addEventListener('click',(event)=>{
+                hideConfirma();
+             })
+            })
+            i++;
 
-        });
-        
-           
-        
+        });      
+        console.log(llaves)
+
     }
 }
-const eliminarC = document.querySelectorAll(".boton");  
-eliminarC.forEach(bem =>{
-    bem.addEventListener('click',(event)=>{
-    console.log(event.target.dataset.id)
-          })
-    })    
 
 
 
-// Remove the 'capital' field from the document
-function remover(key){
-    hideConfirma();
-    const borrar = db.collection('audio').doc(key).delete();   
-}
 
 function genConfirmar(){
     document.getElementById('confirmacion').style.display = 'block'; 

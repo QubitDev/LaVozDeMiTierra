@@ -103,8 +103,8 @@ function registrarUsuario() {
 
             //guardar los datos en Firestore
             usersCollection.add({
-              nombre,
               apellido,
+              nombre,
               correoElectronico,
               nombreDeUsuario,
               numeroCelular,

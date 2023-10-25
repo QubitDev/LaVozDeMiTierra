@@ -53,8 +53,22 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	
 }
-
+.iconAdm{
+	border-radius: 50%;
+	padding-top: 0px;
+	height: 40px;
+	width: 40px;
+	position: absolute;
+	top: 40px;
+	left: 90%;
+	z-index: 9999;
+	display: inline-block;
+	box-sizing: border-box;
+	text-align: center;
+	box-shadow: 10px 10px 15px 5px black;	
+}
 
 .greeting {
 
@@ -145,11 +159,6 @@ a {
 
 	flex-direction: column;
 	display: flex;
-
-
-
-
-
 
 }
 
