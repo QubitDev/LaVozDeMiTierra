@@ -20,8 +20,8 @@ var idDoc='';
 const datos = {};
 var bandera = true;
 
-imageInput.addEventListener("change", function (event) {
-  const selectedImage = event.target.files[0]; // Obtén el archivo de imagen seleccionado
+imageInput.addEventListener("change", function () {
+  const selectedImage = this.files[0]; // Obtén el archivo de imagen seleccionado
 
   const imagePreview = document.getElementById("imagePreview");
   const frase = document.getElementById("frase");
@@ -358,12 +358,12 @@ function uploadFile(file, path) {
 async function handleSubmit() {
   const audioFile = audioInput.files[0];
   const textFile = textInput.files[0];
-  const imageFile = imageInput.file[0];
+  const imageFile = imageInput.files[0];
 
   try {
       const audioURL = await uploadFile(audioFile, 'audio/' + audioFile.name);
       const textURL = await uploadFile(textFile, 'texto/' + textFile.name);
-      const imageURL = await uploadFile(imageFile, 'texto/' + imageFile.name);
+      const imageURL = await uploadFile(imageFile, 'images/' + imageFile.name);
       
       console.log("Documento escrito con ID: ", audioURL);
       console.log("Documento escrito con ID: ", textURL);

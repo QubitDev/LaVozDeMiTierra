@@ -88,7 +88,7 @@
                 <p class="error-message" id="error_musica_fondo"></p>
               </div>
 
-              <label for="procedencia" class="form__label">Procedencia:</label>
+              <label for="procedencia" class="form__label">Procedencia Cultural:</label>
               <input
                 type="text"
                 class="form__control"
@@ -186,8 +186,7 @@
                     <input 
                       type="file" 
                       class="form__control"
-                      id="audioFileInput" 
-                      name="audio"   
+                      id="audioFileInput"    
                       accept=""
                       disabled
                       ondragover="event.preventDefault()"
@@ -196,17 +195,6 @@
                   <!-- </div> -->
                 </div>
               </div>
-
-              <label for="duracion" class="form__label"> 
-                <a
-                  id="duracion"
-                  name="duracion"
-                  placeholder="Duración"
-                  class="form__control"
-                  style="text-decoration: none; display: none;"
-                  onclick="return false;"
-                ></a>
-              </label>
               
 
               <!-- texto -->
@@ -219,7 +207,6 @@
                       class="form__control"
                       id="textFileInput" 
                       accept=".txt" 
-                      name="text" 
                       disabled
                       ondragover="event.preventDefault()"
                       ondrop="event.preventDefault()"
@@ -236,7 +223,6 @@
                       class="form__control"
                       id="imageInput"
                       accept=".jpeg, .png"
-                      name="image"
                       ondragover="event.preventDefault()"
                       ondrop="event.preventDefault()"
                     />
