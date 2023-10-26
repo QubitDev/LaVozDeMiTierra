@@ -26,10 +26,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 window.location.href = "./../../../app/homeAdm/homeAdm.html";
                 break;
             case 'admin213':
-                window.location.href = "./../../../app/homeUsu1/homeAdm.html";
+                window.location.href = "./../../../app/homeUsu/homeAdm.html";
                 break;
             case 'adminRed':
-                window.location.href = "./../../../app/homeUsu2/homeAdm.html";
+                window.location.href = "./../../../app/homeUsu/homeAdm.html";
                 break;
             // Agregar más casos para otros usuarios si es necesario
             default:
