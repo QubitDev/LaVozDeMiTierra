@@ -27,9 +27,5 @@ document.addEventListener("DOMContentLoaded", function () {
         // Tu lógica para enviar el correo de recuperación aquí
     });
 
-    // Agrega un evento al botón de cancelación
-    cancelButton.addEventListener("click", function () {
-        // Redirige a la página de inicio de sesión (login.html)
-        window.location.href = "login.html";
-    });
+
 });
