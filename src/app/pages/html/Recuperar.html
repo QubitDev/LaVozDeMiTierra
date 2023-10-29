@@ -2,19 +2,24 @@
 <html>
 <head>
     <!-- Agrega enlaces a tus archivos CSS y Firebase aquí -->
-      <!-- Firebase App (la biblioteca base) - es obligatorio siempre -->
-        <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
-
+    <!-- Incluye tu archivo de configuración Firebase -->
+    <script src="configuracion.js"></script>
 </head>
 <body>
     <div class="container">
-        <h1>Enviar Correo de Recuperación</h1>
+        <h1>Recuperar Contraseña</h1>
         <input type="text" id="usernameInput" placeholder="Nombre de usuario">
         <select id="userSelect">
             <!-- Aquí debes cargar dinámicamente los usuarios desde Firebase Firestore -->
         </select>
+        <p id="emailInfo"></p> <!-- Para mostrar el correo -->
         <button id="sendRecoveryEmail">Enviar correo de recuperación</button>
+        <button id="Cancel"><a href="login.html">Cancelar</a></button><!-- Enlace de cancelación con href -->
     </div>
     <script src="recuperar.js"></script>
 </body>
 </html>
+
+
+
+
