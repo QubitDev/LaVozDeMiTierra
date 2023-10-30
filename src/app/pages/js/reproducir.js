@@ -11,9 +11,8 @@ const narradorAudio = document.getElementById("narrador");
 const musicaF = document.getElementById("musica");
 
 const audioElement = document.getElementById("audioE");
-const textURL={};
 const textContentElement = document.getElementById("text_content");
-
+const Imagen = document.getElementById("imgenC");
 db.collection("audio").doc(docId).get().then((doc) => {
   if (doc.exists) {
       const data = doc.data();
@@ -21,6 +20,7 @@ db.collection("audio").doc(docId).get().then((doc) => {
       titulo.innerText = data.titulo;
       narradorAudio.innerText = `Narrado por: ${data.narrador}`;
       musicaF.innerText = `Música de Fondo: ${data.musica}`;
+      Imagen.src = `${data.imageURL}`;
       
 
       textURL = data.textURL;

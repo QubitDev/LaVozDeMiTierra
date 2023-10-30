@@ -1,119 +1,132 @@
-//import { deleteTaks } from "../../api/configuracion";
-/*Actualizamos el contenido de la base de datos*/
+
 const campc1 =document.getElementById('campoUno');
 const deleteCs = document.querySelectorAll(".deleteC");
 const eliminacion = document.getElementById('confirmacion')
+
+const eliminacionDos = document.getElementById('confirmacionDos');
 const campc2 =document.getElementById('campoDos');
+const conedorAll = document.getElementById('contenedor');
 
-
-//boton1.addEventListener("click", hideConfirma);
 for(let i = 0;i<deleteCs.length;i++){
     deleteCs[i].addEventListener('click',genConfirmar());
 }
 
 db.collection('audio').orderBy('titulo','asc').onSnapshot((snapshot) => {
-    //console.log(snapshot.docs.id);
     cargarCuentos(snapshot.docs);
 })
-let i=0;
 const cargarCuentos = (documentos) => {
     if (documentos.length > 0){  
-        let llaves = new Array(documentos.length);      
+        
         documentos.forEach(documento => {
-            llaves[i] = documento.id;
-            
             
             if(documento.data().tipoAudio == "Cuento"){                
                 campc1.innerHTML += ` 
-                <div class="campC1" id="campC1">
+                <div class="campC1" id="campC1">                
                     <div class="imageUno">
                         <button class="reproducirUno" onclick ="enviar('${documento.id}')">
-                            <img src="./../../assets/images/im.jpg" alt="Quechua"/>
+                            <img src="${documento.data().imageURL}" width="90px" height="90px">
                         </button>
                     </div>
                     <div id="iconoUno">
-                        <button class="deleteC" onclick ="genConfirmar()">
+                        <button class="deleteC" onclick ="genConfirmar('${documento.data().tipoAudio}')">
                              <i class="fas fa-trash-can fa"></i>
                         </button>
                     </div> 
                     <div class="contenidoUno" id="contenidoUno">
-                        <h3 id="tituloAudio">${documento.data().titulo}<h3>
-                        <h3 id="procedencia">${documento.data().procedencia}<h3>
-                        <h3 id="narrador">${documento.data().narrador}<h3>
-                        <h3 id="musica_fondo">${documento.data().musica}</h3>
+                        <p id="tituloAudio">${documento.data().titulo}<p>
+                        <p id="procedencia">${documento.data().procedencia}<p>
+                        <p id="narrador">${documento.data().narrador}<p>
+                        <p id="musica_fondo">${documento.data().musica}</p>
                     </div> 
                     <div id="confirmacion">
                         <h3 class="texto">Estas seguro de eliminar?</h3>
-                        <button class="boton1" id="boton1" onclick ="hideConfirma()">Cancelar</button>
-                        <button class='boton' id="campc1"  data-id="${documento.id}">Confirmar</button>
+                        <button class="boton1" id="boton1" onclick ="hideConfirma('${documento.data().tipoAudio}')">Cancelar</button>
+                        <button class='boton' id="campc1" onclick ="eliminar('${documento.id}','${documento.data().tipoAudio}')">Confirmar</button>
                     </div>
-                    <div id="all"></div>
-
-                    
                 </div>
                 
             `;           
             
             }else{
                 campc2.innerHTML += ` 
-                <div class="campL1" id="campL1" data-id="${documento.id}"> 
-                    <div class="imageUno">
-                        <button class="reproducirUno" onclick ="enviar('${documento.id}')">
-                            <img src="./../../assets/images/im.jpg" alt="Quechua"/>
+                <div class="campL1" id="campL1"> 
+                    <div class="imageDos">
+                        <button class="reproducirDos" onclick ="enviar('${documento.id}')">
+                            <img src="${documento.data().imageURL}" width="90px" height="90px">
                         </button>
                     </div>
                     <div id="iconoUno">
-                        <button class="deleteC" onclick ="genConfirmar()">
+                        <button class="deleteC" onclick ="genConfirmar('${documento.data().tipoAudio}')">
                              <i class="fas fa-trash-can fa"></i>
                         </button>
                     </div> 
-                    <div class="contenidoUno" id="contenidoUno">
-                        <h3 id="tituloAudio">${documento.data().titulo}<h3>
-                        <h3 id="procedencia">${documento.data().procedencia}<h3>
-                        <h3 id="narrador">${documento.data().narrador}<h3>
-                        <h3 id="musica_fondo">${documento.data().musica}</h3>
+                    <div class="contenidoDos" id="contenidoDos">
+                        <p id="tituloAudio">${documento.data().titulo}<p>
+                        <p id="procedencia">${documento.data().procedencia}<p>
+                        <p id="narrador">${documento.data().narrador}<p>
+                        <p id="musica_fondo">${documento.data().musica}</p>
                     </div> 
-                    <div id="confirmacion">
+                    <div id="confirmacionDos">
                         <h3 class="texto">Estas seguro de eliminar?</h3>
-                        <button class="boton1" id="boton1" onclick ="hideConfirma()">Cancelar</button>
-                        <button class='boton' id="campc1" data-id="${documento.id}" >Confirmar</button>
+                        <button class="boton2" id="boton2" onclick ="hideConfirma('${documento.data().tipoAudio}')">Cancelar</button>
+                        <button class='botonDos' id="campc2" onclick ="eliminar('${documento.id}','${documento.data().tipoAudio}')" >Confirmar</button>
                     </div>
-                    <div id="all"></div>
+                </div>                
+            `;            
+            }           
+        }); 
 
-                    
-                </div>
-                
-            `;
-            
-            }
-            const eliminarCL = campc1.querySelectorAll('.boton'); 
-            eliminarCL.forEach(btm =>{
-            btm.addEventListener('click',(event)=>{
-                hideConfirma();
-             })
-            })
-            i++;
-
-        });      
-        console.log(llaves)
-
+        conedorAll.innerHTML += `
+            <div id="all"></div> 
+        `; 
     }
+}
+function eliminar(id,cadena){
+    db.collection("audio").doc(id).delete();
+    hideConfirma(cadena);
+}
+
+function editar(id){
+    var cambio = db.collection("audio").doc(id);
+    return cambio.update({
+        titulo: nombre,
+        procedencia: quechua,
+        narrador: alberto,
+        muscia_fondo: violin,
+        tipoAudio:leyenda
+    })
 }
 
 
 
 
-function genConfirmar(){
-    document.getElementById('confirmacion').style.display = 'block'; 
-    document.getElementById('confirmacion').style.zIndex = '9999';
+function genConfirmar(cadena){
+    if(cadena=="Cuento"){
+        document.getElementById('confirmacion').style.display = 'block'; 
+        document.getElementById('confirmacion').style.zIndex = '9999';
+    }else
+    {
+        document.getElementById('confirmacionDos').style.display = 'block'; 
+        document.getElementById('confirmacionDos').style.zIndex = '9999';
+    }
+   
     document.getElementById('all').style.display = 'block';
     document.getElementById('all').style.background = 'linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0, 0.5))';
 }
 
-function hideConfirma(){    
-    document.getElementById('confirmacion').style.display = 'none';
+function hideConfirma(cadena){ 
+    if(cadena=="Cuento"){
+        document.getElementById('confirmacion').style.display = 'none';
+    }   
+    else{
+        document.getElementById('confirmacionDos').style.display = 'none';
+
+    }
     document.getElementById('all').style.display = 'none';    
     document.getElementById('all').style.background = '';
+    document.getElementById('all').style.zIndex = '0';
+
+    
 }
 function enviar(doc) {
     window.location.href = `./../pages/html/reproducir.html?doc=${doc}`;

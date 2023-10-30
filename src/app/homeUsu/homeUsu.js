@@ -4,19 +4,12 @@ const botonSiguiente = document.getElementById('botonSiguiente');
 
 let ultimoDoc = null;
 let primerDoc = null;
-
-
-
-
 db.collection('audio').onSnapshot((snapshot) => {
 
-
     cargarDocumentoCuento(snapshot.docs);
-
 });
 
 const iddoc = {};
-
 const cargarDocumentoCuento = (documentos) => {
     if (documentos.length > 0) {
         // ultimoDoc = documentos[documentos.length - 1];
@@ -29,8 +22,7 @@ const cargarDocumentoCuento = (documentos) => {
                 contenedorCards.innerHTML += `
             <div class="carta" id="carta" onClick="enviar('${documento.id}')">
                 <figure>
-					<img src="./../../assets/images/CuentoUno.jpg"
-						alt="La-leyenda-de-la-quinua-y-la-sal">
+                <img src="${documento.data().imageURL}" width="60px" height="70px">
 				</figure>
 			
 				<div class="contenido-card">
@@ -65,8 +57,7 @@ const cargarDocumentoLeyenda = (documentos) => {
                 contenedorCards1.innerHTML += `
             <div class="carta" id="carta" onClick="enviar('${documento.id}')">
                 <figure>
-					<img src="./../../assets/images/CuentoUno.jpg"
-						alt="La-leyenda-de-la-quinua-y-la-sal">
+                     <img src="${documento.data().imageURL}" width="90px" height="90px">
 				</figure>
 				
 				<div class="contenido-card">

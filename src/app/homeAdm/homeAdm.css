@@ -4,14 +4,27 @@
   height: 150px;
   width: 150px;
   position: absolute;
-  top:3%; 
-  left: 2%; 
+  top: 60px; 
+  left: 20px; 
   z-index: 9999;
   display: inline-block;
   box-sizing: border-box;
   box-shadow: 10px 10px 15px 5px black;
 }
+.botonSesion{
+  border-radius: 50%;
+  padding-top: 0px;
+  height: 70px;
+  width: 70px;
+  position: absolute;
+  top: 60px; 
+  left: 50%; 
+  z-index: 9999;
+  display: inline-block;
+  box-sizing: border-box;
+  box-shadow: 10px 10px 15px 5px black;
 
+}
 #all{  
   height: 100%;
   width: 100%;
@@ -55,10 +68,47 @@
     top: 0px;
   }
 }
+#confirmacionDos{
+  padding-left: 50px;
+  height: 80px;
+  width: 300px;
+  font-size: 16;
+  font-family: Arial, Helvetica, sans-serif;
+  position: fixed;
+  top: 50%; 
+  left: 50%; 
+  display: none;
+  background: radial-gradient(ellipse at right top, #647c74, #587a7c,#15242e,  #3a615e,#749e8a 80%);
+  background-size: 150% 150%;
+  background-position: top center;
+  color: #fff;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
+  
+  .boton2{
+    position: relative;
+    left: 2%;
+  }
+  .botonDos{
+    position: relative;
+    left: 45%;
+    top: 0px;
+  }
 
-#menu {  
-  font-family: Arial, Helvetica, sans-serif;  
-  width: 200px;  
+}
+
+
+#menu {    
+  font-family: Arial, Helvetica, sans-serif;
+  width: 220px;
+  /* background: linear-gradient(to left bottom, #43cea2, #185a9d); */
+
+  background: radial-gradient(ellipse at bottom right, #647c74, #587a7c, #15242e,  #3a615e,#749e8a 80%);
+  background-size: 150% 150%;
+  background-position: top center;
+  color: #fff;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
+
+  /* color: #fff; */
   padding: 14px;
   position: fixed;
   top: 102px;
@@ -66,39 +116,46 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-    /* justify-content: ; */
-  background: radial-gradient(ellipse at bottom right, #647c74, #587a7c, #15242e,  #3a615e,#749e8a 80%);
-  background-size: 150% 150%;
-  background-position: top center;
-  color: #fff;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
+  /* justify-content: ; */
 }
 
 #header {
   position: fixed;
+  height: 102px;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 999; /* Asegura que esté por delante de otros elementos */
-  padding: 10px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  z-index: 9998;
+  z-index: 999; 
+  /* Asegura que esté por delante de otros elementos */
+  /* background: linear-gradient(to top left, #43cea2, #185a9d); */
+
   background: radial-gradient(ellipse at right top, #647c74, #587a7c,#15242e,  #3a615e,#749e8a 80%);
   background-size: 150% 150%;
   background-position: top center;
   color: #fff;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
+
+  /* color: #ffffff; */
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+}
+.botonSesion{
+  font-family: Arial, Helvetica, sans-serif; 
+  
+  position: relative;
 }
 
 .greeting {  
   font-family: Arial, Helvetica, sans-serif; 
-  padding-right: 600px;
-  padding-left: 250px;
-  display: inline-block;
-  text-align: left;
-  text-shadow: 4px 4px 10px black;
+  position: relative;
+  left: 13%;
+  text-shadow: 8px 8px 14px black;
+}
+.greeting p {
+  color: #fff;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
 }
 
 /* Estilos para el margen superior del contenido principal para dejar espacio para el encabezado */
@@ -115,7 +172,7 @@
 }
 
 .menu__item:hover {
-  background: linear-gradient(to top left, #01081d, #185a9d);
+  background: radial-gradient(ellipse at left top, #01081d, #011c38 80%);
   /* background-color: #ffffff6e; */
   
 }
@@ -132,6 +189,7 @@ a{
   text-decoration: none;
 }
 
+
 #page-content {
   position: fixed;
   top: 102px;
@@ -146,8 +204,8 @@ a{
     padding: 14px;
     margin-left: 1%;
     position: fixed;
-    top: 107px;
-    left: 208px;
+    top: 102px;
+    left: 205px;
     height: 100%;
     width: 100%;     
     padding: 10px; 
@@ -156,7 +214,8 @@ a{
     background-position: top center;
     color: #fff;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
-}  
+} 
+
 
 
 img{
@@ -214,6 +273,19 @@ h2{
   left: 2%;
   top: 20px;
 }
+.imageDos{
+  position: relative;  
+  left: 2%;
+  top: 20px;
+}
+
+#contenidoDos{
+  position: relative;
+  top: 2%;
+  left: 10%;
+  margin-top: 5px;
+
+}
 
 #contenidoUno{
   position: relative;
@@ -222,6 +294,7 @@ h2{
   margin-top: 5px;
 
 }
+
 h3{
   position: relative;
   margin-top: 5px;
@@ -231,9 +304,10 @@ h3{
   position: relative;
   left:70%;
   top: 20px;
-  margin-top: 5%;
-  
+  margin-top: 5%;  
 }
+
+
 #campC1{
   position: relative; 
   width: 693px;
