@@ -3,7 +3,6 @@ const docId = urlParams.get("doc");
 const docIdHome = urlParams.get("docHome");
 const contenedorCards = document.getElementById('card');
 
-console.log("id:: ",docId);
 
 const tipo = document.getElementById("tipo__audio");
 const  titulo = document.getElementById("titulo__audio");
@@ -13,6 +12,7 @@ const musicaF = document.getElementById("musica");
 const audioElement = document.getElementById("audioE");
 const textContentElement = document.getElementById("text_content");
 const Imagen = document.getElementById("imgenC");
+
 db.collection("audio").doc(docId).get().then((doc) => {
   if (doc.exists) {
       const data = doc.data();
@@ -20,37 +20,15 @@ db.collection("audio").doc(docId).get().then((doc) => {
       titulo.innerText = data.titulo;
       narradorAudio.innerText = `Narrado por: ${data.narrador}`;
       musicaF.innerText = `Música de Fondo: ${data.musica}`;
-      Imagen.src = `${data.imageURL}`;
-      
-
-      textURL = data.textURL;
-      
-      console.log("url: ",textURL);
-      
       audioElement.src = data.audioURL;
-    fetch(textURL.URLt)
-.then(response => {
-  if (!response.ok) {
-    throw new Error(`Error al cargar el archivo de texto: ${response.status} - ${response.statusText}`);
-  }
-  return response.text();
-})
-.then(text => {
-  textContentElement.textContent = text;
-})
-.catch(error => {
-  console.error(error);
-});
-
+      textContentElement.src = data.textURL;
+      Imagen.src = data.imageURL;      
   } else {
       console.log("No se encontró el documento en Firestore.");
   }
-}).catch((error) => {
-  console.error("Error al obtener el documento:", error);
 });
 
 
-console.log("url: ",textURL.URLt);
 
 //barra lateral
 

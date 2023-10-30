@@ -1,4 +1,3 @@
-
 const campc1 =document.getElementById('campoUno');
 const deleteCs = document.querySelectorAll(".deleteC");
 const eliminacion = document.getElementById('confirmacion')
@@ -6,10 +5,13 @@ const eliminacion = document.getElementById('confirmacion')
 const eliminacionDos = document.getElementById('confirmacionDos');
 const campc2 =document.getElementById('campoDos');
 const conedorAll = document.getElementById('contenedor');
+const endSesion = document.querySelector(".sesion");
+endSesion.addEventListener('click',cerrarSesion);
 
 for(let i = 0;i<deleteCs.length;i++){
     deleteCs[i].addEventListener('click',genConfirmar());
 }
+
 
 db.collection('audio').orderBy('titulo','asc').onSnapshot((snapshot) => {
     cargarCuentos(snapshot.docs);
@@ -130,4 +132,15 @@ function hideConfirma(cadena){
 }
 function enviar(doc) {
     window.location.href = `./../pages/html/reproducir.html?doc=${doc}`;
+}
+
+let cont = 1;
+function cerrarSesion(){
+    if(cont % 2 == 0){
+        document.getElementById('sesionMenu').style.display= 'none';
+    }
+    else{
+        document.getElementById('sesionMenu').style.display= 'block';
+    }
+    cont++;
 }

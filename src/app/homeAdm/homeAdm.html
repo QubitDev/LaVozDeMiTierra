@@ -18,29 +18,34 @@
             </div>
             <header id="header">
                 <div class="greeting">
-                    <p><font size="8">La Voz De Mi Tierra</font></p>
+                    <p><font size="16">La voz de mi Tierra</font></p>
                 </div>
-
-                <div class="sesion-picture">
-                    <button>
-                        <img src="./../../assets/images/IconoAdm.png" alt="botonSesion"class="botonSesion"/>
-                    </button>
+                <div class="sesionEnd">
+                        <img src="./../../assets/images/IconoAdm.png" alt="Sesion" class="sesion"/>
                 </div>
+                <div id="sesionMenu">
+                    <ul class="opciones" id="opciones">
+                        <a href="./../pages/html/Login.html">cerrar sesion</a>                        
+                    </ul>
+                    <ul class="opciones" id="opciones">
+                        <a href="./../homeAdm/homeAdm.html">perfil usuario</a>                        
+                    </ul>
 
-                
+                </div>
             </header>
-            <div class="menu">
+            <div id="menu">
                 <div class="content">
                  <div class="menu__item" data-page="app">
-                   <i class="fas fa-home"></i>
-                   <a href="./../../homeAdm/homeAdm.html">Inicio</a>
-                 </div>
+                   <i class="fas fa-home"></i> 
+                   <a href="./../homeAdm/homeAdm.html">Inicio</a>
+                </div>
+                
                  <div class="menu__item" data-page="registro">
-                   <i class="fa-solid fa-plus"></i> 
-                   <a href="./../html/registro.html">Registrar Audio</a>
+                   <i class="fa-solid fa-plus"></i>
+                   <a href="./../pages/html/registro.html">Registrar Audio</a>
                  </div>
                 </div>
-               </div>
+            </div>
         </div>
     
         <!---------------------------------------------------HOME AMINISTRADOR-------------------------------------->
@@ -50,7 +55,7 @@
                         <h2>Cuentos:</h2>
                     </div>
                     <div class="Object" id="campoUno">
-                                             
+                                               
                     </div>
                 </div>
             
@@ -60,18 +65,24 @@
                         <h2>Leyendas:</h2>
                     </div>                   
                     <div class="Object" id ="campoDos">   
-                       
+                                               
                     </div>
                 </div>
             
         </div>
+        <div id="confirmacion">
+            <h3 class="texto">Estas seguro de eliminar?</h3>
+        </div>
+        <div id="all"></div>
 
-        
        
         <!-- Firebase Storage -->
         <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
         <script src="./../../api/configuracion.js"></script>
         <script src="/src/app/homeAdm/homeAdm.js"></script>
+
+
+
     </body>   
 </html>
