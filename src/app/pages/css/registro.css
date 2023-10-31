@@ -124,11 +124,11 @@ a{
 
 .container__form {
   position: fixed;
-  top: 180px;
-  left: 350px;
+  top: 130px;
+  left: 250px;
 
-  width: 70%;
-  height: 70%;
+  width: 75%;
+  height: 75%;
 
   display: flex;
   flex-direction: column;
@@ -164,38 +164,34 @@ form {
   justify-content: space-between;
 }
 
-/* #narrador{
-  margin-bottom: 30px;
-} */
-
 .container__input1,
-.container__input2 {
+.container__files {
   flex: 1;
   display: flex;
   flex-direction: column;
   padding: 5px;
+  height: 80%;
 }
 
 .container__input1 {
   margin-right: 15px;
 }
 
-.container__input2 {
+.container__files{
   margin-left: 15px;
 }
 
 .container__input1,
-.container__input2 {
-  margin-bottom: 20px;
+.container__files {
+  margin-bottom: 0px;
 }
 
 .form__control,
 .form-select {
-  /* width: 350px; */
   padding: 5px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  margin-bottom: 5px;
+  margin-bottom: 2.5px;
 }
 
 .form__control__time{
@@ -203,7 +199,7 @@ form {
   height: 30px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  margin-bottom: 5px;
+  margin-bottom: 2.5px;
 }
 
 .form__label {
@@ -224,14 +220,12 @@ form {
   align-items: flex-start;
 
   margin: 5px;
-  
-  margin: 20px 0;
-
+  margin: 5px 0;
 }
 
 .radio-group {
   display: flex ;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .form__radio__input {
@@ -244,7 +238,7 @@ form {
 }
 
 .radio-group label {
-  margin: 10px;
+  margin: 5px;
   border-radius: 5px;
   /* display: inline-block; */
 }
@@ -275,8 +269,11 @@ form {
   font-weight: bold;
 
   width: 100px;
-  height: 30px;
+  height: 35px;
   transition: background-color 0.3s;
+}
+.custom_bael{
+  margin-bottom: 10px;
 }
 
 .button__cancel,
@@ -297,37 +294,61 @@ form {
 }
 
 /* Estilo para cada contenedor de selección de archivos */
-.container-files {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.container_file_left, .container_file_rigth{
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-.container_file_left{
-  padding-left: 5px;
-}
-
-.container_file_rigth {
-  padding-left: 30px;
-}
 
 .file__chooser {
   display: flex;
   align-items: start; 
 } 
 
-.container_file_left .file__chooser,.container_file_rigth .file__chooser {
-  justify-content: start;
-  margin-top: 10px;
-  margin-bottom: 20px;
+.container__text .file__chooser,.container__audio .file__chooser, .container__image .file__chooser{
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
+.container__text{
+  display: flex;
+  flex-direction: column;
+}
 
+.container__audio{
+  display: flex;
+  flex-direction: column;
+}
+
+.container__image {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Estilo para la vista previa de la imagen */
+.image-preview {
+  width: 120px;
+  height: 120px; 
+  border: 1px solid #ddd; 
+  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius:10px;
+}
+
+#imagePreview {
+  max-width: 100%;
+  max-height: 100%; 
+}
+#frase {
+  text-align: center;
+  padding: 5px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.form__control[type="file"] {
+  width: 100%;
+}
+
+/* --------------------------------------------------------------------------------------------------------------------------------------  */
 
 /* mensages de error */
 .error-message{
@@ -481,4 +502,6 @@ form {
   }
 }
 
+
+/* estilos para la imagen */
 

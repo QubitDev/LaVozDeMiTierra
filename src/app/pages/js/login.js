@@ -1,3 +1,5 @@
+document.getElementById("submitButton").addEventListener("click", onSubmit);
+const  onSubmit= document.getElementById('onSubmit');
 document.addEventListener('DOMContentLoaded', function () {
   const loginForm = document.getElementById("login-form");
   const errorMessage = document.getElementById('error-message');
@@ -45,36 +47,30 @@ document.addEventListener('DOMContentLoaded', function () {
           isValid = false;
       } 
       //para el administrador*/
-      if (isValid) {
+      /*if (isValid) {
         const allowedCredentials = {
             'superAdmin': 'tbomch87',
-            'admin213': '018846',
-            'adminRed': '12345'
         };
 
         if (allowedCredentials.hasOwnProperty(usernameValue) && allowedCredentials[usernameValue] === passwordValue) {
             switch (usernameValue) {
                 case 'superAdmin':
                     window.location.href = "./../../../app/homeAdm/homeAdm.html";
-                    break;
-                case 'admin213':
-                    window.location.href = "./../../../app/homeAdm/homeAdm.html";
-                    break;
-                case 'adminRed':
-                    window.location.href = "./../../../app/homeAdm/homeAdm.html";
-                    break;
                 default:
                     errorMessage.textContent = 'Nombre de usuario o contraseña incorrectos.';
             }
-        } else if (usernameValue === nombreDeUsuario && passwordValue === contrasena) {
-            window.location.href = "./../../../app/homeUsu/homeUsu.html";
+        } else*/
+        if (usernameValue === 'superAdmin' && passwordValue === 'tbomch87') {
+            window.location.href = "./../../../app/homeAdm/homeadm.html";
         } else {
             errorMessage.textContent = 'Nombre de usuario o contraseña incorrectos.';
         }
+        
     }
+});
       //seria para el usuario en general
-      
-      firebase.auth().signInWithEmailAndPassword(usernameValue, passwordValue).then((userCredential) => {
+     
+    /*  firebase.auth().signInWithEmailAndPassword(usernameValue, passwordValue).then((userCredential) => {
         const user = userCredential.user;
         console.log("Usuario autenticado: ", user);
         window.location.href = "./../../../app/homeUsu/homeUsu.html";
@@ -86,9 +82,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Muestra un mensaje de error al usuario
         errorMessage.textContent = 'Nombre de usuario o contraseña incorrectos.';
-      });   
-});
-
+      }); */  
+/*
   function displayError(errorElementId, errorMessage) {
       const errorElement = document.getElementById(errorElementId);
       errorElement.textContent = errorMessage;
@@ -100,9 +95,11 @@ document.addEventListener('DOMContentLoaded', function () {
           element.textContent = "";
       });
   }
-});
-
-
+});*/
+function onSubmit() {
+    window.location.href = `./../html/Login.html?doc=${idDoc}`;
+    resetForm();
+}
 
 
 
@@ -213,10 +210,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 window.location.href = "./../../../app/homeAdm/homeAdm.html";
                 break;
             case 'admin213':
-                window.location.href = "./../../../app/homeUsu1/homeAdm.html";
+                window.location.href = "./../../../app/homeUsu/homeAdm.html";
                 break;
             case 'adminRed':
-                window.location.href = "./../../../app/homeUsu2/homeAdm.html";
+                window.location.href = "./../../../app/homeUsu/homeAdm.html";
                 break;
             // Agregar más casos para otros usuarios si es necesario
             default:
@@ -236,5 +233,4 @@ document.addEventListener('DOMContentLoaded', function () {
         errorMessage.textContent = 'Nombre de usuario o contraseña incorrectos.';
       }
     });
-});
-*/
+})*/
