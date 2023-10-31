@@ -1,18 +1,13 @@
 const campc1 =document.getElementById('campoUno');
-const deleteCs = document.querySelectorAll(".deleteC");
-const eliminacion = document.getElementById('confirmacion')
-
+const eliminacion = document.getElementById('confirmacion');
+const cancelarEdi = document.getElementById('cancelButton');
 const eliminacionDos = document.getElementById('confirmacionDos');
 const campc2 =document.getElementById('campoDos');
 const conedorAll = document.getElementById('contenedor');
 const endSesion = document.querySelector(".sesion");
+
 endSesion.addEventListener('click',cerrarSesion);
-
-for(let i = 0;i<deleteCs.length;i++){
-    deleteCs[i].addEventListener('click',genConfirmar());
-}
-
-
+cancelarEdi.addEventListener('click',hideEdita);
 db.collection('audio').orderBy('titulo','asc').onSnapshot((snapshot) => {
     cargarCuentos(snapshot.docs);
 })
@@ -32,8 +27,14 @@ const cargarCuentos = (documentos) => {
                     <div id="iconoUno">
                         <button class="deleteC" onclick ="genConfirmar('${documento.data().tipoAudio}')">
                              <i class="fas fa-trash-can fa"></i>
-                        </button>
+                        </button> 
+                        <button class="editC"  onclick ="editar('${documento.id}','${documento.data().titulo}','${documento.data().procedencia}',
+                        '${documento.data().narrador}','${documento.data().musica}','${documento.data().tipoAudio}','${documento.data().audioURL}',
+                        '${documento.data().imagenURL}','${documento.data().formato}')">
+                            <i class="fa-regular fa-pen-to-square"></i>
+                        </button>                       
                     </div> 
+                    
                     <div class="contenidoUno" id="contenidoUno">
                         <p id="tituloAudio">${documento.data().titulo}<p>
                         <p id="procedencia">${documento.data().procedencia}<p>
@@ -60,8 +61,14 @@ const cargarCuentos = (documentos) => {
                     <div id="iconoUno">
                         <button class="deleteC" onclick ="genConfirmar('${documento.data().tipoAudio}')">
                              <i class="fas fa-trash-can fa"></i>
-                        </button>
+                        </button> 
+                        <button class="editC" onclick ="editar('${documento.id}','${documento.data().titulo}','${documento.data().procedencia}',
+                        '${documento.data().narrador}','${documento.data().musica}','${documento.data().tipoAudio}','${documento.data().audioURL}',
+                        '${documento.data().imagenURL}','${documento.data().formato}')">
+                            <i class="fa-regular fa-pen-to-square"></i>
+                        </button>                          
                     </div> 
+                     
                     <div class="contenidoDos" id="contenidoDos">
                         <p id="tituloAudio">${documento.data().titulo}<p>
                         <p id="procedencia">${documento.data().procedencia}<p>
@@ -86,22 +93,36 @@ const cargarCuentos = (documentos) => {
 function eliminar(id,cadena){
     db.collection("audio").doc(id).delete();
     hideConfirma(cadena);
+    window.location.href("homeAdm.html");
 }
 
-function editar(id){
-    var cambio = db.collection("audio").doc(id);
-    return cambio.update({
+function editar(id,titulo,procedencia,narrador,muscia_fondo,tipo_audio,audio,imagen,formato){
+    document.getElementById('editarAll').style.display = 'block';
+    document.getElementById('all').style.display = 'block';
+    document.getElementById('all').style.background = 'linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0, 0.5))';
+    
+    document.getElementById('titulo_audio').value = titulo;
+    document.getElementById('procedencia').value = procedencia;
+    document.getElementById('narrador'),value = narrador;
+    document.getElementById('musica_fondo').value = muscia_fondo;
+    document.getElementById('tipo_audioCL').value = tipo_audio;
+    document.getElementById('audioFileInput').value = audio;
+    document.getElementById('imageInput').value = imagen;
+    document.getElementById('formato_audio').value = formato;
+
+    const subirAc =document.getElementById('submitButton');
+    subirAc.onclick=function(){
+        var cambio = db.collection("audio").doc(id);
+        return cambio.update({
         titulo: nombre,
         procedencia: quechua,
         narrador: alberto,
         muscia_fondo: violin,
         tipoAudio:leyenda
     })
+    }
+    
 }
-
-
-
-
 function genConfirmar(cadena){
     if(cadena=="Cuento"){
         document.getElementById('confirmacion').style.display = 'block'; 
@@ -129,6 +150,12 @@ function hideConfirma(cadena){
     document.getElementById('all').style.zIndex = '0';
 
     
+}
+function hideEdita(){
+    document.getElementById('editarAll').style.display = 'none';
+    document.getElementById('all').style.display = 'none';    
+    document.getElementById('all').style.background = '';
+
 }
 function enviar(doc) {
     window.location.href = `./../pages/html/reproducir.html?doc=${doc}`;

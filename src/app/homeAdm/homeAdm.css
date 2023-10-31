@@ -13,11 +13,11 @@
 }
 .sesion{
   border-radius: 50%;
-  height: 70px;
-  width: 70px;
+  height: 40px;
+  width: 40px;
   position: fixed;
-  top: 15px;
-  left: 85%;
+  top: 23px;
+  left: 90%;
   display: inline-block;
   box-sizing: border-box;
   box-shadow: 10px 10px 15px 5px black;
@@ -25,7 +25,12 @@
 .sesion:hover{
   background: radial-gradient(ellipse at left top, #01081d, #011c38 80%);
 }
-
+#titulo{
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  font-size: 25px;
+}
 #all{  
   height: 100%;
   width: 100%;
@@ -145,7 +150,7 @@
 #sesionMenu{
   position: fixed;  
   top: 95px;
-  left: 84%;
+  left: 90%;
   width: 150px;
   height: 150px;
   font-size: 16;
@@ -172,7 +177,6 @@
   border-radius:10px;
   transition: background-color 0.3s;
   background: radial-gradient(ellipse at left top, #01081d, #011c38 80%);
-
 }
 /* Estilos para el margen superior del contenido principal para dejar espacio para el encabezado */
 .content {
@@ -314,9 +318,13 @@ h3{
 #iconoUno{
   position: relative;
   left:70%;
-  top: 20px;
-  margin-top: 5%;
-  
+  top: 5px;
+  margin-top: 5%;  
+}
+#iconoEdit{
+  position: relative;
+  left:66%;
+  margin-top: 11%;  
 }
 #campC1{
   position: relative; 
@@ -332,4 +340,387 @@ h3{
   height: 100px;
   display: flex;
   margin-top: 40px;
+}
+.container__body{
+  position: fixed;
+  top: 102px;
+  left: 205px;
+  display: none;
+  width: 75%;
+  height: 70%;
+  
+  background-size: 150% 150%;
+  background-position: top center;
+  color: #fff;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
+
+}
+.container__form{
+  position: fixed;
+  top: 130px;
+  left: 250px;
+
+  width: 75%;
+  height: 70%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  background-color: #0000006b;
+  color: #fff;
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+
+  padding: 10px;
+  margin: 10px auto;
+  border-radius: 20px;
+
+}
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.container-inputs {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.container__input1,
+.container__files {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  height: 80%;
+}
+
+.container__input1 {
+  margin-right: 15px;
+}
+
+.container__files{
+  margin-left: 15px;
+}
+
+.container__input1,
+.container__files {
+  margin-bottom: 0px;
+}
+
+.form__control,
+.form-select {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 2.5px;
+}
+
+.form__control__time{
+  padding: 5px;
+  height: 30px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 2.5px;
+}
+
+.form__label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  font-size: 16px;
+  color: #ffffff;
+  /* text-shadow: 0 0 5px rgb(3, 103, 53) ,0 0 5px red, 0 0 5px rgb(89, 0, 255); */
+ text-shadow: 2px 2px 5px #4a0c0c;
+}
+
+
+/* radio buttons */
+
+.container_radio_group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  margin: 5px;
+  margin: 5px 0;
+}
+
+.radio-group {
+  display: flex ;
+  margin-bottom: 5px;
+}
+
+.form__radio__input {
+  margin-right: 20px;
+}
+
+
+.radio-group input[type="radio"] {
+  margin-right: 10px;
+}
+
+.radio-group label {
+  margin: 5px;
+  border-radius: 5px;
+  /* display: inline-block; */
+}
+
+/* stilo de botones */
+.button-container {
+  display: fixed;
+  bottom: 20px;
+  right: 22px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+#submitButton{
+  width: 120px;
+}
+.button__submit button,
+.button__cancel button {
+  padding: 10px 20px;
+  margin-right: 20px;
+  margin-bottom: 10px;
+  font-size: 13px;
+
+  /* background: linear-gradient(to top left, #01081d, #185a9d); */
+  background: radial-gradient(ellipse at left top, #01081d, #011c38 80%);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+
+  width: 100px;
+  height: 35px;
+  transition: background-color 0.3s;
+}
+.custom_bael{
+  margin-bottom: 10px;
+}
+
+.button__cancel,
+.button__submit {
+  margin-left: 20px;
+  transition: all 0.2s;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); 
+  z-index: 1;
+}
+
+.button__cancel button:hover,
+.button__submit button:hover {
+  background: #ffffff8f;
+  color: #070064dc;
+  transform: translate(0, -3px);
+  box-shadow: 0 6px 12px #00000071;
+  z-index: 2;
+}
+
+/* Estilo para cada contenedor de selección de archivos */
+
+.file__chooser {
+  display: flex;
+  align-items: start; 
+} 
+
+.container__text .file__chooser,.container__audio .file__chooser, .container__image .file__chooser{
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.container__text{
+  display: flex;
+  flex-direction: column;
+}
+
+.container__audio{
+  display: flex;
+  flex-direction: column;
+}
+
+.container__image {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Estilo para la vista previa de la imagen */
+.image-preview {
+  width: 120px;
+  height: 120px; 
+  border: 1px solid #ddd; 
+  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius:10px;
+}
+
+#imagePreview {
+  max-width: 100%;
+  max-height: 100%; 
+}
+#frase {
+  text-align: center;
+  padding: 5px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.form__control[type="file"] {
+  width: 100%;
+}
+.error-message{
+  color:#810202;
+  font-size: 13px;
+}
+
+
+/* Estilo para el contenedor de la ventana emergente */
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; 
+}
+/* Estilo para la ventana emergente */
+.window__acept__or__error {
+  display: flex;
+  flex-direction: column;
+
+  width: 242px;
+  height: 160px;
+  
+  background: radial-gradient(ellipse at bottom right, #647c74, #587a7c, #15242e,  #3a615e,#749e8a 80%);
+  background-size: 150% 150%;
+  background-position: top center;
+  
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  padding: 20px;
+  
+  color: #fff;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
+  
+  align-items: center;
+  text-align: center;
+  justify-content: space-around;
+}
+
+.window__acept__or__error p{
+  font-size: 24px;
+  font-family: Arial, Helvetica, sans-serif;
+  color:#fff;
+}
+
+/* Estilo para el botón Verificar */
+.button__verify, .button__ok {
+
+  padding: 10px 20px;
+
+  font-size: 13px;
+  background: radial-gradient(ellipse at left top, #01081d, #011c38 80%);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+
+  width: 100px;
+  height: 30px;
+
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button__verify:hover {
+  background: #0978c2b0;
+  color: #fff;
+}
+
+.button__ok:hover {
+  background: #e90000a6;
+  color: #fff;
+}
+
+/* pantalla de carga */
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+  background-color: #00000080;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  z-index: 1000;
+}
+
+#loading {
+  position:absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.loader {
+  border: 8px solid #f3f3f3; 
+  border-top: 8px solid #1f6bdd;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 2s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Estilo para los cargar doc */
+.wavi{
+  position: relative;
+  /* -webkit-box-reflect: below -5px; */
+  background: linear-gradient(transparent, #00000033);
+}
+.wavi span{
+  color: #fff;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.856);
+  
+  position: relative;
+  display: inline-block;  
+  font-size: 4rem;
+  text-transform: uppercase;
+  animation: wavi 1s infinite;
+  animation-delay: calc(.1s * var(--i));
+}
+
+@keyframes wavi{
+  0%,
+  40%,
+  100%{
+    transform: translateY(0);
+  }
+  20%{
+    transform: translateY(-20px);
+  }
 }

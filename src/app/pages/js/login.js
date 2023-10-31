@@ -9,7 +9,7 @@ function homeAdmi(){
   window.location.src = "../../homeAdm/homeAdm.html";
 }
 function homeUsua(){
-  window.location.href = "../homeUwu";
+  window.location.href = "../homeUsu";
 }
 
 document.addEventListener('DOMContentLoaded', function () {
