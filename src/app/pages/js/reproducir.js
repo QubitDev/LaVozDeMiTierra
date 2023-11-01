@@ -1,8 +1,8 @@
- 
- const urlParams = new URLSearchParams(window.location.search);
- const docId = urlParams.get("doc");
- 
- const tipo = document.getElementById("tipo__audio");
+
+const urlParams = new URLSearchParams(window.location.search);
+const docId = urlParams.get("doc");
+const docIdHome = urlParams.get("docHome");
+const contenedorCards = document.getElementById('card');
 
  const  titulo = document.getElementById("titulo__audio");
  const narradorAudio = document.getElementById("narrador");
@@ -14,64 +14,47 @@
 
 
 
- db.collection('audio').doc(docId).get().then((doc) => {
-   if (doc.exists) {
-       const data = doc.data();
-       tipo.innerText = doc.tipoAudio;
-       titulo.innerText = data.titulo;
-       narradorAudio.innerText = `Narrado por: ${data.narrador}`;
-       musicaF.innerText = `Música de Fondo: ${data.musica}`;
-       var texto = d.child(data.textURL);
-       textContentElement = texto.getDownloadURL();
-       
+//barra lateral
 
 
+db.collection('audio').limit(4).onSnapshot((snapshot) => {
+  //console.log(snapshot.docs[0].data());
 
-       audioElement.src = data.audioURL;
-       console.log(textContentElement);
-       console.log(audioElement);
- 
-   } else {
-       console.log("No se encontró el documento en Firestore.");
-   }
- } );
- 
- /*<!-- HTML -->
-  // Reemplaza con la ruta de tu archivo
+  cargarDocumentos(snapshot.docs);
+});
 
-// Obtiene la URL de descarga del archivo
-archivoRef.getDownloadURL()
+const iddoc = {};
 
-<textarea id="textArea" rows="10" cols="50"></textarea>
+const cargarDocumentos = (documentos) => {
+  if (documentos.length > 0) {
+      ultimoDoc = documentos[documentos.length - 1];
+      primerDoc = documentos[0];
 
-<script>
-  // Obtén una referencia al elemento de texto y al archivo que deseas cargar
-  var textArea = document.getElementById('textArea');
-  var storage = firebase.storage();
-  var storageRef = storage.ref();
-  var txtFileRef = storageRef.child('ruta/del/archivo.txt'); // Reemplaza con la ruta de tu archivo .txt en Firebase Storage
+      contenedorCards.innerHTML = '';
 
-  // Descarga el archivo
-  txtFileRef.getDownloadURL().then(function(url) {
-    // Utiliza la URL para descargar el contenido del archivo
-    fetch(url)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('No se pudo obtener el archivo.');
-        }
-        return response.text();
-      })
-      .then(data => {
-        textArea.textContent = data; // Muestra el contenido en el elemento <textarea>
-      })
-      .catch(function(error) {
-        console.error('Error al recuperar el archivo:', error);
+      documentos.forEach(documento => {
+          //iddoc1.doc1 = documento.data().id;
+          contenedorCards.innerHTML += `
+          <div class="carta" id="carta" onClick="enviar('${documento.id}')">
+              <figure>
+        <img src="./../../../assets/images/CuentoUno.jpg"
+          alt="La-leyenda-de-la-quinua-y-la-sal" height="110px" width="220px">
+      </figure>
+      
+        
+      
+      <div class="contenido-card" style="margin-top: 0%;">
+        <h4 style="margin: 1%;">${documento.data().titulo}</h4>
+      </div>
+                </div>
+          </div>
+          `;
       });
-  }).catch(function(error) {
-    console.error('Error al obtener la URL de descarga:', error);
-  });
-</script>
+  }
+}
 
- */
 
- 
+function enviar(doc) {
+  window.location.href = `../html/reproducir.html?doc=${doc}`;
+}
+
