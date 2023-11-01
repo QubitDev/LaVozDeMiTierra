@@ -1,236 +1,54 @@
-document.getElementById("submitButton").addEventListener("click", onSubmit);
-const  onSubmit= document.getElementById('onSubmit');
-document.addEventListener('DOMContentLoaded', function () {
-  const loginForm = document.getElementById("login-form");
-  const errorMessage = document.getElementById('error-message');
-  const validationRules = {    
-      nombreDeUsuario: {
-          minLength: 4,
-          maxLength: 15,
-          pattern: /^[A-Za-z0-9]+$/,
-          errorElementId: "nombreDeUsuarioError",
-          errorMessage: "El campo nombre de usuario debe tener entre 4 y 15 caracteres alfanuméricos."
-      },
-      contrasena: {
-          maxLength: 64,
-          pattern: /^[A-Za-z0-9]+@gmail\.com$/,
-          errorElementId: "correoElectronicoError",
-          errorMessage: "El campo correo electrónico debe contener caracteres alfabéticos y numéricos antes de @gmail.com."
-      }
-  };
-  // cuando se pasa el limite inferior y superior al momento de ingresar datos se limpia la pantalla
-  loginForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-      clearAllErrors();
-      const usernameValue = document.getElementById('username').value;
-      const passwordValue = document.getElementById('password').value;
-      const nombre = usernameInput.value;
-      const password = passworInput.value;
-      let isValid = true;
+const loginForm = document.getElementById("login-form");
+const emailInput = document.getElementById("email");
+const passwordInput = document.getElementById("password");
+const errorContainer = document.getElementById("errorContainer");
 
-      // Validate the username
-      if (
-          usernameValue.length < validationRules.nombreDeUsuario.minLength ||
-          usernameValue.length > validationRules.nombreDeUsuario.maxLength ||
-          !validationRules.nombreDeUsuario.pattern.test(usernameValue)
-      ) {
-          displayError(validationRules.nombreDeUsuario.errorElementId, validationRules.nombreDeUsuario.errorMessage);
-          isValid = false;
-      }
+loginForm.addEventListener("submit", function (e) {
+    e.preventDefault();
 
-      // Validate the password
-      if (
-          passwordValue.length > validationRules.contrasena.maxLength ||
-          !validationRules.contrasena.pattern.test(passwordValue)
-      ) {
-          displayError(validationRules.contrasena.errorElementId, validationRules.contrasena.errorMessage);
-          isValid = false;
-      } 
-      //para el administrador*/
-      /*if (isValid) {
-        const allowedCredentials = {
-            'superAdmin': 'tbomch87',
-        };
+    const correoElectronico = emailInput.value;
+    const contrasena = passwordInput.value;
 
-        if (allowedCredentials.hasOwnProperty(usernameValue) && allowedCredentials[usernameValue] === passwordValue) {
-            switch (usernameValue) {
-                case 'superAdmin':
-                    window.location.href = "./../../../app/homeAdm/homeAdm.html";
-                default:
-                    errorMessage.textContent = 'Nombre de usuario o contraseña incorrectos.';
+    // Validación de formato de correo electrónico
+    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    if (!emailPattern.test(correoElectronico)) {
+        errorContainer.innerText = "Ingrese un correo electrónico válido";
+        return;
+    }
+
+
+    // Validación de longitud de campos
+    if (email.length > 64) {
+        errorContainer.innerText = "El correo electrónico no debe exceder los 64 caracteres";
+        return;
+    }
+    if (password.length > 32) {
+        errorContainer.innerText = "La contraseña no debe exceder los 32 caracteres";
+        return;
+    }
+
+    // Iniciar sesión con Firebase
+    firebase.auth().signInWithEmailAndPassword(correoElectronico, contrasena)
+        .then((userCredential) => {
+            // Usuario autenticado con éxito
+            const user = userCredential.user;
+            if (correoElectronico === "trabajosoftware201@gmail.com") {
+                // Redirige a la página homeAdm.html si el correo es "trabajosoftware201@gmail.com"
+                window.location.href = "./../../homeAdm/homeAdm.html";
+            } else {
+                // Redirige a la página homeUsu.html para otros correos
+                window.location.href = "./../../homeUsu/homeUsu.html";
             }
-        } else*/
-        if (usernameValue === 'superAdmin' && passwordValue === 'tbomch87') {
-            window.location.href = "./../../../app/homeAdm/homeadm.html";
-        } else {
-            errorMessage.textContent = 'Nombre de usuario o contraseña incorrectos.';
-        }
-        
-    }
+        })
+        .catch((error) => {
+          // Maneja los errores de autenticación
+          if (error.code === "auth/user-not-found") {
+              errorContainer.innerText = "El correo electrónico no existe";
+          } else if (error.code === "auth/wrong-password") {
+              errorContainer.innerText = "Contraseña incorrecta";
+          } else {
+              // Otros errores
+              errorContainer.innerText = "Error de inicio de sesión";
+          }
+        });
 });
-      //seria para el usuario en general
-     
-    /*  firebase.auth().signInWithEmailAndPassword(usernameValue, passwordValue).then((userCredential) => {
-        const user = userCredential.user;
-        console.log("Usuario autenticado: ", user);
-        window.location.href = "./../../../app/homeUsu/homeUsu.html";
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.error("Error de autenticación:", errorCode, errorMessage);
-
-        // Muestra un mensaje de error al usuario
-        errorMessage.textContent = 'Nombre de usuario o contraseña incorrectos.';
-      }); */  
-/*
-  function displayError(errorElementId, errorMessage) {
-      const errorElement = document.getElementById(errorElementId);
-      errorElement.textContent = errorMessage;
-  }
-
-  function clearAllErrors() {
-      const errorElements = document.querySelectorAll(".error");
-      errorElements.forEach((element) => {
-          element.textContent = "";
-      });
-  }
-});*/
-function onSubmit() {
-    window.location.href = `./../html/Login.html?doc=${idDoc}`;
-    resetForm();
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-
-document.addEventListener('DOMContentLoaded', function () {
-    const loginForm = document.getElementById("login-form");
-    const errorMessage = document.getElementById('error-message');
-  
-    loginForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-  
-      const username = document.getElementById('username').value;
-      const password = document.getElementById('password').value;
-  
-      // Aquí deberías verificar las credenciales en el servidor.
-      // Este es solo un ejemplo para administrador que son estatiscos
-      const allowedCredentials = {
-        'superAdmin': 'tbomch87',
-        'admin213': '018846',
-        'adminRed': '12345'
-        // Agregar más credenciales aquí si es necesario
-    };
-
-    // Verificar si las credenciales coinciden con las permitidas
-    if (allowedCredentials.hasOwnProperty(username) && allowedCredentials[username] === password) {
-        // Las credenciales son correctas.
-        // Realiza la redirección apropiada según el nombre de usuario
-        switch (username) {
-            case 'superAdmin':
-                window.location.href = "./../../../app/homeAdm/homeAdm.html";
-                break;
-            case 'admin213':
-                window.location.href = "./../../../app/homeUsu/homeAdm.html";
-                break;
-            case 'adminRed':
-                window.location.href = "./../../../app/homeUsu/homeAdm.html";
-                break;
-            // Agregar más casos para otros usuarios si es necesario
-            default:
-                errorMessage.textContent = 'Nombre de usuario o contraseña incorrectos.';
-        }
-    } else {
-        // Las credenciales son incorrectas.
-        errorMessage.textContent = 'Nombre de usuario o contraseña incorrectos.';
-    }
-
-      //ejemplo para el usuario
-      if (username === 'MarcoSG' && password === '100087') {
-        // Las credenciales son correctas.
-        // Redirige a la pantalla de inicio de la plataforma
-        window.location.href = "./../../../app/homeUsu/homeUsu.html";
-      } else {
-        errorMessage.textContent = 'Nombre de usuario o contraseña incorrectos.';
-      }
-    });
-})*/
