@@ -3,6 +3,7 @@ document.getElementById("registration-form").addEventListener("submit", (e) => {
   registrarUsuario();
 });
 const usersCollection = db.collection("users");
+const datos = {};
 const validationRules = {
   nombre: {
     minLength: 3,
@@ -10,6 +11,7 @@ const validationRules = {
     pattern: /^[A-Za-z]+$/,
     errorElementId: "nombreError",
     errorMessage: "El campo nombre debe tener entre 3 y 20 caracteres alfabéticos.",
+    voidMessage: "Complete este campo",
   },
   apellido: {
     minLength: 5,
@@ -17,6 +19,7 @@ const validationRules = {
     pattern: /^[A-Za-z]+$/,
     errorElementId: "apellidoError",
     errorMessage: "El campo apellido debe tener entre 5 y 20 caracteres alfabéticos.",
+    voidMessage: "Complete este campo",
   },
   nombreDeUsuario: {
     minLength: 4,
@@ -24,28 +27,33 @@ const validationRules = {
     pattern: /^[A-Za-z0-9]+$/,
     errorElementId: "nombreDeUsuarioError",
     errorMessage: "El campo nombre de usuario debe tener entre 4 y 15 caracteres alfanuméricos.",
+    voidMessage: "Complete este campo",
   },
   correoElectronico: {
     maxLength: 64,
-    pattern: /^[A-Za-z0-9]+@gmail\.com$/,
+    pattern: /^[A-Za-z0-9!#$%&'*+\-/=?^_`{|}~.]+@gmail\.com$/,
     errorElementId: "correoElectronicoError",
     errorMessage: "El campo correo electrónico debe contener caracteres alfabéticos y numéricos antes de @gmail.com.",
+    voidMessage: "Complete este campo",
   },
   numeroCelular: {
     maxLength: 8,
-    pattern: /^\d+$/,
+    pattern: /^[6-7]\d+$/,
     errorElementId: "numeroCelularError",
     errorMessage: "El campo número de celular debe tener hasta 8 caracteres numéricos.",
+    voidMessage: "Complete este campo",
   },
   contrasena: {
     maxLength: 32,
     pattern: /^[A-Za-z0-9]+$/,
     errorElementId: "contrasenaError",
     errorMessage: "El campo contraseña debe tener hasta 32 caracteres alfanuméricos.",
+    voidMessage: "Complete este campo",
   },
   repitaContrasena: {
     errorElementId: "repitaContrasenaError",
     errorMessage: "Las contraseñas no coinciden",
+    voidMessage: "Complete este campo",
   },
 };
 
@@ -65,7 +73,7 @@ function registrarUsuario() {
   const contrasena = document.getElementById("password").value;
   const repitaContrasena = document.getElementById("passwordRepeat").value;
   const numeroCelular = document.getElementById("phone").value;
-
+  Object.assign(datos,{nombre, apellido, correoElectronico, nombreDeUsuario, numeroCelular});
   // Verifica si las contraseñas coinciden
   if (contrasena !== repitaContrasena) {
     document.getElementById(validationRules.repitaContrasena.errorElementId).innerText = validationRules.repitaContrasena.errorMessage;
@@ -93,7 +101,7 @@ function registrarUsuario() {
     return;
   }
 
-  if (numeroCelular.length > validationRules.numeroCelular.maxLength || !validationRules.numeroCelular.pattern.test(numeroCelular)) {
+  if (numeroCelular.length !== validationRules.numeroCelular.maxLength || !validationRules.numeroCelular.pattern.test(numeroCelular)) {
     document.getElementById(validationRules.numeroCelular.errorElementId).innerText = validationRules.numeroCelular.errorMessage;
     return;
   }
@@ -116,18 +124,18 @@ function registrarUsuario() {
             // Registro exitoso
             const user = userCredential.user;
 
-            //guardar los datos en Firestore
-            usersCollection.add({
-              nombre,
-              apellido,
-              correoElectronico,
-              nombreDeUsuario,
-              numeroCelular,
-            });
-
-            alert("Usuario registrado con éxito");
-            // Redirige a la pantalla de inicio de la plataforma
-            window.location.href = "Login.html";
+            setTimeout(() => {
+              usersCollection.add(datos)
+                .then(() => {
+                  alert("Usuario registrado con éxito");
+                  // Redirige a la pantalla de inicio de la plataforma
+                  window.location.href = "Login.html";
+                })
+                .catch((error) => {
+                  // Maneja cualquier error relacionado con Firestore aquí
+                  alert("Error al agregar datos a Firestore: " + error.message);
+                });
+            }, 2000); // espera de 2segundos.
           })
           .catch((error) => {
             // Error en el registro
