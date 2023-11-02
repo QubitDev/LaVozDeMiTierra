@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     // Inicializa Firebase con los datos de configuración de configuracion.js
     firebase.initializeApp(configuracion);
-
+    
     // Accede a elementos HTML
     const usernameInput = document.getElementById("usernameInput");
     const userSelect = document.getElementById("userSelect");
