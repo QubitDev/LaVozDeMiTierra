@@ -34,10 +34,10 @@ loginForm.addEventListener("submit", function (e) {
             const user = userCredential.user;
             if (correoElectronico === "trabajosoftware201@gmail.com") {
                 // Redirige a la página homeAdm.html si el correo es "trabajosoftware201@gmail.com"
-                window.location.href = `./../app.html?user=${"homeAdm"}`;
+                window.location.href = `./../../pages/app.html?user=${"homeAdm"}`;
             } else {
                 // Redirige a la página homeUsu.html para otros correos
-                window.location.href = `./../app.html?user=${"homeUsu"}`;
+                window.location.href = `./../../pages/app.html?user=${"homeUsu"}`;
             }
         })
         .catch((error) => {
