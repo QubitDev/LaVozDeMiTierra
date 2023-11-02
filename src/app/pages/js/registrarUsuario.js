@@ -31,7 +31,7 @@ const validationRules = {
   },
   correoElectronico: {
     maxLength: 64,
-    pattern: /^[A-Za-z0-9]+@gmail\.com$/,
+    pattern: /^[A-Za-z0-9!#$%&'*+\-/=?^_`{|}~.]+@gmail\.com$/,
     errorElementId: "correoElectronicoError",
     errorMessage: "El campo correo electrónico debe contener caracteres alfabéticos y numéricos antes de @gmail.com.",
     voidMessage: "Complete este campo",
