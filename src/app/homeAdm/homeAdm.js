@@ -107,8 +107,6 @@ function editar(id,titulo,procedenciaSE,narradorSE,muscia_fondoSE){
     const subirAc =document.getElementById('submitButton');
     subirAc.onclick=function(){
         var cambio = db.collection('audio').doc(id);
-
-
         var tituloT = document.getElementById('titulo_audio').value;
         var procedenciaP = document.getElementById('procedenciaCul').value;
         var narradorN = document.getElementById('narradorE').value;
@@ -119,6 +117,7 @@ function editar(id,titulo,procedenciaSE,narradorSE,muscia_fondoSE){
         narrador: narradorN,
         muscia_fondo: muscia_fondoM
     })
+    
     }
     
 }
