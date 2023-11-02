@@ -17,8 +17,6 @@ if(user){
 	
 }
 
-
-
 function showFile(file) {
     fetch(`./html/${file}.html`)
 		.then((response) => {
