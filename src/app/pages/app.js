@@ -4,6 +4,7 @@ const contentMain = document.getElementById("app-content");
 const butttonBuscar = document.getElementById("searchButton");
 const buttonRegister = document.getElementById("registrar_audio");
 
+
 if(user){
 	showFile(user);
 	
