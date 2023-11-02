@@ -1,21 +1,36 @@
-// const contentContainer = document.getElementById("page-content");
-// const menuLinks = document.querySelectorAll("menu");
+function showFile(file) {
+    const contentMain = document.getElementById("app-content");
+    fetch(`./html/${file}.html`)
+		.then((response) => {
+			if (!response.ok) {
+				throw new Error(`Error en la solicitud: ${response.status}`);
+			}
+			return response.text();
+		})
+		.then((data) => {
+			contentMain.innerHTML = data;
+            loadCSS(file);
+            loadJS(file);
+  
+		})
+		.catch((error) => {
+			console.error("Error al cargar el contenido:", error);
+		});
+}
 
-// function loadPage(url) {
-//   fetch(url)
-//     .then((response) => response.text())
-//     .then((html) => {
-//       contentContainer.innerHTML = html;
-//     })
-//     .catch((error) => {
-//       console.error("Error al cargar la página:", error);
-//     });
-// }
+function loadCSS(file) {
+	const link = document.createElement("link");
+	link.rel = "stylesheet";
+	link.type = "text/css";
+	link.href = `./css/${file}.css`; 
+	document.head.appendChild(link);
+}
+  
+function loadJS(file) {
+	const script = document.createElement("script");
+	script.src = `./js/${file}.js`; 
+	document.body.appendChild(script);
+}
+  
 
-// menuLinks.forEach((link) => {
-//   link.addEventListener("click", (event) => {
-//     event.preventDefault();
-//     const pageUrl = link.getAttribute("href");
-//     loadPage(pageUrl);
-//   });
-// });
+  
