@@ -1,29 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet"  href="./../css/RegistroUi.css">
+    <link rel="stylesheet" href="./../css/RegistroUi.css">
     <link rel="icon" type="image/x-icon" href="./../../../assets/images/LogoLDMT.ico" />
     <link rel="stylesheet" media="all" href="./../css/luciernagas.css" />
     <title>Registro - La Voz de mi Tierra</title>
     <style>
         .error {
-          color: red;
+            color: red;
         }
-      </style>
+    </style>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
 </head>
+
 <body>
     <div class="background">
         <!-- Coloca aquí tu arte para el fondo biselado -->
     </div>
     <div class="container">
         <div class="logo">
-            <img src="./../../../assets/images/LogoLDMT.jpg"  alt="Imagen de perfil" class="logo"  />
+            <img src="./../../../assets/images/LogoLDMT.jpg" alt="Imagen de perfil" class="logo" />
         </div>
         <h1>LA VOZ DE MI TIERRA</h1>
         <h2>Registrarse</h2>
@@ -60,7 +62,8 @@
                 </div>
                 <div class="form-group">
                     <label for="passwordRepeat">Repita la Contraseña:</label>
-                    <input type="password" id="passwordRepeat" name="passwordRepeat" placeholder="Repita la contraseña" required>
+                    <input type="password" id="passwordRepeat" name="passwordRepeat" placeholder="Repita la contraseña"
+                        required>
                     <span id="repitaContrasenaError" class="error"></span>
                 </div>
             </div>
@@ -90,10 +93,11 @@
         <div class="firefly"></div>
         <div class="firefly"></div>
         <div class="firefly"></div>
-        
+
     </div>
 
     <script src="./../../../api/configuracion.js"></script>
     <script src="./../js/registrarUsuario.js"></script>
 </body>
+
 </html>
