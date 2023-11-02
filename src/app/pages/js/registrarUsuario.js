@@ -14,7 +14,7 @@ const validationRules = {
     voidMessage: "Complete este campo",
   },
   apellido: {
-    minLength: 5,
+    minLength: 4,
     maxLength: 20,
     pattern: /^[A-Za-z]+$/,
     errorElementId: "apellidoError",
