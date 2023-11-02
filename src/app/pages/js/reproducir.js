@@ -14,6 +14,7 @@ const audioElement = document.getElementById("audioE");
 const textURL={};
 const textContentElement = document.getElementById("text_content");
 
+
 db.collection("audio").doc(docId).get().then((doc) => {
   if (doc.exists) {
       const data = doc.data();
@@ -51,6 +52,7 @@ db.collection("audio").doc(docId).get().then((doc) => {
 
 
 console.log("url: ",textURL.URLt);
+
 
 //barra lateral
 
