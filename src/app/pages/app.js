@@ -7,10 +7,13 @@ const buttonRegister = document.getElementById("registrar_audio");
 
 if(user){
 	showFile(user);
-	if(user==='homeUsu'){
+	
+	if(user === 'homeUsu'){
 		buttonRegister.style.display='none';
 		butttonBuscar.style.display ='block';
-	}else{
+	}
+
+	if(user === 'homeAdm'){
 		butttonBuscar.style.display ='none';
 		buttonRegister.style.display='block';
 	}
