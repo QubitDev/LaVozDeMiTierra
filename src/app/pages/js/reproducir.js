@@ -21,6 +21,7 @@ db.collection("audio").doc(docId).get().then((doc) => {
       narradorAudio.innerText = `Narrado por: ${data.narrador}`;
       musicaF.innerText = `Música de Fondo: ${data.musica}`;
       audioElement.src = data.audioURL;
+      
       textContentElement.src = data.textURL;
       Imagen.src = data.imageURL;      
   } else {
@@ -55,9 +56,7 @@ const cargarDocumentos = (documentos) => {
               <figure>
         <img src="./../../../assets/images/CuentoUno.jpg"
           alt="La-leyenda-de-la-quinua-y-la-sal" height="110px" width="220px">
-      </figure>
-      
-        
+      </figure> 
       
       <div class="contenido-card" style="margin-top: 0%;">
         <h4 style="margin: 1%;">${documento.data().titulo}</h4>
@@ -73,3 +72,16 @@ const cargarDocumentos = (documentos) => {
 function enviar(doc) {
   window.location.href = `../html/reproducir.html?doc=${doc}`;
 }
+
+    var arryData = new Array();
+      var archivoTxt = new XMLHttpRequest();
+      var fileRuta = 'C/\Users/Gabriel/Desktop/Documentos/II-2023/IngeniriaSoftware/LaVozDeMiTierra/src/assets/texto/Cuentos';
+      archivoTxt.open("GET",fileRuta,false);
+      archivoTxt.send(null);
+      var txt =archivoTxt.responseText;
+      for(var i =0 ; i<txt.length;i++){
+        arryData.push(txt[i]);
+      }
+      arryData.forEach(function(data){
+          console.log(data);
+      });

@@ -1,3 +1,4 @@
+const continuarR = document.getElementById('continuarUsu');
 document.getElementById("registration-form").addEventListener("submit", (e) => {
   e.preventDefault();
   registrarUsuario();
@@ -124,28 +125,33 @@ function registrarUsuario() {
             // Registro exitoso
             const user = userCredential.user;
 
-            setTimeout(() => {
               usersCollection.add(datos)
-                .then(() => {
-                  alert("Usuario registrado con éxito");
+                .then(() => {                  
+                    document.getElementById('ExitoUsu').style.display = 'block';
                   // Redirige a la pantalla de inicio de la plataforma
-                  window.location.href = "Login.html";
                 })
                 .catch((error) => {
                   // Maneja cualquier error relacionado con Firestore aquí
-                  alert("Error al agregar datos a Firestore: " + error.message);
+                  setTimeout(() => {
+                    document.getElementById('FalloExitoUsu').style.display = 'block';
+                  }, 10000);
+                  document.getElementById('FalloExitoUsu').style.display = 'none';
+
                 });
-            }, 2000); // espera de 2segundos.
+            // espera de 2segundos.
           })
           .catch((error) => {
             // Error en el registro
             const errorCode = error.code;
             const errorMessage = error.message;
-            alert("Error al registrar el usuario: " + errorMessage);
           });
       }
     })
     .catch((error) => {
       console.error("Error al verificar el nombre de usuario:", error);
     });
+}
+continuarR.addEventListener('click',continuarT);
+function continuarT(){
+  document.getElementById('ExitoUsu').style.display = 'none';
 }

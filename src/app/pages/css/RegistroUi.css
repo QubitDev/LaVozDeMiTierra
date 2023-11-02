@@ -86,3 +86,43 @@ input[type="text"], input[type="email"], input[type="password"], input[type="tel
 .btn:hover {
     background-color: #0056b3;
 }
+.ExitoUsu{
+    padding: 5px;
+    margin-left: 2%;
+    position: fixed;
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    top: 45%;
+    left: 42%;
+    height: 100px;
+    display: none;
+    width: 270px;      
+    background: radial-gradient(ellipse at bottom, #647c74, #587a7c, #15242e,  #3a615e,#749e8a, #15242e 80%);
+    color: #fff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
+
+    .continuarUsu{
+        position: relative;
+        left: 45%;
+      }    
+}
+.FalloUsu{
+    padding: 5px;
+    margin-left: 2%;
+    position: fixed;
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    top: 45%;
+    left: 42%;
+    height: 100px;
+    display: none;
+    width: 270px;      
+    background: radial-gradient(ellipse at bottom, #647c74, #587a7c, #15242e,  #3a615e,#749e8a, #15242e 80%);
+    color: #fff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
+    .continuarUsuT{
+        position: relative;
+        top: 15px;
+        left: 30px;
+    }
+}

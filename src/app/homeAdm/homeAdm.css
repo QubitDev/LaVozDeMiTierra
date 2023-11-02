@@ -23,7 +23,7 @@
   box-shadow: 10px 10px 15px 5px black;
 }
 .sesion:hover{
-  background: radial-gradient(ellipse at left top, #01081d, #011c38 80%);
+  background: radial-gradient(ellipse at left top, #3d518f, #2b4f76 80%);
 }
 #titulo{
   position: absolute;
@@ -58,6 +58,7 @@
   background-position: top center;
   color: #fff;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
+  
   .boton2{
     position: relative;
     left: 2%;
@@ -161,7 +162,7 @@
   border-radius:10px;
   transition: background-color 0.3s;
   text-decoration: none;
-  background: radial-gradient(ellipse at right top, #647c74, #587a7c,#15242e,  #3a615e,#749e8a 80%);
+  background: #15242e;
 }
 #sesionSalir{
   background-color: #01081d;
@@ -377,6 +378,7 @@ h3{
   border-radius: 20px;
 
 }
+
 form {
   display: flex;
   flex-direction: column;
@@ -389,27 +391,6 @@ form {
   justify-content: space-between;
 }
 
-.container__input1,
-.container__files {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  padding: 5px;
-  height: 80%;
-}
-
-.container__input1 {
-  margin-right: 15px;
-}
-
-.container__files{
-  margin-left: 15px;
-}
-
-.container__input1,
-.container__files {
-  margin-bottom: 0px;
-}
 
 .form__control,
 .form-select {
@@ -522,48 +503,16 @@ form {
 
 /* Estilo para cada contenedor de selección de archivos */
 
-.file__chooser {
-  display: flex;
-  align-items: start; 
-} 
+
 
 .container__text .file__chooser,.container__audio .file__chooser, .container__image .file__chooser{
   margin-top: 5px;
   margin-bottom: 5px;
 }
 
-.container__text{
-  display: flex;
-  flex-direction: column;
-}
 
-.container__audio{
-  display: flex;
-  flex-direction: column;
-}
 
-.container__image {
-  display: flex;
-  flex-direction: column;
-}
 
-/* Estilo para la vista previa de la imagen */
-.image-preview {
-  width: 120px;
-  height: 120px; 
-  border: 1px solid #ddd; 
-  margin: 10px 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  border-radius:10px;
-}
-
-#imagePreview {
-  max-width: 100%;
-  max-height: 100%; 
-}
 #frase {
   text-align: center;
   padding: 5px;

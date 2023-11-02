@@ -106,9 +106,6 @@ function editar(id,titulo,procedencia,narrador,muscia_fondo,tipo_audio,audio,ima
     document.getElementById('narrador'),value = narrador;
     document.getElementById('musica_fondo').value = muscia_fondo;
     document.getElementById('tipo_audioCL').value = tipo_audio;
-    document.getElementById('audioFileInput').value = audio;
-    document.getElementById('imageInput').value = imagen;
-    document.getElementById('formato_audio').value = formato;
 
     const subirAc =document.getElementById('submitButton');
     subirAc.onclick=function(){
