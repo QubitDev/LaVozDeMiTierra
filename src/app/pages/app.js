@@ -1,6 +1,5 @@
 const urlParams = new URLSearchParams(window.location.search);
 const user = urlParams.get("user");
-console.log(user);
 const contentMain = document.getElementById("app-content");
 const butttonBuscar = document.getElementById("searchButton");
 const buttonRegister = document.getElementById("registrar_audio");
