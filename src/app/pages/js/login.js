@@ -16,6 +16,7 @@ loginForm.addEventListener("submit", function (e) {
         return;
     }
 
+
     // Validación de longitud de campos
     if (email.length > 64) {
         errorContainer.innerText = "El correo electrónico no debe exceder los 64 caracteres";
