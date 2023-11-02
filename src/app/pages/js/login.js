@@ -36,7 +36,7 @@ loginForm.addEventListener("submit", function (e) {
                 window.location.href = "./../../homeAdm/homeAdm.html";
             } else {
                 // Redirige a la página homeUsu.html para otros correos
-                window.location.href = "./../../homeUsu/homeUsu.html";
+                window.location.href = `./../app.html?user=${"homeUsu"}`;
             }
         })
         .catch((error) => {
