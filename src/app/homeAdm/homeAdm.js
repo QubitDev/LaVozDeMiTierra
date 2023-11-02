@@ -29,8 +29,7 @@ const cargarCuentos = (documentos) => {
                              <i class="fas fa-trash-can fa"></i>
                         </button> 
                         <button class="editC"  onclick ="editar('${documento.id}','${documento.data().titulo}','${documento.data().procedencia}',
-                        '${documento.data().narrador}','${documento.data().musica}','${documento.data().tipoAudio}','${documento.data().audioURL}',
-                        '${documento.data().imagenURL}','${documento.data().formato}')">
+                        '${documento.data().narrador}','${documento.data().musica}')">
                             <i class="fa-regular fa-pen-to-square"></i>
                         </button>                       
                     </div> 
@@ -63,8 +62,7 @@ const cargarCuentos = (documentos) => {
                              <i class="fas fa-trash-can fa"></i>
                         </button> 
                         <button class="editC" onclick ="editar('${documento.id}','${documento.data().titulo}','${documento.data().procedencia}',
-                        '${documento.data().narrador}','${documento.data().musica}','${documento.data().tipoAudio}','${documento.data().audioURL}',
-                        '${documento.data().imagenURL}','${documento.data().formato}')">
+                        '${documento.data().narrador}','${documento.data().musica}')">
                             <i class="fa-regular fa-pen-to-square"></i>
                         </button>                          
                     </div> 
@@ -96,26 +94,30 @@ function eliminar(id,cadena){
     window.location.href("homeAdm.html");
 }
 
-function editar(id,titulo,procedencia,narrador,muscia_fondo,tipo_audio,audio,imagen,formato){
+function editar(id,titulo,procedenciaSE,narradorSE,muscia_fondoSE){
     document.getElementById('editarAll').style.display = 'block';
     document.getElementById('all').style.display = 'block';
     document.getElementById('all').style.background = 'linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0, 0.5))';
     
     document.getElementById('titulo_audio').value = titulo;
-    document.getElementById('procedencia').value = procedencia;
-    document.getElementById('narrador'),value = narrador;
-    document.getElementById('musica_fondo').value = muscia_fondo;
-    document.getElementById('tipo_audioCL').value = tipo_audio;
+    document.getElementById('procedenciaCul').value = procedenciaSE;
+    document.getElementById('narradorE').value = narradorSE;
+    document.getElementById('musicafondo').value = muscia_fondoSE;
 
     const subirAc =document.getElementById('submitButton');
     subirAc.onclick=function(){
-        var cambio = db.collection("audio").doc(id);
+        var cambio = db.collection('audio').doc(id);
+
+
+        var tituloT = document.getElementById('titulo_audio').value;
+        var procedenciaP = document.getElementById('procedenciaCul').value;
+        var narradorN = document.getElementById('narradorE').value;
+        var muscia_fondoM = document.getElementById('musicafondo').value;
         return cambio.update({
-        titulo: nombre,
-        procedencia: quechua,
-        narrador: alberto,
-        muscia_fondo: violin,
-        tipoAudio:leyenda
+        titulo: tituloT,
+        procedencia: procedenciaP,
+        narrador: narradorN,
+        muscia_fondo: muscia_fondoM
     })
     }
     
