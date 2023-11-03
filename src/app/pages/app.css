@@ -18,7 +18,7 @@
 	font-family: Arial, Helvetica, sans-serif;
 
 	width: 200px;
-	height: calc(100% - 102px);
+	height:100%;
 	/* background: linear-gradient(to left bottom, #43cea2, #185a9d); */
 
 	background: radial-gradient(ellipse at bottom right, #647c74, #587a7c, #15242e, #3a615e, #749e8a 80%);
