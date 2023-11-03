@@ -23,7 +23,6 @@ const cargarDocumentoCuento = (documentos) => {
         // primerDoc = documentos[0];
 
         // contenedorCards.innerHTML = '';
-        debugger;
         documentos.forEach(documento => {
             if (documento.data().tipoAudio == "Cuento") {
                 contenedorCards.innerHTML += `
@@ -31,6 +30,8 @@ const cargarDocumentoCuento = (documentos) => {
                 <figure>
                 <img src="${documento.data().imageURL}" >
 
+					<img src="${documento.data().imageURL}"
+						alt="La-leyenda-de-la-quinua-y-la-sal">
 				</figure>
 			
 				<div class="contenido-card">
@@ -59,13 +60,12 @@ const cargarDocumentoLeyenda = (documentos) => {
         // primerDoc = documentos[0];
 
         // contenedorCards1.innerHTML = '';
-        debugger;
         documentos.forEach(documento => {
             if (documento.data().tipoAudio == "Leyenda") {
                 contenedorCards1.innerHTML += `
             <div class="carta" id="carta" onClick="enviar('${documento.id}')">
                 <figure>
-					<img src="./../../assets/images/CuentoUno.jpg"
+					<img src="${documento.data().imageURL}"
 						alt="La-leyenda-de-la-quinua-y-la-sal">
 				</figure>
 				
