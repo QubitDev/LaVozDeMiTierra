@@ -27,27 +27,26 @@ if(user){
 
 function showFile(file) {
 
+	console.log("pant = ",pantallaActual)
 	if (file === "home") {
+		window.location.reload();
+		window.location.reload();
 		if (user === "homeUsu") {
 		  file = "homeUsu"; 
 		} else if (user === "homeAdm") {
 		  file = "homeAdm";
 		}
-	  }
+	}
 
-	 if (file === pantallaActual) {
+	if (file === pantallaActual) {
 		return; 
-	  }
+	}
+	// removeScript(file);
+	
+	  pantallaActual = file; 
 	
 	  contentMain.innerHTML = "";
 
-	  pantallaActual = file; 
-	  
-	  if (!uploadedfiles.includes(file)) {
-	  	loadJS(file);
-		loadCSS(file);
-		uploadedfiles.push(file);
-	  }
 	
 	  fetch(`./html/${file}.html`)
 		.then((response) => {
@@ -57,13 +56,18 @@ function showFile(file) {
 		  return response.text();
 		})
 		  .then((data) => {
-			  removeScript(user);
-			  uploadedfiles.indexOf(user);
 		  contentMain.innerHTML = data;
 		})
 		.catch((error) => {
 		  console.error("Error al cargar el contenido:", error);
 		});
+	
+	if (!uploadedfiles.includes(file)) {
+	  	loadJS(file);
+		loadCSS(file);
+		uploadedfiles.push(file);
+	}
+	
 }
 
 function loadCSS(file) {
@@ -78,7 +82,6 @@ function loadJS(file) {
 	const script = document.createElement("script");
 	script.src = `./js/${file}.js`; 
 	document.body.appendChild(script);
-	
 }
   
 
@@ -97,9 +100,10 @@ function cerrarSesion(){
 
 function removeScript(scriptUrl) {
 	const scripts = document.getElementsByTagName("script");
-	const url = `./js/${scriptUrl}.js`
 	for (let i = 0; i < scripts.length; i++) {
-	  if (scripts[i].src === url) {
+		if (scripts[i].src === `./js/${scriptUrl}.js`) {
+			//   scripts[i].remove(); // Eliminar elemento
+			console.log(scripts[i])
 		scripts[i].parentNode.removeChild(scripts[i]);
 	  }
 	}

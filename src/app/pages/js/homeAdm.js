@@ -4,7 +4,7 @@ const cancelarEdi = document.getElementById('cancelBtn');
 const eliminacionDos = document.getElementById('confirmacionDos');
 const campc2 =document.getElementById('campoDos');
 const conedorAll = document.getElementById('contenedor');
-debugger;
+
 
 
 
@@ -12,7 +12,7 @@ db.collection('audio').orderBy('titulo','asc').onSnapshot((snapshot) => {
     cargarCuentos(snapshot.docs);
 })
 const cargarCuentos = (documentos) => {
-    debugger;
+
     if (documentos.length > 0){  
         
         documentos.forEach(documento => {
@@ -147,9 +147,12 @@ function hideConfirma(cadena){
     }   
     else{
         document.getElementById('confirmacionDos').style.display = 'none';
+<<<<<<< HEAD
         document.getElementById('confirmacionDos').style.zIndex = '0';
 
 
+=======
+>>>>>>> 50ca5790cb1e47d7404bfabb5a530f960fcf4b92
     }
     document.getElementById('all').style.display = 'none';    
     document.getElementById('all').style.background = '';

@@ -2,8 +2,13 @@ const urlParams = new URLSearchParams(window.location.search);
 const docId = urlParams.get("doc");
 const docIdHome = urlParams.get("docHome");
 const contenedorCards = document.getElementById('card');
+<<<<<<< HEAD
 const imagCen = document.querySelector(".imageF");
 
+=======
+
+const imagenC = documento.getElementById("imagen__C")
+>>>>>>> 50ca5790cb1e47d7404bfabb5a530f960fcf4b92
 const tipo = document.getElementById("tipo__audio");
 const  titulo = document.getElementById("titulo__audio");
 const narradorAudio = document.getElementById("narrador");
@@ -12,6 +17,25 @@ const musicaF = document.getElementById("musica");
 const audioElement = document.getElementById("audioE");
 const textContentElement = document.getElementById("text_content");
 
+imagenC.addEventListener("change", function () {
+  const selectedImage = this.files[0]; // Obtén el archivo de imagen seleccionado
+
+  const imagePreview = document.getElementById("imagePreview");
+  const frase = document.getElementById("frase");
+
+  frase.style.display = "none";
+  imagePreview.style.display = "block";
+
+  if (selectedImage) {
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      imagePreview.src = e.target.result;
+    };
+    reader.readAsDataURL(selectedImage);
+  } else {
+    imagePreview.src = "";
+  }
+});
 
 db.collection("audio").doc(docId).get().then((doc) => {
   if (doc.exists) {
