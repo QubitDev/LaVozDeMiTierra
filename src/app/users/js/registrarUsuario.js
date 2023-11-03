@@ -2,6 +2,11 @@ document.getElementById("registration-form").addEventListener("submit", (e) => {
   e.preventDefault();
   registrarUsuario();
 });
+document.getElementById("continue-button").addEventListener("click", () => {
+  // Oculta el pop-up
+  popup.style.display = "none";
+})
+// Configura el evento de clic para el botón "Continuar"
 const usersCollection = db.collection("users");
 const datos = {};
 const validationRules = {
@@ -14,7 +19,7 @@ const validationRules = {
     voidMessage: "Complete este campo",
   },
   apellido: {
-    minLength: 5,
+    minLength: 4,
     maxLength: 20,
     pattern: /^[A-Za-z]+$/,
     errorElementId: "apellidoError",
@@ -123,11 +128,12 @@ function registrarUsuario() {
           .then((userCredential) => {
             // Registro exitoso
             const user = userCredential.user;
-
+            const popup = document.getElementById("popup");
+                  popup.style.display = "block";
+            // Configura el evento de clic para el botón "Continuar"
             setTimeout(() => {
               usersCollection.add(datos)
                 .then(() => {
-                  alert("Usuario registrado con éxito");
                   // Redirige a la pantalla de inicio de la plataforma
                   window.location.href = "Login.html";
                 })
