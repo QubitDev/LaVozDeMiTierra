@@ -128,8 +128,7 @@ function registrarUsuario() {
           .then((userCredential) => {
             // Registro exitoso
             const user = userCredential.user;
-            const popup = document.getElementById("popup");
-                  popup.style.display = "block";
+           document.getElementById("popup").style.display = "block";
             // Configura el evento de clic para el botón "Continuar"
             setTimeout(() => {
               usersCollection.add(datos)

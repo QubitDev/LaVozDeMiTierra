@@ -13,38 +13,6 @@ const audioElement = document.getElementById("audioE");
 const textContentElement = document.getElementById("text_content");
 
 
-var arrayData = new Array();
-var archivoTxt = new XMLHttpRequest();
-var fileRuta = 'El origen del guajojó.txt'
-archivoTxt.open("GET",fileRuta,false);
-var txt = archivoTxt.responseText;
-for (var i = 0;i<txt.length;i++){
-  arrayData.push(txt[i]);
-}
-arrayData.forEach(function(data){
-  console.log(data);
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 db.collection("audio").doc(docId).get().then((doc) => {
   if (doc.exists) {
       const data = doc.data();
