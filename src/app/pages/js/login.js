@@ -16,6 +16,7 @@ loginForm.addEventListener("submit", function (e) {
         return;
     }
 
+
     // Validación de longitud de campos
     if (email.length > 64) {
         errorContainer.innerText = "El correo electrónico no debe exceder los 64 caracteres";
@@ -36,18 +37,22 @@ loginForm.addEventListener("submit", function (e) {
                 window.location.href = "./../../homeAdm/homeAdm.html";
             } else {
                 // Redirige a la página homeUsu.html para otros correos
+<<<<<<< HEAD
                 window.location.href = "./../../homeUsu/homeUsu.html";s
+=======
+                window.location.href = "./../../homeUsu/homeUsu.html";
+>>>>>>> 41d23456c8378d9ef722aff3538c2d515853fc80
             }
         })
         .catch((error) => {
-          // Maneja los errores de autenticación
-          if (error.code === "auth/user-not-found") {
+            // Manejo de errores de autenticación
+            if (error.code === "auth/user-not-found") {
               errorContainer.innerText = "El correo electrónico no existe";
-          } else if (error.code === "auth/wrong-password") {
+            } else if (error.code === "auth/wrong-password") {
               errorContainer.innerText = "Contraseña incorrecta";
-          } else {
+            } else {
               // Otros errores
-              errorContainer.innerText = "Error de inicio de sesión";
-          }
+              errorContainer.innerText = "Error de inicio de sesión: ";
+            }
         });
 });

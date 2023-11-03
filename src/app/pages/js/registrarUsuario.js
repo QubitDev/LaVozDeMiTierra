@@ -3,6 +3,11 @@ document.getElementById("registration-form").addEventListener("submit", (e) => {
   e.preventDefault();
   registrarUsuario();
 });
+document.getElementById("continue-button").addEventListener("click", () => {
+  // Oculta el pop-up
+  popup.style.display = "none";
+})
+// Configura el evento de clic para el botón "Continuar"
 const usersCollection = db.collection("users");
 const datos = {};
 const validationRules = {
@@ -15,7 +20,7 @@ const validationRules = {
     voidMessage: "Complete este campo",
   },
   apellido: {
-    minLength: 5,
+    minLength: 4,
     maxLength: 20,
     pattern: /^[A-Za-z]+$/,
     errorElementId: "apellidoError",
@@ -32,7 +37,7 @@ const validationRules = {
   },
   correoElectronico: {
     maxLength: 64,
-    pattern: /^[A-Za-z0-9]+@gmail\.com$/,
+    pattern: /^[A-Za-z0-9!#$%&'*+\-/=?^_`{|}~.]+@gmail\.com$/,
     errorElementId: "correoElectronicoError",
     errorMessage: "El campo correo electrónico debe contener caracteres alfabéticos y numéricos antes de @gmail.com.",
     voidMessage: "Complete este campo",
@@ -124,10 +129,19 @@ function registrarUsuario() {
           .then((userCredential) => {
             // Registro exitoso
             const user = userCredential.user;
+<<<<<<< HEAD
 
               usersCollection.add(datos)
                 .then(() => {                  
                     document.getElementById('ExitoUsu').style.display = 'block';
+=======
+            const popup = document.getElementById("popup");
+                  popup.style.display = "block";
+            // Configura el evento de clic para el botón "Continuar"
+            setTimeout(() => {
+              usersCollection.add(datos)
+                .then(() => {
+>>>>>>> 41d23456c8378d9ef722aff3538c2d515853fc80
                   // Redirige a la pantalla de inicio de la plataforma
                 })
                 .catch((error) => {
