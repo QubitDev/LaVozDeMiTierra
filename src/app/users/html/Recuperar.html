@@ -9,6 +9,9 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+
+    <!-- Incluye tu archivo de configuración Firebase -->
+    <script src="configuracion.js"></script>
 </head>
 <body>
     <div class="container">
@@ -16,16 +19,13 @@
             <img src="./../../../assets/images/LogoLDMT.jpg"  alt="Imagen de perfil" class="logo"  />
         </div>
         <h1>Recuperar Contraseña</h1>
-        <form id="reset-password-form">
-            <label for="email">Dirección de correo electrónico:</label>
-            <br>
-            <input type="email" id="email" required>
-            <br>
-            <button type="submit">Enviar</button>
-            <br>
-            <button id="cancelButton"><a href="login.html">Cancelar</a></button><!-- Enlace de cancelación con href -->
-        </form>
-        
+        <input type="text" id="usernameInput" placeholder="Nombre de usuario">
+        <select id="userSelect">
+        <!-- Aquí debes cargar dinámicamente los usuarios desde Firebase Firestore -->
+        </select>
+        <p id="emailInfo"></p> <!-- Para mostrar el correo -->
+        <button id="sendRecoveryEmail">Enviar correo de recuperación</button>
+        <button id="cancelButton"><a href="Login.html">Cancelar</a></button><!-- Enlace de cancelación con href -->
     </div>
     <div class="luciernagas-background">
         <!-- Contenido de luciérnagas.html -->
@@ -46,6 +46,5 @@
         <div class="firefly"></div>
     </div>
     <script src="./../js/Recuperar.js"></script>
-    <script src="./../../../api/configuracion.js"></script>
 </body>
 </html>

@@ -1,4 +1,3 @@
-const continuarR = document.getElementById('continuarUsu');
 document.getElementById("registration-form").addEventListener("submit", (e) => {
   e.preventDefault();
   registrarUsuario();
@@ -129,43 +128,30 @@ function registrarUsuario() {
           .then((userCredential) => {
             // Registro exitoso
             const user = userCredential.user;
-<<<<<<< HEAD
-
-              usersCollection.add(datos)
-                .then(() => {                  
-                    document.getElementById('ExitoUsu').style.display = 'block';
-=======
             const popup = document.getElementById("popup");
                   popup.style.display = "block";
             // Configura el evento de clic para el botón "Continuar"
             setTimeout(() => {
               usersCollection.add(datos)
                 .then(() => {
->>>>>>> 41d23456c8378d9ef722aff3538c2d515853fc80
                   // Redirige a la pantalla de inicio de la plataforma
+                  window.location.href = "Login.html";
                 })
                 .catch((error) => {
                   // Maneja cualquier error relacionado con Firestore aquí
-                  setTimeout(() => {
-                    document.getElementById('FalloExitoUsu').style.display = 'block';
-                  }, 10000);
-                  document.getElementById('FalloExitoUsu').style.display = 'none';
-
+                  alert("Error al agregar datos a Firestore: " + error.message);
                 });
-            // espera de 2segundos.
+            }, 2000); // espera de 2segundos.
           })
           .catch((error) => {
             // Error en el registro
             const errorCode = error.code;
             const errorMessage = error.message;
+            alert("Error al registrar el usuario: " + errorMessage);
           });
       }
     })
     .catch((error) => {
       console.error("Error al verificar el nombre de usuario:", error);
     });
-}
-continuarR.addEventListener('click',continuarT);
-function continuarT(){
-  document.getElementById('ExitoUsu').style.display = 'none';
 }

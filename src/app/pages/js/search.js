@@ -46,7 +46,7 @@ function resaltar(textoOriginal, searchTerm) {
       return `<span class="resaltado">${coincidencia}</span>`;
     });
   
-  }
+}
 
 
 const cargarDocumentosSearch = (documentos) => {
@@ -99,11 +99,9 @@ function mostrarBuscar() {
     const container_search = document.querySelector('.container__search');
 
     if (isContainerVisible) {
-        // Ocultar el contenedor con un efecto de cortina hacia arriba
         container_search.classList.remove('show-container');
         limpiarInput(searchInput);
     } else {
-        // Mostrar el contenedor con un efecto de cortina hacia abajo
         container_search.classList.add('show-container');
     }
     isContainerVisible = !isContainerVisible;

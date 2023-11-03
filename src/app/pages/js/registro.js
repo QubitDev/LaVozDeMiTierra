@@ -274,8 +274,6 @@ function validateInput(inputElement) {
   const placeholderText = inputElement.getAttribute("placeholder");
 
   if (!inputValue) {
-    // // El campo está vacío después de eliminar espacios en blanco
-    // onMessagePopup(`❌¡Error!\nFaltan Datos.`, 450);
     inputElement.value = '';
     return;
   }

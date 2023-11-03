@@ -1,21 +1,106 @@
-// const contentContainer = document.getElementById("page-content");
-// const menuLinks = document.querySelectorAll("menu");
+const urlParams = new URLSearchParams(window.location.search);
+const user = urlParams.get("user");
+const contentMain = document.getElementById("app-content");
+const buttonBuscar = document.getElementById("searchButton");
+const buttonRegister = document.getElementById("registrar_audio");
+// const endSesion = document.querySelector(".sesion");
+const uploadedfiles = [];
+let pantallaActual = null;
 
-// function loadPage(url) {
-//   fetch(url)
-//     .then((response) => response.text())
-//     .then((html) => {
-//       contentContainer.innerHTML = html;
-//     })
-//     .catch((error) => {
-//       console.error("Error al cargar la página:", error);
-//     });
-// }
 
-// menuLinks.forEach((link) => {
-//   link.addEventListener("click", (event) => {
-//     event.preventDefault();
-//     const pageUrl = link.getAttribute("href");
-//     loadPage(pageUrl);
-//   });
-// });
+
+if(user){
+	showFile(user);
+	
+	if(user === 'homeUsu'){
+		buttonRegister.style.display='none';
+		buttonBuscar.style.display ='block';
+		document.title = `La Voz De Mi Tierra - ${user}`;
+	}
+
+	if(user === 'homeAdm'){
+		buttonBuscar.style.display ='none';
+		buttonRegister.style.display='block';
+		document.title = `La Voz De Mi Tierra - ${user}`;
+	}
+}
+
+function showFile(file) {
+
+	if (file === "home") {
+		if (user === "homeUsu") {
+		  file = "homeUsu"; 
+		} else if (user === "homeAdm") {
+		  file = "homeAdm";
+		}
+	  }
+
+	 if (file === pantallaActual) {
+		return; 
+	  }
+	
+	  contentMain.innerHTML = "";
+
+	  pantallaActual = file; 
+	  
+	  if (!uploadedfiles.includes(file)) {
+	  	loadJS(file);
+		loadCSS(file);
+		uploadedfiles.push(file);
+	  }
+	
+	  fetch(`./html/${file}.html`)
+		.then((response) => {
+		  if (!response.ok) {
+			throw new Error(`Error en la solicitud: ${response.status}`);
+		  }
+		  return response.text();
+		})
+		  .then((data) => {
+			  removeScript(user);
+			  uploadedfiles.indexOf(user);
+		  contentMain.innerHTML = data;
+		})
+		.catch((error) => {
+		  console.error("Error al cargar el contenido:", error);
+		});
+}
+
+function loadCSS(file) {
+	const link = document.createElement("link");
+	link.rel = "stylesheet";
+	link.type = "text/css";
+	link.href = `./css/${file}.css`; 
+	document.head.appendChild(link);
+}
+  
+function loadJS(file) {
+	const script = document.createElement("script");
+	script.src = `./js/${file}.js`; 
+	document.body.appendChild(script);
+	
+}
+  
+
+//   cerrar secion
+
+let cont = 1;
+function cerrarSesion(){
+    if(cont % 2 == 0){
+        document.getElementById('sesionMenu').style.display= 'none';
+    }
+    else{
+        document.getElementById('sesionMenu').style.display= 'block';
+    }
+    cont++;
+}
+
+function removeScript(scriptUrl) {
+	const scripts = document.getElementsByTagName("script");
+	const url = `./js/${scriptUrl}.js`
+	for (let i = 0; i < scripts.length; i++) {
+	  if (scripts[i].src === url) {
+		scripts[i].parentNode.removeChild(scripts[i]);
+	  }
+	}
+}

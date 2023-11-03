@@ -1,17 +1,18 @@
 const campc1 =document.getElementById('campoUno');
 const eliminacion = document.getElementById('confirmacion');
-const cancelarEdi = document.getElementById('cancelButton');
+const cancelarEdi = document.getElementById('cancelBtn');
 const eliminacionDos = document.getElementById('confirmacionDos');
 const campc2 =document.getElementById('campoDos');
 const conedorAll = document.getElementById('contenedor');
-const endSesion = document.querySelector(".sesion");
+debugger;
 
-endSesion.addEventListener('click',cerrarSesion);
+
 cancelarEdi.addEventListener('click',hideEdita);
 db.collection('audio').orderBy('titulo','asc').onSnapshot((snapshot) => {
     cargarCuentos(snapshot.docs);
 })
 const cargarCuentos = (documentos) => {
+    debugger;
     if (documentos.length > 0){  
         
         documentos.forEach(documento => {
@@ -104,7 +105,7 @@ function editar(id,titulo,procedenciaSE,narradorSE,muscia_fondoSE){
     document.getElementById('narradorE').value = narradorSE;
     document.getElementById('musicafondo').value = muscia_fondoSE;
 
-    const subirAc =document.getElementById('submitButton');
+    const subirAc =document.getElementById('submitBtn');
     subirAc.onclick=function(){
         var cambio = db.collection('audio').doc(id);
         var tituloT = document.getElementById('titulo_audio').value;
@@ -157,15 +158,4 @@ function hideEdita(){
 }
 function enviar(doc) {
     window.location.href = `./../pages/html/reproducir.html?doc=${doc}`;
-}
-
-let cont = 1;
-function cerrarSesion(){
-    if(cont % 2 == 0){
-        document.getElementById('sesionMenu').style.display= 'none';
-    }
-    else{
-        document.getElementById('sesionMenu').style.display= 'block';
-    }
-    cont++;
 }
