@@ -1,14 +1,18 @@
 const campc1 =document.getElementById('campoUno');
-const cancelarEdi = document.getElementById('cancelButton');
-const campc2 = document.getElementById('campoDos');
+const eliminacion = document.getElementById('confirmacion');
+const cancelarEdi = document.getElementById('cancelBtn');
+const eliminacionDos = document.getElementById('confirmacionDos');
+const campc2 =document.getElementById('campoDos');
 const conedorAll = document.getElementById('contenedor');
-const endSesion = document.querySelector(".sesion");
-endSesion.addEventListener('click',cerrarSesion);
-cancelarEdi.addEventListener('click',hideEdita);
+
+
+
+
 db.collection('audio').orderBy('titulo','asc').onSnapshot((snapshot) => {
     cargarCuentos(snapshot.docs);
 })
 const cargarCuentos = (documentos) => {
+   
     if (documentos.length > 0){  
         
         documentos.forEach(documento => {
@@ -101,7 +105,7 @@ function editar(id,titulo,procedenciaSE,narradorSE,muscia_fondoSE){
     document.getElementById('narradorE').value = narradorSE;
     document.getElementById('musicafondo').value = muscia_fondoSE;
 
-    const subirAc =document.getElementById('submitButton');
+    const subirAc =document.getElementById('submitBtn');
     subirAc.onclick=function(){
         var cambio = db.collection('audio').doc(id);
         var tituloT = document.getElementById('titulo_audio').value;
@@ -119,13 +123,11 @@ function editar(id,titulo,procedenciaSE,narradorSE,muscia_fondoSE){
     
 }
 function genConfirmar(cadena){
-    document.getElementById('all').style.display = 'block';
-    document.getElementById('all').style.background = 'linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0, 0.5))';
-    
     if(cadena=="Cuento"){
         document.getElementById('confirmacion').style.display = 'block'; 
         document.getElementById('confirmacion').style.zIndex = '9999';
-    }else{ 
+    }else
+    {
         if(cadena=="Leyenda"){
             document.getElementById('confirmacionDos').style.display = 'block'; 
             document.getElementById('confirmacionDos').style.zIndex = '9999';
@@ -133,18 +135,20 @@ function genConfirmar(cadena){
         
     }
    
-
+    document.getElementById('all').style.display = 'block';
+    document.getElementById('all').style.background = 'linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0, 0.5))';
 }
 
 function hideConfirma(cadena){ 
     if(cadena=="Cuento"){
         document.getElementById('confirmacion').style.display = 'none';
+        document.getElementById('confirmacion').style.zIndex = '0';
+
     }   
     else{
-        if(cadena=="Leyenda"){
-            document.getElementById('confirmacionDos').style.display = 'none';
+        document.getElementById('confirmacionDos').style.display = 'none';
+        document.getElementById('confirmacionDos').style.zIndex = '0';
 
-        }   
 
     }
     document.getElementById('all').style.display = 'none';    
@@ -163,13 +167,4 @@ function enviar(doc) {
     window.location.href = `./../pages/html/reproducir.html?doc=${doc}`;
 }
 
-let cont = 1;
-function cerrarSesion(){
-    if(cont % 2 == 0){
-        document.getElementById('sesionMenu').style.display= 'none';
-    }
-    else{
-        document.getElementById('sesionMenu').style.display= 'block';
-    }
-    cont++;
-}
+cancelarEdi.addEventListener('click',hideEdita);
