@@ -19,7 +19,7 @@
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
   <link rel="stylesheet" href="app.css" />
   <title>La Voz De Mi Tierra</title>
-  
+
 </head>
 
 <body>
@@ -34,12 +34,24 @@
           <font size="8">La Voz De Mi Tierra</font>
         </p>
       </div>
+      <div class="sesionEnd">
+        <img src="./../../assets/images/IconoUsu.png" alt="Sesion" class="sesion" onclick="cerrarSesion()" />
+      </div>
+      <div id="sesionMenu">
+        <ul class="opciones" id="opciones">
+          <a href="./../users/html/Login.html">cerrar sesion</a>
+        </ul>
+        <!-- <ul class="opciones" id="opciones">
+					<a href="./../homeAdm/homeAdm.html">perfil usuario</a>                        
+				</ul> -->
+
+      </div>
 
     </header>
 
     <div class="menu">
       <div class="content">
-        <div class="menu__item" data-page="app" id="home" onClick="showFile('homeUsu')">
+        <div class="menu__item" data-page="app" id="home" onClick="showFile('home')">
           <i class="fas fa-home"></i> Inicio
         </div>
         <div class="menu__item" data-page="registro" id="registrar_audio" onClick="showFile('registro')">
@@ -59,7 +71,7 @@
   </div>
 
 
-  
+
   <!-- -------------------------------------------------Buscador------------------------------------------- -->
   <div class="container__search">
 

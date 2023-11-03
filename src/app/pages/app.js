@@ -1,10 +1,12 @@
 const urlParams = new URLSearchParams(window.location.search);
 const user = urlParams.get("user");
 const contentMain = document.getElementById("app-content");
-const butttonBuscar = document.getElementById("searchButton");
+const buttonBuscar = document.getElementById("searchButton");
 const buttonRegister = document.getElementById("registrar_audio");
+// const endSesion = document.querySelector(".sesion");
 const uploadedfiles = [];
 let pantallaActual = null;
+
 
 
 if(user){
@@ -12,18 +14,27 @@ if(user){
 	
 	if(user === 'homeUsu'){
 		buttonRegister.style.display='none';
-		butttonBuscar.style.display ='block';
+		buttonBuscar.style.display ='block';
 		document.title = `La Voz De Mi Tierra - ${user}`;
 	}
 
 	if(user === 'homeAdm'){
-		butttonBuscar.style.display ='none';
+		buttonBuscar.style.display ='none';
 		buttonRegister.style.display='block';
 		document.title = `La Voz De Mi Tierra - ${user}`;
 	}
 }
 
 function showFile(file) {
+
+	if (file === "home") {
+		if (user === "homeUsu") {
+		  file = "homeUsu"; 
+		} else if (user === "homeAdm") {
+		  file = "homeAdm";
+		}
+	  }
+
 	 if (file === pantallaActual) {
 		return; 
 	  }
@@ -31,10 +42,10 @@ function showFile(file) {
 	  contentMain.innerHTML = "";
 
 	  pantallaActual = file; 
-	
+	  
 	  if (!uploadedfiles.includes(file)) {
+	  	loadJS(file);
 		loadCSS(file);
-		loadJS(file);
 		uploadedfiles.push(file);
 	  }
 	
@@ -45,7 +56,9 @@ function showFile(file) {
 		  }
 		  return response.text();
 		})
-		.then((data) => {
+		  .then((data) => {
+			  removeScript(user);
+			  uploadedfiles.indexOf(user);
 		  contentMain.innerHTML = data;
 		})
 		.catch((error) => {
@@ -69,4 +82,25 @@ function loadJS(file) {
 }
   
 
-  
+//   cerrar secion
+
+let cont = 1;
+function cerrarSesion(){
+    if(cont % 2 == 0){
+        document.getElementById('sesionMenu').style.display= 'none';
+    }
+    else{
+        document.getElementById('sesionMenu').style.display= 'block';
+    }
+    cont++;
+}
+
+function removeScript(scriptUrl) {
+	const scripts = document.getElementsByTagName("script");
+	const url = `./js/${scriptUrl}.js`
+	for (let i = 0; i < scripts.length; i++) {
+	  if (scripts[i].src === url) {
+		scripts[i].parentNode.removeChild(scripts[i]);
+	  }
+	}
+}
