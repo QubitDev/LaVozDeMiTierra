@@ -23,7 +23,7 @@ const cargarDocumentoCuento = (documentos) => {
         // primerDoc = documentos[0];
 
         // contenedorCards.innerHTML = '';
-
+        debugger;
         documentos.forEach(documento => {
             if (documento.data().tipoAudio == "Cuento") {
                 contenedorCards.innerHTML += `
@@ -59,7 +59,7 @@ const cargarDocumentoLeyenda = (documentos) => {
         // primerDoc = documentos[0];
 
         // contenedorCards1.innerHTML = '';
-
+        debugger;
         documentos.forEach(documento => {
             if (documento.data().tipoAudio == "Leyenda") {
                 contenedorCards1.innerHTML += `
@@ -89,28 +89,28 @@ function enviar(doc) {
     window.location.href = `./../pages/html/reproducir.html?doc=${doc}`;
 }
 
-botonSiguiente.addEventListener('click', () => {
-    db
-        .collection('audio')
-        // .orderBy('numero', 'asc')
-        .limit(4)
-        .startAfter(ultimoDoc)
-        .onSnapshot((snapshot) => {
-            cargarDocumentos(snapshot.docs);
-        }
-        );
-});
+// botonSiguiente.addEventListener('click', () => {
+//     db
+//         .collection('audio')
+//         // .orderBy('numero', 'asc')
+//         .limit(4)
+//         .startAfter(ultimoDoc)
+//         .onSnapshot((snapshot) => {
+//             cargarDocumentos(snapshot.docs);
+//         }
+//         );
+// });
 
-botonAnterior.addEventListener('click', () => {
-    db
-        .collection('audio')
-        // .orderBy('numero', 'desc')
-        .limit(4)
-        .startAfter(primerDoc)
-        .onSnapshot((snapshot) => {
-            // // const documentos = snapshot.docs.reverse();
-            // cargarDocumentos(documentos);
-            cargarDocumentos(snapshot.docs);
-        }
-        );
-});
+// botonAnterior.addEventListener('click', () => {
+//     db
+//         .collection('audio')
+//         // .orderBy('numero', 'desc')
+//         .limit(4)
+//         .startAfter(primerDoc)
+//         .onSnapshot((snapshot) => {
+//             // // const documentos = snapshot.docs.reverse();
+//             // cargarDocumentos(documentos);
+//             cargarDocumentos(snapshot.docs);
+//         }
+//         );
+// });
