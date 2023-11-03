@@ -37,11 +37,9 @@ loginForm.addEventListener("submit", function (e) {
                 window.location.href = "./../../homeAdm/homeAdm.html";
             } else {
                 // Redirige a la página homeUsu.html para otros correos
-<<<<<<< HEAD
+ 
                 window.location.href = "./../../homeUsu/homeUsu.html";s
-=======
                 window.location.href = "./../../homeUsu/homeUsu.html";
->>>>>>> 41d23456c8378d9ef722aff3538c2d515853fc80
             }
         })
         .catch((error) => {
