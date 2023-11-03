@@ -4,7 +4,7 @@ const cancelarEdi = document.getElementById('cancelBtn');
 const eliminacionDos = document.getElementById('confirmacionDos');
 const campc2 =document.getElementById('campoDos');
 const conedorAll = document.getElementById('contenedor');
-debugger;
+
 
 
 cancelarEdi.addEventListener('click',hideEdita);
@@ -12,7 +12,7 @@ db.collection('audio').orderBy('titulo','asc').onSnapshot((snapshot) => {
     cargarCuentos(snapshot.docs);
 })
 const cargarCuentos = (documentos) => {
-    debugger;
+
     if (documentos.length > 0){  
         
         documentos.forEach(documento => {
@@ -142,7 +142,6 @@ function hideConfirma(cadena){
     }   
     else{
         document.getElementById('confirmacionDos').style.display = 'none';
-
     }
     document.getElementById('all').style.display = 'none';    
     document.getElementById('all').style.background = '';
