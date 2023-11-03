@@ -3,6 +3,7 @@ const docId = urlParams.get("text-content");
 const docIdHome = urlParams.get("docHome");
 const contenedorCards = document.getElementById('card');
 
+const imagenC = documento.getElementById("imagen__C")
 const tipo = document.getElementById("tipo__audio");
 const  titulo = document.getElementById("titulo__audio");
 const narradorAudio = document.getElementById("narrador");
@@ -11,6 +12,25 @@ const musicaF = document.getElementById("musica");
 const audioElement = document.getElementById("audioE");
 const textContentElement = document.getElementById("text_content");
 
+imagenC.addEventListener("change", function () {
+  const selectedImage = this.files[0]; // Obtén el archivo de imagen seleccionado
+
+  const imagePreview = document.getElementById("imagePreview");
+  const frase = document.getElementById("frase");
+
+  frase.style.display = "none";
+  imagePreview.style.display = "block";
+
+  if (selectedImage) {
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      imagePreview.src = e.target.result;
+    };
+    reader.readAsDataURL(selectedImage);
+  } else {
+    imagePreview.src = "";
+  }
+});
 
 db.collection("audio").doc(docId).get().then((doc) => {
   if (doc.exists) {
@@ -25,25 +45,12 @@ db.collection("audio").doc(docId).get().then((doc) => {
       //console.log("url: ",textURL);
       
       audioElement.src = data.audioURL;
-    fetch(textURL.URLt)
-.then(response => {
-  if (!response.ok) {
-    throw new Error(`Error al cargar el archivo de texto: ${response.status} - ${response.statusText}`);
-  }
-  return response.text();
-})
-.then(text => {
-  textContentElement.textContent = text;
-})
-.catch(error => {
-  console.error(error);
-});
-
+      
+      textContentElement.src = data.textURL;
+      Imagen.src = data.imageURL;      
   } else {
       console.log("No se encontró el documento en Firestore.");
   }
-}).catch((error) => {
-  console.error("Error al obtener el documento:", error);
 });
 
 
@@ -134,9 +141,7 @@ const cargarDocumentos = (documentos) => {
               <figure>
         <img src="./../../../assets/images/CuentoUno.jpg"
           alt="La-leyenda-de-la-quinua-y-la-sal" height="110px" width="220px">
-      </figure>
-      
-        
+      </figure> 
       
       <div class="contenido-card" style="margin-top: 0%;">
         <h4 style="margin: 1%;">${documento.data().titulo}</h4>

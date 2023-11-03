@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Agrega enlaces a tus archivos CSS y Firebase aquí -->
+    <link rel="stylesheet" media="all" href="./../css/Recuperar.css" />
+    <link rel="stylesheet" media="all" href="./../css/luciernagas.css" />
+    <link rel="icon" type="image/x-icon" href="./../../../assets/images/LogoLDMT.ico" />
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="logo-container">
+            <img src="./../../../assets/images/LogoLDMT.jpg"  alt="Imagen de perfil" class="logo"  />
+        </div>
+        <h1>La Voz De Mi Tierra</h1>
+        <h2>Recuperar contraseña</h2>
+        <form id="reset-password-form">
+            <label for="email">Dirección de correo electrónico:</label>
+            <br>
+            <input type="email" id="email" required>
+            <br>
+            <br>
+            <button type="submit">Enviar</button>
+            <br>
+            <button id="cancelButton"><a href="login.html">Cancelar</a></button><!-- Enlace de cancelación con href -->
+        </form>
+        
+    </div>
+    <div class="luciernagas-background">
+        <!-- Contenido de luciérnagas.html -->
+        <div class="firefly"></div>
+        <div class="firefly"></div>
+        <div class="firefly"></div>
+        <div class="firefly"></div>
+        <div class="firefly"></div>
+        <div class="firefly"></div>
+        <div class="firefly"></div>
+        <div class="firefly"></div>
+        <div class="firefly"></div>
+        <div class="firefly"></div>
+        <div class="firefly"></div>
+        <div class="firefly"></div>
+        <div class="firefly"></div>
+        <div class="firefly"></div>
+        <div class="firefly"></div>
+    </div>
+    <script src="./../js/Recuperar.js"></script>
+    <script src="./../../../api/configuracion.js"></script>
+</body>
+</html>
