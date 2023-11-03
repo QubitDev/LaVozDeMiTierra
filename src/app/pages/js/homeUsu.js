@@ -29,8 +29,8 @@ const cargarDocumentoCuento = (documentos) => {
                 contenedorCards.innerHTML += `
             <div class="carta" id="carta" onClick="enviar('${documento.id}')">
                 <figure>
-					<img src="./../../assets/images/CuentoUno.jpg"
-						alt="La-leyenda-de-la-quinua-y-la-sal">
+                <img src="${documento.data().imageURL}" >
+
 				</figure>
 			
 				<div class="contenido-card">
