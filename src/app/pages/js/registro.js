@@ -68,7 +68,7 @@ audioInput.addEventListener("change", function () {
         document.getElementById("formato_audio").value = "";
         bandera = false;
         return;
-      } else if(isNaN(minutes) || !(minutes >= 3 && minutes <= 20)){
+      } else if(isNaN(minutes) || !(minutes >= 2 && minutes <= 20)){
         onMessagePopup(`❌¡Error!\nSubir audio de 3 a 10 minutos`, 400);
         this.value = null;
         durationField.textContent = ""; 
@@ -133,7 +133,7 @@ function updateAcceptAttribute() {
 
 function onCancel() {
   resetForm();
-  window.location.href = "./../../homeAdm/homeAdm.html";
+  window.location.href = "./../html/homeAdm.html";
 }
 
 function resetForm() {
@@ -274,8 +274,6 @@ function validateInput(inputElement) {
   const placeholderText = inputElement.getAttribute("placeholder");
 
   if (!inputValue) {
-    // // El campo está vacío después de eliminar espacios en blanco
-    // onMessagePopup(`❌¡Error!\nFaltan Datos.`, 450);
     inputElement.value = '';
     return;
   }
@@ -388,16 +386,3 @@ async function handleSubmit() {
   }
 }
 
-const endSesion = document.querySelector(".sesion");
-endSesion.addEventListener('click',cerrarSesion);
-
-let cont = 1;
-function cerrarSesion(){
-    if(cont % 2 == 0){
-        document.getElementById('sesionMenu').style.display= 'none';
-    }
-    else{
-        document.getElementById('sesionMenu').style.display= 'block';
-    }
-    cont++;
-}

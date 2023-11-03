@@ -1,0 +1,69 @@
+<div id="contenedor">
+  <div class="scrollDiv">
+    <div class="CUENTOS">
+      <h2>Cuentos:</h2>
+    </div>
+    <div class="Object" id="campoUno">
+
+    </div>
+  </div>
+
+
+  <div class="DosScrollDiv">
+    <div class="LEYENDAS">
+      <h2>Leyendas:</h2>
+    </div>
+    <div class="Object" id="campoDos">
+
+    </div>
+  </div>
+
+</div>
+<div id="confirmacion">
+  <h3 class="texto">Estas seguro de eliminar?</h3>
+</div>
+<div id="all"></div>
+
+<div class="container__b" id="editarAll">
+  <div class="container__f">
+    <h2 id="titulo">Editar datos del audio</h2>
+    <form id="audio__form">
+      <label for="titulo_audio" class="form__l">Título Del Audio:</label>
+      <input type="text" class="form__c" id="titulo_audio" required maxlength="70" placeholder="Título de audio" />
+      <div class="menssage__error">
+        <p class="error-message" id="error_titulo_audio"></p>
+      </div>
+
+      <label for="musica_fondo" class="form__l">Música De Fondo:</label>
+      <input type="text" class="form__c" id="musicafondo" required maxlength="50" minlength="50"
+        placeholder="Música de fondo" />
+      <div class="menssage__error">
+        <p class="error-message" id="error_musica_fondo"></p>
+      </div>
+
+      <label for="procedencia" class="form__l">Procedencia Cultural:</label>
+      <input type="text" class="form__c" id="procedenciaCul" required maxlength="30" minlength="4"
+        placeholder="Procedencia" />
+      <div class="menssage__error">
+        <p class="error-message" id="error_procedencia"></p>
+      </div>
+
+      <label for="Narrador" class="form__l">Narrador:</label>
+      <input type="text" class="form__c" id="narradorE" name="narrador" required maxlength="50" minlength="2"
+        placeholder="Narrador" />
+      <div class="menssage__error">
+        <p class="error-message" id="error_narrador"></p>
+      </div>
+    </form>
+    <div class="button-c">
+      <div class="button__can">
+        <button type="button" id="cancelBtn">Cancelar</button>
+      </div>
+      <div class="button__sub">
+        <button type="button" id="submitBtn">
+          <i class="fa-solid fa-arrow-up-from-bracket"></i> Actualizar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
