@@ -129,19 +129,12 @@ function registrarUsuario() {
           .then((userCredential) => {
             // Registro exitoso
             const user = userCredential.user;
-<<<<<<< HEAD
-
-              usersCollection.add(datos)
-                .then(() => {                  
-                    document.getElementById('ExitoUsu').style.display = 'block';
-=======
             const popup = document.getElementById("popup");
                   popup.style.display = "block";
             // Configura el evento de clic para el botón "Continuar"
             setTimeout(() => {
               usersCollection.add(datos)
                 .then(() => {
->>>>>>> 41d23456c8378d9ef722aff3538c2d515853fc80
                   // Redirige a la pantalla de inicio de la plataforma
                 })
                 .catch((error) => {
