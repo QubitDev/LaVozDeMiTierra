@@ -29,7 +29,7 @@ const cargarDocumentoCuento = (documentos) => {
                 contenedorCards.innerHTML += `
             <div class="carta" id="carta" onClick="enviar('${documento.id}')">
                 <figure>
-					<img src="./../../assets/images/CuentoUno.jpg"
+					<img src="${documento.data().imageURL}"
 						alt="La-leyenda-de-la-quinua-y-la-sal">
 				</figure>
 			
@@ -65,7 +65,7 @@ const cargarDocumentoLeyenda = (documentos) => {
                 contenedorCards1.innerHTML += `
             <div class="carta" id="carta" onClick="enviar('${documento.id}')">
                 <figure>
-					<img src="./../../assets/images/CuentoUno.jpg"
+					<img src="${documento.data().imageURL}"
 						alt="La-leyenda-de-la-quinua-y-la-sal">
 				</figure>
 				
