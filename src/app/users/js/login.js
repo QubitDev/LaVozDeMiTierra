@@ -38,8 +38,6 @@ loginForm.addEventListener("submit", function (e) {
             } else {
                 // Redirige a la página homeUsu.html para otros correos
  
-                window.location.href = "./../../homeUsu/homeUsu.html";s
-                window.location.href = "./../../homeUsu/homeUsu.html";
 
                 window.location.href = `./../../pages/app.html?user=${'homeUsu'}`;
             }

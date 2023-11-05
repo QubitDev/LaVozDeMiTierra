@@ -147,12 +147,9 @@ function hideConfirma(cadena){
     }   
     else{
         document.getElementById('confirmacionDos').style.display = 'none';
-<<<<<<< HEAD
         document.getElementById('confirmacionDos').style.zIndex = '0';
 
 
-=======
->>>>>>> 50ca5790cb1e47d7404bfabb5a530f960fcf4b92
     }
     document.getElementById('all').style.display = 'none';    
     document.getElementById('all').style.background = '';
@@ -167,6 +164,6 @@ function hideEdita(){
 
 }
 function enviar(doc) {
-    window.location.href = `./../pages/html/reproducir.html?doc=${doc}`;
+    window.location.href = `./html/reproducir.html?doc=${doc}`;
 }
 cancelarEdi.addEventListener('click',hideEdita);

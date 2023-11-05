@@ -56,10 +56,7 @@ db.collection('audio').onSnapshot((snapshot) => {
 const contenedorCards1 = document.getElementById('card1');
 const cargarDocumentoLeyenda = (documentos) => {
     if (documentos.length > 0) {
-        // ultimoDoc = documentos[documentos.length - 1];
-        // primerDoc = documentos[0];
-
-        // contenedorCards1.innerHTML = '';
+        
         documentos.forEach(documento => {
             if (documento.data().tipoAudio == "Leyenda") {
                 contenedorCards1.innerHTML += `
@@ -89,28 +86,4 @@ function enviar(doc) {
     window.location.href = `./../pages/html/reproducir.html?doc=${doc}`;
 }
 
-// botonSiguiente.addEventListener('click', () => {
-//     db
-//         .collection('audio')
-//         // .orderBy('numero', 'asc')
-//         .limit(4)
-//         .startAfter(ultimoDoc)
-//         .onSnapshot((snapshot) => {
-//             cargarDocumentos(snapshot.docs);
-//         }
-//         );
-// });
 
-// botonAnterior.addEventListener('click', () => {
-//     db
-//         .collection('audio')
-//         // .orderBy('numero', 'desc')
-//         .limit(4)
-//         .startAfter(primerDoc)
-//         .onSnapshot((snapshot) => {
-//             // // const documentos = snapshot.docs.reverse();
-//             // cargarDocumentos(documentos);
-//             cargarDocumentos(snapshot.docs);
-//         }
-//         );
-// });

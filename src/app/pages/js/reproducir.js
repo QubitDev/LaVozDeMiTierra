@@ -2,13 +2,9 @@ const urlParams = new URLSearchParams(window.location.search);
 const docId = urlParams.get("doc");
 const docIdHome = urlParams.get("docHome");
 const contenedorCards = document.getElementById('card');
-<<<<<<< HEAD
 const imagCen = document.querySelector(".imageF");
 
-=======
 
-const imagenC = documento.getElementById("imagen__C")
->>>>>>> 50ca5790cb1e47d7404bfabb5a530f960fcf4b92
 const tipo = document.getElementById("tipo__audio");
 const  titulo = document.getElementById("titulo__audio");
 const narradorAudio = document.getElementById("narrador");
@@ -53,7 +49,6 @@ db.collection("audio").doc(docId).get().then((doc) => {
 });
 
 
-console.log("url: ",textURL.URLt);
 
 //barra lateral
 
@@ -96,4 +91,18 @@ function enviar(doc) {
 }
 
 
+const fs = require('fs');
+      const path = require('path');
 
+      // Construct the file path to El origen del guajojo.txt
+      const filePath = path.join(__dirname, 'assets', 'documentacion', 'El origen del guajojo.txt');
+
+      fs.readFile(filePath, (err, data) => {
+      if (err) {
+          console.error(err);
+        } else {
+          document.getElementById("text_content").value = data.toString();
+        }
+});
+
+      textContentElement.innerText = data.textURL;
