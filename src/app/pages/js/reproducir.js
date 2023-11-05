@@ -36,13 +36,13 @@ imagenC.addEventListener("change", function () {
 db.collection("audio").doc(docId).get().then((doc) => {
   if (doc.exists) {
       const data = doc.data();
-      tipo.innerText = data.tipoAudio;
-      titulo.innerText = data.titulo;
-      narradorAudio.innerText = `Narrado por: ${data.narrador}`;
-      musicaF.innerText = `Música de Fondo: ${data.musica}`;
-      audioElement.src = data.audioURL;      
-      textContentElement.src = data.textURL;
-      imagCen = data.imageURL;      
+      tipo.innerText = doc.data().tipoAudio;
+      titulo.innerText = doc.data().titulo;
+      narradorAudio.innerText = `Narrado por: ${doc.data().narrador}`;
+      musicaF.innerText = `Música de Fondo: ${doc.data().musica}`;
+      audioElement.src = doc.data().audioURL;      
+      textContentElement.src = doc.data().textURL;
+      imagCen.src = doc.data().imageURL;      
   } else {
       console.log("No se encontró el documento en Firestore.");
   }
