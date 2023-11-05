@@ -1,3 +1,4 @@
+
 const urlParams = new URLSearchParams(window.location.search);
 const docId = urlParams.get("doc");
 const docIdHome = urlParams.get("docHome");
@@ -11,26 +12,23 @@ const musicaF = document.getElementById("musica");
 
 const audioElement = document.getElementById("audioE");
 const textContentElement = document.getElementById("text_content");
-
+const imagenDe = document.querySelector(".imagenLC");
 
 db.collection("audio").doc(docId).get().then((doc) => {
   if (doc.exists) {
-      const data = doc.data();
-      tipo.innerText = data.tipoAudio;
-      titulo.innerText = data.titulo;
-      narradorAudio.innerText = `Narrado por: ${data.narrador}`;
-      musicaF.innerText = `Música de Fondo: ${data.musica}`;
-      audioElement.src = data.audioURL;
-      
-      textContentElement.src = data.textURL;
-      Imagen.src = data.imageURL;      
+      tipo.innerText = doc.data().tipoAudio;
+      titulo.innerText = doc.data().titulo;
+      narradorAudio.innerText = `Narrado por: ${doc.data().narrador}`;
+      musicaF.innerText = `Música de Fondo: ${doc.data().musica}`;
+      audioElement.src = doc.data().audioURL;
+      imagenDe.src = doc.data().imageURL; 
+      textContentElement.src= doc.data().textoURL;     
+
   } else {
       console.log("No se encontró el documento en Firestore.");
   }
 });
 
-
-console.log("url: ",textURL.URLt);
 
 
 //barra lateral
@@ -56,9 +54,8 @@ const cargarDocumentos = (documentos) => {
           contenedorCards.innerHTML += `
           <div class="carta" id="carta" onClick="enviar('${documento.id}')">
               <figure>
-        <img src="./../../../assets/images/CuentoUno.jpg"
-          alt="La-leyenda-de-la-quinua-y-la-sal" height="110px" width="220px">
-      </figure> 
+              <img src="${documento.data().imageURL}" width="110px" height="220px">
+             </figure> 
       
       <div class="contenido-card" style="margin-top: 0%;">
         <h4 style="margin: 1%;">${documento.data().titulo}</h4>
@@ -73,4 +70,50 @@ const cargarDocumentos = (documentos) => {
 
 function enviar(doc) {
   window.location.href = `../html/reproducir.html?doc=${doc}`;
+}
+
+
+function showFile(file) {
+
+	console.log("pant = ",pantallaActual)
+	if (file === "home") {
+		window.location.reload();
+		window.location.reload();
+		if (user === "homeUsu") {
+		  file = "homeUsu"; 
+		} else if (user === "homeAdm") {
+		  file = "homeAdm";
+		}
+	}
+
+	if (file === pantallaActual) {
+		return; 
+	}
+	// removeScript(file);
+	
+	  pantallaActual = file; 
+	
+	  contentMain.innerHTML = "";
+
+	
+	  fetch(`./html/${file}.txt`)
+		.then((response) => {
+		  if (!response.ok) {
+			throw new Error(`Error en la solicitud: ${response.status}`);
+		  }
+		  return response.text();
+		})
+		  .then((data) => {
+		  contentMain.innerHTML = data;
+		})
+		.catch((error) => {
+		  console.error("Error al cargar el contenido:", error);
+		});
+	
+	if (!uploadedfiles.includes(file)) {
+	  	loadJS(file);
+		loadCSS(file);
+		uploadedfiles.push(file);
+	}
+	
 }
