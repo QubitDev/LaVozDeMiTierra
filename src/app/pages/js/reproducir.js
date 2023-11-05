@@ -35,7 +35,6 @@ imagenC.addEventListener("change", function () {
 
 db.collection("audio").doc(docId).get().then((doc) => {
   if (doc.exists) {
-      const data = doc.data();
       tipo.innerText = doc.data().tipoAudio;
       titulo.innerText = doc.data().titulo;
       narradorAudio.innerText = `Narrado por: ${doc.data().narrador}`;
