@@ -22,9 +22,15 @@ db.collection("audio").doc(docId).get().then((doc) => {
       musicaF.innerText = `Música de Fondo: ${doc.data().musica}`;
       audioElement.src = doc.data().audioURL;
       imagenDe.src = doc.data().imageURL; 
-      textContentElement.src = doc.data().textoURL;
+      textContentElement.textContent = doc.data().textURL;
+
       const peticion = new XMLHttpRequest();
-      
+      peticion.addEventListener("readystatechange",()=>{
+        if(peticion.readyState == 4){
+          console.log(peticion.response)
+          textContentElement.textContent = peticion.response;
+        }
+      })
       peticion.open("GET","Elquirquinchomusicocuento.txt");
       peticion.send()
       console.log(peticion)  
