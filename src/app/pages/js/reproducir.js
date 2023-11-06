@@ -22,15 +22,13 @@ db.collection("audio").doc(docId).get().then((doc) => {
       musicaF.innerText = `Música de Fondo: ${doc.data().musica}`;
       audioElement.src = doc.data().audioURL;
       imagenDe.src = doc.data().imageURL; 
-      var texto = doc.data().textoURL;
-      textContentElement.src = texto;
+      textContentElement.src = doc.data().textoURL;
       console.log(fetch('doc.data().textoURL'));
-      console.log(fetch(`./html/${doc.data().textoUR}.txt`));
-      console.log(texto); 
+      console.log(fetch('${doc.data().textoUR}'));
       const peticion = new XMLHttpRequest();
-      peticion.open("GET","doc.data().textoURL");
-      peticion.send();
-      console.log(peticion);    
+      peticion.open("GET","Elquirquinchomusicocuento.txt");
+      peticion.send()
+      console.log(peticion)  
       
     
 
