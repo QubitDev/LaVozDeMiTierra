@@ -40,8 +40,17 @@ db.collection("audio").doc(docId).get().then((doc) => {
       narradorAudio.innerText = `Narrado por: ${doc.data().narrador}`;
       musicaF.innerText = `Música de Fondo: ${doc.data().musica}`;
       audioElement.src = doc.data().audioURL;      
-      textContentElement.src = doc.data().textURL;
-      imagCen.src = doc.data().imageURL;      
+      imagCen.src = doc.data().imageURL;  
+
+      const peticion = new XMLHttpRequest();
+      peticion.addEventListener("readystatechange",()=>{
+        if(peticion.readyState == 4){
+          textContentElement.textContent = peticion.response;
+        }
+      })
+      peticion.open("GET",doc.data().textURL);
+      peticion.send()
+      console.log(peticion)     
   } else {
       console.log("No se encontró el documento en Firestore.");
   }
