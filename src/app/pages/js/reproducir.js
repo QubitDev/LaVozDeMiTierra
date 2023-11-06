@@ -23,9 +23,8 @@ db.collection("audio").doc(docId).get().then((doc) => {
       audioElement.src = doc.data().audioURL;
       imagenDe.src = doc.data().imageURL; 
       textContentElement.src = doc.data().textoURL;
-      console.log(fetch('doc.data().textoURL'));
-      console.log(fetch('${doc.data().textoUR}'));
       const peticion = new XMLHttpRequest();
+      
       peticion.open("GET","Elquirquinchomusicocuento.txt");
       peticion.send()
       console.log(peticion)  
