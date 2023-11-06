@@ -108,6 +108,11 @@ a {
   width: 70%;
   height: 100%;
 }
+p{
+  color: #01081d;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+}
 
 .container-card{
   float: right;
