@@ -4,7 +4,6 @@ const docId = urlParams.get("doc");
 const docIdHome = urlParams.get("docHome");
 const contenedorCards = document.getElementById('card');
 
-
 const tipo = document.getElementById("tipo__audio");
 const  titulo = document.getElementById("titulo__audio");
 const narradorAudio = document.getElementById("narrador");
@@ -22,18 +21,18 @@ db.collection("audio").doc(docId).get().then((doc) => {
       musicaF.innerText = `Música de Fondo: ${doc.data().musica}`;
       audioElement.src = doc.data().audioURL;
       imagenDe.src = doc.data().imageURL; 
-      textContentElement.textContent = doc.data().textURL;
 
       const peticion = new XMLHttpRequest();
       peticion.addEventListener("readystatechange",()=>{
         if(peticion.readyState == 4){
-          console.log(peticion.response)
           textContentElement.textContent = peticion.response;
         }
       })
-      peticion.open("GET","Elquirquinchomusicocuento.txt");
+      peticion.open("GET",doc.data().textURL);
       peticion.send()
-      console.log(peticion)  
+      console.log(peticion) 
+      
+
       
     
 
