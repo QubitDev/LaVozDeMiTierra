@@ -22,12 +22,24 @@ db.collection("audio").doc(docId).get().then((doc) => {
       musicaF.innerText = `Música de Fondo: ${doc.data().musica}`;
       audioElement.src = doc.data().audioURL;
       imagenDe.src = doc.data().imageURL; 
-      textContentElement.src= doc.data().textoURL;     
+      var texto = doc.data().textoURL;
+      textContentElement.src = texto;
+      console.log(fetch('doc.data().textoURL'));
+      console.log(fetch(`./html/${doc.data().textoUR}.txt`));
+      console.log(texto); 
+      const peticion = new XMLHttpRequest();
+      peticion.open("GET","doc.data().textoURL");
+      peticion.send();
+      console.log(peticion);    
+      
+    
+
 
   } else {
       console.log("No se encontró el documento en Firestore.");
   }
 });
+
 
 
 
@@ -43,11 +55,7 @@ db.collection('audio').limit(4).onSnapshot((snapshot) => {
 const iddoc = {};
 
 const cargarDocumentos = (documentos) => {
-  if (documentos.length > 0) {
-      ultimoDoc = documentos[documentos.length - 1];
-      primerDoc = documentos[0];
-
-      contenedorCards.innerHTML = '';
+  if (documentos.length > 0) {   
 
       documentos.forEach(documento => {
           //iddoc1.doc1 = documento.data().id;
@@ -73,47 +81,3 @@ function enviar(doc) {
 }
 
 
-function showFile(file) {
-
-	console.log("pant = ",pantallaActual)
-	if (file === "home") {
-		window.location.reload();
-		window.location.reload();
-		if (user === "homeUsu") {
-		  file = "homeUsu"; 
-		} else if (user === "homeAdm") {
-		  file = "homeAdm";
-		}
-	}
-
-	if (file === pantallaActual) {
-		return; 
-	}
-	// removeScript(file);
-	
-	  pantallaActual = file; 
-	
-	  contentMain.innerHTML = "";
-
-	
-	  fetch(`./html/${file}.txt`)
-		.then((response) => {
-		  if (!response.ok) {
-			throw new Error(`Error en la solicitud: ${response.status}`);
-		  }
-		  return response.text();
-		})
-		  .then((data) => {
-		  contentMain.innerHTML = data;
-		})
-		.catch((error) => {
-		  console.error("Error al cargar el contenido:", error);
-		});
-	
-	if (!uploadedfiles.includes(file)) {
-	  	loadJS(file);
-		loadCSS(file);
-		uploadedfiles.push(file);
-	}
-	
-}
