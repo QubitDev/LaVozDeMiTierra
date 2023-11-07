@@ -265,7 +265,7 @@ function closePopup(){
 }
 
 function onVerifyButton() {
-  window.location.href = `./../html/reproducir.html?doc=${idDoc}`;
+  window.location.href = `./../../pages/html/reproducir.html?doc=${idDoc}`;
   resetForm();
 }
 
@@ -293,11 +293,11 @@ function validateInput(inputElement) {
     }
 
   // Comprueba si el valor contiene caracteres no válidos después de eliminar un carácter
-  if (!/^[a-zA-Z\s]+$/.test(inputValue)) {
+ /* if (!/^[a-zA-Z\s.]+$/.test(inputValue)) {
     onMessagePopup(`❌¡Error!\nNo puede contener caracteres especiales.`, 450);
     inputElement.value = '';
     return;
-  }
+  }*/
 }
 
 

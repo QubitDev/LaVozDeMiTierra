@@ -21,24 +21,45 @@ db.collection("audio").doc(docId).get().then((doc) => {
       musicaF.innerText = `Música de Fondo: ${doc.data().musica}`;
       audioElement.src = doc.data().audioURL;      
       imagCen.src = doc.data().imageURL;  
+      const fileData = new Blob(['Contenido de prueba'], { type: 'text/plain' });
+      const textoLO = new File([fileData], doc.data().textURL, { type: 'text/plain', lastModified: Date.now() });
 
+      console.log(textoLO);
       const peticion = new XMLHttpRequest();
       peticion.addEventListener("readystatechange",()=>{
         if(peticion.readyState == 4){
           textContentElement.textContent = peticion.response;
         }
       })
-      peticion.open("GET",doc.data().textURL);
+      peticion.open("GET",getDocument(doc.data().titulo));
       peticion.send()
-      console.log(peticion)     
+      console.log(peticion) 
+
   } else {
       console.log("No se encontró el documento en Firestore.");
   }
 });
 
-
-
 //barra lateral
+
+function getDocument(direccion){
+  const direccionT = restriccion(direccion);
+  const fileList = ["Elorigendelguajojó","Elabueloyelraton","Elabueloylaquinuita","Elquirquinchomúsico","ElSapoyelCóndor",
+  "Elzorroyelcuy","Laancianayelsapo","Lahijadelricoyelcondenado","Laleyendadelacoca","Laleyendadelapapa","Laleyendadelaquinuaylasal",
+  "Laleyendadelcóndorylacholita","Leyendadelayuca","leyendaweenhayekdelorigendelfuegoylosvegetales","Laleyendadelsajama","LaleyendadelToborochi"]
+  for(let i=0;i<fileList.length;i++){
+    if(direccionT == restriccion(fileList[i])){
+      return "./../../../assets/textos/"+ direccionT+".txt";      
+    }
+  }
+  
+
+}
+function restriccion(cadena){
+  const answer = cadena.replace(/\s/g , "");
+  const answerDos = answer.toLowerCase();
+  return answerDos;
+}
 
 db.collection('audio').limit(4).onSnapshot((snapshot) => {
   //console.log(snapshot.docs[0].data());
