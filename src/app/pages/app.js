@@ -30,7 +30,6 @@ function showFile(file) {
 	console.log("pant = ",pantallaActual)
 	if (file === "home") {
 		window.location.reload();
-		window.location.reload();
 		if (user === "homeUsu") {
 		  file = "homeUsu"; 
 		} else if (user === "homeAdm") {
