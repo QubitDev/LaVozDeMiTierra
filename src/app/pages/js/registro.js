@@ -368,6 +368,7 @@ async function handleSubmit() {
       console.log("Documento escrito con ID: ", imageURL);
 
       datos.audioURL = audioURL;
+      datos.visual = 0;
       datos.textURL = textURL;
       datos.imageURL = imageURL;
       
