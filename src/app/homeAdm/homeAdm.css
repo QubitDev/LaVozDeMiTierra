@@ -157,7 +157,7 @@
   border-radius:10px;
   transition: background-color 0.3s;
   text-decoration: none;
-  background: radial-gradient(ellipse at bottom, #647c74, #587a7c, #15242e,  #3a615e,#749e8a, #15242e 80%);
+  background: radial-gradient(ellipse at right top, #647c74, #587a7c,#15242e,  #3a615e,#749e8a 80%);
 }
 #sesionSalir{
   background-color: #01081d;

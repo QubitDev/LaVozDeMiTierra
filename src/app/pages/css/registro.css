@@ -36,11 +36,11 @@
 }
 .sesion{
   border-radius: 50%;
-  height: 70px;
-  width: 70px;
+  height: 40px;
+  width: 40px;
   position: fixed;
-  top: 15px;
-  left: 85%;
+  top: 23px;
+  left: 90%;
   display: inline-block;
   box-sizing: border-box;
   box-shadow: 10px 10px 15px 5px black;
@@ -56,19 +56,18 @@
  #sesionMenu{
   position: fixed;  
   top: 95px;
-  left: 84%;
+  left: 90%;
   width: 150px;
-  height: 150px;
+  height: 90px;
   font-size: 16;
   font-family: Arial, Helvetica, sans-serif;
   display: none;
   padding: 5px;
   cursor: pointer;
   border-radius:10px;
-  background: radial-gradient(ellipse at right top, #647c74, #587a7c,#15242e,  #3a615e,#749e8a 80%);
-
   transition: background-color 0.3s;
   text-decoration: none;
+  background: radial-gradient(ellipse at right top, #647c74, #587a7c,#15242e,  #3a615e,#749e8a 80%);
 
 }
 #opciones:hover{

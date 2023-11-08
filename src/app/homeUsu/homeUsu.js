@@ -1,8 +1,6 @@
 const contenedorCards = document.getElementById('card');
 const botonAnterior = document.getElementById('botonAnterior');
 const botonSiguiente = document.getElementById('botonSiguiente');
-const endSesion = document.querySelector(".sesion");
-endSesion.addEventListener('click',cerrarSesion);
 
 db.collection('audio').onSnapshot((snapshot) => {
     cargarDocumentoCuento(snapshot.docs);
@@ -81,7 +79,8 @@ firebase.auth().onAuthStateChanged(function(user) {
   });
   //**/////////////////////////////////////// */
 
-
+const endSesion = document.querySelector(".sesionHO");
+endSesion.addEventListener('click',cerrarSesion);
 
 let cont = 1;
 function cerrarSesion(){

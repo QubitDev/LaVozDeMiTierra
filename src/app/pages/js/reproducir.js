@@ -3,8 +3,7 @@ const urlParams = new URLSearchParams(window.location.search);
 const docId = urlParams.get("doc");
 const docIdHome = urlParams.get("docHome");
 const contenedorCards = document.getElementById('card');
-const imagCen = document.querySelector(".imageF");
-
+const imagCen = document.querySelector(".imagenLC");
 const tipo = document.getElementById("tipo__audio");
 const  titulo = document.getElementById("titulo__audio");
 const narradorAudio = document.getElementById("narrador");
@@ -20,7 +19,8 @@ db.collection("audio").doc(docId).get().then((doc) => {
       narradorAudio.innerText = `Narrado por: ${doc.data().narrador}`;
       musicaF.innerText = `Música de Fondo: ${doc.data().musica}`;
       audioElement.src = doc.data().audioURL;      
-
+      imagCen.src = doc.data().imageURL;
+        
       const fileData = new Blob(['Contenido de prueba'], { type: 'text/plain' });
       const textoLO = new File([fileData], doc.data().textURL, { type: 'text/plain', lastModified: Date.now() });
 
@@ -31,11 +31,9 @@ db.collection("audio").doc(docId).get().then((doc) => {
           textContentElement.textContent = peticion.response;
         }
       })
-      peticion.open("GET",getDocument("./../../assets/textos/Elorigendelguajojó.txt"));
+      peticion.open("GET",getDocument(doc.data().titulo));
       peticion.send()
       console.log(peticion) 
-      imagCen.src = doc.data().imageURL;
-
 
   } else {
       console.log("No se encontró el documento en Firestore.");
