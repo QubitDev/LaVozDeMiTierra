@@ -53,5 +53,18 @@ loginForm.addEventListener("submit", function (e) {
               errorContainer.innerText = "Error de inicio de sesión";
           }
         });
+
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+              // El usuario ha iniciado sesión, redirige a pagina principal
+              console.log("El usuario ha iniciado sesión:", user);
+              window.location.href = "homeUsu.html";
+            } else {
+              // El usuario no ha iniciado sesión, redirige a login.
+              console.log("El usuario no ha iniciado sesión");
+              window.location.href = "Login.html";
+            }
+          });
 });
+
 
