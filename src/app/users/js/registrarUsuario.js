@@ -49,11 +49,12 @@ const validationRules = {
     voidMessage: "Completa este campo",
   },
   contrasena: {
+    minLength: 8,
     maxLength: 32,
     pattern: /^[A-Za-z0-9]+$/,
     errorElementId: "contrasenaError",
     errorMessage: "El campo contraseña debe tener entre 8 y 32 caracteres alfanuméricos.",
-    voidMessage: "Completa este campo",
+    voidMessage: "Completa este campo con al menos 8 caracteres",
   },
   repitaContrasena: {
     errorElementId: "repitaContrasenaError",
@@ -120,12 +121,13 @@ function registrarUsuario() {
   }
   if(contrasena === ""){
     document.getElementById(validationRules.contrasena.errorElementId).innerText = validationRules.contrasena.voidMessage;
-  }else if (contrasena.length > validationRules.contrasena.maxLength || !validationRules.contrasena.pattern.test(contrasena)) {
+  }else if (contrasena.length < validationRules.contrasena.minLength || contrasena.length > validationRules.contrasena.maxLength || !validationRules.contrasena.pattern.test(contrasena)) {
     document.getElementById(validationRules.contrasena.errorElementId).innerText = validationRules.contrasena.errorMessage;
     return;
   }
 
   // Validación de nombre de usuario repetido
+  if(contrasena!=="" && numeroCelular!=="" && nombre!=="" && nombreDeUsuario!=="" && apellido!=="" && repitaContrasena!=="" && correoElectronico!==""){
   usersCollection.where("nombreDeUsuario", "==", nombreDeUsuario).get()
     .then((querySnapshot) => {
       if (!querySnapshot.empty) {
@@ -156,11 +158,12 @@ function registrarUsuario() {
             // Error en el registro
             const errorCode = error.code;
             const errorMessage = error.message;
-            //alert("Error al registrar el usuario: " + errorMessage);
+            alert("Error al registrar el usuario: " + errorMessage);
           });
       }
     })
     .catch((error) => {
       console.error("Error al verificar el nombre de usuario:", error);
     });
+  }
 }
