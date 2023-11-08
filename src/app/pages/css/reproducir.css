@@ -1,3 +1,4 @@
+
 .logo {
   border-radius: 50%;
   padding-top: 0px;
@@ -109,10 +110,9 @@ a {
   height: 100%;
 }
 p{
-  color: #000000;
+  color: #01081d;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 15px;
-  
+  font-size: 16px;
 }
 
 .container-card{
@@ -136,7 +136,6 @@ p{
   box-shadow: 0px 1px 10px rgba(0, 0, 0, 45);
 }
 
-
 .caja {
   display: flex;
   flex-direction: row;
@@ -146,8 +145,8 @@ p{
 
 .imagen {
   margin-top: 5%;
-  margin-left: 5%;
-  padding-left: 165px;
+  margin-left: 8%;
+  padding-left: 129px;
 }
 
 .descripcion {
@@ -195,4 +194,3 @@ a {
   margin-top: 8%;
   margin-left: 0%;
 }
-
