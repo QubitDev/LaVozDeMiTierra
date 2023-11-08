@@ -1,45 +1,114 @@
 
-/* Estilos para el espacio del logo */
-.logo-container {
-    border-radius: 50%; /* Hace que el espacio del logo sea completamente redondo */
-    background-color: #fff; /* Color de fondo para el espacio del logo */
-    width: 100px; /* Ancho del espacio del logo */
-    height: 100px; /* Alto del espacio del logo */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.logo-container img {
-    max-width: 100%; /* Ajusta el tamaño del logo al espacio redondo */
-    max-height: 100%; /* Ajusta el tamaño del logo al espacio redondo */
-}
-/* Agrega otros estilos según tus necesidades */
-
-
-/* Estilos para centrar el contenido en la página de recuperar contraseña */
+/* Establece un estilo general para la página */
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
     margin: 0;
-    background-image: url('tu-fondo.jpg'); /* Cambia 'tu-fondo.jpg' por la URL de tu imagen de fondo */
+    font-family: Arial, sans-serif;
+    background: #f0f0f0; /* Fondo general de la página */
+}
+
+/* Fondo decorativo o efecto de luciérnagas */
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("ruta-de-tu-imagen-luciernagas.jpg"); /* Agrega la ruta de tu imagen de fondo */
     background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-position: center;
+    opacity: 0.7;
+    z-index: -1; /* Coloca el fondo detrás de otros elementos */
 }
 
+/* Contenedor principal para el formulario */
 .container {
-    background-color: rgba(255, 255, 255, 0.8); /* Color de fondo con transparencia */
-    border: 2px solid #ccc; /* Bordes más notorios */
-    border-radius: 15px 15px 0 0; /* Borde redondeado más pronunciado en la parte superior */
+    background-color: rgba(255, 255, 255, 0.85); /* Fondo semi-transparente para el formulario */
     padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sutil sombra */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4); /* Sombra más notoria */
+    max-width: 400px; /* Limita el ancho del contenedor para una mejor legibilidad */
+    margin: 0 auto; /* Centra horizontalmente en pantallas grandes */
+}
+
+/* Estilo del logotipo */
+.logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 0 auto 20px auto;
     display: flex;
-    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    color: #fff;
+    background-color: #007BFF; /* Fondo de logotipo con color azul */
+    font-size: 24px;
+}
+
+/* Estilo para los encabezados */
+h1 {
+    font-size: 28px;
+    margin: 20px 0; /* Espaciado adicional en la parte superior */
+    text-align: center;
+}
+
+h2 {
+    font-size: 24px;
+    margin: 10px 0; /* Espaciado adicional en la parte inferior */
+    text-align: center;
+}
+
+/* Estilo para las etiquetas del formulario */
+label {
+    display: block;
+    font-weight: bold;
+    text-align: center; /* Alinea las etiquetas a la izquierda */
+    margin-bottom: 5px; /* Agrega un pequeño espaciado inferior */
+}
+
+/* Estilo para los campos de entrada del formulario */
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px; /* Espaciado inferior para separar los campos */
 }
 
 
+/* Estilo para los botones del formulario */
+.btn {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.2s; /* Agrega una transición suave al color de fondo */
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo para el enlace de cancelación */
+#cancelButton {
+    display: inline-block;
+    margin-top: 10px; /* Agrega un pequeño espaciado superior */
+    text-decoration: none; /* Elimina la subraya del enlace */
+    color: #007BFF; /* Color de enlace */
+    font-weight: bold;
+    transition: color 0.2s; /* Transición suave del color del enlace */
+    text-align: center;
+}
+
+#cancelButton:hover {
+    color: #0056b3;
+}

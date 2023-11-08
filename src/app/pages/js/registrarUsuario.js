@@ -1,4 +1,4 @@
-const continuarR = document.getElementById('continuarUsu');
+
 document.getElementById("registration-form").addEventListener("submit", (e) => {
   e.preventDefault();
   registrarUsuario();
@@ -17,15 +17,15 @@ const validationRules = {
     pattern: /^[A-Za-z]+$/,
     errorElementId: "nombreError",
     errorMessage: "El campo nombre debe tener entre 3 y 20 caracteres alfabéticos.",
-    voidMessage: "Complete este campo",
+    voidMessage: "Completa este campo",
   },
   apellido: {
     minLength: 4,
     maxLength: 20,
     pattern: /^[A-Za-z]+$/,
     errorElementId: "apellidoError",
-    errorMessage: "El campo apellido debe tener entre 5 y 20 caracteres alfabéticos.",
-    voidMessage: "Complete este campo",
+    errorMessage: "El campo apellido debe tener entre 4 y 20 caracteres alfabéticos.",
+    voidMessage: "Completa este campo",
   },
   nombreDeUsuario: {
     minLength: 4,
@@ -33,33 +33,34 @@ const validationRules = {
     pattern: /^[A-Za-z0-9]+$/,
     errorElementId: "nombreDeUsuarioError",
     errorMessage: "El campo nombre de usuario debe tener entre 4 y 15 caracteres alfanuméricos.",
-    voidMessage: "Complete este campo",
+    voidMessage: "Completa este campo",
   },
   correoElectronico: {
     maxLength: 64,
     pattern: /^[A-Za-z0-9!#$%&'*+\-/=?^_`{|}~.]+@gmail\.com$/,
     errorElementId: "correoElectronicoError",
     errorMessage: "El campo correo electrónico debe contener caracteres alfabéticos y numéricos antes de @gmail.com.",
-    voidMessage: "Complete este campo",
+    voidMessage: "Completa este campo",
   },
   numeroCelular: {
     maxLength: 8,
     pattern: /^[6-7]\d+$/,
     errorElementId: "numeroCelularError",
     errorMessage: "El campo número de celular debe tener hasta 8 caracteres numéricos.",
-    voidMessage: "Complete este campo",
+    voidMessage: "Completa este campo",
   },
   contrasena: {
+    minLength: 8,
     maxLength: 32,
     pattern: /^[A-Za-z0-9]+$/,
     errorElementId: "contrasenaError",
-    errorMessage: "El campo contraseña debe tener hasta 32 caracteres alfanuméricos.",
-    voidMessage: "Complete este campo",
+    errorMessage: "El campo contraseña debe tener entre 8 y 32 caracteres alfanuméricos.",
+    voidMessage: "Completa este campo con al menos 8 caracteres",
   },
   repitaContrasena: {
     errorElementId: "repitaContrasenaError",
     errorMessage: "Las contraseñas no coinciden",
-    voidMessage: "Complete este campo",
+    voidMessage: "Por favor, repita su contraseña",
   },
 };
 
@@ -81,43 +82,53 @@ function registrarUsuario() {
   const numeroCelular = document.getElementById("phone").value;
   Object.assign(datos,{nombre, apellido, correoElectronico, nombreDeUsuario, numeroCelular});
   // Verifica si las contraseñas coinciden
-  if (contrasena !== repitaContrasena) {
+  if(repitaContrasena === ""){
+    document.getElementById(validationRules.repitaContrasena.errorElementId).innerText = validationRules.repitaContrasena.voidMessage;
+  }else if (contrasena !== repitaContrasena) {
     document.getElementById(validationRules.repitaContrasena.errorElementId).innerText = validationRules.repitaContrasena.errorMessage;
     return;
   }
 
-   // Realiza la validación para cada campo
-   if (nombre.length < validationRules.nombre.minLength || nombre.length > validationRules.nombre.maxLength || !validationRules.nombre.pattern.test(nombre)) {
+  // Realiza la validación para cada campo
+  if(nombre === ""){
+    document.getElementById(validationRules.nombre.errorElementId).innerText = validationRules.nombre.voidMessage;
+  }else if (nombre.length < validationRules.nombre.minLength || nombre.length > validationRules.nombre.maxLength || !validationRules.nombre.pattern.test(nombre)) {
     document.getElementById(validationRules.nombre.errorElementId).innerText = validationRules.nombre.errorMessage;
     return;
   }
-
-  if (apellido.length < validationRules.apellido.minLength || apellido.length > validationRules.apellido.maxLength || !validationRules.apellido.pattern.test(apellido)) {
+  if(apellido === ""){
+    document.getElementById(validationRules.apellido.errorElementId).innerText = validationRules.apellido.voidMessage;
+  }else if (apellido.length < validationRules.apellido.minLength || apellido.length > validationRules.apellido.maxLength || !validationRules.apellido.pattern.test(apellido)) {
     document.getElementById(validationRules.apellido.errorElementId).innerText = validationRules.apellido.errorMessage;
     return;
   }
-
-  if (nombreDeUsuario.length < validationRules.nombreDeUsuario.minLength || nombreDeUsuario.length > validationRules.nombreDeUsuario.maxLength || !validationRules.nombreDeUsuario.pattern.test(nombreDeUsuario)) {
+  if(nombreDeUsuario === ""){
+    document.getElementById(validationRules.nombreDeUsuario.errorElementId).innerText = validationRules.nombreDeUsuario.voidMessage;
+  }else if (nombreDeUsuario.length < validationRules.nombreDeUsuario.minLength || nombreDeUsuario.length > validationRules.nombreDeUsuario.maxLength || !validationRules.nombreDeUsuario.pattern.test(nombreDeUsuario)) {
     document.getElementById(validationRules.nombreDeUsuario.errorElementId).innerText = validationRules.nombreDeUsuario.errorMessage;
     return;
   }
-
-  if (correoElectronico.length > validationRules.correoElectronico.maxLength || !validationRules.correoElectronico.pattern.test(correoElectronico)) {
+  if(correoElectronico === ""){
+    document.getElementById(validationRules.correoElectronico.errorElementId).innerText = validationRules.correoElectronico.voidMessage;
+  }else if (correoElectronico.length > validationRules.correoElectronico.maxLength || !validationRules.correoElectronico.pattern.test(correoElectronico)) {
     document.getElementById(validationRules.correoElectronico.errorElementId).innerText = validationRules.correoElectronico.errorMessage;
     return;
   }
-
-  if (numeroCelular.length !== validationRules.numeroCelular.maxLength || !validationRules.numeroCelular.pattern.test(numeroCelular)) {
+  if(numeroCelular === ""){
+    document.getElementById(validationRules.numeroCelular.errorElementId).innerText = validationRules.numeroCelular.voidMessage;
+  }else if (numeroCelular.length !== validationRules.numeroCelular.maxLength || !validationRules.numeroCelular.pattern.test(numeroCelular)) {
     document.getElementById(validationRules.numeroCelular.errorElementId).innerText = validationRules.numeroCelular.errorMessage;
     return;
   }
-
-  if (contrasena.length > validationRules.contrasena.maxLength || !validationRules.contrasena.pattern.test(contrasena)) {
+  if(contrasena === ""){
+    document.getElementById(validationRules.contrasena.errorElementId).innerText = validationRules.contrasena.voidMessage;
+  }else if (contrasena.length < validationRules.contrasena.minLength || contrasena.length > validationRules.contrasena.maxLength || !validationRules.contrasena.pattern.test(contrasena)) {
     document.getElementById(validationRules.contrasena.errorElementId).innerText = validationRules.contrasena.errorMessage;
     return;
   }
 
   // Validación de nombre de usuario repetido
+  if(contrasena!=="" && numeroCelular!=="" && nombre!=="" && nombreDeUsuario!=="" && apellido!=="" && repitaContrasena!=="" && correoElectronico!==""){
   usersCollection.where("nombreDeUsuario", "==", nombreDeUsuario).get()
     .then((querySnapshot) => {
       if (!querySnapshot.empty) {
@@ -129,43 +140,31 @@ function registrarUsuario() {
           .then((userCredential) => {
             // Registro exitoso
             const user = userCredential.user;
-<<<<<<< HEAD
-
-              usersCollection.add(datos)
-                .then(() => {                  
-                    document.getElementById('ExitoUsu').style.display = 'block';
-=======
             const popup = document.getElementById("popup");
                   popup.style.display = "block";
             // Configura el evento de clic para el botón "Continuar"
-            setTimeout(() => {
+            //setTimeout(() => {
               usersCollection.add(datos)
                 .then(() => {
->>>>>>> 41d23456c8378d9ef722aff3538c2d515853fc80
                   // Redirige a la pantalla de inicio de la plataforma
+                  window.location.href = "Login.html";
                 })
                 .catch((error) => {
                   // Maneja cualquier error relacionado con Firestore aquí
-                  setTimeout(() => {
-                    document.getElementById('FalloExitoUsu').style.display = 'block';
-                  }, 10000);
-                  document.getElementById('FalloExitoUsu').style.display = 'none';
-
+                  alert("Error al agregar datos a Firestore: " + error.message);
                 });
-            // espera de 2segundos.
+           // }, 2000); // espera de 2segundos.
           })
           .catch((error) => {
             // Error en el registro
             const errorCode = error.code;
             const errorMessage = error.message;
+            alert("Error al registrar el usuario: " + errorMessage);
           });
       }
     })
     .catch((error) => {
       console.error("Error al verificar el nombre de usuario:", error);
     });
-}
-continuarR.addEventListener('click',continuarT);
-function continuarT(){
-  document.getElementById('ExitoUsu').style.display = 'none';
+  }
 }
