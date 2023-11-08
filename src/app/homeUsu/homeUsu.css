@@ -164,8 +164,9 @@ a {
   }
 
 
-/*----------------------------------------- body------------------------------------------------------------------- */
 
+
+/*----------------------------------------- body------------------------------------------------------------------- */
 
 * {
 	margin: 0;
@@ -184,7 +185,7 @@ a {
 	height: 95%;
 
 
-	background: radial-gradient(ellipse at bottom, hwb(160 39% 51%), #587a7c, #15242e, #3a615e, #749e8a, #15242e 80%);
+	background: radial-gradient(ellipse at bottom, #647c74, #587a7c, #15242e, #3a615e, #749e8a, #15242e 80%);
 	background-size: 150% 150%;
 	background-position: top center;
 	color: #fff;
@@ -200,14 +201,12 @@ a {
 	box-shadow: 0px 1px 10px
 }
 
-/*Cards*/
 .container-card {
-	position: relative;
 	width: 60%;
-	height: 55%;
+	height: 70%;
 	/* max-width: 900px; */
-	margin: auto;
-
+	margin: 90px;
+    top: auto;
 	font-family: Arial, Helvetica, sans-serif;
 
 
@@ -297,8 +296,7 @@ a {
 	background: #fff;
 	box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
 	transition: all 400ms ease-out;
-	cursor: pointer;
-
+	cursor: pointer;	
 }
 
 .carta:hover {
@@ -348,7 +346,9 @@ button:active {
 	padding: 5em 0;
 }
 
-/*--------------------------------------------------------------------------------------------------------------*/
+
+
+/*-------------------------------------------------BUSCADOR-------------------------------------------------------------*/
 .container__search {
 	display: none;
 	/* display: absolute; */

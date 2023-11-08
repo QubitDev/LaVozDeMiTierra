@@ -4,6 +4,7 @@ const campc2 = document.getElementById('campoDos');
 const conedorAll = document.getElementById('contenedor');
 const endSesion = document.querySelector(".sesion");
 endSesion.addEventListener('click',cerrarSesion);
+
 cancelarEdi.addEventListener('click',hideEdita);
 db.collection('audio').orderBy('titulo','asc').onSnapshot((snapshot) => {
     cargarCuentos(snapshot.docs);
