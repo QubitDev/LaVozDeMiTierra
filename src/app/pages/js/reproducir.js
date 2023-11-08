@@ -1,6 +1,7 @@
 const urlParams = new URLSearchParams(window.location.search);
-const docId = urlParams.get("doc");
-const docIdHome = urlParams.get("docHome");
+const docId= urlParams.get("id-doc");
+const texto = urlParams.get("text-content");
+//const docIdHome = urlParams.get("docHome");
 const contenedorCards = document.getElementById('card');
 const imagCen = document.querySelector(".imageF");
 
@@ -11,7 +12,72 @@ const narradorAudio = document.getElementById("narrador");
 const musicaF = document.getElementById("musica");
 
 const audioElement = document.getElementById("audioE");
-const textContentElement = document.getElementById("text_content");
+const uploadedfiles = [];
+
+if(texto){
+  showFile(texto);
+}
+
+
+function showFile(file) {
+
+	console.log("pant = ",pantallaActual)
+	if (file === "home") {
+		window.location.reload();
+		window.location.reload();
+		if (user === "homeUsu") {
+		  file = "homeUsu"; 
+		} else if (user === "homeAdm") {
+		  file = "homeAdm";
+		}
+	}
+
+	if (file === pantallaActual) {
+		return; 
+	}
+	// removeScript(file);
+	
+	  pantallaActual = file; 
+	
+	  contentMain.innerHTML = "";
+
+	
+	  fetch(`./assets/documentcion/${file}.txt`)
+		.then((response) => {
+		  if (!response.ok) {
+			throw new Error(`Error en la solicitud: ${response.status}`);
+		  }
+		  return response.text();
+		})
+		  .then((data) => {
+		  contentMain.innerHTML = data;
+		})
+		.catch((error) => {
+		  console.error("Error al cargar el contenido:", error);
+		});
+	
+	if (!uploadedfiles.includes(file)) {
+	  	loadJS(file);
+		loadCSS(file);
+		uploadedfiles.push(file);
+	}
+	
+}
+
+function loadCSS(file) {
+	const link = document.createElement("link");
+	link.rel = "stylesheet";
+	link.type = "text/css";
+	link.href = `./css/${file}.css`; 
+	document.head.appendChild(link);
+}
+  
+function loadJS(file) {
+	const script = document.createElement("script");
+	script.src = `./js/${file}.js`; 
+	document.body.appendChild(script);
+}
+  
 
 db.collection("audio").doc(docId).get().then((doc) => {
   if (doc.exists) {
@@ -39,6 +105,7 @@ db.collection("audio").doc(docId).get().then((doc) => {
       console.log("No se encontró el documento en Firestore.");
   }
 });
+
 
 //barra lateral
 

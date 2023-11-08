@@ -1,3 +1,4 @@
+
 {
     "prettier.bracketSameLine": true,
     "prettier.enableDebugLogs": true,
@@ -11,5 +12,6 @@
     "prettier.withNodeModules": true,
     "prettier.singleAttributePerLine": true,
     "prettier.singleQuote": true,
-    "prettier.tabWidth": 4
+    "prettier.tabWidth": 4,
+    "liveServer.settings.port": 5501
 }
