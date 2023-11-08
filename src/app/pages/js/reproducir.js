@@ -81,7 +81,7 @@ const cargarDocumentos = (documentos) => {
           contenedorCards.innerHTML += `
           <div class="carta" id="carta" onClick="enviar('${documento.id}')">
           <figure>
-              <img src="${documento.data().imageURL}" width="90px" height="90px">
+              <img src="${documento.data().imageURL}" width="160px" height="160px">
           </figure>
       
          <div class="contenido-card" style="margin-top: 0%;">

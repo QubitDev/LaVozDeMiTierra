@@ -105,7 +105,7 @@ a {
   flex-direction: column;
   top: 102px;
   left: 200px;
-  width: 70%;
+  width: 75%;
   height: 100%;
 }
 p{
@@ -123,10 +123,16 @@ p{
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
   position: fixed;
   flex-direction: column;
-  top: 102px;
+  top: 12%;
   left: 82%;
-  width: 33%;
+  width: 20%;
+  max-width: 500px;
   height: 100%;
+  max-height: 1000px;
+  overflow: hidden;
+  overflow-y: scroll;
+  border-radius: 5px;
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 45);
 }
 
 .caja {
@@ -138,7 +144,7 @@ p{
 
 .imagen {
   margin-top: 5%;
-  margin-left: 5%;
+  margin-left: 8%;
   padding-left: 129px;
 }
 
