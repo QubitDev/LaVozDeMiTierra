@@ -55,22 +55,51 @@ h2 {
     justify-content: space-between;
 }
 
-.form-group {
-    flex: 1;
-    margin: 10px;
-    text-align: left;
-}
+
 
 label {
     display: block;
     font-weight: bold;
 }
 
-input[type="text"], input[type="email"], input[type="password"], input[type="tel"] {
-    width: 100%;
+.error {
+    color: red;
+    display: block;
+    margin-top: 5px;
+    font-size: 14px;
+    text-align: left;
+}
+
+.form-group {
+    flex: 1;
+    margin: 10px;
+    text-align: center;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    text-align: left;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"] {
+    width: 90%;
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    display: block;
+    margin: 0 auto;
+}
+
+.form-group input[type="tel"] {
+    width: 43%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: block;
+    margin: 0;
 }
 
 .btn {
