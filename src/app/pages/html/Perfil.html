@@ -19,9 +19,12 @@
         </div>
         
         <div id="usernameSection">
-            <label for="username">Username:</label>
-            <input type="text" id="username" value="JohnDoe">
-            <button id="changeUsernameButton">Change Username</button>
+            <div id="usernameContainer">
+                <span id="usernameText">JohnDoe</span>
+                <button id="editUsernameButton">&#9998;</button>
+            </div>
+            <input type="text" id="usernameInput" style="display: none;">
+            <button id="saveUsernameButton" style="display: none;">Save Username</button>
         </div>
         
         <button id="saveChangesButton">Save Changes</button>
