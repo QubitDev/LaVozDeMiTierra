@@ -79,7 +79,7 @@ firebase.auth().onAuthStateChanged(function(user) {
   });
   //**/////////////////////////////////////// */
 
-const endSesion = document.querySelector(".sesionHO");
+const endSesion = document.querySelector(".sesion");
 endSesion.addEventListener('click',cerrarSesion);
 
 let cont = 1;

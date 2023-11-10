@@ -35,10 +35,10 @@ loginForm.addEventListener("submit", function (e) {
             const user = userCredential.user;
             if (correoElectronico === "trabajosoftware201@gmail.com") {
                 // Redirige a la página homeAdm.html si el correo es "trabajosoftware201@gmail.com"
-                window.location.href = "./../app/homeAdm/homeAdm.html";
+                window.location.href = "./../../homeAdm/homeAdm.html";
             } else {
                 // Redirige a la página homeUsu.html para otros correos
-                window.location.href = "./../app/homeUsu/homeUsu.html";
+                window.location.href = "./../../homeUsu/homeUsu.html";
             }
         })
         .catch((error) => {
@@ -51,7 +51,7 @@ loginForm.addEventListener("submit", function (e) {
               // Otros errores
               errorContainer.innerText = "Error de inicio de sesión";
           }
-        });
+        });        
        
 });
 

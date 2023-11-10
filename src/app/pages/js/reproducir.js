@@ -1,4 +1,3 @@
-
 const urlParams = new URLSearchParams(window.location.search);
 const docId = urlParams.get("doc");
 const docIdHome = urlParams.get("docHome");
@@ -98,3 +97,5 @@ const cargarDocumentos = (documentos) => {
 function enviar(doc) {
   window.location.href = `../html/reproducir.html?doc=${doc}`;
 }
+
+console.log(correoElectronico);
