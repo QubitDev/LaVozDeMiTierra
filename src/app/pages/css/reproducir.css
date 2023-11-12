@@ -129,6 +129,22 @@ p{
   height: 100%;
 }
 
+.header__cards {
+  width: 97.5%;
+  max-width: 99%;
+  color: white;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
+  text-align: center;
+  justify-content: center;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+
+  padding-left: 75px;
+
+}
+
 .caja {
   display: flex;
   flex-direction: row;
