@@ -178,20 +178,22 @@
   width: 90px;
 }
 
-#auxAdd{
+
+
+
+#newList{
   width: 32px;
   height: 32px;
   position: relative;
   top: -120px;
-  left: 78%;  
-
+  left: 78%;
+  background: #00000000;
+  border: #00000000;
 }
-#auxAdd:hover{
-    cursor: pointer;
-    transition: background-color 0.3s;
-    background: radial-gradient(ellipse at left top, #01081d, #011c38 80%);
-    border-radius: 50%;
-    text-shadow: 1px 1px 18px rgba(0, 0, 0, 0.856);
+#newList:hover{
+  cursor: pointer;
+  transition: background-color 0.3s;
+  box-shadow: 1px 1px 30px rgba(12, 74, 131, 0.925)
 }
 
 .container_list{
@@ -201,8 +203,13 @@
   top: -70px;
   left: 5%;
   width: 77%;
-  display: flex;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
   height: 72%;
+  overflow: hidden;
+  overflow-y: scroll;
+
+
 }
 
 .list{
@@ -215,24 +222,43 @@
   height: 90px;  
   display: flex;
 }
+#imageList{
+  position: relative;
+  top: 15px;
+  left: 2%;
+  height: 50px;
+}
+#imageList:hover{
+  cursor: pointer;
+  transition: background-color 0.3s;
+  box-shadow: 1px 1px 30px rgba(12, 74, 131, 0.925)
 
+}
 .titleLi{
   position: relative;
-  left: 25%;
-  margin-left: 50px;
+  left: 8%;
 }
 .Audios{
   position: relative;
-  left: 25%;
+  left: 200px;
 
 }
 .number{
   position: relative;
-  left: 30%;
+  left: 220px;
 }
 .deleteC{
   position: relative;
-  left: 35%;
+  height: 40px;
+  left: 500px;
+  top: 20px;
+  background-color: #ffffff2d;
+  border:#ffffff2d ;
+}
+.deleteC:hover{
+  cursor: pointer;
+  transition: background-color 0.3s;  
+  box-shadow: 1px 1px 18px rgba(12, 74, 131, 0.925)
 }
 
 

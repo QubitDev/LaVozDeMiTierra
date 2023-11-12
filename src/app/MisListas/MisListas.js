@@ -13,10 +13,19 @@ function cerrarSesion(){
 const addList = document.getElementById("newList");
 const conteiner = document.getElementById("container_list");
 addList.addEventListener("click",addLista);
-
+let number = 1;
 function addLista(){
     conteiner.innerHTML +=`
+    <div class="list">
+        <i class="fa-solid fa-headphones fa-3x" id="imageList"></i>
+        <h1 class="titleLi">Lista ${number}</h1>
+        <h1 class="Audios">Numero de audios:</h1>
+        <h1 class="number" type="number">0</h1>
+        <button class="deleteC">
+            <i class="fa-solid fa-trash-can fa-2x"></i>
+        </button>
+    </div>
     
     `;
-
+    number++;
 }
