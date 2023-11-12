@@ -93,7 +93,7 @@
         </div>
 
         <div class="__share">
-          <button class="__button_share" onclick="togglePopup()">
+          <button class="__button_share" onclick="generateLinkShare()">
             <i class="fas fa-share"></i>
           </button>
         </div>
@@ -110,9 +110,21 @@
           <h3>Compartir</h3>
           <div class="__social_networks">
             <ul>
-              <li class="facebook"><a href="#"><i class="fa-brands fa-facebook" aria-hidden="true"></i></a></li>
-              <li class="whatsapp"><a href="#"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a></li>
-              <li class="gmail"><a href="#"><i class="fa-brands fa-google" aria-hidden="true"></i></a></li>
+              <li class="facebook">
+                <a href="#" onclick="shareOnFacebook()">
+                  <i class=" fa-brands fa-facebook" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li class="whatsapp">
+                <a href="#" onclick="shareOnWhatsApp()">
+                  <i class=" fa-brands fa-whatsapp" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li class="gmail">
+                <a href="#" onclick="shareOnGmail()">
+                  <i class=" fa-brands fa-google" aria-hidden="true"></i>
+                </a>
+              </li>
             </ul>
           </div>
 

@@ -6,7 +6,6 @@ const input = document.createElement("textarea");
 
 function togglePopup() {
     popup.style.display = (popup.style.display === "none" || popup.style.display === "") ? "block" : "none";
-    generateLinkShare();
 }
 
 function generateLinkShare() {
@@ -21,6 +20,7 @@ function generateLinkShare() {
     var shareLink = window.location.origin + "./../html/reproducir.html?contenido=" + contentID;
 
     linkShare.innerText = shareLink;
+    popup.style.display = (popup.style.display === "none" || popup.style.display === "") ? "block" : "none";
 }
 
 // Función para generar un ID único (puedes mejorarla según tus necesidades)
@@ -29,10 +29,33 @@ function generateUniqueID() {
 }
 
 function copyToClipboard() {
- 
-    input.value = linkShare.innerText;
-    document.body.appendChild(input);
-    input.select();
+    var range = document.createRange();
+    range.selectNode(linkShare);
+
+    var selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
+
     document.execCommand("copy");
-    document.body.removeChild(input);
-  }
+
+    selection.removeAllRanges();
+}
+
+function shareOnFacebook() {
+  var facebookShareLink = "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(linkShare.textContent);
+  openShareWindow(facebookShareLink);
+}
+
+function shareOnWhatsApp() {
+  var whatsappShareLink = "https://api.whatsapp.com/send?text=" + encodeURIComponent(linkShare.textContent);
+  openShareWindow(whatsappShareLink);
+}
+
+function shareOnGmail() {
+  var gmailShareLink = "mailto:?subject=Check%20this%20out&body=" + encodeURIComponent(linkShare.textContent);
+  openShareWindow(gmailShareLink);
+}
+
+function openShareWindow(shareLink) {
+  window.open(shareLink, "_blank", "width=600,height=400");
+}
