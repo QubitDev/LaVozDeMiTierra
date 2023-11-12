@@ -206,9 +206,8 @@ a {
   text-align: center;
 }
 
-/*---------------------------------------------------------- share -----------------------------------------------*/
+/*---------------------------------------------------------- share, favorites and add-----------------------------------------------*/
 /* Encinas Quispe Jhonatan */
-/* Estilo para el botón de compartir */
 .__button_favorites,
 .__button_add_list,
 .__button_share {
@@ -229,14 +228,12 @@ a {
   font-weight: bold;
 }
 
-/* Estilo para el icono dentro del botón */
 .__button_favorites i,
 .__button_add_list i,
 .__button_share i {
   margin-right: 5px;
 }
 
-/* Cambiar el color del botón al pasar el ratón sobre él */
 .__button_favorites:hover {
   color: #810202;
   z-index: 2;
@@ -254,7 +251,7 @@ a {
 
 /* popup */
 .popup {
-  /* display: none; */
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -274,29 +271,30 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 700px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  max-width: 700px;
   height: 300px;
-
   background: radial-gradient(ellipse at bottom right, #647c74, #587a7c, #15242e, #3a615e, #749e8a 80%);
   background-size: 150% 150%;
   background-position: top center;
-
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
   border-radius: 10px;
   padding: 20px;
-
   color: #fff;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
 
 }
 
 .__share__content h3 {
-  margin-left: 20px;
   font-size: 24px;
   font-family: Arial, Helvetica, sans-serif;
   color: #fff;
 
-  align-self: flex-start;
+  /* align-self: flex-start; */
   margin: 0;
   margin-bottom: 60px;
 }
@@ -337,7 +335,6 @@ a {
   color: #070707;
 }
 
-/* Estilo para el botón Verificar */
 .button__cancel,
 .button__copy {
 
@@ -372,7 +369,6 @@ a {
 /* icons social networks */
 
 .__social_networks {
-  position: inherit;
   align-items: center;
   justify-content: center;
 }
@@ -400,7 +396,7 @@ a {
 
 .__social_networks ul li .facebook {
   color: #d8e2dc;
-  margin-top: 10px;
+  margin-top: 20px;
   transition: all 0.5s ease;
 }
 
@@ -418,7 +414,7 @@ a {
 
 .__social_networks ul li .whatsapp {
   color: #d8e2dc;
-  margin-top: 10px;
+  margin-top: 20px;
   transition: all 0.5s ease;
 }
 
@@ -436,7 +432,7 @@ a {
 
 .__social_networks ul li .gmail {
   color: #d8e2dc;
-  margin-top: 10px;
+  margin-top: 20px;
   transition: all 0.5s ease;
 }
 

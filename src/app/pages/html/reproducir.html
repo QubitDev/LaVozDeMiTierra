@@ -93,7 +93,7 @@
         </div>
 
         <div class="__share">
-          <button class="__button_share" onclick="generarEnlaceCompartir()">
+          <button class="__button_share" onclick="togglePopup()">
             <i class="fas fa-share"></i>
           </button>
         </div>
@@ -105,10 +105,7 @@
         </div>
       </div>
 
-
-      <!-- style="display: none;" -->
-
-      <div class="popup" id="popup">
+      <div class="popup" id="popup" style="display: none;">
         <div class="__share__content" id="__share__content">
           <h3>Compartir</h3>
           <div class="__social_networks">
@@ -121,10 +118,10 @@
 
           <div class="__link__content">
             <div class="__link__share" id="__link__share">
-              https://docs.google.com/document/d/16JmbBH61uq9wLUYV1xIJzsHvsJnEB3hkFudjk2LFu4g/edit
+
             </div>
-            <button class="button__copy" id="copy__link">copiar</button>
-            <button class="button__cancel" id="cancel">Cancelar</button>
+            <button class="button__copy" id="copy__link" onclick="copyToClipboard()">copiar</button>
+            <button class="button__cancel" id="cancel" onclick="togglePopup()">Cancelar</button>
           </div>
         </div>
       </div>
