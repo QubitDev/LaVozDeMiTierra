@@ -17,8 +17,6 @@ const cargarDocumentoCuento = (documentos) => {
                 contenedorCards.innerHTML += `
             <div class="carta" id="carta" onClick="enviar('${documento.id}')">
                 <figure>
-                <img src="${documento.data().imageURL}" >
-
 					<img src="${documento.data().imageURL}"
 						alt="La-leyenda-de-la-quinua-y-la-sal">
 				</figure>
@@ -68,5 +66,4 @@ const cargarDocumentoLeyenda = (documentos) => {
 function enviar(doc) {
     window.location.href = `./../pages/html/reproducir.html?doc=${doc}`;
 }
-
 

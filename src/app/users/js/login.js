@@ -37,8 +37,6 @@ loginForm.addEventListener("submit", function (e) {
                 window.location.href = `./../../pages/app.html?user=${'homeAdm'}`;
             } else {
                 // Redirige a la página homeUsu.html para otros correos
- 
-
                 window.location.href = `./../../pages/app.html?user=${'homeUsu'}`;
             }
         })
@@ -53,5 +51,7 @@ loginForm.addEventListener("submit", function (e) {
               errorContainer.innerText = "Error de inicio de sesión";
           }
         });
+       
 });
+
 
