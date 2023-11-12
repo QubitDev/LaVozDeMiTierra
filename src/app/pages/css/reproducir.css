@@ -269,12 +269,12 @@ a {
 
 /* Estilo para la ventana emergente */
 .__share__content {
+
   display: flex;
   flex-direction: column;
-  top: 50%;
-  left: 50%;
-
-  width: 400px;
+  align-items: center;
+  justify-content: center;
+  width: 700px;
   height: 300px;
 
   background: radial-gradient(ellipse at bottom right, #647c74, #587a7c, #15242e, #3a615e, #749e8a 80%);
@@ -288,16 +288,19 @@ a {
   color: #fff;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
 
-  align-items: center;
-  justify-content: center;
-
 }
 
 .__share__content h3 {
+  margin-left: 20px;
   font-size: 24px;
   font-family: Arial, Helvetica, sans-serif;
   color: #fff;
+
+  align-self: flex-start;
+  margin: 0;
+  margin-bottom: 60px;
 }
+
 
 .__link__content {
   display: flex;
@@ -305,25 +308,28 @@ a {
   margin-top: 20px;
 }
 
-.__link__item {
-  cursor: pointer;
-}
-
-.__link__item {
+.__link__content {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  justify-content: center;
+  align-items: center;
   gap: 20px;
 }
 
 
 .__link__content .__link__share {
-
-
-
+  white-space: nowrap;
+  /* Evita el salto de línea automático */
+  overflow: auto;
+  /* Permite el desbordamiento y agrega una barra de desplazamiento si es necesario */
   width: 380px;
-  height: 30px;
+  min-height: 50px;
+  /* Altura mínima, ajusta según sea necesario */
+  max-height: none;
+  /* Permite que la altura crezca según el contenido */
   margin: auto;
   padding: 10px;
-  line-height: 2em;
-  overflow: hidden;
   background-color: #fff;
   border: 1px solid #01081d;
   font-size: 16px;
@@ -360,4 +366,88 @@ a {
 .button__cancel:hover {
   background: #e90000a6;
   color: #fff;
+}
+
+
+/* icons social networks */
+
+.__social_networks {
+  position: inherit;
+  align-items: center;
+  justify-content: center;
+}
+
+.__social_networks ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.__social_networks ul li {
+  width: 75px;
+  height: 75px;
+  line-height: 75px;
+  margin: 10px;
+  /* margin: 0 10px; */
+  text-align: center;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 5px solid #d8e2dc;
+  float: left;
+  transition: all 0.5s ease;
+}
+
+.__social_networks ul li .facebook {
+  color: #d8e2dc;
+  margin-top: 10px;
+  transition: all 0.5s ease;
+}
+
+.__social_networks ul li:hover.facebook {
+  border: 5px solid #3b5998;
+  box-shadow: 0 0 15px #3b5998;
+  transition: all 0.5s ease;
+}
+
+.__social_networks ul li:hover .fa-facebook {
+  color: #3b5998;
+  box-shadow: 0 0 15px #3b5998;
+  transition: all 0.5s ease;
+}
+
+.__social_networks ul li .whatsapp {
+  color: #d8e2dc;
+  margin-top: 10px;
+  transition: all 0.5s ease;
+}
+
+.__social_networks ul li:hover.whatsapp {
+  border: 5px solid #017c08;
+  box-shadow: 0 0 15px #017c08;
+  transition: all 0.5s ease;
+}
+
+.__social_networks ul li:hover .fa-whatsapp {
+  color: #017c08;
+  box-shadow: 0 0 15px #017c08;
+  transition: all 0.5s ease;
+}
+
+.__social_networks ul li .gmail {
+  color: #d8e2dc;
+  margin-top: 10px;
+  transition: all 0.5s ease;
+}
+
+.__social_networks ul li:hover.gmail {
+  border: 5px solid #520404;
+  box-shadow: 0 0 15px #520404;
+  transition: all 0.5s ease;
+}
+
+.__social_networks ul li:hover .fa-google {
+  color: #520404;
+  box-shadow: 0 0 15px #520404;
+  transition: all 0.5s ease;
 }
