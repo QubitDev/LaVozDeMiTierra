@@ -18,7 +18,7 @@ function addLista(){
     conteiner.innerHTML +=`
     <div class="list">
         <i class="fa-solid fa-headphones fa-3x" id="imageList"></i>
-        <h1 class="titleLi">Lista ${number}</h1>
+        <h1 class="titleLi">Hola primo como esras ${number}</h1>
         <h1 class="Audios">Numero de audios:</h1>
         <h1 class="number" type="number">0</h1>
         <button class="deleteC">
