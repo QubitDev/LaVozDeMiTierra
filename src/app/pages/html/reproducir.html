@@ -93,7 +93,7 @@
         </div>
 
         <div class="__share">
-          <button class="__button_share">
+          <button class="__button_share" onclick="generarEnlaceCompartir()">
             <i class="fas fa-share"></i>
           </button>
         </div>
@@ -106,9 +106,33 @@
       </div>
 
 
+      <!-- style="display: none;" -->
+
+      <div class="popup" id="popup">
+        <div class="__share__content" id="__share__content">
+          <h3>Compartir</h3>
+          <div class="__social_networks">
+            <ul class="__list_social">
+              <li id="faceboock"><a href=""><i class="fa-brands fa-facebook"></i></a></li>
+              <li id="gmail"><a href=""><i class="fa-brands fa-whatsapp"></i></a></li>
+              <li id="whatsapp"><a href=""><i class="fa-solid fa-envelope"></i></a></li>
+            </ul>
+          </div>
+
+          <div class="__link__content">
+            <div class="__link__share" id="__link__share">
+              https://docs.google.com/document/d/16JmbBH61uq9wLUYV1xIJzsHvsJnEB3hkFudjk2LFu4g/edit
+            </div>
+            <button class="button__copy" id="copy__link">copiar</button>
+            <button class="button__cancel" id="cancel">Cancelar</button>
+          </div>
+        </div>
+      </div>
+
+
       <script src="./../../../api/configuracion.js"></script>
       <script src="./../js/reproducir.js"></script>
-
+      <script src="./../js/share.js"></script>
 </body>
 
 </html>
