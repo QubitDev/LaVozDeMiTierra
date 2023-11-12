@@ -13,20 +13,14 @@ function generateLinkShare() {
     var typeAudio = document.getElementById("tipo__audio").textContent;
     var titleAudio = document.getElementById("titulo__audio").textContent;
 
-    // Simula la generación de un ID único para el contenido que se está reproduciendo
-    var contentID = generateUniqueID();
 
     // Construye el enlace con la información necesaria
-    var shareLink = window.location.origin + "./../html/reproducir.html?contenido=" + contentID;
+    var shareLink = window.location.origin + "/src/app/pages/html/reproducir.html?doc=" + docId;
 
     linkShare.innerText = shareLink;
     popup.style.display = (popup.style.display === "none" || popup.style.display === "") ? "block" : "none";
 }
 
-// Función para generar un ID único (puedes mejorarla según tus necesidades)
-function generateUniqueID() {
-    return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
-}
 
 function copyToClipboard() {
     var range = document.createRange();
