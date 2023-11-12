@@ -108,14 +108,15 @@ a {
   width: 75%;
   height: 100%;
 }
-p{
+
+p {
   color: #01081d;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
   text-align: justify;
 }
 
-.container-card{
+.container-card {
   float: right;
   background: radial-gradient(ellipse at bottom, #647c74, #587a7c, #15242e, #3a615e, #749e8a, #15242e 80%);
   background-size: 150% 150%;
@@ -164,10 +165,7 @@ p{
   font-size: 15px;
 }
 
-.audio {
-  margin-top: 2%;
-  text-align: center;
-}
+
 
 .contenedor {
   font-family: Arial, Helvetica, sans-serif;
@@ -193,4 +191,64 @@ a {
 .card {
   margin-top: 8%;
   margin-left: 0%;
+}
+
+.__container_audio {
+  margin-top: 2%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  /* min-height: 70vh; */
+}
+
+.audio {
+
+  text-align: center;
+}
+
+/*---------------------------------------------------------- share -----------------------------------------------*/
+/* Encinas Quispe Jhonatan */
+/* Estilo para el botón de compartir */
+.__button_favorites,
+.__button_add_list,
+.__button_share {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 10px 20px;
+  font-size: 32px;
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Estilo para el icono dentro del botón */
+.__button_favorites i,
+.__button_add_list i,
+.__button_share i {
+  margin-right: 5px;
+}
+
+/* Cambiar el color del botón al pasar el ratón sobre él */
+.__button_favorites:hover {
+  color: #810202;
+  z-index: 2;
+}
+
+.__button_add_list:hover {
+  color: #0a0909;
+  z-index: 2;
+}
+
+.__button_share:hover {
+  color: #027281;
+  z-index: 2;
 }
