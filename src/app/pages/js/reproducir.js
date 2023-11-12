@@ -1,83 +1,15 @@
 const urlParams = new URLSearchParams(window.location.search);
-const docId= urlParams.get("id-doc");
-const texto = urlParams.get("text-content");
+const docId = urlParams.get("doc");
 //const docIdHome = urlParams.get("docHome");
 const contenedorCards = document.getElementById('card');
-const imagCen = document.querySelector(".imageF");
-
-
+const imagCen = document.querySelector(".imagenLC");
 const tipo = document.getElementById("tipo__audio");
 const  titulo = document.getElementById("titulo__audio");
 const narradorAudio = document.getElementById("narrador");
 const musicaF = document.getElementById("musica");
 
 const audioElement = document.getElementById("audioE");
-const uploadedfiles = [];
-
-if(texto){
-  showFile(texto);
-}
-
-
-function showFile(file) {
-
-	console.log("pant = ",pantallaActual)
-	if (file === "home") {
-		window.location.reload();
-		window.location.reload();
-		if (user === "homeUsu") {
-		  file = "homeUsu"; 
-		} else if (user === "homeAdm") {
-		  file = "homeAdm";
-		}
-	}
-
-	if (file === pantallaActual) {
-		return; 
-	}
-	// removeScript(file);
-	
-	  pantallaActual = file; 
-	
-	  contentMain.innerHTML = "";
-
-	
-	  fetch(`./assets/documentcion/${file}.txt`)
-		.then((response) => {
-		  if (!response.ok) {
-			throw new Error(`Error en la solicitud: ${response.status}`);
-		  }
-		  return response.text();
-		})
-		  .then((data) => {
-		  contentMain.innerHTML = data;
-		})
-		.catch((error) => {
-		  console.error("Error al cargar el contenido:", error);
-		});
-	
-	if (!uploadedfiles.includes(file)) {
-	  	loadJS(file);
-		loadCSS(file);
-		uploadedfiles.push(file);
-	}
-	
-}
-
-function loadCSS(file) {
-	const link = document.createElement("link");
-	link.rel = "stylesheet";
-	link.type = "text/css";
-	link.href = `./css/${file}.css`; 
-	document.head.appendChild(link);
-}
-  
-function loadJS(file) {
-	const script = document.createElement("script");
-	script.src = `./js/${file}.js`; 
-	document.body.appendChild(script);
-}
-  
+const textContentElement = document.getElementById("text_content");
 
 db.collection("audio").doc(docId).get().then((doc) => {
   if (doc.exists) {
@@ -86,7 +18,8 @@ db.collection("audio").doc(docId).get().then((doc) => {
       narradorAudio.innerText = `Narrado por: ${doc.data().narrador}`;
       musicaF.innerText = `Música de Fondo: ${doc.data().musica}`;
       audioElement.src = doc.data().audioURL;      
-      imagCen.src = doc.data().imageURL;  
+      imagCen.src = doc.data().imageURL;
+        
       const fileData = new Blob(['Contenido de prueba'], { type: 'text/plain' });
       const textoLO = new File([fileData], doc.data().textURL, { type: 'text/plain', lastModified: Date.now() });
 
@@ -105,7 +38,6 @@ db.collection("audio").doc(docId).get().then((doc) => {
       console.log("No se encontró el documento en Firestore.");
   }
 });
-
 
 //barra lateral
 
@@ -166,4 +98,4 @@ function enviar(doc) {
   window.location.href = `../html/reproducir.html?doc=${doc}`;
 }
 
-
+console.log(correoElectronico);

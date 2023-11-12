@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,8 +39,9 @@
 
     <div class="menu">
       <div class="content">
-        <div class="menu__item" data-page="app">
-          <i class="fas fa-home"></i> <a href="./../app.html">Inicio</a>
+        <div class="menu__item" data-page="app" id="home" onClick="showFilse('home')">
+          <i class="fas fa-home"></i> 
+          <a href="./../../homeUsu/homeUsu.html">Inicio</a>
         </div>
       </div>
     </div>
@@ -53,9 +55,7 @@
     <div class="play">
       <div class="caja">
         <div class = "imagen" id = "imgenC">
-          <img src="" alt="" height="171px" width="153px" class="imageF">
-
-       
+          <img src="" class="imagenLC" height="171px" width="153px">
         </div>
         <div class="descripcion">
           <h2 id="tipo__audio"></h2>
@@ -71,22 +71,22 @@
       <div class="contenedor">
         <p id="text_content"></p>
       </div>
+
+      
       <div class="audio" id="audioPlayer">
         <audio controls="controls" loop="loop" id="audioE">
-          <source type="audio/mp3">
-          <div class="audio" id="audioPlayer">
-            <audio controls="controls" loop="loop" id="audioE">
-              <source type="audio/mp3">
-              tu navegador no es compatible
-            </audio>
-          </div>
+          <source type="audio/mp3">          
+        </audio>
       </div>
+      
+      
 
       <div class="container-card">
         <div class="card" id="card">
-
         </div>
       </div>
+     
+
       <script src="./../../../api/configuracion.js"></script>
       <script src="./../js/reproducir.js"></script>
 
