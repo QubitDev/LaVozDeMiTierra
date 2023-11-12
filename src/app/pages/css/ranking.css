@@ -229,14 +229,14 @@ p{
 
 .ranking-container {
   max-width: 940px;
-  width: 62%; /* Ancho del contenedor en porcentaje */
-  height: 46%; /* Altura en viewport height (porcentaje del alto de la ventana) */
-  margin: 3%; /* Márgenes en porcentaje */
+  width: 62%; 
+  height: 46%; 
+  margin: 3%; 
   background-color: rgba(0, 0, 0, 0.273);
   color: rgb(255, 255, 255);
-  padding: 14.6%; /* Relleno en porcentaje */
-  border-radius: 1.8%; /* Radio de borde en porcentaje */
-  box-shadow: 0 0 1%; /* Sombra en porcentaje */
+  padding: 14.6%; 
+  border-radius: 1.8%; 
+  box-shadow: 0 0 1%; 
   justify-content: center;
   padding-top: 2%;
 
@@ -254,7 +254,6 @@ p{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /*border-bottom: 1px solid rgb(33, 30, 30);*/
     padding: 10px 0;
     margin-top: 11px;
 }
@@ -287,8 +286,8 @@ p{
   margin-top: 3%;
   margin-left: 3%;
   padding-left: 13px;
-  max-width: 100%; /* La imagen no excederá el ancho de su contenedor */
-  height: auto; /* La altura se ajustará automáticamente para mantener la proporción original */
+  max-width: 100%; 
+  height: auto; 
 
 }
 
@@ -333,11 +332,11 @@ h3{
 }
   
 .line {
-  margin-left: -23.5%; /* Márgenes en porcentaje */
-  width: 147.1%; /* Ancho del contenedor en porcentaje */
-  height: 0.6%; /* Altura en porcentaje */
+  margin-left: -23.5%; 
+  width: 147.1%; 
+  height: 0.6%; 
   background-color: rgb(255, 255, 255);
-  margin-top: 11%; /* Margen superior en porcentaje */
+  margin-top: 11%; 
 }
  
 .header__cards {
@@ -358,16 +357,15 @@ h3{
   background: #ffff;
   overflow: hidden;
   overflow-y: scroll;
-  width: 147%; /* Ancho del contenedor en porcentaje */
-  height: 130.5%; /* Altura en porcentaje */
-  margin: -23.4%; /* Márgenes en porcentaje */
+  width: 147%; 
+  height: 130.5%; 
+  margin: -23.4%; 
   background-color: rgba(0, 0, 0, 0.273);
   color: rgb(255, 255, 255);
-  /*padding: 0.9%;*/
-  padding-left: -10%; /* Ajusta según tus necesidades */
-  border-radius: 1.8%; /* Radio de borde en porcentaje */
-  box-shadow: 0 0 1%; /* Sombra en porcentaje */
-  margin-top: 0.1%; /* Margen superior en porcentaje */
+  padding-left: -10%; 
+  border-radius: 1.8%; 
+  box-shadow: 0 0 1%; 
+  margin-top: 0.1%; 
   scrollbar-color: rgb(248, 246, 246) rgb(73, 155, 104);
   border-radius: 1.8%;
 }
