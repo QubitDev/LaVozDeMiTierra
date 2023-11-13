@@ -40,8 +40,8 @@
     <div class="menu">
       <div class="content">
         <div class="menu__item" data-page="app" id="home" onClick="showFilse('home')">
-          <i class="fas fa-home"></i> 
-          <a href="./../../pages/html/homeUsu.html">Inicio</a>
+          <i class="fas fa-home"></i>
+          <a href="./../../homeUsu/homeUsu.html">Inicio</a>
         </div>
       </div>
     </div>
@@ -54,7 +54,7 @@
     <!-- reproducir -->
     <div class="play">
       <div class="caja">
-        <div class = "imagen" id = "imgenC">
+        <div class="imagen" id="imgenC">
           <img src="" class="imagenLC" height="171px" width="153px">
         </div>
         <div class="descripcion">
@@ -72,24 +72,76 @@
         <p id="text_content"></p>
       </div>
 
-      
-      <div class="audio" id="audioPlayer">
-        <audio controls="controls" loop="loop" id="audioE">
-          <source type="audio/mp3">          
-        </audio>
+      <div class="__container_audio">
+        <div class="__favorites">
+          <button class="__button_favorites">
+            <i class="fa-regular fa-heart" id="__empty_heart"></i>
+            <i class="fa-solid fa-heart" id="__full_heart" style="display: none;"></i>
+          </button>
+        </div>
+
+        <div class="__add_list">
+          <button class="__button_add_list">
+            <i class="fa-solid fa-plus"></i>
+          </button>
+        </div>
+
+        <div class="audio" id="audioPlayer">
+          <audio controls="controls" loop="loop" id="audioE">
+            <source type="audio/mp3">
+          </audio>
+        </div>
+
+        <div class="__share">
+          <button class="__button_share" onclick="generateLinkShare()">
+            <i class="fas fa-share"></i>
+          </button>
+        </div>
+
       </div>
-      
-      
 
       <div class="container-card">
         <div class="card" id="card">
         </div>
       </div>
-     
+
+      <div class="popup" id="popup" style="display: none;">
+        <div class="__share__content" id="__share__content">
+          <h3>Compartir</h3>
+          <div class="__social_networks">
+            <ul>
+              <li class="facebook">
+                <a href="#" onclick="shareOnFacebook()">
+                  <i class=" fa-brands fa-facebook" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li class="whatsapp">
+                <a href="#" onclick="shareOnWhatsApp()">
+                  <i class=" fa-brands fa-whatsapp" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li class="gmail">
+                <a href="#" onclick="shareOnGmail()">
+                  <i class=" fa-brands fa-google" aria-hidden="true"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="__link__content">
+            <div class="__link__share" id="__link__share">
+
+            </div>
+            <button class="button__copy" id="copy__link" onclick="copyToClipboard()">copiar</button>
+            <button class="button__cancel" id="cancel" onclick="togglePopup()">Cancelar</button>
+          </div>
+        </div>
+      </div>
+
 
       <script src="./../../../api/configuracion.js"></script>
       <script src="./../js/reproducir.js"></script>
-
+      <script src="./../js/share.js"></script>
 </body>
 
 </html>
