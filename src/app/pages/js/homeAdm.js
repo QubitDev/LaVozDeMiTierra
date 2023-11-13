@@ -15,9 +15,8 @@ const cargarCuentos = (documentos) => {
         
         documentos.forEach(documento => {
             
-            if(documento.data().tipoAudio == "Cuento"){                
-                if (campc1 !== null) {
-                    campc1.innerHTML += ` 
+            if(documento.data().tipoAudio == "Cuento"  && campc1){                
+                campc1.innerHTML += ` 
                         <div class="campC1" id="campC1">                
                             <div class="imageUno">
                                 <button class="reproducirUno" onclick ="enviar('${documento.id}')">
@@ -47,11 +46,9 @@ const cargarCuentos = (documentos) => {
                             </div>
                         </div>
                         
-                    `;           
-                }
-            }else{
-                if (campc2 !== null) {
-                    campc2.innerHTML += ` 
+                    `;
+            }else if (documento.data().tipoAudio == "Leyenda" && campc2) {
+                 campc2.innerHTML += ` 
                         <div class="campL1" id="campL1"> 
                             <div class="imageDos">
                                 <button class="reproducirDos" onclick ="enviar('${documento.id}')">
@@ -80,8 +77,7 @@ const cargarCuentos = (documentos) => {
                                 <button class='botonDos' id="campc2" onclick ="eliminar('${documento.id}','${documento.data().tipoAudio}')" >Confirmar</button>
                             </div>
                         </div>                
-                    `;         
-                }   
+                    `;  
             }           
         }); 
 
@@ -90,6 +86,8 @@ const cargarCuentos = (documentos) => {
             <div id="all"></div> 
         `;    
         }
+    } else {
+        cargarCuentos()
     }
 }
 function eliminar(id,cadena){
