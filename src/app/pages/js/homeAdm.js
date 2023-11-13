@@ -3,23 +3,17 @@ const eliminacion = document.getElementById('confirmacion');
 const cancelarEdi = document.getElementById('cancelBtn');
 const eliminacionDos = document.getElementById('confirmacionDos');
 const campc2 =document.getElementById('campoDos');
-const conedorAll = document.getElementById('contenedor');
+const contenedorAll = document.getElementById('contenedor');
 
 
-
-
-db.collection('audio').orderBy('titulo','asc').onSnapshot((snapshot) => {
-    cargarCuentos(snapshot.docs);
-})
 const cargarCuentos = (documentos) => {
 
     if (documentos.length > 0){  
         
         documentos.forEach(documento => {
             
-            if(documento.data().tipoAudio == "Cuento"){                
-                if (campc1 !== null) {
-                    campc1.innerHTML += ` 
+            if(documento.data().tipoAudio == "Cuento"  && campc1){                
+                campc1.innerHTML += ` 
                         <div class="campC1" id="campC1">                
                             <div class="imageUno">
                                 <button class="reproducirUno" onclick ="enviar('${documento.id}')">
@@ -49,11 +43,9 @@ const cargarCuentos = (documentos) => {
                             </div>
                         </div>
                         
-                    `;           
-                }
-            }else{
-                if (campc2 !== null) {
-                    campc2.innerHTML += ` 
+                    `;
+            }else if (documento.data().tipoAudio == "Leyenda" && campc2) {
+                 campc2.innerHTML += ` 
                         <div class="campL1" id="campL1"> 
                             <div class="imageDos">
                                 <button class="reproducirDos" onclick ="enviar('${documento.id}')">
@@ -82,16 +74,17 @@ const cargarCuentos = (documentos) => {
                                 <button class='botonDos' id="campc2" onclick ="eliminar('${documento.id}','${documento.data().tipoAudio}')" >Confirmar</button>
                             </div>
                         </div>                
-                    `;         
-                }   
+                    `;  
             }           
         }); 
 
-        if (conedorAll !== null) {
-            conedorAll.innerHTML += `
+        if (contenedorAll !== null) {
+            contenedorAll.innerHTML += `
             <div id="all"></div> 
         `;    
         }
+    } else {
+        cargarCuentos()
     }
 }
 function eliminar(id,cadena){
@@ -136,7 +129,7 @@ function genConfirmar(cadena){
         if(cadena=="Leyenda"){
             document.getElementById('confirmacionDos').style.display = 'block'; 
             document.getElementById('confirmacionDos').style.zIndex = '9999';
-    }
+        }
         
     }
    
@@ -175,5 +168,10 @@ function enviar(doc) {
 if (cancelarEdi !== null) {
     cancelarEdi.addEventListener('click',hideEdita);
 }
+
+
+db.collection('audio').orderBy('titulo', 'asc').onSnapshot((snapshot) => {
+    cargarCuentos(snapshot.docs);
+});
 
 
