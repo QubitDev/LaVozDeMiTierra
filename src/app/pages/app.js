@@ -28,6 +28,7 @@ if(user){
 }
 
 function showFile(file) {
+	
 	console.log("showFile ejecutado. file:", file, "pantallaActual:", pantallaActual);
 
 	console.log("pant = ",pantallaActual)
@@ -40,18 +41,18 @@ function showFile(file) {
 		}
 		window.location.reload();
 	}
+	removeScript(file);
+	removeScript(pantallaActual);
 
 	if (file === pantallaActual) {
+		uploadedfiles = [];
+		window.location.reload();
 		return; 
 	}
-	removeScript(pantallaActual);
-	// uploadedfiles = uploadedfiles.filter(item => item !== pantallaActual);
 	
-	  pantallaActual = file; 
-	
-	    if (contentMain !== null) {
-   			contentMain.innerHTML = "";
-		}
+	pantallaActual = file; 
+	  
+   	contentMain.innerHTML = "";
 	
 	  fetch(`./html/${file}.html`)
 		.then((response) => {
@@ -69,7 +70,6 @@ function showFile(file) {
 		.catch((error) => {
 		  console.error("Error al cargar el contenido:", error);
 		});
-	
 	
 	if (!contentMain.innerHTML) {
 		if (!document.querySelector(`script[src='./js/${file}.js']`)) {
