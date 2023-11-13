@@ -1,25 +1,61 @@
-const audioCollection = firebase.firestore().collection("audio");
+const endSesion = document.querySelector(".sesion");
+endSesion.addEventListener('click',cerrarSesion);
+let cont = 1;
+function cerrarSesion(){
+    if(cont % 2 == 0){
+        document.getElementById('sesionMenu').style.display= 'none';
+    }
+    else{
+        document.getElementById('sesionMenu').style.display= 'block';
+    }
+    cont++;
+}
+const firebaseConfig = {
+  apiKey: "AIzaSyAldLR7JcdW58mZ_Dtr7HQku8Pn648_3f4",
+  authDomain: "qubit-2499b.firebaseapp.com",
+  projectId: "qubit-2499b",
+  storageBucket: "qubit-2499b.appspot.com",
+  messagingSenderId: "154442139152",
+  appId: "1:154442139152:web:14a0201532e21545006c95"
+};
 
-// Obtener y mostrar el ranking de reproducciones
-audioCollection.orderBy("reproducciones", "desc").get().then((querySnapshot) => {
-  const rankingElement = document.getElementById("ranking");
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+const storage = firebase.storage();
+const auth = firebase.auth();
 
-  querySnapshot.forEach((doc) => {
-    const audio = doc.data();
 
-    const songElement = document.createElement("div");
-    songElement.classList.add("song");
+// Obtener referencia a la colección 'audio'
+const audioCollection = db.collection("audio");
 
-    const imageElement = document.createElement("img");
-    imageElement.src = audio.imageURL; // Reemplaza con la URL real de la imagen
-    songElement.appendChild(imageElement);
+document.addEventListener("DOMContentLoaded", function () {
+  console.log("DOM completamente cargado");
+  // Obtener y mostrar los 10 mejores en reproducciones
+  audioCollection.orderBy("reproducciones", "desc").limit(10).get().then((querySnapshot) => {
+    const rankingList = document.querySelector('.ranking-list');
+    querySnapshot.forEach((doc, index) => {
+      const audio = doc.data();
+      const rankingItem = document.createElement("li");
+      rankingItem.classList.add("ranking-item");
+      rankingItem.innerHTML = `
+        <span>${index + 1}</span>
+        <div class="caja">
+          <div class="imagen" id="imagen${index}">
+            <img src="${audio.imageURL}" alt="" height="90px" width="100px" class="imageF">
+          </div>
+        </div> 
+        <div class="descripcion">
+          <h3 id="titulo${index}">${audio.titulo}</h3>
+          <h3 id="procedencia${index}">${audio.procedencia}</h3>
+          <h3 id="narrador${index}">${audio.narrador}</h3>
+          <h3 id="reproducciones${index}">${audio.reproducciones}</h3>
+        </div>
+      `;
 
-    const textElement = document.createElement("p");
-    textElement.textContent = `${audio.titulo} - Procedencia: ${audio.procedencia} - Narrador: ${audio.narrador} - Reproducciones: ${audio.reproducciones}`;
-    songElement.appendChild(textElement);
-
-    rankingElement.appendChild(songElement);
+      rankingList.appendChild(rankingItem);
+    });
+  }).catch((error) => {
+    console.error("Error al obtener datos de Firebase:", error);
   });
-}).catch((error) => {
-  console.error("Error al obtener datos de Firebase:", error);
 });
