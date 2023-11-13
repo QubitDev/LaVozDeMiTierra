@@ -47,9 +47,9 @@ document.addEventListener("DOMContentLoaded", function () {
         </div> 
         <div class="descripcion">
           <h3 id="titulo${index}">${audio.titulo}</h3>
-         
+          <h4 id="procedencia${index}">${audio.procedencia}</h4>
           <h5 id="narrador${index}">${audio.narrador}</h5>
-          <h3 id="reproducciones${index}">${audio.reproducciones}</h3>
+          <h6 id="reproducciones${index}">${audio.reproducciones}</h6>
         </div>
       `;
 
