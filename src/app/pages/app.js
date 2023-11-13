@@ -3,6 +3,7 @@ const user = urlParams.get("user");
 const contentMain = document.getElementById("app-content");
 const buttonBuscar = document.getElementById("searchButton");
 const buttonRegister = document.getElementById("registrar_audio");
+
 // const endSesion = document.querySelector(".sesion");
 const uploadedfiles = [];
 let pantallaActual = null;
@@ -46,8 +47,9 @@ function showFile(file) {
 	
 	  pantallaActual = file; 
 	
-	  contentMain.innerHTML = "";
-
+	    if (contentMain !== null) {
+   			contentMain.innerHTML = "";
+		}
 	
 	  fetch(`./html/${file}.html`)
 		.then((response) => {
@@ -66,7 +68,6 @@ function showFile(file) {
 		});
 	
 	
-	console.log(`xd-> uploadedFiles: ${uploadedfiles}`);
 	if (!contentMain.innerHTML) {
 		if (!document.querySelector(`script[src='./js/${file}.js']`)) {
 			loadJS(file);
@@ -113,17 +114,12 @@ function removeScript(scriptId) {
     scripts.forEach((script) => {
         script.parentNode.removeChild(script);
 	});
-	// uploadedfiles = uploadedfiles.filter(item => item !== scriptId);
 }
 
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
-      // El usuario ha iniciado sesión, redirige a pagina principal
-      console.log("El usuario ha iniciado sesión:", user);
       window.location.href = "homeUsu.html";
     } else {
-      // El usuario no ha iniciado sesión, redirige a login.
-      console.log("El usuario no ha iniciado sesión");
       window.location.href = "Login.html";
     }
 });
