@@ -1,8 +1,10 @@
 const urlParams = new URLSearchParams(window.location.search);
 const user = urlParams.get("user");
+console.log("Valor de user:", user);
 const contentMain = document.getElementById("app-content");
 const buttonBuscar = document.getElementById("searchButton");
 const buttonRegister = document.getElementById("registrar_audio");
+
 // const endSesion = document.querySelector(".sesion");
 const uploadedfiles = [];
 let pantallaActual = null;
@@ -26,6 +28,10 @@ if(user){
 }
 
 function showFile(file) {
+	removeScript(user);
+	removeScript(pantallaActual);
+	
+	console.log("showFile ejecutado. file:", file, "pantallaActual:", pantallaActual);
 
 	console.log("pant = ",pantallaActual)
 	if (file === "home") {
@@ -37,17 +43,17 @@ function showFile(file) {
 		}
 		window.location.reload();
 	}
+	
 
 	if (file === pantallaActual) {
+		uploadedfiles = [];
+		window.location.reload();
 		return; 
 	}
-	removeScript(pantallaActual);
-	// uploadedfiles = uploadedfiles.filter(item => item !== pantallaActual);
 	
-	  pantallaActual = file; 
-	
-	  contentMain.innerHTML = "";
-
+	pantallaActual = file; 
+	  
+   	contentMain.innerHTML = "";
 	
 	  fetch(`./html/${file}.html`)
 		.then((response) => {
@@ -57,16 +63,15 @@ function showFile(file) {
 		  return response.text();
 		})
 		  .then((data) => {
-		  	if (contentMain !== null) {
+			  // if (contentMain !== null) {
+			  console.log("Contenido cargado:", data);
    				 contentMain.innerHTML = data;
-			}
+			// }
 		})
 		.catch((error) => {
 		  console.error("Error al cargar el contenido:", error);
 		});
 	
-	
-	console.log(`xd-> uploadedFiles: ${uploadedfiles}`);
 	if (!contentMain.innerHTML) {
 		if (!document.querySelector(`script[src='./js/${file}.js']`)) {
 			loadJS(file);
@@ -113,17 +118,12 @@ function removeScript(scriptId) {
     scripts.forEach((script) => {
         script.parentNode.removeChild(script);
 	});
-	// uploadedfiles = uploadedfiles.filter(item => item !== scriptId);
 }
 
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
-      // El usuario ha iniciado sesión, redirige a pagina principal
-      console.log("El usuario ha iniciado sesión:", user);
       window.location.href = "homeUsu.html";
     } else {
-      // El usuario no ha iniciado sesión, redirige a login.
-      console.log("El usuario no ha iniciado sesión");
       window.location.href = "Login.html";
     }
 });

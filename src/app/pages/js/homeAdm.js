@@ -5,14 +5,17 @@ const eliminacionDos = document.getElementById('confirmacionDos');
 const campc2 = document.getElementById('campoDos');
 const contenedorAll = document.getElementById('contenedor');
 
+console.log("Valor de campc1:", campc1);
+console.log("Valor de campc2:", campc2);
+
 
 const cargarCuentos = (documentos) => {
 
     if (documentos.length > 0){  
         
         documentos.forEach(documento => {
-            
-            if(documento.data().tipoAudio == "Cuento"  && campc1){                
+            debugger;
+            if(documento.data().tipoAudio == "Cuento"  && campc1 !== null){                
                 campc1.innerHTML += ` 
                         <div class="campC1" id="campC1">                
                             <div class="imageUno">
@@ -44,7 +47,7 @@ const cargarCuentos = (documentos) => {
                         </div>
                         
                     `;
-            }else if (documento.data().tipoAudio == "Leyenda" && campc2) {
+            }else if (documento.data().tipoAudio == "Leyenda" && campc2 !== null) {
                  campc2.innerHTML += ` 
                         <div class="campL1" id="campL1"> 
                             <div class="imageDos">

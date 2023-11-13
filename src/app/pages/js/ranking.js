@@ -39,18 +39,20 @@ document.addEventListener("DOMContentLoaded", function () {
       const rankingItem = document.createElement("li");
       rankingItem.classList.add("ranking-item");
       rankingItem.innerHTML = `
-        <span>${index + 1}</span>
-        <div class="caja">
+      <span>${index + 1}</span>
+      <div class="caja">
+        <a onclick="enviar('${doc.id}')">
           <div class="imagen" id="imagen${index}">
             <img src="${audio.imageURL}" alt="" height="90px" width="100px" class="imageF">
           </div>
-        </div> 
-        <div class="descripcion">
-          <h3 id="titulo${index}">${audio.titulo}</h3>
-          <h4 id="procedencia${index}">${audio.procedencia}</h4>
-          <h5 id="narrador${index}">${audio.narrador}</h5>
-          <h6 id="reproducciones${index}">${audio.reproducciones}</h6>
-        </div>
+        </a>
+      </div> 
+      <div class="descripcion">
+        <h3 id="titulo${index}" style="text-align: right;">${audio.titulo}</h3>
+        <h3 id="procedencia${index}" style="text-align: right;">${audio.procedencia}</h3>
+        <h3 id="narrador${index}" style="text-align: right;">${audio.narrador}</h3>
+        <h3 id="reproducciones${index}" style="text-align: right;">${audio.reproducciones}</h3>
+      </div>
       `;
 
       rankingList.appendChild(rankingItem);
@@ -59,3 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
     console.error("Error al obtener datos de Firebase:", error);
   });
 });
+
+function enviar(doc) {
+  window.location.href = `reproducir.html?doc=${doc}`;
+}
