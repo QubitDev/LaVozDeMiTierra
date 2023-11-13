@@ -18,75 +18,80 @@ const cargarCuentos = (documentos) => {
         documentos.forEach(documento => {
             
             if(documento.data().tipoAudio == "Cuento"){                
-                campc1.innerHTML += ` 
-                <div class="campC1" id="campC1">                
-                    <div class="imageUno">
-                        <button class="reproducirUno" onclick ="enviar('${documento.id}')">
-                            <img src="${documento.data().imageURL}" width="90px" height="90px">
-                        </button>
-                    </div>
-                    <div id="iconoUno">
-                        <button class="deleteC" onclick ="genConfirmar('${documento.data().tipoAudio}')">
-                             <i class="fas fa-trash-can fa"></i>
-                        </button> 
-                        <button class="editC"  onclick ="editar('${documento.id}','${documento.data().titulo}','${documento.data().procedencia}',
-                        '${documento.data().narrador}','${documento.data().musica}')">
-                            <i class="fa-regular fa-pen-to-square"></i>
-                        </button>                       
-                    </div> 
-                    
-                    <div class="contenidoUno" id="contenidoUno">
-                        <p id="tituloAudio">${documento.data().titulo}<p>
-                        <p id="procedencia">${documento.data().procedencia}<p>
-                        <p id="narrador">${documento.data().narrador}<p>
-                        <p id="musica_fondo">${documento.data().musica}</p>
-                    </div> 
-                    <div id="confirmacion">
-                        <h3 class="texto">Estas seguro de eliminar?</h3>
-                        <button class="boton1" id="boton1" onclick ="hideConfirma('${documento.data().tipoAudio}')">Cancelar</button>
-                        <button class='boton' id="campc1" onclick ="eliminar('${documento.id}','${documento.data().tipoAudio}')">Confirmar</button>
-                    </div>
-                </div>
-                
-            `;           
-            
+                if (campc1 !== null) {
+                    campc1.innerHTML += ` 
+                        <div class="campC1" id="campC1">                
+                            <div class="imageUno">
+                                <button class="reproducirUno" onclick ="enviar('${documento.id}')">
+                                    <img src="${documento.data().imageURL}" width="90px" height="90px">
+                                </button>
+                            </div>
+                            <div id="iconoUno">
+                                <button class="deleteC" onclick ="genConfirmar('${documento.data().tipoAudio}')">
+                                    <i class="fas fa-trash-can fa"></i>
+                                </button> 
+                                <button class="editC"  onclick ="editar('${documento.id}','${documento.data().titulo}','${documento.data().procedencia}',
+                                '${documento.data().narrador}','${documento.data().musica}')">
+                                    <i class="fa-regular fa-pen-to-square"></i>
+                                </button>                       
+                            </div> 
+                            
+                            <div class="contenidoUno" id="contenidoUno">
+                                <p id="tituloAudio">${documento.data().titulo}<p>
+                                <p id="procedencia">${documento.data().procedencia}<p>
+                                <p id="narrador">${documento.data().narrador}<p>
+                                <p id="musica_fondo">${documento.data().musica}</p>
+                            </div> 
+                            <div id="confirmacion">
+                                <h3 class="texto">Estas seguro de eliminar?</h3>
+                                <button class="boton1" id="boton1" onclick ="hideConfirma('${documento.data().tipoAudio}')">Cancelar</button>
+                                <button class='boton' id="campc1" onclick ="eliminar('${documento.id}','${documento.data().tipoAudio}')">Confirmar</button>
+                            </div>
+                        </div>
+                        
+                    `;           
+                }
             }else{
-                campc2.innerHTML += ` 
-                <div class="campL1" id="campL1"> 
-                    <div class="imageDos">
-                        <button class="reproducirDos" onclick ="enviar('${documento.id}')">
-                            <img src="${documento.data().imageURL}" width="90px" height="90px">
-                        </button>
-                    </div>
-                    <div id="iconoUno">
-                        <button class="deleteC" onclick ="genConfirmar('${documento.data().tipoAudio}')">
-                             <i class="fas fa-trash-can fa"></i>
-                        </button> 
-                        <button class="editC" onclick ="editar('${documento.id}','${documento.data().titulo}','${documento.data().procedencia}',
-                        '${documento.data().narrador}','${documento.data().musica}')">
-                            <i class="fa-regular fa-pen-to-square"></i>
-                        </button>                          
-                    </div> 
-                     
-                    <div class="contenidoDos" id="contenidoDos">
-                        <p id="tituloAudio">${documento.data().titulo}<p>
-                        <p id="procedencia">${documento.data().procedencia}<p>
-                        <p id="narrador">${documento.data().narrador}<p>
-                        <p id="musica_fondo">${documento.data().musica}</p>
-                    </div> 
-                    <div id="confirmacionDos">
-                        <h3 class="texto">Estas seguro de eliminar?</h3>
-                        <button class="boton2" id="boton2" onclick ="hideConfirma('${documento.data().tipoAudio}')">Cancelar</button>
-                        <button class='botonDos' id="campc2" onclick ="eliminar('${documento.id}','${documento.data().tipoAudio}')" >Confirmar</button>
-                    </div>
-                </div>                
-            `;            
+                if (campc2 !== null) {
+                    campc2.innerHTML += ` 
+                        <div class="campL1" id="campL1"> 
+                            <div class="imageDos">
+                                <button class="reproducirDos" onclick ="enviar('${documento.id}')">
+                                    <img src="${documento.data().imageURL}" width="90px" height="90px">
+                                </button>
+                            </div>
+                            <div id="iconoUno">
+                                <button class="deleteC" onclick ="genConfirmar('${documento.data().tipoAudio}')">
+                                    <i class="fas fa-trash-can fa"></i>
+                                </button> 
+                                <button class="editC" onclick ="editar('${documento.id}','${documento.data().titulo}','${documento.data().procedencia}',
+                                '${documento.data().narrador}','${documento.data().musica}')">
+                                    <i class="fa-regular fa-pen-to-square"></i>
+                                </button>                          
+                            </div> 
+                            
+                            <div class="contenidoDos" id="contenidoDos">
+                                <p id="tituloAudio">${documento.data().titulo}<p>
+                                <p id="procedencia">${documento.data().procedencia}<p>
+                                <p id="narrador">${documento.data().narrador}<p>
+                                <p id="musica_fondo">${documento.data().musica}</p>
+                            </div> 
+                            <div id="confirmacionDos">
+                                <h3 class="texto">Estas seguro de eliminar?</h3>
+                                <button class="boton2" id="boton2" onclick ="hideConfirma('${documento.data().tipoAudio}')">Cancelar</button>
+                                <button class='botonDos' id="campc2" onclick ="eliminar('${documento.id}','${documento.data().tipoAudio}')" >Confirmar</button>
+                            </div>
+                        </div>                
+                    `;         
+                }   
             }           
         }); 
 
-        conedorAll.innerHTML += `
+        if (conedorAll !== null) {
+            conedorAll.innerHTML += `
             <div id="all"></div> 
-        `; 
+        `;    
+        }
     }
 }
 function eliminar(id,cadena){
@@ -166,4 +171,9 @@ function hideEdita(){
 function enviar(doc) {
     window.location.href = `./html/reproducir.html?doc=${doc}`;
 }
-cancelarEdi.addEventListener('click',hideEdita);
+
+if (cancelarEdi !== null) {
+    cancelarEdi.addEventListener('click',hideEdita);
+}
+
+

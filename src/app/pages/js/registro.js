@@ -1,7 +1,22 @@
-document.getElementById("cancelButton").addEventListener("click", onCancel);
-document.getElementById("submitButton").addEventListener("click", onSubmit);
-document.getElementById("okButton").addEventListener("click",closePopup);
-document.getElementById("verifyButton").addEventListener("click",onVerifyButton);
+const cancel = document.getElementById("cancelButton");
+if (cancel !== null) {
+    cancel.addEventListener('click',onCancel);
+}
+
+const submit = document.getElementById("submitButton");
+if (submit !== null) {
+    submit.addEventListener('click', onSubmit);
+}
+
+const close_Popup = document.getElementById("okButton");
+if (close_Popup != null) {
+  close_Popup.addEventListener("click", closePopup);
+}
+
+const verify_Button = document.getElementById("verifyButton");
+if (verify_Button !== null) {
+  verify_Button.addEventListener("click",onVerifyButton);
+}
 
 const audioInput = document.getElementById("audioFileInput");
 const textInput = document.getElementById("textFileInput");
@@ -20,86 +35,95 @@ var idDoc='';
 const datos = {};
 var bandera = true;
 
-imageInput.addEventListener("change", function () {
-  const selectedImage = this.files[0]; // Obtén el archivo de imagen seleccionado
+if (imageInput !== null) {
+  imageInput.addEventListener("change", function () {
+    const selectedImage = this.files[0]; // Obtén el archivo de imagen seleccionado
 
-  const imagePreview = document.getElementById("imagePreview");
-  const frase = document.getElementById("frase");
+    const imagePreview = document.getElementById("imagePreview");
+    const frase = document.getElementById("frase");
 
-  frase.style.display = "none";
-  imagePreview.style.display = "block";
+    frase.style.display = "none";
+    imagePreview.style.display = "block";
 
-  if (selectedImage) {
-    const reader = new FileReader();
-    reader.onload = function (e) {
-      imagePreview.src = e.target.result;
-    };
-    reader.readAsDataURL(selectedImage);
-  } else {
-    imagePreview.src = "";
-  }
-});
+    if (selectedImage) {
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        imagePreview.src = e.target.result;
+      };
+      reader.readAsDataURL(selectedImage);
+    } else {
+      imagePreview.src = "";
+    }
+  });
+    
+}
 
 // Captura de audio
-audioInput.addEventListener("change", function () {
-  const selectedAudioFile = this.files[0];
-  
-  durationField.style.display ='inline-block';
-  textInput.disabled = false;
 
-  if (selectedAudioFile) {
-    // obtener duracion del audio
-    getAudioDuration(selectedAudioFile).then((duration) => {
-      const minutes = parseFloat(duration);
+if (audioInput !== null) {
+  audioInput.addEventListener("change", function () {
+    const selectedAudioFile = this.files[0];
+    
+    durationField.style.display ='inline-block';
+    textInput.disabled = false;
 
-      if (!isNaN(minutes) && minutes >= 3 && minutes <= 20) {
-        durationField.textContent = duration; 
-        
-      }
+    if (selectedAudioFile) {
+      // obtener duracion del audio
+      getAudioDuration(selectedAudioFile).then((duration) => {
+        const minutes = parseFloat(duration);
 
-      const maxSizeInBytes = 20 * 1024 * 1024; 
-      const peso = selectedAudioFile.size;
+        if (!isNaN(minutes) && minutes >= 3 && minutes <= 20) {
+          durationField.textContent = duration; 
+          
+        }
 
-      if (selectedAudioFile.size > maxSizeInBytes) {
-        let sizeArch =parseInt( (peso /1024)/1024);
-        onMessagePopup(`❌¡Error!\nEl archivo exede el peso con: ${sizeArch} MB`, 400);
-        this.value = null;
-        durationField.textContent = ""; 
-        document.getElementById("formato_audio").value = "";
-        bandera = false;
-        return;
-      } else if(isNaN(minutes) || !(minutes >= 2 && minutes <= 20)){
-        onMessagePopup(`❌¡Error!\nSubir audio de 3 a 10 minutos`, 400);
-        this.value = null;
-        durationField.textContent = ""; 
-        document.getElementById("formato_audio").value = "";
-        bandera = false;
-        return;
-      }
-    });
-  }else {
-    durationField.value = "";
-  }
-});
+        const maxSizeInBytes = 20 * 1024 * 1024; 
+        const peso = selectedAudioFile.size;
+
+        if (selectedAudioFile.size > maxSizeInBytes) {
+          let sizeArch =parseInt( (peso /1024)/1024);
+          onMessagePopup(`❌¡Error!\nEl archivo exede el peso con: ${sizeArch} MB`, 400);
+          this.value = null;
+          durationField.textContent = ""; 
+          document.getElementById("formato_audio").value = "";
+          bandera = false;
+          return;
+        } else if(isNaN(minutes) || !(minutes >= 2 && minutes <= 20)){
+          onMessagePopup(`❌¡Error!\nSubir audio de 3 a 10 minutos`, 400);
+          this.value = null;
+          durationField.textContent = ""; 
+          document.getElementById("formato_audio").value = "";
+          bandera = false;
+          return;
+        }
+      });
+    }else {
+      durationField.value = "";
+    }
+  });
+}
 
 // Captura de texto
-textInput.addEventListener("change", function () {
-  const selectedTextFile = this.files[0];
 
-  if (selectedTextFile) {
-    // Validar el peso del archivo de texto
-    const maxSizeInBytes = 500 * 1024; // 500KB en bytes
-    if (selectedTextFile.size > maxSizeInBytes) {
-      onMessagePopup(`❌¡Error!\nDebe ser menor o igual a 500 KB.`,400);
-      this.value = null;
-      return;
+if (textInput!==null) {
+  textInput.addEventListener("change", function () {
+    const selectedTextFile = this.files[0];
+    if (selectedTextFile) {
+      // Validar el peso del archivo de texto
+      const maxSizeInBytes = 500 * 1024; // 500KB en bytes
+      if (selectedTextFile.size > maxSizeInBytes) {
+        onMessagePopup(`❌¡Error!\nDebe ser menor o igual a 500 KB.`,400);
+        this.value = null;
+        return;
+      }
+
+      // Aquí puedes trabajar con el archivo de texto seleccionado
+      console.log("Nombre del archivo de texto:", selectedTextFile.name);
+      console.log("Tipo del archivo de texto:", selectedTextFile.type);
     }
+  });
+}
 
-    // Aquí puedes trabajar con el archivo de texto seleccionado
-    console.log("Nombre del archivo de texto:", selectedTextFile.name);
-    console.log("Tipo del archivo de texto:", selectedTextFile.type);
-  }
-});
 
 
 
