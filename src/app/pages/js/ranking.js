@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
       rankingItem.innerHTML = `
       <span>${index + 1}</span>
       <div class="caja">
-        <a onclick="enviar('${index}')">
+        <a onclick="enviar('${doc.id}')">
           <div class="imagen" id="imagen${index}">
             <img src="${audio.imageURL}" alt="" height="90px" width="100px" class="imageF">
           </div>
