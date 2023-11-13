@@ -112,11 +112,6 @@ db.collection("audio").doc(docId).get().then((doc) => {
     audioDocRef.update({
       reproducciones: firebase.firestore.FieldValue.increment(1)
     });
-
-    // Obtener y mostrar el contador de reproducciones
-    const reproduccionesCount = doc.data().reproducciones || 0;
-    const reproduccionesElement = document.getElementById("reproducciones");
-    reproduccionesElement.innerText = `Reproducciones: ${reproduccionesCount}`;
   } else {
     console.log("No se encontró el documento en Firestore.");
   }

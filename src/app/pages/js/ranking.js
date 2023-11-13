@@ -39,21 +39,21 @@ document.addEventListener("DOMContentLoaded", function () {
       const rankingItem = document.createElement("li");
       rankingItem.classList.add("ranking-item");
       rankingItem.innerHTML = `
-    <span>${index + 1}</span>
-    <div class="caja">
-        <a href="#" onclick="redirigirFuncion('${audio.titulo}')">
-            <div class="imagen" id="imagen${index}">
-                <img src="${audio.imageURL}" alt="" height="90px" width="100px" class="imageF">
-            </div>
+      <span>${index + 1}</span>
+      <div class="caja">
+        <a onclick="enviar('${index}')">
+          <div class="imagen" id="imagen${index}">
+            <img src="${audio.imageURL}" alt="" height="90px" width="100px" class="imageF">
+          </div>
         </a>
-    </div> 
-    <div class="descripcion">
-        <h3 id="titulo${index}" style="text-align: left;">${audio.titulo}</h3>
-        <h3 id="procedencia${index}" style="text-align: left;">${audio.procedencia}</h3>
-        <h3 id="narrador${index}" style="text-align: left;">${audio.narrador}</h3>
-        <h3 id="reproducciones${index}" style="text-align: left;">${audio.reproducciones}</h3>
-    </div>
-`;
+      </div> 
+      <div class="descripcion">
+        <h3 id="titulo${index}" style="text-align: right;">${audio.titulo}</h3>
+        <h3 id="procedencia${index}" style="text-align: right;">${audio.procedencia}</h3>
+        <h3 id="narrador${index}" style="text-align: right;">${audio.narrador}</h3>
+        <h3 id="reproducciones${index}" style="text-align: right;">${audio.reproducciones}</h3>
+      </div>
+      `;
 
       rankingList.appendChild(rankingItem);
     });
@@ -61,3 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
     console.error("Error al obtener datos de Firebase:", error);
   });
 });
+
+function enviar(doc) {
+  window.location.href = `reproducir.html?doc=${doc}`;
+}
