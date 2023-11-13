@@ -18,7 +18,7 @@ const cargarCuentos = (documentos) => {
         documentos.forEach(documento => {
             
             if(documento.data().tipoAudio == "Cuento"){                
-                if (compc1 !== null) {
+                if (campc1 !== null) {
                     campc1.innerHTML += ` 
                         <div class="campC1" id="campC1">                
                             <div class="imageUno">
