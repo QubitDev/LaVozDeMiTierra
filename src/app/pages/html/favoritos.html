@@ -3,9 +3,9 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon" type="image/x-icon" href="./../../assets/images/LogoLDMT.ico"/>
+        <link rel="icon" type="image/x-icon" href="./../../../assets/images/LogoLDMT.ico"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"/>
-        <link rel="stylesheet" href="MisListas.css" />
+        <link rel="stylesheet" href="./../css/favoritos.css" />
         <title>Home de Administrador</title>
         
         <!-- Firebase App (la biblioteca base) - es obligatorio siempre -->
@@ -14,14 +14,14 @@
     <body>   
         <div id="container">
             <div class="profile-picture">
-                <img src="./../../assets/images/LogoLDMT.jpg" alt="Logo"class="logo"/>
+                <img src="./../../../assets/images/LogoLDMT.jpg" alt="Logo"class="logo"/>
             </div>
             <header id="header">
                 <div class="greeting">
                     <p><font size="16">La voz de mi Tierra</font></p>
                 </div>
                 <div class="sesionEnd">
-                        <img src="./../../assets/images/IconoUsu.png" alt="Sesion" class="sesion"/>
+                        <img src="./../../../assets/images/IconoUsu.png" alt="Sesion" class="sesion"/>
                 </div>
                 <div id="sesionMenu">
                     <ul class="opciones" id="opciones">
@@ -36,7 +36,7 @@
                 <div class="content">
                     <div class="menu__item" data-page="app">
                         <i class="fas fa-home"></i> 
-                        <a href="./../homeUsu/homeUsu.html">Inicio</a>
+                        <a href="./../../homeUsu/homeUsu.html">Inicio</a>
                     </div>
                     <div class="menu__item" data-page="registro" id="searchButton" onClick="mostrarBuscar()">
                         <i class="fa-solid fa-magnifying-glass"></i> 
@@ -44,15 +44,15 @@
                     </div>
                     <div class="menu__item" data-page="app">
                         <i class="fa-regular fa-heart"></i>
-                        <a href="./../pages/html/favoritos.html">Favoritos</a>
+                        <a href="favoritos.html">Favoritos</a>
                     </div>
                     <div class="menu__item" data-page="app">
                         <i class="fa-solid fa-ranking-star"></i>
-                        <a href="./../pages/html/Ranking.html">Ranking</a>
+                        <a href="Ranking.html">Ranking</a>
                     </div>
                     <div class="menu__item" data-page="app">
                         <i class="fa-solid fa-table-list"></i>
-                        <a href="./../MisListas/MisListas.html">Mis listas</a>
+                        <a href="./../../MisListas/MisListas.html">Mis listas</a>
                     </div>
 
                 </div>
@@ -88,8 +88,8 @@
         <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
         <script src="./../../api/configuracion.js"></script>
-        <script src="/src/app/MisListas/MisListas.js"></script>
-        <script src="./../homeUsu/search.js"></script>
+        <script src="./../../homeUsu/search.js"></script>
+        <script src="./../js/favoritos.js"></script>
 
     </body>   
 </html>

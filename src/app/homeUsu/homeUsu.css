@@ -110,33 +110,12 @@
 .menu__item--active {
 	background-color: #43cea2;
 }
-
-a {
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 16px;
-	color: #ffffff;
-	text-decoration: none;
-}
-.sesion{
-	border-radius: 50%;
-	height: 45px;
-	width: 45px;
-	position: fixed;
-	top: 20px;
-	left: 85%;
-	display: inline-block;
-	box-sizing: border-box;
-	box-shadow: 10px 10px 15px 5px black;
-  }
-  .sesion:hover{
-	background: radial-gradient(ellipse at left top, #01081d, #011c38 80%);
-  }
-  #sesionMenu{
+#sesionMenu{
 	position: fixed;  
 	top: 95px;
-	left: 84%;
+	left: 90%;
 	width: 150px;
-	height: 150px;
+	height: 100px;
 	font-size: 16;
 	font-family: Arial, Helvetica, sans-serif;
 	display: none;
@@ -162,10 +141,29 @@ a {
 	transition: background-color 0.3s;
 	background: radial-gradient(ellipse at left top, #01081d, #011c38 80%);
   }
-
-
-
-
+  a{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	color:#ffffff;
+	text-decoration: none;
+  }
+  .sesion{
+	border-radius: 50%;
+	height: 40px;
+	width: 40px;
+	position: fixed;
+	top: 23px;
+	left: 90%;
+	display: inline-block;
+	box-sizing: border-box;
+  }
+  .sesion:hover{
+	cursor: pointer;
+	transition: background-color 0.3s;
+	background: radial-gradient(ellipse at left top, #01081d, #011c38 80%);
+	border-radius: 50%;
+	box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.856); 
+  }
 /*----------------------------------------- body------------------------------------------------------------------- */
 
 * {
@@ -176,6 +174,10 @@ a {
 }
 
 .contenedor_todo {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Montserrat', sans-serif;
 	position: fixed;
 
 	top: 102px;
