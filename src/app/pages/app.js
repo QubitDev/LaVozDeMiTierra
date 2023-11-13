@@ -61,10 +61,17 @@ function showFile(file) {
 		  console.error("Error al cargar el contenido:", error);
 		});
 	
+	
+			
 	if (!uploadedfiles.includes(file)) {
-	  	loadJS(file);
-		loadCSS(file);
-		uploadedfiles.push(file);
+	  	if (!document.querySelector(`script[src='./js/${file}.js']`)) {
+			loadJS(file);
+		}
+
+		if (!document.querySelector(`link[href='./css/${file}.css']`)) {
+			loadCSS(file);
+		}
+			uploadedfiles.push(file);
 	}
 	
 }
@@ -118,4 +125,4 @@ firebase.auth().onAuthStateChanged(function(user) {
       console.log("El usuario no ha iniciado sesión");
       window.location.href = "Login.html";
     }
-  });
+});
