@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -19,7 +20,7 @@
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
   <link rel="stylesheet" href="app.css" />
   <title>La Voz De Mi Tierra</title>
-
+  <!-- 8.10.1 -->
 </head>
 
 <body>
@@ -41,9 +42,6 @@
         <ul class="opciones" id="opciones">
           <a href="./../users/html/Login.html">cerrar sesion</a>
         </ul>
-        <!-- <ul class="opciones" id="opciones">
-					<a href="./../homeAdm/homeAdm.html">perfil usuario</a>                        
-				</ul> -->
 
       </div>
 
@@ -60,11 +58,52 @@
         <div class="menu__item" data-page="registro" id="searchButton" onClick="mostrarBuscar()">
           <i class="fa-solid fa-magnifying-glass"></i> <a href="javascript:void(0)" onclick="mostrarBuscar()">Buscar</a>
         </div>
+        <div class="menu__item" data-page="ranking" id="ranking_audios" onClick="showFile('ranking')">
+          <i class="fa-solid fa-ranking-star"></i> Ranking
+        </div>
+
       </div>
     </div>
   </div>
 
   <!-- --------------------------------- Main ------------------------------------------------------------ -->
+
+  <div id="app-content">
+
+  </div>
+
+
+
+  <!-- -------------------------------------------------Buscador------------------------------------------- -->
+  <div class="container__search">
+
+    <div class="search__content">
+      <input type="search" class="search" id="search" placeholder="Search" />
+      <button class="search__button" id="search__button"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </div>
+    <div class="popup__cards">
+
+    </div>
+    <div class="header__cards">
+      <p class="header__c">Titulo:</p>
+      <p class="header__c">Procedencia Cultural:</p>
+      <p class="header__c">Narrado por:</p>
+      <p class="header__c">duración:</p>
+    </div>
+
+    <div class="coincident__container" id="coincident__container">
+
+    </div>
+
+    <div class="searchButton" id="searchButton" onClick="mostrarBuscar()">
+      <a href="javascript:void(0)" onclick="mostrarBuscar()"><i class="fa-solid fa-arrow-up"></i></a>
+    </div>
+
+
+  </div>
+  <script src="./../../api/configuracion.js"></script>
+  <script src="app.js"></script>
+  <script src="./js/search.js"></script>
 
 
 </body>

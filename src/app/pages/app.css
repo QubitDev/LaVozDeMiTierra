@@ -1,4 +1,4 @@
-/* pantalla normal */
+
 .logo {
 	border-radius: 50%;
 	padding-top: 0px;
@@ -31,7 +31,6 @@
 	position: fixed;
 	top: 102px;
 	left: 0;
-	height: 85%;
 	display: flex;
 	flex-direction: column;
 }
@@ -99,7 +98,6 @@
 a {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 16px;
-
 	color: #ffffff;
 	text-decoration: none;
 }
@@ -152,6 +150,7 @@ a {
   }
 
 
+/*---------------------------------------------------- Buscador -------------------------------------------------------*/
 .container__search {
 	display: none;
 	/* display: absolute; */
@@ -199,7 +198,7 @@ a {
 }
 
 
-.container_search .header_c {
+.container__search .header__c {
 	color: #fff;
 	text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.856);
 	font-size: 24px;
@@ -353,3 +352,4 @@ a {
 .resaltado {
 	background-color: #00aff579;
 }
+

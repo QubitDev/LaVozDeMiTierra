@@ -1,8 +1,11 @@
+
+
 const urlParams = new URLSearchParams(window.location.search);
 const user = urlParams.get("user");
 const contentMain = document.getElementById("app-content");
 const buttonBuscar = document.getElementById("searchButton");
 const buttonRegister = document.getElementById("registrar_audio");
+
 // const endSesion = document.querySelector(".sesion");
 const uploadedfiles = [];
 let pantallaActual = null;
@@ -29,24 +32,26 @@ function showFile(file) {
 
 	console.log("pant = ",pantallaActual)
 	if (file === "home") {
-		window.location.reload();
-		window.location.reload();
+		// window.location.reload();
 		if (user === "homeUsu") {
 		  file = "homeUsu"; 
 		} else if (user === "homeAdm") {
 		  file = "homeAdm";
 		}
+		window.location.reload();
 	}
 
 	if (file === pantallaActual) {
 		return; 
 	}
-	// removeScript(file);
+	removeScript(pantallaActual);
+	// uploadedfiles = uploadedfiles.filter(item => item !== pantallaActual);
 	
 	  pantallaActual = file; 
 	
-	  contentMain.innerHTML = "";
-
+	    if (contentMain !== null) {
+   			contentMain.innerHTML = "";
+		}
 	
 	  fetch(`./html/${file}.html`)
 		.then((response) => {
@@ -56,16 +61,23 @@ function showFile(file) {
 		  return response.text();
 		})
 		  .then((data) => {
-		  contentMain.innerHTML = data;
+		  	// if (contentMain !== null) {
+   				 contentMain.innerHTML = data;
+			// }
 		})
 		.catch((error) => {
 		  console.error("Error al cargar el contenido:", error);
 		});
 	
-	if (!uploadedfiles.includes(file)) {
-	  	loadJS(file);
-		loadCSS(file);
-		uploadedfiles.push(file);
+	
+	if (!contentMain.innerHTML) {
+		if (!document.querySelector(`script[src='./js/${file}.js']`)) {
+			loadJS(file);
+		}
+
+		if (!document.querySelector(`link[href='./css/${file}.css']`)) {
+			loadCSS(file);
+		}
 	}
 	
 }
@@ -79,9 +91,10 @@ function loadCSS(file) {
 }
   
 function loadJS(file) {
-	const script = document.createElement("script");
-	script.src = `./js/${file}.js`; 
-	document.body.appendChild(script);
+	 const script = document.createElement("script");
+    script.src = `./js/${file}.js`; 
+    script.setAttribute("data-script-id", file);
+    document.body.appendChild(script);
 }
   
 
@@ -98,13 +111,17 @@ function cerrarSesion(){
     cont++;
 }
 
-function removeScript(scriptUrl) {
-	const scripts = document.getElementsByTagName("script");
-	for (let i = 0; i < scripts.length; i++) {
-		if (scripts[i].src === `./js/${scriptUrl}.js`) {
-			//   scripts[i].remove(); // Eliminar elemento
-			console.log(scripts[i])
-		scripts[i].parentNode.removeChild(scripts[i]);
-	  }
-	}
+function removeScript(scriptId) {
+	const scripts = document.querySelectorAll(`[data-script-id="${scriptId}"]`);
+    scripts.forEach((script) => {
+        script.parentNode.removeChild(script);
+	});
 }
+
+firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      window.location.href = "homeUsu.html";
+    } else {
+      window.location.href = "Login.html";
+    }
+});
