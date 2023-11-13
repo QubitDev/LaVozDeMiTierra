@@ -6,9 +6,6 @@ const campc2 =document.getElementById('campoDos');
 const contenedorAll = document.getElementById('contenedor');
 
 
-
-
-
 const cargarCuentos = (documentos) => {
 
     if (documentos.length > 0){  
