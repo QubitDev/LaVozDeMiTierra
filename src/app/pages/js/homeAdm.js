@@ -166,4 +166,9 @@ function hideEdita(){
 function enviar(doc) {
     window.location.href = `./html/reproducir.html?doc=${doc}`;
 }
-cancelarEdi.addEventListener('click',hideEdita);
+
+if (cancelarEdi !== null) {
+    cancelarEdi.addEventListener('click',hideEdita);
+}
+
+
