@@ -98,13 +98,6 @@ function enviar(doc) {
   window.location.href = `../html/reproducir.html?doc=${doc}`;
 }
 //---------------------------------CONTADOR DE REPRODUCCIONES-------------------------------
-
-const audioDocRef = db.collection("audio").doc(docId);
-
-// Incrementar el contador de reproducciones cuando se reproduzca el audio
-audioDocRef.update({
-  reproducciones: firebase.firestore.FieldValue.increment(1)
-});
 db.collection("audio").doc(docId).get().then((doc) => {
   if (doc.exists) {
     // Incrementar el contador de reproducciones cuando se reproduzca el audio
