@@ -1,8 +1,8 @@
-const campc1 =document.getElementById('campoUno');
+const campc1 = document.getElementById('campoUno');
 const eliminacion = document.getElementById('confirmacion');
 const cancelarEdi = document.getElementById('cancelBtn');
 const eliminacionDos = document.getElementById('confirmacionDos');
-const campc2 =document.getElementById('campoDos');
+const campc2 = document.getElementById('campoDos');
 const contenedorAll = document.getElementById('contenedor');
 
 

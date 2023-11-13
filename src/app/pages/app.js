@@ -42,6 +42,7 @@ function showFile(file) {
 		return; 
 	}
 	removeScript(pantallaActual);
+	// uploadedfiles = uploadedfiles.filter(item => item !== pantallaActual);
 	
 	  pantallaActual = file; 
 	
@@ -65,17 +66,14 @@ function showFile(file) {
 		});
 	
 	
-			
+	console.log(`xd-> uploadedFiles: ${uploadedfiles}`);
 	if (!contentMain.innerHTML) {
-		if (!uploadedfiles.includes(file)) {
-			if (!document.querySelector(`script[src='./js/${file}.js']`)) {
-				loadJS(file);
-			}
+		if (!document.querySelector(`script[src='./js/${file}.js']`)) {
+			loadJS(file);
+		}
 
-			if (!document.querySelector(`link[href='./css/${file}.css']`)) {
-				loadCSS(file);
-			}
-			uploadedfiles.push(file);
+		if (!document.querySelector(`link[href='./css/${file}.css']`)) {
+			loadCSS(file);
 		}
 	}
 	
@@ -114,7 +112,8 @@ function removeScript(scriptId) {
 	const scripts = document.querySelectorAll(`[data-script-id="${scriptId}"]`);
     scripts.forEach((script) => {
         script.parentNode.removeChild(script);
-    });
+	});
+	// uploadedfiles = uploadedfiles.filter(item => item !== scriptId);
 }
 
 firebase.auth().onAuthStateChanged(function(user) {
