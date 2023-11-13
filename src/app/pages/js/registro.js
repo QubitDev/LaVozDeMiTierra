@@ -57,7 +57,7 @@ audioInput.addEventListener("change", function () {
         
       }
 
-      const maxSizeInBytes = 20 * 1024 * 1024; 
+      const maxSizeInBytes = 30 * 1024 * 1024*2; 
       const peso = selectedAudioFile.size;
 
       if (selectedAudioFile.size > maxSizeInBytes) {
@@ -295,11 +295,11 @@ function validateInput(inputElement) {
     }
 
   // Comprueba si el valor contiene caracteres no válidos después de eliminar un carácter
-  if (!/^[a-zA-Z\s]+$/.test(inputValue)) {
+  /*if (!/^[a-zA-Z\s]+$/.test(inputValue)) {
     onMessagePopup(`❌¡Error!\nNo puede contener caracteres especiales.`, 450);
     inputElement.value = '';
     return;
-  }
+  }*/
 }
 
 
