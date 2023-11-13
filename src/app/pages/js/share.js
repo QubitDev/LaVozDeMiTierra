@@ -9,12 +9,7 @@ function togglePopup() {
 }
 
 function generateLinkShare() {
-    // Obtén los datos relevantes que deseas compartir (pueden ser el título, el narrador, etc.)
-    var typeAudio = document.getElementById("tipo__audio").textContent;
-    var titleAudio = document.getElementById("titulo__audio").textContent;
 
-
-    // Construye el enlace con la información necesaria
     var shareLink = window.location.origin + "/src/app/pages/html/reproducir.html?doc=" + docId;
 
     linkShare.innerText = shareLink;
