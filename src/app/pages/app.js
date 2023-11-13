@@ -59,9 +59,9 @@ function showFile(file) {
 		  return response.text();
 		})
 		  .then((data) => {
-		  	if (contentMain !== null) {
+		  	// if (contentMain !== null) {
    				 contentMain.innerHTML = data;
-			}
+			// }
 		})
 		.catch((error) => {
 		  console.error("Error al cargar el contenido:", error);
