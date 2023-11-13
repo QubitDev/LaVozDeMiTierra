@@ -5,6 +5,9 @@ const eliminacionDos = document.getElementById('confirmacionDos');
 const campc2 = document.getElementById('campoDos');
 const contenedorAll = document.getElementById('contenedor');
 
+console.log("Valor de campc1:", campc1);
+console.log("Valor de campc2:", campc2);
+
 
 const cargarCuentos = (documentos) => {
 

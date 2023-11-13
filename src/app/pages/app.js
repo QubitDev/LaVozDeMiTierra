@@ -1,5 +1,6 @@
 const urlParams = new URLSearchParams(window.location.search);
 const user = urlParams.get("user");
+console.log("Valor de user:", user);
 const contentMain = document.getElementById("app-content");
 const buttonBuscar = document.getElementById("searchButton");
 const buttonRegister = document.getElementById("registrar_audio");
@@ -27,6 +28,7 @@ if(user){
 }
 
 function showFile(file) {
+	console.log("showFile ejecutado. file:", file, "pantallaActual:", pantallaActual);
 
 	console.log("pant = ",pantallaActual)
 	if (file === "home") {
@@ -59,7 +61,8 @@ function showFile(file) {
 		  return response.text();
 		})
 		  .then((data) => {
-		  	// if (contentMain !== null) {
+			  // if (contentMain !== null) {
+			  console.log("Contenido cargado:", data);
    				 contentMain.innerHTML = data;
 			// }
 		})
