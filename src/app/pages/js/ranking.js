@@ -49,8 +49,8 @@ document.addEventListener("DOMContentLoaded", function () {
       </div> 
       <div class="descripcion">
         <h3 id="titulo${index}" style="text-align: right;">${audio.titulo}</h3>
-        <h3 id="procedencia${index}" style="text-align: right;">${audio.procedencia}</h3>
-        <h3 id="narrador${index}" style="text-align: right;">${audio.narrador}</h3>
+        <h5 id="procedencia${index}" style="text-align: right;">${audio.procedencia}</h5>
+        <h4 id="narrador${index}" style="text-align: right;">${audio.narrador}</h4>
         <h3 id="reproducciones${index}" style="text-align: right;">${audio.reproducciones}</h3>
       </div>
       `;
