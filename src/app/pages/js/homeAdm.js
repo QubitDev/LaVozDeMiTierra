@@ -18,8 +18,8 @@ const cargarCuentos = (documentos) => {
         documentos.forEach(documento => {
             
             if(documento.data().tipoAudio == "Cuento"){                
-                if (campc1 !== null) {
-                    campc1.innerHTML = ` 
+                if (!campc1 === null) {
+                    campc1.innerHTML += ` 
                         <div class="campC1" id="campC1">                
                             <div class="imageUno">
                                 <button class="reproducirUno" onclick ="enviar('${documento.id}')">
@@ -52,8 +52,8 @@ const cargarCuentos = (documentos) => {
                     `;           
                 }
             }else{
-                if (campc2 !== null) {
-                    campc2.innerHTML = ` 
+                if (campc2 === null) {
+                    campc2.innerHTML += ` 
                         <div class="campL1" id="campL1"> 
                             <div class="imageDos">
                                 <button class="reproducirDos" onclick ="enviar('${documento.id}')">
