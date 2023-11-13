@@ -1,7 +1,7 @@
 const contenedorCards = document.getElementById('card');
 const botonAnterior = document.getElementById('botonAnterior');
 const botonSiguiente = document.getElementById('botonSiguiente');
-
+const contenedorCards1 = document.getElementById('card1');
 
 db.collection('audio').onSnapshot((snapshot) => {
     cargarDocumentoCuento(snapshot.docs);
@@ -40,7 +40,7 @@ db.collection('audio').onSnapshot((snapshot) => {
     cargarDocumentoLeyenda(snapshot.docs);
 });
 
-const contenedorCards1 = document.getElementById('card1');
+
 const cargarDocumentoLeyenda = (documentos) => {
     if (documentos.length > 0) {
         
