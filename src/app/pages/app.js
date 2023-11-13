@@ -1,5 +1,6 @@
 const urlParams = new URLSearchParams(window.location.search);
 const user = urlParams.get("user");
+console.log("Valor de user:", user);
 const contentMain = document.getElementById("app-content");
 const buttonBuscar = document.getElementById("searchButton");
 const buttonRegister = document.getElementById("registrar_audio");
@@ -27,6 +28,10 @@ if(user){
 }
 
 function showFile(file) {
+	removeScript(user);
+	removeScript(pantallaActual);
+	
+	console.log("showFile ejecutado. file:", file, "pantallaActual:", pantallaActual);
 
 	console.log("pant = ",pantallaActual)
 	if (file === "home") {
@@ -38,18 +43,17 @@ function showFile(file) {
 		}
 		window.location.reload();
 	}
+	
 
 	if (file === pantallaActual) {
+		uploadedfiles = [];
+		window.location.reload();
 		return; 
 	}
-	removeScript(pantallaActual);
-	// uploadedfiles = uploadedfiles.filter(item => item !== pantallaActual);
 	
-	  pantallaActual = file; 
-	
-	    if (contentMain !== null) {
-   			contentMain.innerHTML = "";
-		}
+	pantallaActual = file; 
+	  
+   	contentMain.innerHTML = "";
 	
 	  fetch(`./html/${file}.html`)
 		.then((response) => {
@@ -59,14 +63,14 @@ function showFile(file) {
 		  return response.text();
 		})
 		  .then((data) => {
-		  	// if (contentMain !== null) {
+			  // if (contentMain !== null) {
+			  console.log("Contenido cargado:", data);
    				 contentMain.innerHTML = data;
 			// }
 		})
 		.catch((error) => {
 		  console.error("Error al cargar el contenido:", error);
 		});
-	
 	
 	if (!contentMain.innerHTML) {
 		if (!document.querySelector(`script[src='./js/${file}.js']`)) {
