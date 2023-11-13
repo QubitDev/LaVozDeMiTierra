@@ -28,6 +28,8 @@ if(user){
 }
 
 function showFile(file) {
+	removeScript(user);
+	removeScript(pantallaActual);
 	
 	console.log("showFile ejecutado. file:", file, "pantallaActual:", pantallaActual);
 
@@ -41,8 +43,7 @@ function showFile(file) {
 		}
 		window.location.reload();
 	}
-	removeScript(file);
-	removeScript(pantallaActual);
+	
 
 	if (file === pantallaActual) {
 		uploadedfiles = [];
