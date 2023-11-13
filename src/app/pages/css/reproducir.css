@@ -383,15 +383,20 @@ a {
 .__social_networks ul li {
   width: 75px;
   height: 75px;
-  line-height: 75px;
-  margin: 10px;
-  /* margin: 0 10px; */
+  line-height: 90px;
+  margin: 0 30px;
   text-align: center;
   cursor: pointer;
   border-radius: 50%;
   border: 5px solid #d8e2dc;
   float: left;
   transition: all 0.5s ease;
+}
+
+.__social_networks ul li .fa-facebook,
+.__social_networks ul li .fa-whatsapp,
+.__social_networks ul li .fa-google {
+  font-size: 35px;
 }
 
 .__social_networks ul li .facebook {
