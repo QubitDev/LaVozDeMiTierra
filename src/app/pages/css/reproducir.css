@@ -105,16 +105,18 @@ a {
   flex-direction: column;
   top: 102px;
   left: 200px;
-  width: 70%;
+  width: 75%;
   height: 100%;
 }
-p{
+
+p {
   color: #01081d;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
+  text-align: justify;
 }
 
-.container-card{
+.container-card {
   float: right;
   background: radial-gradient(ellipse at bottom, #647c74, #587a7c, #15242e, #3a615e, #749e8a, #15242e 80%);
   background-size: 150% 150%;
@@ -123,10 +125,16 @@ p{
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
   position: fixed;
   flex-direction: column;
-  top: 102px;
+  top: 12%;
   left: 82%;
-  width: 33%;
+  width: 20%;
+  max-width: 500px;
   height: 100%;
+  max-height: 1000px;
+  overflow: hidden;
+  overflow-y: scroll;
+  border-radius: 5px;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 45);
 }
 
 .caja {
@@ -138,7 +146,7 @@ p{
 
 .imagen {
   margin-top: 5%;
-  margin-left: 5%;
+  margin-left: 8%;
   padding-left: 129px;
 }
 
@@ -157,10 +165,7 @@ p{
   font-size: 15px;
 }
 
-.audio {
-  margin-top: 2%;
-  text-align: center;
-}
+
 
 .contenedor {
   font-family: Arial, Helvetica, sans-serif;
@@ -188,3 +193,262 @@ a {
   margin-left: 0%;
 }
 
+.__container_audio {
+  margin-top: 2%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  /* min-height: 70vh; */
+}
+
+.audio {
+  text-align: center;
+}
+
+/*---------------------------------------------------------- share, favorites and add-----------------------------------------------*/
+/* Encinas Quispe Jhonatan */
+.__button_favorites,
+.__button_add_list,
+.__button_share {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 10px 20px;
+  font-size: 32px;
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.__button_favorites i,
+.__button_add_list i,
+.__button_share i {
+  margin-right: 5px;
+}
+
+.__button_favorites:hover {
+  color: #810202;
+  z-index: 2;
+}
+
+.__button_add_list:hover {
+  color: #0a0909;
+  z-index: 2;
+}
+
+.__button_share:hover {
+  color: #027281;
+  z-index: 2;
+}
+
+/* popup */
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Estilo para la ventana emergente */
+.__share__content {
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  max-width: 700px;
+  height: 300px;
+  background: radial-gradient(ellipse at bottom right, #647c74, #587a7c, #15242e, #3a615e, #749e8a 80%);
+  background-size: 150% 150%;
+  background-position: top center;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  padding: 20px;
+  color: #fff;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
+
+}
+
+.__share__content h3 {
+  font-size: 24px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #fff;
+
+  /* align-self: flex-start; */
+  margin: 0;
+  margin-bottom: 60px;
+}
+
+
+.__link__content {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.__link__content {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+
+.__link__content .__link__share {
+  white-space: nowrap;
+  /* Evita el salto de línea automático */
+  overflow: auto;
+  /* Permite el desbordamiento y agrega una barra de desplazamiento si es necesario */
+  width: 380px;
+  min-height: 50px;
+  /* Altura mínima, ajusta según sea necesario */
+  max-height: none;
+  /* Permite que la altura crezca según el contenido */
+  margin: auto;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #01081d;
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #070707;
+}
+
+.button__cancel,
+.button__copy {
+
+  padding: 10px 20px;
+
+  font-size: 13px;
+  background: radial-gradient(ellipse at left top, #01081d, #011c38 80%);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+
+  width: 100px;
+  height: 30px;
+
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button__copy:hover {
+  background: #0978c2b0;
+  color: #fff;
+}
+
+.button__cancel:hover {
+  background: #e90000a6;
+  color: #fff;
+}
+
+
+/* icons social networks */
+
+.__social_networks {
+  align-items: center;
+  justify-content: center;
+}
+
+.__social_networks ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.__social_networks ul li {
+  width: 75px;
+  height: 75px;
+  line-height: 90px;
+  margin: 0 30px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 5px solid #d8e2dc;
+  float: left;
+  transition: all 0.5s ease;
+}
+
+.__social_networks ul li .fa-facebook,
+.__social_networks ul li .fa-whatsapp,
+.__social_networks ul li .fa-google {
+  font-size: 35px;
+}
+
+.__social_networks ul li .facebook {
+  color: #d8e2dc;
+  margin-top: 20px;
+  transition: all 0.5s ease;
+}
+
+.__social_networks ul li:hover.facebook {
+  border: 5px solid #3b5998;
+  box-shadow: 0 0 15px #3b5998;
+  transition: all 0.5s ease;
+}
+
+.__social_networks ul li:hover .fa-facebook {
+  color: #3b5998;
+  box-shadow: 0 0 15px #3b5998;
+  transition: all 0.5s ease;
+}
+
+.__social_networks ul li .whatsapp {
+  color: #d8e2dc;
+  margin-top: 20px;
+  transition: all 0.5s ease;
+}
+
+.__social_networks ul li:hover.whatsapp {
+  border: 5px solid #017c08;
+  box-shadow: 0 0 15px #017c08;
+  transition: all 0.5s ease;
+}
+
+.__social_networks ul li:hover .fa-whatsapp {
+  color: #017c08;
+  box-shadow: 0 0 15px #017c08;
+  transition: all 0.5s ease;
+}
+
+.__social_networks ul li .gmail {
+  color: #d8e2dc;
+  margin-top: 20px;
+  transition: all 0.5s ease;
+}
+
+.__social_networks ul li:hover.gmail {
+  border: 5px solid #520404;
+  box-shadow: 0 0 15px #520404;
+  transition: all 0.5s ease;
+}
+
+.__social_networks ul li:hover .fa-google {
+  color: #520404;
+  box-shadow: 0 0 15px #520404;
+  transition: all 0.5s ease;
+}

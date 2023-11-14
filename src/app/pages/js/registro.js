@@ -1,132 +1,175 @@
-document.getElementById("cancelButton").addEventListener("click", onCancel);
-document.getElementById("submitButton").addEventListener("click", onSubmit);
-document.getElementById("okButton").addEventListener("click",closePopup);
-document.getElementById("verifyButton").addEventListener("click",onVerifyButton);
+const getAttributes = (function () {
+  const cancel = document.getElementById("cancelButton");
+  const submit = document.getElementById("submitButton");
+  const close_Popup = document.getElementById("okButton");
+  const verify_Button = document.getElementById("verifyButton");
+  
+  const audioInput = document.getElementById("audioFileInput");
+  const textInput = document.getElementById("textFileInput");
+  const imageInput = document.getElementById("imageInput");
+  
+  const okButton = document.getElementById('okButton');
+  const verifyButton = document.getElementById('verifyButton');
+  const popup = document.getElementById('popup');
+  const overlay = document.getElementById('overlay');
+  const windowAorE = document.getElementById('window_A_E');
+  const messagePopup = document.getElementById("message");
+  const formatoSelect = document.getElementById("formato_audio");
+  const durationField = document.getElementById("duracion");
+  var idDoc = '';
+  const datos = {};
+  var bandera = true;
 
-const audioInput = document.getElementById("audioFileInput");
-const textInput = document.getElementById("textFileInput");
-const imageInput = document.getElementById("imageInput");
+  return {
+    cancel,
+    submit,
+    close_Popup,
+    verify_Button,
+    audioInput,
+    textInput,
+    imageInput,
+    okButton,
+    verifyButton,
+    popup,
+    overlay,
+    windowAorE,
+    messagePopup,
+    formatoSelect,
+    durationField,
+    idDoc,
+    datos,
+    bandera,
+  };
+})();
 
-const okButton = document.getElementById('okButton');
-const verifyButton = document.getElementById('verifyButton');
-const popup = document.getElementById('popup');
-const overlay = document.getElementById('overlay');
-const windowAorE =document.getElementById('window_A_E');
-const messagePopup = document.getElementById("message");
-const formatoSelect = document.getElementById("formato_audio");
-const durationField = document.getElementById("duracion");
+if (getAttributes.cancel !== null) {
+  getAttributes.cancel.addEventListener('click', onCancel);
+}
 
-var idDoc='';
-const datos = {};
-var bandera = true;
+if (getAttributes.submit !== null){
+  getAttributes.submit.addEventListener('click', onSubmit);
+}
 
-imageInput.addEventListener("change", function () {
-  const selectedImage = this.files[0]; // Obtén el archivo de imagen seleccionado
+if (getAttributes.close_Popup != null) {
+  getAttributes.close_Popup.addEventListener("click", closePopup);
+}
 
-  const imagePreview = document.getElementById("imagePreview");
-  const frase = document.getElementById("frase");
+if (getAttributes.verify_Button !== null) {
+  getAttributes.verify_Button.addEventListener("click",onVerifyButton);
+}
 
-  frase.style.display = "none";
-  imagePreview.style.display = "block";
+if (getAttributes.imageInput !== null) {
+  getAttributes.imageInput.addEventListener("change", function () {
+    const selectedImage = this.files[0];
 
-  if (selectedImage) {
-    const reader = new FileReader();
-    reader.onload = function (e) {
-      imagePreview.src = e.target.result;
-    };
-    reader.readAsDataURL(selectedImage);
-  } else {
-    imagePreview.src = "";
-  }
-});
+    const imagePreview = document.getElementById("imagePreview");
+    const frase = document.getElementById("frase");
+
+    frase.style.display = "none";
+    imagePreview.style.display = "block";
+
+    if (selectedImage) {
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        imagePreview.src = e.target.result;
+      };
+      reader.readAsDataURL(selectedImage);
+    } else {
+      imagePreview.src = "";
+    }
+  });
+    
+}
 
 // Captura de audio
-audioInput.addEventListener("change", function () {
-  const selectedAudioFile = this.files[0];
-  
-  durationField.style.display ='inline-block';
-  textInput.disabled = false;
 
-  if (selectedAudioFile) {
-    // obtener duracion del audio
-    getAudioDuration(selectedAudioFile).then((duration) => {
-      const minutes = parseFloat(duration);
+if (getAttributes.audioInput !== null) {
+  getAttributes.audioInput.addEventListener("change", function () {
+    const selectedAudioFile = this.files[0];
+    
+    getAttributes.durationField.style.display ='inline-block';
+    getAttributes.textInput.disabled = false;
 
-      if (!isNaN(minutes) && minutes >= 3 && minutes <= 20) {
-        durationField.textContent = duration; 
-        
-      }
+    if (selectedAudioFile) {
+      // obtener duracion del audio
+      getAudioDuration(selectedAudioFile).then((duration) => {
+        const minutes = parseFloat(duration);
 
-      const maxSizeInBytes = 20 * 1024 * 1024; 
-      const peso = selectedAudioFile.size;
+        if (!isNaN(minutes) && minutes >= 3 && minutes <= 20) {
+          getAttributes.durationField.textContent = duration; 
+          
+        }
 
-      if (selectedAudioFile.size > maxSizeInBytes) {
-        let sizeArch =parseInt( (peso /1024)/1024);
-        onMessagePopup(`❌¡Error!\nEl archivo exede el peso con: ${sizeArch} MB`, 400);
-        this.value = null;
-        durationField.textContent = ""; 
-        document.getElementById("formato_audio").value = "";
-        bandera = false;
-        return;
-      } else if(isNaN(minutes) || !(minutes >= 2 && minutes <= 20)){
-        onMessagePopup(`❌¡Error!\nSubir audio de 3 a 10 minutos`, 400);
-        this.value = null;
-        durationField.textContent = ""; 
-        document.getElementById("formato_audio").value = "";
-        bandera = false;
-        return;
-      }
-    });
-  }else {
-    durationField.value = "";
-  }
-});
+        const maxSizeInBytes = 20 * 1024 * 1024; 
+        const peso = selectedAudioFile.size;
+
+        if (selectedAudioFile.size > maxSizeInBytes) {
+          let sizeArch =parseInt( (peso /1024)/1024);
+          onMessagePopup(`❌¡Error!\nEl archivo exede el peso con: ${sizeArch} MB`, 400);
+          this.value = null;
+          getAttributes.durationField.textContent = ""; 
+          document.getElementById("formato_audio").value = "";
+          bandera = false;
+          return;
+        } else if(isNaN(minutes) || !(minutes >= 2 && minutes <= 20)){
+          onMessagePopup(`❌¡Error!\nSubir audio de 3 a 10 minutos`, 400);
+          this.value = null;
+          getAttributes.durationField.textContent = ""; 
+          document.getElementById("formato_audio").value = "";
+          getAttributes.bandera = false;
+          return;
+        }
+      });
+    }else {
+      getAttributes.durationField.value = "";
+    }
+  });
+}
 
 // Captura de texto
-textInput.addEventListener("change", function () {
-  const selectedTextFile = this.files[0];
 
-  if (selectedTextFile) {
-    // Validar el peso del archivo de texto
-    const maxSizeInBytes = 500 * 1024; // 500KB en bytes
-    if (selectedTextFile.size > maxSizeInBytes) {
-      onMessagePopup(`❌¡Error!\nDebe ser menor o igual a 500 KB.`,400);
-      this.value = null;
-      return;
+if (getAttributes.textInput!==null) {
+  getAttributes.textInput.addEventListener("change", function () {
+    const selectedTextFile = this.files[0];
+    if (selectedTextFile) {
+      // Validar el peso del archivo de texto
+      const maxSizeInBytes = 500 * 1024; // 500KB en bytes
+      if (selectedTextFile.size > maxSizeInBytes) {
+        onMessagePopup(`❌¡Error!\nDebe ser menor o igual a 500 KB.`,400);
+        this.value = null;
+        return;
+      }
     }
+  });
+}
 
-    // Aquí puedes trabajar con el archivo de texto seleccionado
-    console.log("Nombre del archivo de texto:", selectedTextFile.name);
-    console.log("Tipo del archivo de texto:", selectedTextFile.type);
-  }
-});
 
 
 
 // Validación de elección de elemento en el file chooser de audio
 function updateAcceptAttribute() {
-  audioInput.value = null;
-  textInput.value = null;
-  textInput.disabled = true;
-  durationField.textContent = '';
-  durationField.style.display='none';
+  getAttributes.audioInput.value = null;
+  getAttributes.textInput.value = null;
+  getAttributes.textInput.disabled = true;
+  getAttributes.durationField.textContent = '';
+  getAttributes.durationField.style.display='none';
 
-  switch (formatoSelect.value) {
+  switch (getAttributes.formatoSelect.value) {
     case "MP3":
-      audioInput.disabled = false;
-      audioInput.accept = ".mp3";
+      getAttributes.audioInput.disabled = false;
+      getAttributes.audioInput.accept = ".mp3";
       break;
     case "WAV":
-      audioInput.disabled = false;
-      audioInput.accept = ".wav";
+      getAttributes.audioInput.disabled = false;
+      getAttributes.audioInput.accept = ".wav";
       break;
     case "AIFF":
-      audioInput.disabled = false;
-      audioInput.accept = ".aiff";
+      getAttributes.audioInput.disabled = false;
+      getAttributes.audioInput.accept = ".aiff";
       break;
     default:
-      audioInput.disabled = true;
-      audioInput.accept = "";
+      getAttributes.audioInput.disabled = true;
+      getAttributes.audioInput.accept = "";
   }
 }
 
@@ -138,13 +181,13 @@ function onCancel() {
 
 function resetForm() {
   document.getElementById("audio__form").reset();
-  audioInput.disabled = true;
-  textInput.disabled = true;
+  getAttributes.audioInput.disabled = true;
+  getAttributes.textInput.disabled = true;
 }
 
 async function onSubmit(event) {
   event.preventDefault();
-  overlay.style.display = 'block';
+  getAttributes.overlay.style.display = 'block';
   
   let sendData = true;
   
@@ -154,14 +197,14 @@ async function onSubmit(event) {
   const formato = getValue("formato_audio");
   const narrador = getValue("narrador");
   
-  const duracion = durationField.textContent;
+  const duracion = getAttributes.durationField.textContent;
   const isUnique = await isTitleUnique(titulo);
 
   
   
   if(!isUnique){
     onMessagePopup(`❌¡Error!\nEl título ya existe en la base de datos.`, 450);
-    overlay.style.display = 'none';
+    getAttributes.overlay.style.display = 'none';
     return
   }
 
@@ -175,22 +218,22 @@ async function onSubmit(event) {
   }
 
   // // Obtén el archivo de audio y el archivo de texto seleccionados
-  const audio = audioInput.files[0];
-  const text = textInput.files[0];
-  const image = imageInput.files[0];
+  const audio = getAttributes.audioInput.files[0];
+  const text = getAttributes.textInput.files[0];
+  const image = getAttributes.imageInput.files[0];
 
 
   // Validar longitud mínima de los campos
   if (!titulo || !musica || !procedencia || !formato || !narrador || !audio || !text || !image) {
     onMessagePopup(`❌¡Error! Faltan Datos.`,350);
-    overlay.style.display = 'none';
+    getAttributes.overlay.style.display = 'none';
     return;
   }
   
   // validar que este seleccionado un tipo de audio
   if (!tipoAudio) {
     onMessagePopup(`❌¡Error!\nPor favor, seleccione un tipo de audio.`,400);
-    overlay.style.display = 'none';
+    getAttributes.overlay.style.display = 'none';
     return;
   }
   
@@ -206,7 +249,7 @@ async function onSubmit(event) {
     const messageError = document.getElementById(field.errorElement);
     if (field.valor.length < field.minimumLength) {
       messageError.textContent = `El campo '${field.name}' debe tener al menos ${field.minimumLength} caracteres.`;
-      overlay.style.display = 'none';
+      getAttributes.overlay.style.display = 'none';
       sendData = false;
     } else {
       messageError.textContent = "";
@@ -215,28 +258,16 @@ async function onSubmit(event) {
   
   // Verifica si se deben enviar los datos o no
   if (!sendData) {
-    overlay.style.display = 'none';
+    getAttributes.overlay.style.display = 'none';
     return;
   }
   
-  Object.assign(datos,{titulo, musica, procedencia, formato, tipoAudio, narrador, duracion});
+  Object.assign(getAttributes.datos,{titulo, musica, procedencia, formato, tipoAudio, narrador, duracion});
   
   handleSubmit();
- 
-
-  // Realizar lógica de envío o procesamiento aquí
-  console.log("Título:", titulo);
-  console.log("Música de Fondo:", musica);
-  console.log("Procedencia:", procedencia);
-  console.log("Formato de Audio:", formato);
-  console.log("Tipo de Audio:", tipoAudio);
-  console.log("Narrador:", narrador);
-  console.log("Duracion:", duracion )
   
-  
-
   setTimeout(() => {
-    overlay.style.display = 'none';
+    getAttributes.overlay.style.display = 'none';
     document.querySelector(".wavi").style.display = 'none';
     onMessagePopup(`✅¡Se subió correctamente el audio!🎉`, 450); 
   }, 10000); // 10 segundos de espera
@@ -245,23 +276,23 @@ async function onSubmit(event) {
 
 
 function onMessagePopup(messageX, length){
-  messagePopup.textContent = `${messageX}`;
-  windowAorE.style.width = `${length}px`;
-  messagePopup.style.whiteSpace = 'pre-line'; 
-  popup.style.display = 'flex';
+  getAttributes.messagePopup.textContent = `${messageX}`;
+  getAttributes.windowAorE.style.width = `${length}px`;
+  getAttributes.messagePopup.style.whiteSpace = 'pre-line'; 
+  getAttributes.popup.style.display = 'flex';
   if(messageX.includes("❌")){
-    okButton.style.display = 'block';
-    verifyButton.style.display = 'none';
+    getAttributes.okButton.style.display = 'block';
+    getAttributes.verifyButton.style.display = 'none';
     
   } else{
-    verifyButton.style.display = 'block';
-    okButton.style.display = 'none';
+    getAttributes.verifyButton.style.display = 'block';
+    getAttributes.okButton.style.display = 'none';
   }
 }
 
 // cerrar popup
 function closePopup(){
-  popup.style.display = 'none';
+  getAttributes.popup.style.display = 'none';
 }
 
 function onVerifyButton() {
@@ -285,21 +316,14 @@ function validateInput(inputElement) {
     return;
   }
 
-    // Comprueba si el valor contiene números
-    if (/\d/.test(inputValue)) {
-      onMessagePopup(`❌¡Error!\n${placeholderText} no puede contener números.`, 450);
-      inputElement.value = '';
-      return;
-    }
-
-  // Comprueba si el valor contiene caracteres no válidos después de eliminar un carácter
- /* if (!/^[a-zA-Z\s.]+$/.test(inputValue)) {
-    onMessagePopup(`❌¡Error!\nNo puede contener caracteres especiales.`, 450);
+  // Comprueba si el valor contiene números
+  if (/\d/.test(inputValue)) {
+    onMessagePopup(`❌¡Error!\n${placeholderText} no puede contener números.`, 450);
     inputElement.value = '';
     return;
-  }*/
-}
+  }
 
+}
 
 // obtener el valor del elemento por id
 function getValue(id) {
@@ -354,9 +378,9 @@ function uploadFile(file, path) {
 }
 
 async function handleSubmit() {
-  const audioFile = audioInput.files[0];
-  const textFile = textInput.files[0];
-  const imageFile = imageInput.files[0];
+  const audioFile = getAttributes.audioInput.files[0];
+  const textFile = getAttributes.textInput.files[0];
+  const imageFile = getAttributes.imageInput.files[0];
 
   try {
       const audioURL = await uploadFile(audioFile, 'audio/' + audioFile.name);
@@ -368,7 +392,7 @@ async function handleSubmit() {
       console.log("Documento escrito con ID: ", imageURL);
 
       datos.audioURL = audioURL;
-      datos.visual = 0;
+      datos.reproducciones = 0;
       datos.textURL = textURL;
       datos.imageURL = imageURL;
       
@@ -379,8 +403,9 @@ async function handleSubmit() {
       })
       .catch((error) => {
           alert(`Error al agregar el documento: ${error}`);
-      });
-  console.log("id__doc",idDoc);
+      });
+    
+    console.log("id__doc",idDoc);
 
   } catch (error) {
     alert(`Error: ${error}`);

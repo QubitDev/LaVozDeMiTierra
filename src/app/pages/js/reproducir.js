@@ -1,10 +1,8 @@
 const urlParams = new URLSearchParams(window.location.search);
 const docId = urlParams.get("doc");
-const docIdHome = urlParams.get("docHome");
+//const docIdHome = urlParams.get("docHome");
 const contenedorCards = document.getElementById('card');
-const imagCen = document.querySelector(".imageF");
-
-
+const imagCen = document.querySelector(".imagenLC");
 const tipo = document.getElementById("tipo__audio");
 const  titulo = document.getElementById("titulo__audio");
 const narradorAudio = document.getElementById("narrador");
@@ -20,7 +18,8 @@ db.collection("audio").doc(docId).get().then((doc) => {
       narradorAudio.innerText = `Narrado por: ${doc.data().narrador}`;
       musicaF.innerText = `Música de Fondo: ${doc.data().musica}`;
       audioElement.src = doc.data().audioURL;      
-      imagCen.src = doc.data().imageURL;  
+      imagCen.src = doc.data().imageURL;
+        
       const fileData = new Blob(['Contenido de prueba'], { type: 'text/plain' });
       const textoLO = new File([fileData], doc.data().textURL, { type: 'text/plain', lastModified: Date.now() });
 
@@ -81,7 +80,7 @@ const cargarDocumentos = (documentos) => {
           contenedorCards.innerHTML += `
           <div class="carta" id="carta" onClick="enviar('${documento.id}')">
           <figure>
-              <img src="${documento.data().imageURL}" width="90px" height="90px">
+              <img src="${documento.data().imageURL}" width="160px" height="160px">
           </figure>
       
          <div class="contenido-card" style="margin-top: 0%;">
@@ -98,5 +97,15 @@ const cargarDocumentos = (documentos) => {
 function enviar(doc) {
   window.location.href = `../html/reproducir.html?doc=${doc}`;
 }
-
-
+//---------------------------------CONTADOR DE REPRODUCCIONES-------------------------------
+db.collection("audio").doc(docId).get().then((doc) => {
+  if (doc.exists) {
+    // Incrementar el contador de reproducciones cuando se reproduzca el audio
+    const audioDocRef = db.collection("audio").doc(docId);
+    audioDocRef.update({
+      reproducciones: firebase.firestore.FieldValue.increment(1)
+    });
+  } else {
+    console.log("No se encontró el documento en Firestore.");
+  }
+});

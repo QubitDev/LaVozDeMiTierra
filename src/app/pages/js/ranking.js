@@ -1,0 +1,66 @@
+const endSesion = document.querySelector(".sesion");
+endSesion.addEventListener('click',cerrarSesion);
+let cont = 1;
+function cerrarSesion(){
+    if(cont % 2 == 0){
+        document.getElementById('sesionMenu').style.display= 'none';
+    }
+    else{
+        document.getElementById('sesionMenu').style.display= 'block';
+    }
+    cont++;
+}
+const firebaseConfig = {
+  apiKey: "AIzaSyAldLR7JcdW58mZ_Dtr7HQku8Pn648_3f4",
+  authDomain: "qubit-2499b.firebaseapp.com",
+  projectId: "qubit-2499b",
+  storageBucket: "qubit-2499b.appspot.com",
+  messagingSenderId: "154442139152",
+  appId: "1:154442139152:web:14a0201532e21545006c95"
+};
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+const storage = firebase.storage();
+const auth = firebase.auth();
+
+
+// Obtener referencia a la colección 'audio'
+const audioCollection = db.collection("audio");
+
+// Obtener y mostrar los 10 mejores en reproducciones
+audioCollection.orderBy("reproducciones", "desc").limit(10).get().then((querySnapshot) => {
+  const rankingList = document.querySelector('.ranking-list');
+  let numberList = 1;
+  querySnapshot.forEach((doc, index) => {
+    const audio = doc.data();
+    const rankingItem = document.createElement("li");
+    rankingItem.classList.add("ranking-item");
+    rankingItem.innerHTML = `
+    <h1>${numberList}</h1>
+    <div class="caja">
+      <a onclick="enviar('${doc.id}')">
+        <div class="imagen" id="imagen${index}">
+          <img src="${audio.imageURL}" alt="" height="90px" width="100px" class="imageF">
+        </div>
+      </a>
+    </div> 
+    <div class="descripcion">
+      <h3 id="titulo${index}" style="text-align: right;">${audio.titulo}</h3>
+      <h5 id="procedencia${index}" style="text-align: right;">${audio.procedencia}</h5>
+      <h4 id="narrador${index}" style="text-align: right;">${audio.narrador}</h4>
+      <h3 id="reproducciones${index}" style="text-align: right;">${audio.reproducciones}</h3>
+    </div>
+    `;
+
+    rankingList.appendChild(rankingItem);
+    numberList++;
+  });
+}).catch((error) => {
+  console.error("Error al obtener datos de Firebase:", error);
+});
+
+function enviar(doc) {
+  window.location.href = `reproducir.html?doc=${doc}`;
+}
