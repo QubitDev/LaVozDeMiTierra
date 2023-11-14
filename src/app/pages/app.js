@@ -1,9 +1,13 @@
 const urlParams = new URLSearchParams(window.location.search);
 const user = urlParams.get("user");
-console.log("Valor de user:", user);
+
 const contentMain = document.getElementById("app-content");
 const buttonBuscar = document.getElementById("searchButton");
 const buttonRegister = document.getElementById("registrar_audio");
+const ranking = document.getElementById("ranking_audios");
+const favoritos = document.getElementById("favoritos");
+const listas = document.getElementById("mis_listas");
+
 
 // const endSesion = document.querySelector(".sesion");
 const uploadedfiles = [];
@@ -16,13 +20,19 @@ if(user){
 	
 	if(user === 'homeUsu'){
 		buttonRegister.style.display='none';
-		buttonBuscar.style.display ='block';
+		buttonBuscar.style.display = 'block';
+		ranking.style.display = 'block';
+		favoritos.style.display = 'block';
+		listas.style.display = 'block'; 
 		document.title = `La Voz De Mi Tierra - ${user}`;
 	}
 
 	if(user === 'homeAdm'){
 		buttonBuscar.style.display ='none';
-		buttonRegister.style.display='block';
+		buttonRegister.style.display = 'block';
+		ranking.style.display = 'none';
+		favoritos.style.display = 'none';
+		listas.style.display = 'none'; 
 		document.title = `La Voz De Mi Tierra - ${user}`;
 	}
 }
@@ -63,10 +73,7 @@ function showFile(file) {
 		  return response.text();
 		})
 		  .then((data) => {
-			  // if (contentMain !== null) {
-			  console.log("Contenido cargado:", data);
-   				 contentMain.innerHTML = data;
-			// }
+			contentMain.innerHTML = data;
 		})
 		.catch((error) => {
 		  console.error("Error al cargar el contenido:", error);
