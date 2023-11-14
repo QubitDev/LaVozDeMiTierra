@@ -100,7 +100,7 @@ function loadJS(file) {
 }
   
 
-//   cerrar secion
+//   cerrar sesion
 
 let cont = 1;
 function cerrarSesion(){
