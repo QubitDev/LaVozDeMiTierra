@@ -32,12 +32,13 @@ const audioCollection = db.collection("audio");
 // Obtener y mostrar los 10 mejores en reproducciones
 audioCollection.orderBy("reproducciones", "desc").limit(10).get().then((querySnapshot) => {
   const rankingList = document.querySelector('.ranking-list');
+  let numberList = 1;
   querySnapshot.forEach((doc, index) => {
     const audio = doc.data();
     const rankingItem = document.createElement("li");
     rankingItem.classList.add("ranking-item");
     rankingItem.innerHTML = `
-    <span>${index + 1}</span>
+    <h1>${numberList}</h1>
     <div class="caja">
       <a onclick="enviar('${doc.id}')">
         <div class="imagen" id="imagen${index}">
@@ -54,6 +55,7 @@ audioCollection.orderBy("reproducciones", "desc").limit(10).get().then((querySna
     `;
 
     rankingList.appendChild(rankingItem);
+    numberList++;
   });
 }).catch((error) => {
   console.error("Error al obtener datos de Firebase:", error);
