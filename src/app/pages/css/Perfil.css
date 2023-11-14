@@ -1,18 +1,22 @@
 #------------------------------------------------Headerymenu-------------------------------------------------------------/
 
+.LogoLDMT {
+    position: relative;
+    z-index: 1; 
+}
+
 .logo {
     border-radius: 50%;
-    padding-top: 0px;
     height: 150px;
     width: 150px;
     position: absolute;
-    top:3%; 
-    left: 2%; 
+    top: 6%;
+    left: 2%;
     z-index: 9999;
     display: inline-block;
     box-sizing: border-box;
-    box-shadow: 10px 10px 15px 5px black;
-  }
+   
+}
   .sesion{
     border-radius: 50%;
     height: 40px;
@@ -166,7 +170,7 @@ main {
     padding: 20px;
     border-radius: 10px;
     text-align: center;
-    margin-top: 15%; /* Ajusta este valor según tu preferencia */
+    margin-top: 10%; /* Ajusta este valor según tu preferencia */
 }
 
 #profilePictureContainer,
@@ -194,7 +198,7 @@ button {
 }
 
 button:hover {
-    background-color: #01081d;
+    background-color: #01081d
 }
 
 
