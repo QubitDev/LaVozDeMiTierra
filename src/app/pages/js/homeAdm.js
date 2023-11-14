@@ -1,15 +1,16 @@
-const campc1 = document.getElementById('campoUno');
+
 const eliminacion = document.getElementById('confirmacion');
-const cancelarEdi = document.getElementById('cancelBtn');
 const eliminacionDos = document.getElementById('confirmacionDos');
-const campc2 = document.getElementById('campoDos');
-const contenedorAll = document.getElementById('contenedor');
-
-console.log("Valor de campc1:", campc1);
-console.log("Valor de campc2:", campc2);
-
 
 const cargarCuentos = (documentos) => {
+    const campc1 = document.getElementById('campoUno');
+    const campc2 = document.getElementById('campoDos');
+    const cancelarEdi = document.getElementById('cancelBtn');
+    const contenedorAll = document.getElementById('contenedor');
+    
+    if (cancelarEdi !== null) {
+        cancelarEdi.addEventListener('click',hideEdita);
+    }
 
     if (documentos.length > 0){  
         
@@ -168,9 +169,6 @@ function enviar(doc) {
     window.location.href = `./html/reproducir.html?doc=${doc}`;
 }
 
-if (cancelarEdi !== null) {
-    cancelarEdi.addEventListener('click',hideEdita);
-}
 
 
 db.collection('audio').orderBy('titulo', 'asc').onSnapshot((snapshot) => {
