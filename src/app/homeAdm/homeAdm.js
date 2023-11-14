@@ -160,7 +160,7 @@ function hideEdita(){
 
 }
 function enviar(doc) {
-    window.location.href = `./../pages/html/reproducir.html?doc=${doc}`;
+    window.location.href = `./../pages/html/reproduccirAdm.html?doc=${doc}`;
 }
 const endSesion = document.querySelector(".sesion");
 endSesion.addEventListener('click',cerrarSesion);

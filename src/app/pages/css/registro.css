@@ -43,7 +43,13 @@
   left: 90%;
   display: inline-block;
   box-sizing: border-box;
-  box-shadow: 10px 10px 15px 5px black;
+}
+.sesion:hover{
+  cursor: pointer;
+  transition: background-color 0.3s;
+  background: radial-gradient(ellipse at left top, #01081d, #011c38 80%);
+  border-radius: 50%;
+  box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.856); 
 }
 #sesionSalir{
   background-color: #01081d;

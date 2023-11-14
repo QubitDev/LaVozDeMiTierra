@@ -27,7 +27,7 @@
       </div>
       <header class="header">
         <div class="greeting">
-          <p><font size="16">La voz de mi Tierra</font></p>
+          <h1><font size="16">La voz de mi Tierra</font></h1>
 
         </div>
         <div class="sesionEnd">
@@ -38,7 +38,7 @@
               <a href="./../pages/html/Login.html">cerrar sesion</a>                        
           </ul>
           <ul class="opciones" id="opciones">
-              <a href="./../homeUsu/homeUsu.html">perfil usuario</a>                        
+              <a href="perfil.html">perfil usuario</a>                        
           </ul>
         </div>
       </header>
@@ -47,30 +47,31 @@
           <div class="menu__item" data-page="app">
             <i class="fas fa-home"></i> 
             <a href="./../../homeUsu/homeUsu.html">Inicio</a>
-        </div>
-        <div class="menu__item" data-page="registro" id="searchButton" onClick="mostrarBuscar()">
+          </div>
+          <div class="menu__item" data-page="registro" id="searchButton" onClick="mostrarBuscar()">
             <i class="fa-solid fa-magnifying-glass"></i> 
             <a href="javascript:void(0)" nclick="mostrarBuscar()">Buscar</a>
+          </div>
+          <div class="menu__item" data-page="app">
+            <i class="fa-regular fa-heart"></i>
+            <a href="favoritos.html">Favoritos</a>
+          </div>
+          <div class="menu__item" data-page="app">
+            <i class="fa-solid fa-ranking-star"></i>
+            <a href="Ranking.html">Ranking</a>
+          </div>
+          <div class="menu__item" data-page="app">
+            <i class="fa-solid fa-table-list"></i>
+            <a href="./../../MisListas/MisListas.html">Mis listas</a>
+          </div>
         </div>
-        <div class="menu__item" data-page="app">
-					<i class="fa-regular fa-heart"></i>
-					<a href="favoritos.html">Favoritos</a>
-				</div>
-				<div class="menu__item" data-page="app">
-					<i class="fa-solid fa-ranking-star"></i>
-					<a href="Ranking.html">Ranking</a>
-				</div>
-				<div class="menu__item" data-page="app">
-					<i class="fa-solid fa-table-list"></i>
-					<a href="./../../MisListas/MisListas.html">Mis listas</a>
-				</div>
       </div>
       <div class="container">
           <div class="card" id="card"></div>
       </div>
-    <div class="lista">
+      <div class="lista">
         <div class="ranking-container">
-          <h2> <i class="fa-solid fa-ranking-star"></i> Top 10 mejores audios</h2></i> 
+          <h2> <i class="fa-solid fa-ranking-star"></i> Top 10 mejores audios</h2></i>
           <div class="line"></div>
           <div class="scroll-container" id="rankingContainer">
             <div class="header__cards">
@@ -79,9 +80,9 @@
               <p class="header__c">Narrado por:</p>
               <p class="header__c">Reproducciones</p>
             </div>
-            <ul class="ranking-list">
-                  
-            </ul>
+            <div class="ranking-list">
+      
+            </div>
           </div>
         </div>
       </div>

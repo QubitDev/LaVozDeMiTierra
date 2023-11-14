@@ -31,18 +31,42 @@
     </div>
     <header class="header">
       <div class="greeting">
-
-        <h1>
-          <font size="8">La voz de mi Tierra</font>
-        </h1>
-
+        <h1><font size="16">La voz de mi Tierra</font></h1>
+      </div>
+      <div class="sesionEnd">
+        <img src="./../../../assets/images/IconoUsu.png" alt="Sesion" class="sesion"/>
+      </div>
+      <div id="sesionMenu">
+        <ul class="opciones" id="opciones">
+            <a href="./../pages/html/Login.html">cerrar sesion</a>                        
+        </ul>
+        <ul class="opciones" id="opciones">
+            <a href="perfil.html">perfil usuario</a>                        
+        </ul>
+      </div>
     </header>
 
     <div class="menu">
       <div class="content">
-        <div class="menu__item" data-page="app" id="home" onClick="showFilse('home')">
-          <i class="fas fa-home"></i>
+        <div class="menu__item" data-page="app">
+          <i class="fas fa-home"></i> 
           <a href="./../../homeUsu/homeUsu.html">Inicio</a>
+        </div>
+        <div class="menu__item" data-page="registro" id="searchButton" onClick="mostrarBuscar()">
+          <i class="fa-solid fa-magnifying-glass"></i> 
+          <a href="javascript:void(0)" nclick="mostrarBuscar()">Buscar</a>
+        </div>
+        <div class="menu__item" data-page="app">
+          <i class="fa-regular fa-heart"></i>
+          <a href="favoritos.html">Favoritos</a>
+        </div>
+        <div class="menu__item" data-page="app">
+          <i class="fa-solid fa-ranking-star"></i>
+          <a href="Ranking.html">Ranking</a>
+        </div>
+        <div class="menu__item" data-page="app">
+          <i class="fa-solid fa-table-list"></i>
+          <a href="./../../MisListas/MisListas.html">Mis listas</a>
         </div>
       </div>
     </div>
