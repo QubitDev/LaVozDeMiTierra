@@ -1,34 +1,34 @@
-const endSesion = document.querySelector(".sesion");
-endSesion.addEventListener('click',cerrarSesion);
-let cont = 1;
-function cerrarSesion(){
-    if(cont % 2 == 0){
-        document.getElementById('sesionMenu').style.display= 'none';
-    }
-    else{
-        document.getElementById('sesionMenu').style.display= 'block';
-    }
-    cont++;
-}
-const firebaseConfig = {
-  apiKey: "AIzaSyAldLR7JcdW58mZ_Dtr7HQku8Pn648_3f4",
-  authDomain: "qubit-2499b.firebaseapp.com",
-  projectId: "qubit-2499b",
-  storageBucket: "qubit-2499b.appspot.com",
-  messagingSenderId: "154442139152",
-  appId: "1:154442139152:web:14a0201532e21545006c95"
-};
+// const endSesion = document.querySelector(".sesion");
+// endSesion.addEventListener('click',cerrarSesion);
+// let cont = 1;
+// function cerrarSesion(){
+//     if(cont % 2 == 0){
+//         document.getElementById('sesionMenu').style.display= 'none';
+//     }
+//     else{
+//         document.getElementById('sesionMenu').style.display= 'block';
+//     }
+//     cont++;
+// }
+// const firebaseConfig = {
+//   apiKey: "AIzaSyAldLR7JcdW58mZ_Dtr7HQku8Pn648_3f4",
+//   authDomain: "qubit-2499b.firebaseapp.com",
+//   projectId: "qubit-2499b",
+//   storageBucket: "qubit-2499b.appspot.com",
+//   messagingSenderId: "154442139152",
+//   appId: "1:154442139152:web:14a0201532e21545006c95"
+// };
 
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-const db = firebase.firestore();
-const storage = firebase.storage();
-const auth = firebase.auth();
+// // Initialize Firebase
+// firebase.initializeApp(firebaseConfig);
+// const db = firebase.firestore();
+// const storage = firebase.storage();
+// const auth = firebase.auth();
 
 
 // Obtener referencia a la colección 'audio'
 const audioCollection = db.collection("audio");
-
+debugger;
 document.addEventListener("DOMContentLoaded", function () {
   console.log("DOM completamente cargado");
   // Obtener y mostrar los 10 mejores en reproducciones

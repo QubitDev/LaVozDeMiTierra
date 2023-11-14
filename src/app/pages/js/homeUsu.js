@@ -1,8 +1,4 @@
 
-// const botonAnterior = document.getElementById('botonAnterior');
-// const botonSiguiente = document.getElementById('botonSiguiente');
-
-
 db.collection('audio').onSnapshot((snapshot) => {
     cargarDocumentoCuento(snapshot.docs);
 });

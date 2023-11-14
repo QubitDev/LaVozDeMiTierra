@@ -1,7 +1,3 @@
-
-const eliminacion = document.getElementById('confirmacion');
-const eliminacionDos = document.getElementById('confirmacionDos');
-
 const cargarCuentos = (documentos) => {
     const campc1 = document.getElementById('campoUno');
     const campc2 = document.getElementById('campoDos');
@@ -15,7 +11,6 @@ const cargarCuentos = (documentos) => {
     if (documentos.length > 0){  
         
         documentos.forEach(documento => {
-            debugger;
             if(documento.data().tipoAudio == "Cuento"  && campc1 !== null){                
                 campc1.innerHTML += ` 
                         <div class="campC1" id="campC1">                

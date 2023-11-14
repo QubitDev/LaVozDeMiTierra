@@ -176,7 +176,7 @@ function updateAcceptAttribute() {
 
 function onCancel() {
   resetForm();
-  window.location.href = "./../html/homeAdm.html";
+  window.location.reload();
 }
 
 function resetForm() {
