@@ -75,14 +75,33 @@
         </main>
     
         
+
+        <main>
+            <section id="userProfile">
+                <div id="profilePictureContainer">
+                    <img src="default-profile-picture.jpg" alt="Profile Picture" id="profilePicture">
+                    <button id="changePictureButton" onclick="changeProfilePicture()">&#9998;</button>
+                </div>
+                <div id="userNameContainer">
+                    <span id="userName">Nombre de Usuario</span>
+                    <button id="changeNameButton" onclick="changeUserName()">&#9998;</button>
+                    <input type="text" id="newUserName" style="display: none;">
+                </div>
+                <button id="saveChangesButton" onclick="saveChanges()">Guardar Cambios</button>
+            </section>
+        </main>
+
  
         <!-- Firebase Storage -->
         <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
         <script src="./../../api/configuracion.js"></script>
+       <!-- 
         <script src="MisListas.js"></script>
         <script src="./../homeUsu/search.js"></script>
+       -->
 
+       <script src="./../../pages/js/Perfil.js"></script>
     </body>   
 </html>
  
