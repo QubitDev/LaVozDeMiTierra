@@ -97,5 +97,17 @@ const cargarDocumentos = (documentos) => {
 function enviar(doc) {
   window.location.href = `../html/reproducir.html?doc=${doc}`;
 }
-
 console.log(correoElectronico);
+
+//---------------------------------CONTADOR DE REPRODUCCIONES-------------------------------
+db.collection("audio").doc(docId).get().then((doc) => {
+  if (doc.exists) {
+    // Incrementar el contador de reproducciones cuando se reproduzca el audio
+    const audioDocRef = db.collection("audio").doc(docId);
+    audioDocRef.update({
+      reproducciones: firebase.firestore.FieldValue.increment(1)
+    });
+  } else {
+    console.log("No se encontró el documento en Firestore.");
+  }
+});

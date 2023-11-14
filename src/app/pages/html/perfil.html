@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" type="image/x-icon" href="./../../assets/images/LogoLDMT.ico"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"/>
+        <link rel="stylesheet" href="./../css/Perfil.css" />
+        <title>Perfil Usuario</title>
+        
+        <!-- Firebase App (la biblioteca base) - es obligatorio siempre -->
+        <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
+    </head>
+
+
+    <body>   
+        <div id="container">
+            <div class="LogoLDMT">
+                <img src="./../../../assets/images/LogoLDMT.ico" alt="Logo"class="logo"/>
+            </div>
+            <header id="header">
+                <div class="greeting">
+                    <p><font size="16">La voz de mi Tierra</font></p>
+                </div>
+                <div class="sesionEnd">
+                        <img src="./../../../assets/images/IconoUsu.png" alt="Sesion" class="sesion"/>
+                </div>
+                <div id="sesionMenu">
+                    <ul class="opciones" id="opciones">
+                        <a href="./../../pages/html/Login.html">cerrar sesion</a>                        
+                    </ul>
+                    <ul class="opciones" id="opciones">
+                        <a href="perfil.html">perfil usuario</a>                        
+                    </ul>
+                </div>
+            </header>
+            <div id="menu">
+                <div class="content">
+                    <div class="menu__item" data-page="app">
+                        <i class="fas fa-home"></i> 
+                        <a href="./../../homeUsu/homeUsu.html">Inicio</a>
+                    </div>
+                    <div class="menu__item" data-page="registro" id="searchButton" onClick="mostrarBuscar()">
+                        <i class="fa-solid fa-magnifying-glass"></i> 
+                        <a href="javascript:void(0)" nclick="mostrarBuscar()">Buscar</a>
+                    </div>
+                    <div class="menu__item" data-page="app">
+                        <i class="fa-regular fa-heart"></i>
+                        <a href="favoritos.html">Favoritos</a>
+                    </div>
+                    <div class="menu__item" data-page="app">
+                        <i class="fa-solid fa-ranking-star"></i>
+                        <a href="Ranking.html">Ranking</a>
+                    </div>
+                    <div class="menu__item" data-page="app">
+                        <i class="fa-solid fa-table-list"></i>
+                        <a href="./../../MisListas/MisListas.html">Mis listas</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <main>
+            <section id="userProfile">
+                <div id="profilePictureContainer">
+                    <img src="./../../../assets/images/Mascara.jpg" alt="Profile Picture" id="profilePicture">
+                    <button id="changePictureButton">&#9998;</button>
+                </div>
+                <div id="userNameContainer">
+                    <span id="userName">Nombre de Usuario</span>
+                    <button id="changeNameButton">&#9998;</button>
+                </div>
+                <button id="saveChangesButton">Guardar Cambios</button>
+            </section>
+        </main>
+    
+        
+
+        <main>
+            <section id="userProfile">
+                <div id="profilePictureContainer">
+                    <img src="default-profile-picture.jpg" alt="Profile Picture" id="profilePicture">
+                    <button id="changePictureButton" onclick="changeProfilePicture()">&#9998;</button>
+                </div>
+                <div id="userNameContainer">
+                    <span id="userName">Nombre de Usuario</span>
+                    <button id="changeNameButton" onclick="changeUserName()">&#9998;</button>
+                    <input type="text" id="newUserName" style="display: none;">
+                </div>
+                <button id="saveChangesButton" onclick="saveChanges()">Guardar Cambios</button>
+            </section>
+        </main>
+
+ 
+        <!-- Firebase Storage -->
+        <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+        <script src="./../../api/configuracion.js"></script>
+       <!-- 
+        <script src="MisListas.js"></script>
+        <script src="./../homeUsu/search.js"></script>
+       -->
+
+       <script src="./../../pages/js/Perfil.js"></script>
+    </body>   
+</html>
+ 
