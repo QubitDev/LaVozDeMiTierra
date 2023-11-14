@@ -350,7 +350,7 @@ h5{
   flex-direction: row;
 }
 
-.ranking-item span {
+h1 {
     font-weight: bold;
     margin-right: 14px;
     margin-top: 20px;
