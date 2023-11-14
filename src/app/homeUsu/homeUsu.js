@@ -1,7 +1,19 @@
 const contenedorCards = document.getElementById('card');
 const botonAnterior = document.getElementById('botonAnterior');
 const botonSiguiente = document.getElementById('botonSiguiente');
+const endSesion = document.querySelector(".sesion");
+endSesion.addEventListener('click',cerrarSesion);
 
+let cont = 1;
+function cerrarSesion(){
+    if(cont % 2 == 0){
+        document.getElementById('sesionMenu').style.display= 'none';
+    }
+    else{
+        document.getElementById('sesionMenu').style.display= 'block';
+    }
+    cont++;
+}
 db.collection('audio').onSnapshot((snapshot) => {
     cargarDocumentoCuento(snapshot.docs);
 });
@@ -79,16 +91,3 @@ firebase.auth().onAuthStateChanged(function(user) {
   });
   //**/////////////////////////////////////// */
 
-const endSesion = document.querySelector(".sesion");
-endSesion.addEventListener('click',cerrarSesion);
-
-let cont = 1;
-function cerrarSesion(){
-    if(cont % 2 == 0){
-        document.getElementById('sesionMenu').style.display= 'none';
-    }
-    else{
-        document.getElementById('sesionMenu').style.display= 'block';
-    }
-    cont++;
-}

@@ -60,47 +60,80 @@
                 </div>
             </div>
         </div>
-        <main>
-            <section id="userProfile">
-                <div id="profilePictureContainer">
-                    <img src="./../../../assets/imagenesUsu/Mascara.jpg" alt="Profile Picture" id="profilePicture">
-                    <button id="changePictureButton">&#9998;</button>
-                </div>
-                <div id="userNameContainer">
-                    <span id="userName">Nombre de Usuario</span>
-                    <button id="changeNameButton">&#9998;</button>
-                </div>
-                <button id="saveChangesButton">Guardar Cambios</button>
-            </section>
-        </main>
-    
-        
 
-        <main>
-            <section id="userProfile">
-                <div id="profilePictureContainer">
-                    <img src="default-profile-picture.jpg" alt="Profile Picture" id="profilePicture">
-                    <button id="changePictureButton" onclick="changeProfilePicture()">&#9998;</button>
-                </div>
-                <div id="userNameContainer">
-                    <span id="userName">Nombre de Usuario</span>
-                    <button id="changeNameButton" onclick="changeUserName()">&#9998;</button>
-                    <input type="text" id="newUserName" style="display: none;">
-                </div>
-                <button id="saveChangesButton" onclick="saveChanges()">Guardar Cambios</button>
-            </section>
-        </main>
+
+
+
+<!----------------------------------------------------PERFIL USUSARIO--------------------------------------------------->
+<main>
+    <section id="userProfile">
+        <div id="profilePictureContainer">
+            <img src="./../../../assets/imagenesUsu/Mascara.jpg" alt="Profile Picture" id="profilePicture">
+            <button id="changePictureButton">&#9998;</button>
+        </div>
+        <div id="userNameContainer">
+            <span id="userName">Nombre de Usuario</span>
+            <button id="changeNameButton">&#9998;</button>
+        </div>
+        <button id="saveChangesButton">Guardar Cambios</button>
+    </section>
+</main>
+
+
+
+<main>
+    <section id="userProfile">
+        <div id="profilePictureContainer">
+            <img src="default-profile-picture.jpg" alt="Profile Picture" id="profilePicture">
+            <button id="changePictureButton" onclick="changeProfilePicture()">&#9998;</button>
+        </div>
+        <div id="userNameContainer">
+            <span id="userName">Nombre de Usuario</span>
+            <button id="changeNameButton" onclick="changeUserName()">&#9998;</button>
+            <input type="text" id="newUserName" style="display: none;">
+        </div>
+        <button id="saveChangesButton" onclick="saveChanges()">Guardar Cambios</button>
+    </section>
+</main>
+    
+
+
+
+
+
+        <!-- -------------------------------------------------Buscador------------------------------------------- -->
+	<div class="container__search">
+
+		<div class="search__content">
+			<input type="search" class="search" id="search" placeholder="Search" />
+			<button class="search__button" id="search__button"><i class="fa-solid fa-magnifying-glass"></i></button>
+		</div>
+		<div class="popup__cards">
+
+		</div>
+		<div class="header__cards">
+			<p class="header__c">Titúlo:</p>
+			<p class="header__c">Procedencia Cultural:</p>
+			<p class="header__c">Narrado por:</p>
+			<p class="header__c">duración:</p>
+		</div>
+
+		<div class="coincident__container" id="coincident__container">
+
+		</div>
+
+		<div class="searchButton" id="searchButton" onClick="mostrarBuscar()">
+			<a href="javascript:void(0)" onclick="mostrarBuscar()"><i class="fa-solid fa-arrow-up"></i></a>
+		</div>
+	</div>
+        
 
  
         <!-- Firebase Storage -->
         <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
-        <script src="./../../api/configuracion.js"></script>
-       <!-- 
-        <script src="MisListas.js"></script>
-        <script src="./../homeUsu/search.js"></script>
-       -->
-
+        <script src="./../../../api/configuracion.js"></script>       
+        <script src="./../../homeUsu/search.js"></script>
        <script src="./../../pages/js/Perfil.js"></script>
     </body>   
 </html>
