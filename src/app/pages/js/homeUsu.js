@@ -1,15 +1,14 @@
-const contenedorCards = document.getElementById('card');
-const botonAnterior = document.getElementById('botonAnterior');
-const botonSiguiente = document.getElementById('botonSiguiente');
-const contenedorCards1 = document.getElementById('card1');
+
+// const botonAnterior = document.getElementById('botonAnterior');
+// const botonSiguiente = document.getElementById('botonSiguiente');
+
 
 db.collection('audio').onSnapshot((snapshot) => {
     cargarDocumentoCuento(snapshot.docs);
 });
 
-const iddoc = {};
-
 const cargarDocumentoCuento = (documentos) => {
+    const contenedorCards = document.getElementById('card');
     if (documentos.length > 0) {
         
         documentos.forEach(documento => {
@@ -42,6 +41,7 @@ db.collection('audio').onSnapshot((snapshot) => {
 
 
 const cargarDocumentoLeyenda = (documentos) => {
+    const contenedorCards1 = document.getElementById('card1');
     if (documentos.length > 0) {
         
         documentos.forEach(documento => {
