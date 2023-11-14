@@ -65,36 +65,67 @@
 
 
 <!----------------------------------------------------PERFIL USUSARIO--------------------------------------------------->
-<main>
-    <section id="userProfile">
-        <div id="profilePictureContainer">
-            <img src="./../../../assets/imagenesUsu/Mascara.jpg" alt="Profile Picture" id="profilePicture">
-            <button id="changePictureButton">&#9998;</button>
+<div class="bobyAll">
+        <div id="userProfile">
+            <div id="profilePictureContainer">
+                <img src="./../../../assets/imagenesUsu/llama.jpg" alt="Profile Picture" id="profilePicture">
+            </div>
+            <div id="userNameContainer">
+                <span id="userName">Nombre de Usuario</span>
+            </div>
+            <div id="userEditar">
+                <button id="changeNameButton">
+                    <i class="fa-regular fa-pen-to-square fa-2x"></i>
+                </button>
+            </div>
         </div>
-        <div id="userNameContainer">
-            <span id="userName">Nombre de Usuario</span>
-            <button id="changeNameButton">&#9998;</button>
-        </div>
-        <button id="saveChangesButton">Guardar Cambios</button>
-    </section>
-</main>
+    
+    
+        <div id="userProfileEditar">
+            <label for="Nombe Usario" class="form__label">Nombe Usario:</label>
+              <input
+                type="text"
+                class="form__control"
+                id="Nombe Usario"
+                name="Nombe Usario"
+                required
+                maxlength="50"
+                minlength="2"
+                placeholder="Nombe Usario"
+              />
+              <div class="menssage__error">
+                <p class="error-message" id="error_Nombe Usario"></p>
+              </div>
+              <div>
+                <button>
+                    <img src="./../../../assets/imagenesUsu/llama.jpg" alt="Profile Picture" id="profilePicture">
+                <img src="./../../../assets/imagenesUsu/capibara.png" alt="Profile Picture" id="profilePicture">
+                <img src="./../../../assets/imagenesUsu/CÓNDOR.png" alt="Profile Picture" id="profilePicture">
+                <img src="./../../../assets/imagenesUsu/Mascara.jpg" alt="Profile Picture" id="profilePicture">
+                <img src="./../../../assets/imagenesUsu/sapo.jpg" alt="Profile Picture" id="profilePicture">
 
+                </button>
+                
+              </div>
 
+           
 
-<main>
-    <section id="userProfile">
-        <div id="profilePictureContainer">
-            <img src="default-profile-picture.jpg" alt="Profile Picture" id="profilePicture">
-            <button id="changePictureButton" onclick="changeProfilePicture()">&#9998;</button>
         </div>
-        <div id="userNameContainer">
-            <span id="userName">Nombre de Usuario</span>
-            <button id="changeNameButton" onclick="changeUserName()">&#9998;</button>
-            <input type="text" id="newUserName" style="display: none;">
+        <div id="userProfileEdit">
+            <div id="profilePictureContainer">
+                <img src="default-profile-picture.jpg" alt="Profile Picture" id="profilePicture">
+                <button id="changePictureButton" onclick="changeProfilePicture()">&#9998;</button>
+            </div>
+            <div id="userNameContainer">
+                <span id="userName">Nombre de Usuario</span>
+                <button id="changeNameButton" onclick="changeUserName()">&#9998;</button>
+                <input type="text" id="newUserName" style="display: none;">
+            </div>
+            <button id="saveChangesButton" onclick="saveChanges()">Guardar Cambios</button>
         </div>
-        <button id="saveChangesButton" onclick="saveChanges()">Guardar Cambios</button>
-    </section>
-</main>
+    
+</div>
+
     
 
 
