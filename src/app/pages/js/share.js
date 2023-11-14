@@ -1,19 +1,28 @@
-// document.getElementById("buttonCancel").addEventListener("click", onCancel);
-// document.getElementById("buttonCopy").addEventListener("click", copyToClipboard);
-const popup = document.getElementById('popup');
-const linkShare = document.getElementById("__link__share");
-const input = document.createElement("textarea");
+const getAttributes = (function () {
+  const popup = document.getElementById('popup');
+  const linkShare = document.getElementById("__link__share");
+  const input = document.createElement("textarea");
+ 
+
+  return {
+    popup,
+    linkShare,
+    input,
+  };
+})();
+
+
 
 function togglePopup() {
-    popup.style.display = (popup.style.display === "none" || popup.style.display === "") ? "block" : "none";
+    getAttributes.popup.style.display = (popup.style.display === "none" || popup.style.display === "") ? "block" : "none";
 }
 
 function generateLinkShare() {
 
     var shareLink = window.location.origin + "/src/app/pages/html/reproducir.html?doc=" + docId;
 
-    linkShare.innerText = shareLink;
-    popup.style.display = (popup.style.display === "none" || popup.style.display === "") ? "block" : "none";
+    getAttributes.linkShare.innerText = shareLink;
+    getAttributes.popup.style.display = (popup.style.display === "none" || popup.style.display === "") ? "block" : "none";
 }
 
 
@@ -48,3 +57,14 @@ function shareOnGmail() {
 function openShareWindow(shareLink) {
   window.open(shareLink, "_blank", "width=600,height=400");
 }
+
+// module.exports = {
+//   getAttributes,
+//   togglePopup,
+//   generateLinkShare,
+//   copyToClipboard,
+//   shareOnFacebook,
+//   shareOnWhatsApp,
+//   shareOnGmail,
+//   openShareWindow,
+// };

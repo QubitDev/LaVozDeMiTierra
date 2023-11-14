@@ -161,6 +161,8 @@ function hideEdita(){
 
 }
 function enviar(doc) {
+    // localStorage.setItem("myDocument", doc);
+    // showFile('reproducir');
     window.location.href = `./html/reproducir.html?doc=${doc}`;
 }
 

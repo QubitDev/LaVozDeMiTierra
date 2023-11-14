@@ -1,90 +1,17 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./../css/ranking.css" />
-  <link rel="icon" type="image/x-icon" href="./../../../assets/images/LogoLDMT.ico"
-    href="./../../../assets/images/LogoLDMT.ico" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" />
-  <link rel="stylesheet" href="./../css/ranking.css"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" />
-  <title>Ranking</title>
-  <!-- Firebase -->
-  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
-</head>
-<body>
-  <div id="container">
-      <div class="profile-picture">
-        <img src="./../../../assets/images/LogoLDMT.jpg" alt="Imagen de perfil" class="logo" />
+<div class="lista">
+  <div class="ranking-container">
+    <h2> <i class="fa-solid fa-ranking-star"></i> Top 10 mejores audios</h2></i>
+    <div class="line"></div>
+    <div class="scroll-container" id="rankingContainer">
+      <div class="header__cards">
+        <p class="header__c">Titulo:</p>
+        <p class="header__c">Procedencia Cultural:</p>
+        <p class="header__c">Narrado por:</p>
+        <p class="header__c">Reproducciones</p>
       </div>
-      <header class="header">
-        <div class="greeting">
-          <p><font size="16">La voz de mi Tierra</font></p>
+      <div class="ranking-list">
 
-        </div>
-        <div class="sesionEnd">
-          <img src="./../../../assets/images/IconoUsu.png" alt="Sesion" class="sesion"/>
-        </div>
-        <div id="sesionMenu">
-          <ul class="opciones" id="opciones">
-              <a href="./../pages/html/Login.html">cerrar sesion</a>                        
-          </ul>
-          <ul class="opciones" id="opciones">
-              <a href="./../homeUsu/homeUsu.html">perfil usuario</a>                        
-          </ul>
-        </div>
-      </header>
-      <div class="menu">
-        <div class="content">
-          <div class="menu__item" data-page="app">
-            <i class="fas fa-home"></i> 
-            <a href="./../homeAdm/homeAdm.html">Inicio</a>
-        </div>
-        <div class="menu__item" data-page="registro" id="searchButton" onClick="mostrarBuscar()">
-            <i class="fa-solid fa-magnifying-glass"></i> 
-            <a href="javascript:void(0)" nclick="mostrarBuscar()">Buscar</a>
-        </div>
-        <div class="menu__item" data-page="app">
-            <i class="fa-regular fa-heart"></i>
-            <a href="ranking.html">Favoritos</a>
-        </div>
-        <div class="menu__item" data-page="app">
-            <i class="fa-solid fa-ranking-star"></i>
-            <a href="ranking.html">Ranking</a>
-        </div>
-        <div class="menu__item" data-page="app">
-            <i class="fa-solid fa-table-list"></i>
-            <a href="misListas.html">Mis listas</a>
-        </div>
       </div>
-      <div class="container">
-          <div class="card" id="card"></div>
-      </div>
-    <div class="lista">
-        <div class="ranking-container">
-          <h2> <i class="fa-solid fa-ranking-star"></i> Top 10 mejores audios</h2></i> 
-          <div class="line"></div>
-          <div class="scroll-container" id="rankingContainer">
-            <div class="header__cards">
-              <p class="header__c">Titulo:</p>
-              <p class="header__c">Procedencia Cultural:</p>
-              <p class="header__c">Narrado por:</p>
-              <p class="header__c">Reproducciones</p>
-            </div>
-            <div class="ranking-list">
-                  
-            </div>
-          </div>
-        </div>
-      </div>
-      <script src="./../js/ranking.js"></script>
-  </body>   
-</html>
-  
+    </div>
+  </div>
+</div>
