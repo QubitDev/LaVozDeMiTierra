@@ -146,7 +146,7 @@
     background-size: 150% 150%;
     background-position: top center;
     color: #fff;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.527);
 }
 
 #userProfile {
@@ -155,35 +155,58 @@
   height: 160px;
   left: 100px;
   width: 76%;
-  background: rgba(42, 97, 107, 0.49);
+  background: rgba(157, 174, 177, 0.49);
   padding: 20px;
   border-radius: 10px;
   display: flex;
-  font-size: 40px;
+  font-size: 20px;
 }
-
+.form__label{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+}
 
 #profilePicture {
   width: 150px;
   height: 150px;
   border-radius: 50%;
-  }
+}
+#profilePictureMain{
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+
+}
+
+
 #userNameContainer{
   position: relative;
   top: 30px;
   left: 100px;
 }
+.containerImages{
+  position: relative;
+  left: 20px;
+  margin-left: 20px;
+  display: flex;
+}
+
 #userEditar{
   position: relative;
   top: 30px;
   left: 55%;
+  height: 50px;
 }
 
-  
+#userEditar:hover{  
+  cursor: pointer;
+  transition: background-color 0.3s;  
+  box-shadow: 1px 1px 18px rgba(255, 255, 255, 0.925)
+}
 
 button {
   padding: 10px;
-  background-color: #01081d;
+  background-color: #01081d6e;
   color: white;
   border: none;
   border-radius: 5px;
@@ -191,15 +214,54 @@ button {
 }
 
 button:hover {
-  background-color: #01081d
+  background-color: #01081d6f
 }
-#userProfileEdit{
-  display: none;
+.titleChage{
+  position: relative;
+  left: 35%;
+}
+
+.button__submit{
+  position: relative;
+  left: 80%;
+  top: -10px;
+  width: 100px;
+}
+#submitButton:hover{
+    cursor: pointer;
+    border-radius:10px;
+    transition: background-color 0.3s;
+  border: 4px 4px 10px rgba(3, 3, 3, 0.595);
+  box-shadow: 1px 1px 18px rgba(255, 255, 255, 0.925)
+
+
+}
+
+.button__cancel{
+  position: relative;
+  left: 69%;
+  top: 25px;
+  width: 95px;
+}
+#cancelButton:hover{
+    cursor: pointer;
+    border-radius:10px;
+    transition: background-color 0.3s;
+  box-shadow: 1px 1px 18px rgba(255, 255, 255, 0.925)
+
 }
 #userProfileEditar{
+  
+  position: relative;
+  left: 18%;
+  padding: 30px;
+  top: 10%;
+  width: 46%;
+  box-shadow: 1px 1px 18px rgba(255, 255, 255, 0.925);
   display: none;
 
-} 
+}
+
 
 
 /*-------------------------------------------------BUSCADOR-------------------------------------------------------------*/

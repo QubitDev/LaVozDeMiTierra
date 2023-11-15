@@ -253,10 +253,12 @@
   left: 200px;
 
 }
+
 .number{
   position: relative;
   left: 220px;
 }
+
 .deleteC{
   position: relative;
   height: 40px;
@@ -266,28 +268,12 @@
   border:#ffffff2d ;
   border-radius: 50%;
 }
+
 .deleteC:hover{
   cursor: pointer;
   transition: background-color 0.3s;  
   box-shadow: 1px 1px 18px rgba(255, 255, 255, 0.925)
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /*-------------------------------------------------BUSCADOR-------------------------------------------------------------*/
@@ -418,9 +404,7 @@
 	display: flex;
 	align-items: center;
 	font-size: 16px;
-
 	padding-left: 75px;
-
 }
 
 .header__c {

@@ -73,7 +73,7 @@ function restriccion(cadena){
   return answerDos;
 }
 
-db.collection('audio').limit(4).onSnapshot((snapshot) => {
+db.collection('audio').onSnapshot((snapshot) => {
   //console.log(snapshot.docs[0].data());
 
   cargarDocumentos(snapshot.docs);
@@ -83,9 +83,6 @@ const iddoc = {};
 
 const cargarDocumentos = (documentos) => {
   if (documentos.length > 0) {
-      ultimoDoc = documentos[documentos.length - 1];
-      primerDoc = documentos[0];
-
       contenedorCards.innerHTML = '';
 
       documentos.forEach(documento => {
@@ -110,7 +107,6 @@ const cargarDocumentos = (documentos) => {
 function enviar(doc) {
   window.location.href = `../html/reproducir.html?doc=${doc}`;
 }
-console.log(correoElectronico);
 
 //---------------------------------CONTADOR DE REPRODUCCIONES-------------------------------
 db.collection("audio").doc(docId).get().then((doc) => {

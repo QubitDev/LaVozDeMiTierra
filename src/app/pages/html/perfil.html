@@ -68,10 +68,10 @@
 <div class="bobyAll">
         <div id="userProfile">
             <div id="profilePictureContainer">
-                <img src="./../../../assets/imagenesUsu/llama.jpg" alt="Profile Picture" id="profilePicture">
+                <img src="./../../../assets/imagenesUsu/llama.jpg" alt="Profile Picture" id="profilePictureMain" class="imagenMain">
             </div>
             <div id="userNameContainer">
-                <span id="userName">Nombre de Usuario</span>
+
             </div>
             <div id="userEditar">
                 <button id="changeNameButton">
@@ -82,47 +82,45 @@
     
     
         <div id="userProfileEditar">
+            <h1 class="titleChage">Cambiar datos del usuario</h1>
             <label for="Nombe Usario" class="form__label">Nombe Usario:</label>
-              <input
-                type="text"
-                class="form__control"
-                id="Nombe Usario"
-                name="Nombe Usario"
-                required
-                maxlength="50"
+              <input type="text" class="form__control" id="NombeUsario" name="Nombe Usario" required maxlength="50"
                 minlength="2"
                 placeholder="Nombe Usario"
               />
               <div class="menssage__error">
                 <p class="error-message" id="error_Nombe Usario"></p>
               </div>
-              <div>
-                <button>
-                    <img src="./../../../assets/imagenesUsu/llama.jpg" alt="Profile Picture" id="profilePicture">
-                <img src="./../../../assets/imagenesUsu/capibara.png" alt="Profile Picture" id="profilePicture">
-                <img src="./../../../assets/imagenesUsu/CÓNDOR.png" alt="Profile Picture" id="profilePicture">
-                <img src="./../../../assets/imagenesUsu/Mascara.jpg" alt="Profile Picture" id="profilePicture">
-                <img src="./../../../assets/imagenesUsu/sapo.jpg" alt="Profile Picture" id="profilePicture">
-
+              <h2>Seleciona una imagen</h2>
+              <div class="containerImages">
+                <button class="primero">
+                    <img src="./../../../assets/imagenesUsu/llama.jpg" alt="Profile Picture" id="profilePicture" class="imagen1">
                 </button>
-                
+                <button class="segundo">
+                    <img src="./../../../assets/imagenesUsu/capibara.png" alt="Profile Picture" id="profilePicture" class="imagen2">
+                </button>
+                <button class="tercero">
+                    <img src="./../../../assets/imagenesUsu/CÓNDOR.png" alt="Profile Picture" id="profilePicture" class="imagen3">
+                </button>
+                <button class="cuarto">
+                    <img src="./../../../assets/imagenesUsu/Mascara.jpg" alt="Profile Picture" id="profilePicture" class="imagen4">
+                </button>
+                <button class="quinto">
+                    <img src="./../../../assets/imagenesUsu/sapo.jpg" alt="Profile Picture" id="profilePicture" class="imagen5">
+                </button>                               
               </div>
-
-           
-
-        </div>
-        <div id="userProfileEdit">
-            <div id="profilePictureContainer">
-                <img src="default-profile-picture.jpg" alt="Profile Picture" id="profilePicture">
-                <button id="changePictureButton" onclick="changeProfilePicture()">&#9998;</button>
+              <div class="button__cancel">
+                <button type="button" id="cancelButton">Cancelar</button>
+              </div>
+              <div class="button__submit">
+                <button type="button" id="submitButton">
+                    <i class="fa-solid fa-arrow-up-from-bracket"></i> Actualizar
+                </button>
             </div>
-            <div id="userNameContainer">
-                <span id="userName">Nombre de Usuario</span>
-                <button id="changeNameButton" onclick="changeUserName()">&#9998;</button>
-                <input type="text" id="newUserName" style="display: none;">
-            </div>
-            <button id="saveChangesButton" onclick="saveChanges()">Guardar Cambios</button>
+              
         </div>
+        
+       
     
 </div>
 

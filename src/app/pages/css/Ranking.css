@@ -161,6 +161,9 @@ a {
   text-decoration: none;
 }
 
+
+
+/********************************************************Ranking*******************************************************/
 h2{
   color: #fbfbfc;
   font-family: Arial, Helvetica;
@@ -279,9 +282,12 @@ margin-left: 3%;
 padding-left: 13px;
 max-width: 100%; 
 height: auto; 
-
 }
-
+.imageF:hover{
+  cursor: pointer;
+  transition: background-color 0.3s;  
+  box-shadow: 1px 1px 18px rgba(255, 255, 255, 0.925)
+}
 h4{
 color: #f6f8fb;
 font-family: Arial, Helvetica, sans-serif;
