@@ -175,14 +175,11 @@ a{
   position: fixed;
   top: 130px;
   left: 250px;
-
   width: 75%;
   height: 75%;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
-
   background-color: #0000006b;
   color: #fff;
   font-size: 16px;
@@ -256,7 +253,6 @@ form {
   margin-bottom: 5px;
   font-size: 16px;
   color: #ffffff;
-  /* text-shadow: 0 0 5px rgb(3, 103, 53) ,0 0 5px red, 0 0 5px rgb(89, 0, 255); */
  text-shadow: 2px 2px 5px #4a0c0c;
 }
 

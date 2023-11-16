@@ -53,10 +53,8 @@ audioInput.addEventListener("change", function () {
       const minutes = parseFloat(duration);
 
       if (!isNaN(minutes) && minutes >= 3 && minutes <= 20) {
-        durationField.textContent = duration; 
-        
+        durationField.textContent = duration;         
       }
-
       const maxSizeInBytes = 30 * 1024 * 1024*2; 
       const peso = selectedAudioFile.size;
 

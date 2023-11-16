@@ -7,7 +7,6 @@ const tipo = document.getElementById("tipo__audio");
 const  titulo = document.getElementById("titulo__audio");
 const narradorAudio = document.getElementById("narrador");
 const musicaF = document.getElementById("musica");
-
 const audioElement = document.getElementById("audioE");
 const textContentElement = document.getElementById("text_content");
 const endSesion = document.querySelector(".sesion");
@@ -64,7 +63,6 @@ function getDocument(direccion){
       return "./../../../assets/textos/"+ direccionT+".txt";      
     }
   }
-  
 
 }
 function restriccion(cadena){
@@ -85,7 +83,6 @@ const cargarDocumentos = (documentos) => {
   if (documentos.length > 0) {     
 
       contenedorCards.innerHTML = '';
-
       documentos.forEach(documento => {
           //iddoc1.doc1 = documento.data().id;
           contenedorCards.innerHTML += `
@@ -95,15 +92,12 @@ const cargarDocumentos = (documentos) => {
             </div>
             <figure>
               <img src="${documento.data().imageURL}" width="160px" height="160px">
-            </figure>
-            
-          </div>
-          
+            </figure>            
+          </div>          
           `;
       });
   }
 }
-
 
 function enviar(doc) {
   window.location.href = `../html/reproduccirAdm.html?doc=${doc}`;

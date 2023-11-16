@@ -6,7 +6,7 @@
   position: absolute;
   top:3%; 
   left: 2%; 
-  z-index: 9999;
+  z-index: 9998;
   display: inline-block;
   box-sizing: border-box;
   box-shadow: 10px 10px 15px 5px black;
@@ -34,12 +34,12 @@
   top: 0;
   left: 0;
   right: 0;
-  z-index: 999; /* Asegura que esté por delante de otros elementos */
+  /* Asegura que esté por delante de otros elementos */
   padding: 10px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  z-index: 9998;
+  z-index: 9997;
   background: radial-gradient(ellipse at right top, #647c74, #587a7c,#15242e,  #3a615e,#749e8a 80%);
   background-size: 150% 150%;
   background-position: top center;
@@ -114,7 +114,8 @@ a{
   color:#ffffff;
   text-decoration: none;
 }
-  .sesion{
+  
+.sesion{
     border-radius: 50%;
     height: 40px;
     width: 40px;
@@ -133,19 +134,20 @@ a{
   }
   
 
-<!--------------------------------------------------HOME AMINISTRADOR-------------------------------------->
+<!-----------------------------------------------------HOME AMINISTRADOR-------------------------------------->
 
 
-
-#all{  
+#pantalla{
+  padding: 14px;
+  margin-left: 1%;
+  position: fixed;
+  top: 107px;
+  left: 208px;
   height: 100%;
-  width: 100%;
-  font-size: 16;
-  font-family: Arial, Helvetica, sans-serif;
-  position: absolute;
-  top: 0%; 
-  left: 0%;
-  display: none;
+  width: 100%;     
+  padding: 10px;
+  background : linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0, 0.5));
+  z-index: 9999;
 }
 
 #confirmacionDos{
@@ -214,7 +216,12 @@ a{
 
 
 
-
+.form__control{
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 2.5px;
+}
 
 #contenedor{
     padding: 14px;

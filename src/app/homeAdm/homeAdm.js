@@ -79,10 +79,7 @@ const cargarCuentos = (documentos) => {
             `;            
             }           
         }); 
-
-        conedorAll.innerHTML += `
-            <div id="all"></div> 
-        `; 
+ 
     }
 }
 function eliminar(id,cadena){
@@ -92,15 +89,14 @@ function eliminar(id,cadena){
 }
 
 function editar(id,titulo,procedenciaSE,narradorSE,muscia_fondoSE){
-    document.getElementById('editarAll').style.display = 'block';
-    document.getElementById('all').style.display = 'block';
-    document.getElementById('all').style.background = 'linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0, 0.5))';
+    document.getElementById('editarAll').style.display = 'block';   
     
     document.getElementById('titulo_audio').value = titulo;
     document.getElementById('procedenciaCul').value = procedenciaSE;
     document.getElementById('narradorE').value = narradorSE;
     document.getElementById('musicafondo').value = muscia_fondoSE;
-
+    document.getElementById('all').style.display = 'block';
+    document.getElementById('all').style.background = 'linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0, 0.5))';
     const subirAc =document.getElementById('submitButton');
     subirAc.onclick=function(){
         var cambio = db.collection('audio').doc(id);
@@ -108,20 +104,18 @@ function editar(id,titulo,procedenciaSE,narradorSE,muscia_fondoSE){
         var procedenciaP = document.getElementById('procedenciaCul').value;
         var narradorN = document.getElementById('narradorE').value;
         var muscia_fondoM = document.getElementById('musicafondo').value;
-        return cambio.update({
-        titulo: tituloT,
-        procedencia: procedenciaP,
-        narrador: narradorN,
-        muscia_fondo: muscia_fondoM
+        cambio.update({
+        titulo: tituloT.value,
+        procedencia: procedenciaP.value,
+        narrador: narradorN.value,
+        muscia_fondo: muscia_fondoM.value
     })
     
     }
     
 }
 function genConfirmar(cadena){
-    document.getElementById('all').style.display = 'block';
-    document.getElementById('all').style.background = 'linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0, 0.5))';
-
+    
     if(cadena=="Cuento"){
         document.getElementById('confirmacion').style.display = 'block'; 
         document.getElementById('confirmacion').style.zIndex = '9999';
@@ -132,7 +126,8 @@ function genConfirmar(cadena){
     }
         
     }
-   
+    document.getElementById('all').style.display = 'block';
+    document.getElementById('all').style.background = 'linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0, 0.5))';
 
 }
 
@@ -175,3 +170,37 @@ function cerrarSesion(){
     }
     cont++;
 }
+
+
+function validateInput(inputElement) {
+    const inputValue = inputElement.value.trim(); // Eliminar espacios en blanco al principio y al final
+    const placeholderText = inputElement.getAttribute("placeholder");
+  
+    if (!inputValue) {
+      // // El campo está vacío después de eliminar espacios en blanco
+      // onMessagePopup(`❌¡Error!\nFaltan Datos.`, 450);
+      inputElement.value = '';
+      return;
+    }
+  
+    // Comprueba si el primer carácter es una letra
+    if (!/^[a-zA-Z]/.test(inputValue)) {
+      onMessagePopup(`❌¡Error!\nNo puede contener caracteres especiales.`, 450);
+      inputElement.value = '';
+      return;
+    }
+  
+      // Comprueba si el valor contiene números
+      if (/\d/.test(inputValue)) {
+        onMessagePopup(`❌¡Error!\n${placeholderText} no puede contener números.`, 450);
+        inputElement.value = '';
+        return;
+      }
+  
+    // Comprueba si el valor contiene caracteres no válidos después de eliminar un carácter
+    /*if (!/^[a-zA-Z\s]+$/.test(inputValue)) {
+      onMessagePopup(`❌¡Error!\nNo puede contener caracteres especiales.`, 450);
+      inputElement.value = '';
+      return;
+    }*/
+  }
