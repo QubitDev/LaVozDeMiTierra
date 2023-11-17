@@ -331,7 +331,6 @@ h5{
   font-size: 17px;
   margin-left: 89px;
   margin-right: 5px;
-  display: inline-block; 
   margin-top: 10px;
   padding-left: 387px;
   margin-bottom: 10px;
@@ -402,6 +401,7 @@ padding: 10px;
 display: flex;
 align-items: center;
 font-size: 16px;
+padding-left: 259px;
 margin-left: -220px;
 
 }
