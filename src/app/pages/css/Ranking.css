@@ -245,7 +245,7 @@ padding-top: 2%;
 
 }
 .ranking-list {
-  list-style-type: none;
+ list-style-type: none;
   padding: 0;
   margin-top: -12px;
   margin-left: 35px;
@@ -265,25 +265,25 @@ padding-top: 2%;
 
 }
 .descripcion{
-width: 97.5%;
-max-width: 99%;
-color: white;
-text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
-padding: 11px;
-margin-left: -10px;
-align-items: center;
+  width: 97.5%;
+  max-width: 99%;
+  color: white;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
+  padding: 11px;
+  margin-left: -10px;
+  align-items: center;
 
 }
 
 .caja {
-display: flex;
-flex-direction: row;
-margin: 1%;
-padding: 1px;
-width: 90px;
-height: 90px;
-margin-right: 0px;
-padding-left: 10px;
+  display: flex;
+  flex-direction: row;
+  margin: 1%;
+  padding: 1px;
+  width: 90px;
+  height: 90px;
+  margin-right: 0px;
+  padding-left: 10px;
 
 }
 .imagen {
@@ -309,6 +309,7 @@ h4{
   margin-bottom: 10px;
   display: flex;
   flex-wrap: nowrap;
+
 }
 
 h3{
@@ -331,6 +332,7 @@ h5{
   font-size: 17px;
   margin-left: 89px;
   margin-right: 5px;
+  display: inline-block; 
   margin-top: 10px;
   padding-left: 387px;
   margin-bottom: 10px;
@@ -356,7 +358,7 @@ h6{
 h1 {
   font-weight: bold;
   margin-right: 8px;
-  margin-top: 20px;
+  margin-top: 49px;
   font-size: 17px;
 }
 
@@ -392,18 +394,17 @@ margin-top: 11%;
 }
 
 .header__cards {
-width: 97.5%;
-max-width: 99%;
-color: white;
-text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
-text-align:justify;
-padding: 10px;
-display: flex;
-align-items: center;
-font-size: 16px;
-padding-left: 259px;
-margin-left: -220px;
-
+  width: 97.5%;
+  max-width: 99%;
+  color: white;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
+  text-align:justify;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  padding-left: 259px;
+  margin-left: -220px;
 }
 .scroll-container {
 font-family: Arial, Helvetica, sans-serif;
