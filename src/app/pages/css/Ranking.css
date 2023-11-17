@@ -33,6 +33,23 @@
   box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.856); 
 }
 
+#menu {  
+  font-family: Arial, Helvetica, sans-serif;  
+  width: 220px;  
+  padding: 14px;
+  position: fixed;
+  top: 102px;
+  left: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+    /* justify-content: ; */
+  background: radial-gradient(ellipse at bottom right, #647c74, #587a7c, #15242e,  #3a615e,#749e8a 80%);
+  background-size: 150% 150%;
+  background-position: top center;
+  color: #fff;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
+}
 .menu {
   font-family: Arial, Helvetica, sans-serif;
   width: 200px;
@@ -230,8 +247,8 @@ padding-top: 2%;
 .ranking-list {
   list-style-type: none;
   padding: 0;
-  margin-top: -72px;
-  margin-left: 17px;
+  margin-top: -12px;
+  margin-left: 35px;
   align-items:center;
 
 
@@ -239,9 +256,8 @@ padding-top: 2%;
 
 .ranking-item {
   display: flex;
-  align-items: center;
   justify-content: space-around;
-  padding: 10px 0;
+  padding: 11px 0;
   margin-top: 11px;
   text-align: center;
   flex-wrap: nowrap;
@@ -253,16 +269,10 @@ width: 97.5%;
 max-width: 99%;
 color: white;
 text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
-text-align: center;
-padding: 10px;
-display: flex;
+padding: 11px;
+margin-left: -10px;
 align-items: center;
-font-size: 16px;
-margin-left: -18px;
-line-height: 1.5;
-justify-content: space-around;
-flex-direction:unset;
-flex-wrap: row;
+
 }
 
 .caja {
@@ -289,59 +299,64 @@ height: auto;
   box-shadow: 1px 1px 18px rgba(255, 255, 255, 0.925)
 }
 h4{
-color: #f6f8fb;
-font-family: Arial, Helvetica, sans-serif;
-font-size: 17px;
-margin-left: 89px;
-margin-right: 5px;
-display: inline-block; 
-white-space: nowrap;
-margin-top: 10px;
-padding-left: 10px;
-margin-bottom: 10px;
-display: flex;
-text-align:center;
-flex-wrap: nowrap;
-flex-direction: row;
-text-align: left;
+  color: #f6f8fb;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 17px;
+  margin-left: 255px;
+  margin-right: 5px; 
+  margin-top: 17px;
+  padding-left: 361px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-wrap: nowrap;
 }
 
 h3{
-color: #f6f8fb;
-font-family: Arial, Helvetica, sans-serif;
-font-size: 17px;
-margin-left: 89px;
-margin-right: 5px;
-display: inline-block; 
-white-space: nowrap;
-margin-top: 10px;
-padding-left: 10px;
-margin-bottom: 10px; 
-text-align: center;
-flex-wrap: nowrap;
-flex-direction: row;
+  font-weight: bold;
+  margin-right: 91px;
+  margin-top: 33px;
+  font-size: 17px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  margin-left: 20px;
 
 }
 h5{
-color: #f6f8fb;
-font-family: Arial, Helvetica, sans-serif;
-font-size: 17px;
-margin-left: 89px;
-margin-right: 5px;
-display: inline-block; 
-white-space: nowrap;
-margin-top: 10px;
-padding-left: 10px;
-margin-bottom: 10px;
-display: flex;
-text-align: center;
-flex-wrap: nowrap;
-flex-direction: row;
+  color: #f6f8fb;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 17px;
+  margin-left: 89px;
+  margin-right: 5px;
+  display: inline-block; 
+  margin-top: 10px;
+  padding-left: 387px;
+  margin-bottom: 10px;
+  margin: -37px;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+}
+h6{
+  font-weight: bold;
+  margin-right: 91px;
+  margin-top: -29px;
+  font-size: 17px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  margin-left: 990px;
 }
 
 h1 {
   font-weight: bold;
-  margin-right: 14px;
+  margin-right: 8px;
   margin-top: 20px;
   font-size: 17px;
 }
@@ -387,8 +402,7 @@ padding: 10px;
 display: flex;
 align-items: center;
 font-size: 16px;
-padding-left: 259px;
-margin-left: 33px;
+margin-left: -220px;
 
 }
 .scroll-container {
@@ -424,4 +438,6 @@ background-color: rgb(104, 207, 137); /* Color de la barra de desplazamiento */
 .scroll-container::-webkit-scrollbar-track {
 background-color: rgb(221, 230, 231); /* Color del riel de la barra de desplazamiento */
 }
-
+.ranking-item .descripcion {
+  flex-grow: 1; /* Permite que la descripción ocupe el espacio restante */
+}
