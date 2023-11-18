@@ -11,6 +11,7 @@ const musicaF = document.getElementById("musica");
 
 const audioElement = document.getElementById("audioE");
 const textContentElement = document.getElementById("text_content");
+
 const endSesion = document.querySelector(".sesion");
 endSesion.addEventListener('click',cerrarSesion);
 

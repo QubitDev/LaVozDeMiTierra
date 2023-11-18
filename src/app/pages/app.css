@@ -102,23 +102,22 @@ a {
 	text-decoration: none;
 }
 
-
 .sesion {
-	border-radius: 50%;
-	height: 40px;
-	width: 40px;
-	position: fixed;
-	top: 23px;
-	left: 90%;
-	display: inline-block;
-	box-sizing: border-box;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    position: fixed;
+    top: 23px;
+    left: 90%;
+    display: inline-block;
+    box-sizing: border-box;
 }
 
 .sesion:hover {
-	cursor: pointer;
-	transition: background-color 0.3s;
-	background: radial-gradient(ellipse at left top, #01081d, #011c38 80%);
-	border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    background: radial-gradient(ellipse at left top, #01081d, #011c38 80%);
+    border-radius: 50%;
 	box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.856);
 }
 

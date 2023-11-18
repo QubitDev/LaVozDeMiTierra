@@ -8,6 +8,19 @@ const ranking = document.getElementById("ranking_audios");
 const favoritos = document.getElementById("favoritos");
 const listas = document.getElementById("mis_listas");
 
+const endSesion = document.querySelector(".sesion");
+endSesion.addEventListener('click',cerrarSesion);
+
+let cont = 1;
+function cerrarSesion(){
+    if(cont % 2 == 0){
+        document.getElementById('sesionMenu').style.display= 'none';
+    }
+    else{
+        document.getElementById('sesionMenu').style.display= 'block';
+    }
+    cont++;
+}
 
 let pantallaActual = null;
 
@@ -108,18 +121,6 @@ function loadJS(file) {
   
 
 //   cerrar sesion
-
-let cont = 1;
-function cerrarSesion(){
-    if(cont % 2 == 0){
-        document.getElementById('sesionMenu').style.display= 'none';
-    }
-    else{
-        document.getElementById('sesionMenu').style.display= 'block';
-    }
-    cont++;
-}
-
 function removeScript(scriptId) {
 	const scripts = document.querySelectorAll(`[data-script-id="${scriptId}"]`);
     scripts.forEach((script) => {
@@ -127,9 +128,9 @@ function removeScript(scriptId) {
 	});
 }
 
-firebase.auth().onAuthStateChanged(function(user) {
-    if (user) {
-      window.location.href = "homeUsu.html";
+firebase.auth().onAuthStateChanged(function(user1) {
+    if (user1) {
+      window.location.href = `${user}.html`;
     } else {
       window.location.href = "Login.html";
     }
