@@ -94,6 +94,8 @@ function actualizar(){
             </div>
             <button id="saveChangesButton" onclick="saveChanges()">Guardar Cambios</button>
         </div>
+
+
 document.addEventListener("DOMContentLoaded", function () {
     // Aquí puedes agregar lógica para cambiar la foto de perfil, el nombre de usuario, etc.
 // Lógica para cambiar la foto de perfil, el nombre de usuario, etc.

@@ -1,3 +1,15 @@
+#pantalla{
+  padding: 14px;
+  margin-left: 1%;
+  position: absolute;
+  top: 108px;
+  left: 208px;
+  height: 85%;
+  width: 85%;   
+  background : linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0, 0.5));
+  z-index: 1;
+  display: none;
+}
 .logo {
   border-radius: 50%;
   padding-top: 0px;
@@ -134,49 +146,11 @@ a{
   }
   
 
-<!-----------------------------------------------------HOME AMINISTRADOR-------------------------------------->
+/**********************************************************HomeAdmi**********************************************************/
 
 
-#pantalla{
-  padding: 14px;
-  margin-left: 1%;
-  position: fixed;
-  top: 107px;
-  left: 208px;
-  height: 100%;
-  width: 100%;     
-  padding: 10px;
-  background : linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0, 0.5));
-  z-index: 9999;
-}
 
-#confirmacionDos{
-  padding-left: 50px;
-  height: 80px;
-  width: 300px;
-  font-size: 16;
-  font-family: Arial, Helvetica, sans-serif;
-  position: fixed;
-  top: 50%; 
-  left: 50%; 
-  display: none;
-  background: radial-gradient(ellipse at right top, #647c74, #587a7c,#15242e,  #3a615e,#749e8a 80%);
-  background-size: 150% 150%;
-  background-position: top center;
-  color: #fff;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
-  
-  .boton2{
-    position: relative;
-    left: 2%;
-  }
-  .botonDos{
-    position: relative;
-    left: 45%;
-    top: 0px;
-  }
 
-}
 .texto{
   position: relative;
   top: 2px;
@@ -209,6 +183,33 @@ a{
     left: 45%;
     top: 0px;
   }
+}
+#confirmacionDos{
+  padding-left: 50px;
+  height: 80px;
+  width: 300px;
+  font-size: 16;
+  font-family: Arial, Helvetica, sans-serif;
+  position: fixed;
+  top: 50%; 
+  left: 50%; 
+  display: none;
+  background: radial-gradient(ellipse at right top, #647c74, #587a7c,#15242e,  #3a615e,#749e8a 80%);
+  background-size: 150% 150%;
+  background-position: top center;
+  color: #fff;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
+  
+  .boton2{
+    position: relative;
+    left: 2%;
+  }
+  .botonDos{
+    position: relative;
+    left: 45%;
+    top: 0px;
+  }
+
 }
 
 /* Estilos para el margen superior del contenido principal para dejar espacio para el encabezado */

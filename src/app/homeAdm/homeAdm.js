@@ -114,8 +114,23 @@ function editar(id,titulo,procedenciaSE,narradorSE,muscia_fondoSE){
     }
     
 }
+
+/**
+ * db.collection("audio").doc(docId).get().then((doc) => {
+  if (doc.exists) {
+    // Incrementar el contador de reproducciones cuando se reproduzca el audio
+    const audioDocRef = db.collection("audio").doc(docId);
+    audioDocRef.update({
+      reproducciones: firebase.firestore.FieldValue.increment(1)
+    });
+  } else {
+    console.log("No se encontró el documento en Firestore.");
+  }
+});
+ */
 function genConfirmar(cadena){
-    
+    document.getElementById('pantalla').style.display = 'block';
+
     if(cadena=="Cuento"){
         document.getElementById('confirmacion').style.display = 'block'; 
         document.getElementById('confirmacion').style.zIndex = '9999';
@@ -126,9 +141,6 @@ function genConfirmar(cadena){
     }
         
     }
-    document.getElementById('all').style.display = 'block';
-    document.getElementById('all').style.background = 'linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0, 0.5))';
-
 }
 
 function hideConfirma(cadena){ 
@@ -142,15 +154,12 @@ function hideConfirma(cadena){
         }   
 
     }
-    document.getElementById('all').style.display = 'none';    
-    document.getElementById('all').style.background = '';
-
-    
+    document.getElementById('pantalla').style.display = 'none';        
 }
+
 function hideEdita(){
     document.getElementById('editarAll').style.display = 'none';
-    document.getElementById('all').style.display = 'none';    
-    document.getElementById('all').style.background = '';
+    document.getElementById('pantalla').style.display = 'none';    
 
 
 }
