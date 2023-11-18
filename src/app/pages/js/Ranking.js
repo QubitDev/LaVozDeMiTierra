@@ -37,7 +37,7 @@ audioCollection.orderBy("reproducciones", "desc").limit(10).get().then((querySna
       <h3 id="titulo${index}" style="text-align: right;">${audio.titulo}</h3>
       <h5 id="procedencia${index}" style="text-align: right;">${audio.procedencia}</h5>
       <h4 id="narrador${index}" style="text-align: right;">${audio.narrador}</h4>
-      <h3 id="reproducciones${index}" style="text-align: right;">${audio.reproducciones}</h3>
+      <h6 id="reproducciones${index}" style="text-align: right;">${audio.reproducciones}</h6>
     </div>
     `;
 
