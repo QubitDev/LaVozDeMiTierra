@@ -85,7 +85,7 @@ const cargarCuentos = (documentos) => {
 function eliminar(id,cadena){
     db.collection("audio").doc(id).delete();
     hideConfirma(cadena);
-    window.location.href("homeAdm.html");
+    window.location.reload();
 }
 
 function editar(id,titulo,procedenciaSE,narradorSE,muscia_fondoSE){
@@ -99,7 +99,7 @@ function editar(id,titulo,procedenciaSE,narradorSE,muscia_fondoSE){
     document.getElementById('all').style.background = 'linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0, 0.5))';
     const subirAc =document.getElementById('submitButton');
     subirAc.onclick=function(){
-        var cambio = db.collection('audio').doc(id);
+        var cambio = db.collection("audio").doc(id);
         var tituloT = document.getElementById('titulo_audio').value;
         var procedenciaP = document.getElementById('procedenciaCul').value;
         var narradorN = document.getElementById('narradorE').value;
