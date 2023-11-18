@@ -110,6 +110,7 @@ const cargarDocumentos = (documentos) => {
 
 
 function enviar(doc) {
+  
   const  newData = [doc, receivedArray[1]];
   const encodedArray = newData.map(item => encodeURIComponent(item)).join(",");
   window.location.href = `../html/reproducir.html?data=${newData}`;
@@ -118,7 +119,7 @@ function enviar(doc) {
 db.collection("audio").doc(receivedArray[0]).get().then((doc) => {
   if (doc.exists) {
     // Incrementar el contador de reproducciones cuando se reproduzca el audio
-    const audioDocRef = db.collection("audio").doc(docId);
+    const audioDocRef = db.collection("audio").doc(receivedArray[0]);
     audioDocRef.update({
       reproducciones: firebase.firestore.FieldValue.increment(1)
     });
