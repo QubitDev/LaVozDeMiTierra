@@ -9,13 +9,11 @@ const favoritos = document.getElementById("favoritos");
 const listas = document.getElementById("mis_listas");
 
 
-// const endSesion = document.querySelector(".sesion");
-const uploadedfiles = [];
 let pantallaActual = null;
 
 
 
-if(user){
+if (user) {
 	showFile(user);
 	
 	if(user === 'homeUsu'){
@@ -24,16 +22,25 @@ if(user){
 		ranking.style.display = 'block';
 		favoritos.style.display = 'block';
 		listas.style.display = 'block'; 
+		console.log(`user = ${user}`);
+		user = 'homeUsu';
+		console.log(`user = ${user}`);
 		document.title = `La Voz De Mi Tierra - ${user}`;
+		
 	}
 
-	if(user === 'homeAdm'){
+	if (user === 'homeAdm' || user === 'registro') {
+		// if(user === 'registro') user = 'homeAdm';
 		buttonBuscar.style.display ='none';
 		buttonRegister.style.display = 'block';
 		ranking.style.display = 'none';
 		favoritos.style.display = 'none';
 		listas.style.display = 'none'; 
+		console.log(`user = ${user}`);
+		user = 'homeAdm';
+		console.log(`user = ${user}`);
 		document.title = `La Voz De Mi Tierra - ${user}`;
+
 	}
 }
 
@@ -43,26 +50,23 @@ function showFile(file) {
 	
 	console.log("showFile ejecutado. file:", file, "pantallaActual:", pantallaActual);
 
-	console.log("pant = ",pantallaActual)
 	if (file === "home") {
-		// window.location.reload();
 		if (user === "homeUsu") {
-		  file = "homeUsu"; 
-		} else if (user === "homeAdm") {
-		  file = "homeAdm";
+			file = "homeUsu";
+			window.location.href = `./app.html?user=${'homeUsu'}`
+		} else if (user === "homeAdm" || user === 'registro') {
+			file = "homeAdm";
+			window.location.href = `./app.html?user=${'homeAdm'}`
 		}
-		window.location.reload();
 	}
 	
 
 	if (file === pantallaActual) {
-		uploadedfiles = [];
-		window.location.reload();
 		return; 
 	}
 	
 	pantallaActual = file; 
-	  
+	  	console.log("pant = ",pantallaActual)
    	contentMain.innerHTML = "";
 	
 	  fetch(`./html/${file}.html`)
