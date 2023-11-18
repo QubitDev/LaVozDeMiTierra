@@ -1,6 +1,6 @@
 const urlParams = new URLSearchParams(window.location.search);
-const docId = urlParams.get("doc");
-//const docIdHome = urlParams.get("docHome");
+const data = urlParams.get("data");
+const receivedArray = data.split(",").map(item => decodeURIComponent(item));
 const contenedorCards = document.getElementById('card');
 const imagCen = document.querySelector(".imagenLC");
 const tipo = document.getElementById("tipo__audio");
@@ -11,7 +11,7 @@ const musicaF = document.getElementById("musica");
 const audioElement = document.getElementById("audioE");
 const textContentElement = document.getElementById("text_content");
 
-db.collection("audio").doc(docId).get().then((doc) => {
+db.collection("audio").doc(receivedArray[0]).get().then((doc) => {
   if (doc.exists) {
       tipo.innerText = doc.data().tipoAudio;
       titulo.innerText = doc.data().titulo;
@@ -95,10 +95,12 @@ const cargarDocumentos = (documentos) => {
 
 
 function enviar(doc) {
-  window.location.href = `../html/reproducir.html?doc=${doc}`;
+  const  newData = [doc, receivedArray[1]];
+  const encodedArray = newData.map(item => encodeURIComponent(item)).join(",");
+  window.location.href = `../html/reproducir.html?data=${newData}`;
 }
 //---------------------------------CONTADOR DE REPRODUCCIONES-------------------------------
-db.collection("audio").doc(docId).get().then((doc) => {
+db.collection("audio").doc(receivedArray[0]).get().then((doc) => {
   if (doc.exists) {
     // Incrementar el contador de reproducciones cuando se reproduzca el audio
     const audioDocRef = db.collection("audio").doc(docId);
@@ -109,3 +111,21 @@ db.collection("audio").doc(docId).get().then((doc) => {
     console.log("No se encontró el documento en Firestore.");
   }
 });
+
+//-------------------------------------------------- redirecciones
+function returnHome() {
+     window.location.href = `../app.html?user=${receivedArray[1]}`;
+}
+
+function favorite() {
+     window.location.href = `../app.html?user=${'favorito'}`;
+}
+
+function ranking() {
+     window.location.href = `../app.html?user=${'ranking'}`;
+}
+
+function myLists() {
+     window.location.href = `../app.html?user=${'misListas'}`;
+}
+

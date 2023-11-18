@@ -2,7 +2,6 @@ const urlParams = new URLSearchParams(window.location.search);
 const data = urlParams.get("data");
 const docID = urlParams.get("doc");
 const receivedArray = data.split(",").map(item => decodeURIComponent(item));
-console.log('datos: ',receivedArray) // [ "1", "2" ]
 const contenedorCards = document.getElementById('card');
 const imagCen = document.querySelector(".imagenLC");
 const tipo = document.getElementById("tipo__audio");
