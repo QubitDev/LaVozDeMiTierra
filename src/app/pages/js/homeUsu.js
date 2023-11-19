@@ -61,6 +61,8 @@ const cargarDocumentoLeyenda = (documentos) => {
 
 
 function enviar(doc) {
-    window.location.href = `./../pages/html/reproducir.html?doc=${doc}`;
+  const data = [doc, user]
+  const encodedArray = data.map(item => encodeURIComponent(item)).join(",");
+  window.location.href = `./html/reproducir.html?data=${encodedArray}`;
 }
 

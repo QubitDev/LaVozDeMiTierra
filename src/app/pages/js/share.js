@@ -11,15 +11,14 @@ const getAttributes = (function () {
   };
 })();
 
-
-
 function togglePopup() {
     getAttributes.popup.style.display = (popup.style.display === "none" || popup.style.display === "") ? "block" : "none";
 }
 
 function generateLinkShare() {
+    const encodedArray = receivedArray.map(item => encodeURIComponent(item)).join(",");
 
-    var shareLink = window.location.origin + "/src/app/pages/html/reproducir.html?doc=" + docId;
+    var shareLink = `${window.location.origin}/src/app/pages/html/reproducir.html?data=${encodedArray}`;
 
     getAttributes.linkShare.innerText = shareLink;
     getAttributes.popup.style.display = (popup.style.display === "none" || popup.style.display === "") ? "block" : "none";
@@ -28,7 +27,7 @@ function generateLinkShare() {
 
 function copyToClipboard() {
     var range = document.createRange();
-    range.selectNode(linkShare);
+    range.selectNode(getAttributes.linkShare);
 
     var selection = window.getSelection();
     selection.removeAllRanges();
@@ -40,17 +39,17 @@ function copyToClipboard() {
 }
 
 function shareOnFacebook() {
-  var facebookShareLink = "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(linkShare.textContent);
+  var facebookShareLink = "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(getAttributes.linkShare.textContent);
   openShareWindow(facebookShareLink);
 }
 
 function shareOnWhatsApp() {
-  var whatsappShareLink = "https://api.whatsapp.com/send?text=" + encodeURIComponent(linkShare.textContent);
+  var whatsappShareLink = "https://api.whatsapp.com/send?text=" + encodeURIComponent(getAttributes.linkShare.textContent);
   openShareWindow(whatsappShareLink);
 }
 
 function shareOnGmail() {
-  var gmailShareLink = "mailto:?subject=Check%20this%20out&body=" + encodeURIComponent(linkShare.textContent);
+  var gmailShareLink = "mailto:?subject=Check%20this%20out&body=" + encodeURIComponent(getAttributes.linkShare.textContent);
   openShareWindow(gmailShareLink);
 }
 

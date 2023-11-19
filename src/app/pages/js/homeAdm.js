@@ -161,9 +161,10 @@ function hideEdita(){
 
 }
 function enviar(doc) {
-    // localStorage.setItem("myDocument", doc);
-    // showFile('reproducir');
-    window.location.href = `./html/reproducir.html?doc=${doc}`;
+
+  const data = [doc, user]
+  const encodedArray = data.map(item => encodeURIComponent(item)).join(",");
+  window.location.href = `./html/reproducirAdm.html?data=${encodedArray}`;
 }
 
 

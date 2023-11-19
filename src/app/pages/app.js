@@ -8,32 +8,48 @@ const ranking = document.getElementById("ranking_audios");
 const favoritos = document.getElementById("favoritos");
 const listas = document.getElementById("mis_listas");
 
+const endSesion = document.querySelector(".sesion");
+endSesion.addEventListener('click',cerrarSesion);
 
-// const endSesion = document.querySelector(".sesion");
-const uploadedfiles = [];
+let cont = 1;
+function cerrarSesion(){
+    if(cont % 2 == 0){
+        document.getElementById('sesionMenu').style.display= 'none';
+    }
+    else{
+        document.getElementById('sesionMenu').style.display= 'block';
+    }
+    cont++;
+}
+
 let pantallaActual = null;
 
 
 
-if(user){
+if (user) {
 	showFile(user);
 	
-	if(user === 'homeUsu'){
+	if(user === 'homeUsu' || user === 'ranking' || user === 'favorito' || user === 'misListas'){
 		buttonRegister.style.display='none';
 		buttonBuscar.style.display = 'block';
 		ranking.style.display = 'block';
 		favoritos.style.display = 'block';
 		listas.style.display = 'block'; 
+		user = 'homeUsu';
 		document.title = `La Voz De Mi Tierra - ${user}`;
+		
 	}
 
-	if(user === 'homeAdm'){
+	if (user === 'homeAdm' || user === 'registro') {
+		// if(user === 'registro') user = 'homeAdm';
 		buttonBuscar.style.display ='none';
 		buttonRegister.style.display = 'block';
 		ranking.style.display = 'none';
 		favoritos.style.display = 'none';
 		listas.style.display = 'none'; 
+		user = 'homeAdm';
 		document.title = `La Voz De Mi Tierra - ${user}`;
+
 	}
 }
 
@@ -43,26 +59,23 @@ function showFile(file) {
 	
 	console.log("showFile ejecutado. file:", file, "pantallaActual:", pantallaActual);
 
-	console.log("pant = ",pantallaActual)
 	if (file === "home") {
-		// window.location.reload();
-		if (user === "homeUsu") {
-		  file = "homeUsu"; 
-		} else if (user === "homeAdm") {
-		  file = "homeAdm";
+		if (user === "homeUsu" || user === 'ranking' || user === 'favorito' || user === 'misListas') {
+			file = "homeUsu";
+			window.location.href = `./app.html?user=${'homeUsu'}`
+		} else if (user === "homeAdm" || user === 'registro') {
+			file = "homeAdm";
+			window.location.href = `./app.html?user=${'homeAdm'}`
 		}
-		window.location.reload();
 	}
 	
 
 	if (file === pantallaActual) {
-		uploadedfiles = [];
-		window.location.reload();
 		return; 
 	}
 	
 	pantallaActual = file; 
-	  
+	  	console.log("pant = ",pantallaActual)
    	contentMain.innerHTML = "";
 	
 	  fetch(`./html/${file}.html`)
@@ -108,18 +121,6 @@ function loadJS(file) {
   
 
 //   cerrar sesion
-
-let cont = 1;
-function cerrarSesion(){
-    if(cont % 2 == 0){
-        document.getElementById('sesionMenu').style.display= 'none';
-    }
-    else{
-        document.getElementById('sesionMenu').style.display= 'block';
-    }
-    cont++;
-}
-
 function removeScript(scriptId) {
 	const scripts = document.querySelectorAll(`[data-script-id="${scriptId}"]`);
     scripts.forEach((script) => {
@@ -127,9 +128,9 @@ function removeScript(scriptId) {
 	});
 }
 
-firebase.auth().onAuthStateChanged(function(user) {
-    if (user) {
-      window.location.href = "homeUsu.html";
+firebase.auth().onAuthStateChanged(function(user1) {
+    if (user1) {
+      window.location.href = `${user}.html`;
     } else {
       window.location.href = "Login.html";
     }

@@ -16,7 +16,7 @@ const getAttributes = (function () {
   const messagePopup = document.getElementById("message");
   const formatoSelect = document.getElementById("formato_audio");
   const durationField = document.getElementById("duracion");
-  var idDoc = '';
+  var idDoc = [];
   const datos = {};
   var bandera = true;
 
@@ -148,8 +148,8 @@ if (getAttributes.textInput!==null) {
 
 // Validación de elección de elemento en el file chooser de audio
 function updateAcceptAttribute() {
-  getAttributes.audioInput.value = null;
-  getAttributes.textInput.value = null;
+  getAttributes.audioInput.value = '';
+  getAttributes.textInput.value = '';
   getAttributes.textInput.disabled = true;
   getAttributes.durationField.textContent = '';
   getAttributes.durationField.style.display='none';
@@ -296,10 +296,12 @@ function closePopup(){
 }
 
 function onVerifyButton() {
-  window.location.href = `./../../pages/html/reproducir.html?doc=${idDoc}`;
+  getAttributes.idDoc.push(user);
+  const encodedArray = getAttributes.idDoc.map(item => encodeURIComponent(item)).join(",");
+  window.location.href = `./html/reproducirAdm.html?data=${encodedArray}`;
   resetForm();
 }
-
+// 
 function validateInput(inputElement) {
   const inputValue = inputElement.value.trim(); // Eliminar espacios en blanco al principio y al final
   const placeholderText = inputElement.getAttribute("placeholder");
@@ -391,21 +393,22 @@ async function handleSubmit() {
       console.log("Documento escrito con ID: ", textURL);
       console.log("Documento escrito con ID: ", imageURL);
 
-      datos.audioURL = audioURL;
-      datos.reproducciones = 0;
-      datos.textURL = textURL;
-      datos.imageURL = imageURL;
+      getAttributes.datos.audioURL = audioURL;
+      getAttributes.datos.reproducciones = 0;
+      getAttributes.datos.textURL = textURL;
+      getAttributes.datos.imageURL = imageURL;
       
-      await db.collection("audio").add(datos)
-      .then((docRef) => {
-          idDoc = docRef.id;
-          console.log("Documento escrito con ID: ", idDoc);
+      await db.collection("audio").add(getAttributes.datos)
+        .then((docRef) => {
+        console.log(`id:${docRef.id}`)
+          getAttributes.idDoc.push(docRef.id);
+          console.log("Documento escrito con ID: ", getAttributes.idDoc[0]);
       })
       .catch((error) => {
           alert(`Error al agregar el documento: ${error}`);
       });
     
-    console.log("id__doc",idDoc);
+    console.log("id__doc",getAttributes.idDoc[0]);
 
   } catch (error) {
     alert(`Error: ${error}`);

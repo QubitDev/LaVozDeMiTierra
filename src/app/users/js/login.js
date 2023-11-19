@@ -22,7 +22,7 @@ loginForm.addEventListener("submit", function (e) {
         errorContainer.innerText = "El correo electrónico no debe exceder los 64 caracteres";
         return;
     }
-    if (password.length > 32) {
+    if (password.length > 25) {
         errorContainer.innerText = "La contraseña no debe exceder los 32 caracteres";
         return;
     }
