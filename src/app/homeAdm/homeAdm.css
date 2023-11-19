@@ -2,8 +2,8 @@
   padding: 14px;
   margin-left: 1%;
   position: absolute;
-  top: 108px;
-  left: 208px;
+  top: 0px;
+  left: -20px;
   height: 85%;
   width: 85%;   
   background : linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0, 0.5));
@@ -18,7 +18,7 @@
   position: absolute;
   top:3%; 
   left: 2%; 
-  z-index: 9998;
+  z-index: 9999;
   display: inline-block;
   box-sizing: border-box;
   box-shadow: 10px 10px 15px 5px black;
@@ -148,70 +148,6 @@ a{
 
 /**********************************************************HomeAdmi**********************************************************/
 
-
-
-
-.texto{
-  position: relative;
-  top: 2px;
-  left: 9%;
-  margin-bottom: 10px;
-}
-
-#confirmacion{
-  padding-left: 50px;
-  height: 80px;
-  width: 300px;
-  font-size: 16;
-  font-family: Arial, Helvetica, sans-serif;
-  position: fixed;
-  top: 50%; 
-  left: 50%; 
-  display: none;
-  background: radial-gradient(ellipse at right top, #647c74, #587a7c,#15242e,  #3a615e,#749e8a 80%);
-  background-size: 150% 150%;
-  background-position: top center;
-  color: #fff;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
-  
-  .boton1{
-    position: relative;
-    left: 2%;
-  }
-  .boton{
-    position: relative;
-    left: 45%;
-    top: 0px;
-  }
-}
-#confirmacionDos{
-  padding-left: 50px;
-  height: 80px;
-  width: 300px;
-  font-size: 16;
-  font-family: Arial, Helvetica, sans-serif;
-  position: fixed;
-  top: 50%; 
-  left: 50%; 
-  display: none;
-  background: radial-gradient(ellipse at right top, #647c74, #587a7c,#15242e,  #3a615e,#749e8a 80%);
-  background-size: 150% 150%;
-  background-position: top center;
-  color: #fff;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
-  
-  .boton2{
-    position: relative;
-    left: 2%;
-  }
-  .botonDos{
-    position: relative;
-    left: 45%;
-    top: 0px;
-  }
-
-}
-
 /* Estilos para el margen superior del contenido principal para dejar espacio para el encabezado */
 
 
@@ -242,9 +178,14 @@ a{
 
 
 img{
-    width: 90px;
-    height: 90px;   
+    width: 120px;
+    height: 120px;   
 }  
+img:hover{
+  cursor: pointer;
+  transition: background-color 0.3s;  
+  box-shadow: 1px 1px 18px rgba(255, 255, 255, 0.925)
+}
 
 h2{
     font-family: sans-serif;
@@ -259,62 +200,68 @@ h2{
 }  
 
 
-
 .scrollDiv{
+  padding: auto;
   border-radius: 4%;
-  background-color: #ffffff2d;
-  position: relative;
+  background-color: #0000006b;
+  position: absolute;
   top: 3%;
   left: 4%;
-  width: 37%;
+  width: 38%;
   height: 75%;
   overflow: hidden;
   overflow-y: scroll;
+  padding: 20px;
 } 
 
 .DosScrollDiv{
   border-radius: 4%;
-  background-color: #ffffff2d;
-  position: relative;
-  z-index: 2;
-  top: -72%;
+  background-color: #0000006b;
+  position: absolute;
+  top: 3%;
   left: 45%;
-  width: 37%;
+  width: 38%;
   height: 75%;
   overflow: hidden;
   overflow-y: scroll;
+  padding: 20px;
 }
 
 .Object{   
   color: rgb(255, 255, 255);
   font-family: Arial, Helvetica, sans-serif;
   font-size: 13px;
-  
 }  
+
 .imageUno{
   position: relative;  
-  left: 2%;
-  top: 20px;
+  left: 3%;
+  top: 15px;
+
 }
+
 .imageDos{
   position: relative;  
-  left: 2%;
-  top: 20px;
+  left: 3%;
+  top: 15px;
 }
+
 #contenidoUno{
   position: relative;
   top: 2%;
-  left: 2%;
+  left: 1%;
   margin-top: 5px;
-
+  font-size: 16px;
 }
+
 #contenidoDos{
   position: relative;
   top: 2%;
-  left: 2%;
+  left: 1%;
+  font-size: 16px;
   margin-top: 5px;
-
 }
+
 h3{
   position: relative;
   margin-top: 5px;
@@ -322,21 +269,23 @@ h3{
 
 #iconoUno{
   position: relative;
-  left:50%;
+  left:70%;
   top: 5px;
   margin-top: 5%;  
 }
+
 #iconoEdit{
   position: relative;
-  left:46%;
+  left:66%;
   margin-top: 11%;  
 }
+
 #campC1{
   position: relative; 
   width: 693px;
   height: 100px;
   display: flex;
-  margin-top: 40px;
+  margin-top: 60px;
 }
 
 #campL1{
@@ -344,17 +293,78 @@ h3{
   width: 693px;
   height: 100px;
   display: flex;
-  margin-top: 40px;
+  margin-top: 60px;
+  margin-bottom: 20px;
 }
+
 #titulo{
   position: relative;
   top: 10px;
   left: 29%;
   font-size: 25px;
 }
-.container__body{
+
+.texto{
+  position: relative;
+  top: 2px;
+  left: 9%;
+  margin-bottom: 10px;
+}
+
+#confirmacion{
+  padding-left: 50px;
+  height: 80px;
+  width: 300px;
+  font-size: 16;
+  font-family: Arial, Helvetica, sans-serif;
   position: fixed;
-  
+  top: 50%; 
+  left: 50%; 
+  z-index: 5;
+  display: none;
+  background: radial-gradient(ellipse at right top, #647c74, #587a7c,#15242e,  #3a615e,#749e8a 80%);  
+  color: #fff;
+  border-radius: 20px; 
+}
+
+.boton1{
+  position: relative;
+  left: 2%;
+  top: 10%;
+}
+.boton{
+  position: relative;
+  left: 45%;
+  top: 10%;
+}
+#confirmacionDos{
+  padding-left: 50px;
+  height: 80px;
+  width: 300px;
+  font-size: 16;
+  font-family: Arial, Helvetica, sans-serif;
+  position: fixed;
+  top: 50%; 
+  left: 50%; 
+  display: none;
+  z-index: 5;
+  background: radial-gradient(ellipse at right top, #647c74, #587a7c,#15242e,  #3a615e,#749e8a 80%);
+  border-radius: 20px;
+  color: #fff;
+}
+.boton2{
+  position: relative;
+  left: 2%;
+  top: 10%;
+}
+.botonDos{
+  position: relative;
+  left: 45%;
+  top: 10%;
+}
+/****************************************************************EDITAR****************************************************/
+.container__body{
+  position: fixed;  
   display: none; 
   background-position: top center;
   color: #fff;
@@ -367,12 +377,10 @@ h3{
   left: 43%;
   width: 30%;
   height: 42%;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
-
-  background-color: #0000006b;
+  background: radial-gradient(ellipse at right top, #647c74, #587a7c,#15242e,  #3a615e,#749e8a 80%);
   color: #fff;
   font-size: 16px;
   font-family: Arial, Helvetica, sans-serif;
@@ -433,7 +441,6 @@ form {
   margin-bottom: 10px;
   font-size: 13px;
 
-  /* background: linear-gradient(to top left, #01081d, #185a9d); */
   background: radial-gradient(ellipse at left top, #01081d, #011c38 80%);
   color: #fff;
   border: none;
@@ -466,168 +473,6 @@ form {
   z-index: 2;
 }
 
-/* Estilo para cada contenedor de selección de archivos */
 
 
 
-
-#frase {
-  text-align: center;
-  padding: 5px;
-  font-weight: bold;
-  font-size: 14px;
-}
-
-.form__control[type="file"] {
-  width: 100%;
-}
-.error-message{
-  color:#810202;
-  font-size: 13px;
-}
-
-
-/* Estilo para el contenedor de la ventana emergente */
-.popup {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  justify-content: center;
-  align-items: center;
-  z-index: 1000; 
-}
-/* Estilo para la ventana emergente */
-.window__acept__or__error {
-  display: flex;
-  flex-direction: column;
-
-  width: 242px;
-  height: 160px;
-  
-  background: radial-gradient(ellipse at bottom right, #647c74, #587a7c, #15242e,  #3a615e,#749e8a 80%);
-  background-size: 150% 150%;
-  background-position: top center;
-  
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
-  padding: 20px;
-  
-  color: #fff;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
-  
-  align-items: center;
-  text-align: center;
-  justify-content: space-around;
-}
-
-.window__acept__or__error p{
-  font-size: 24px;
-  font-family: Arial, Helvetica, sans-serif;
-  color:#fff;
-}
-
-/* Estilo para el botón Verificar */
-.button__verify, .button__ok {
-
-  padding: 10px 20px;
-
-  font-size: 13px;
-  background: radial-gradient(ellipse at left top, #01081d, #011c38 80%);
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: bold;
-
-  width: 100px;
-  height: 30px;
-
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.button__verify:hover {
-  background: #0978c2b0;
-  color: #fff;
-}
-
-.button__ok:hover {
-  background: #e90000a6;
-  color: #fff;
-}
-
-/* pantalla de carga */
-.overlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  
-  background-color: #00000080;
-  
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  
-  z-index: 1000;
-}
-
-#loading {
-  position:absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  padding: 20px;
-  border-radius: 5px;
-}
-
-.loader {
-  border: 8px solid #f3f3f3; 
-  border-top: 8px solid #1f6bdd;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  animation: spin 2s linear infinite;
-  margin: 0 auto;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-/* Estilo para los cargar doc */
-.wavi{
-  position: relative;
-  /* -webkit-box-reflect: below -5px; */
-  background: linear-gradient(transparent, #00000033);
-}
-.wavi span{
-  color: #fff;
-  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.856);
-  
-  position: relative;
-  display: inline-block;  
-  font-size: 4rem;
-  text-transform: uppercase;
-  animation: wavi 1s infinite;
-  animation-delay: calc(.1s * var(--i));
-}
-
-@keyframes wavi{
-  0%,
-  40%,
-  100%{
-    transform: translateY(0);
-  }
-  20%{
-    transform: translateY(-20px);
-  }
-}

@@ -179,7 +179,7 @@
 	top: 102px;
 	left: 200px;
 
-	width: 95%;
+	width: auto;
 	height: 95%;
 
 
@@ -200,8 +200,8 @@
 }
 
 .container-card {
-	width: 60%;
-	height: auto;
+	width: 85%;
+	height: 60%;
 	/* width: 60%;
 	height: 70%; */
 	/* max-width: 900px; */

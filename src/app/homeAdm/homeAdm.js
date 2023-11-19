@@ -18,24 +18,24 @@ const cargarCuentos = (documentos) => {
                 <div class="campC1" id="campC1">                
                     <div class="imageUno">
                         <button class="reproducirUno" onclick ="enviar('${documento.id}')">
-                            <img src="${documento.data().imageURL}" width="90px" height="90px">
+                            <img src="${documento.data().imageURL}" width="120px" height="120px">
                         </button>
                     </div>
                     <div id="iconoUno">
                         <button class="deleteC" onclick ="genConfirmar('${documento.data().tipoAudio}')">
-                             <i class="fas fa-trash-can fa"></i>
+                             <i class="fas fa-trash-can fa-1x"></i>
                         </button> 
                         <button class="editC"  onclick ="editar('${documento.id}','${documento.data().titulo}','${documento.data().procedencia}',
                         '${documento.data().narrador}','${documento.data().musica}')">
-                            <i class="fa-regular fa-pen-to-square"></i>
+                            <i class="fa-regular fa-pen-to-square fa-1x"></i>
                         </button>                       
                     </div> 
                     
                     <div class="contenidoUno" id="contenidoUno">
-                        <p id="tituloAudio">${documento.data().titulo}<p>
-                        <p id="procedencia">${documento.data().procedencia}<p>
-                        <p id="narrador">${documento.data().narrador}<p>
-                        <p id="musica_fondo">${documento.data().musica}</p>
+                        <p id="tituloAudio">Titulo del audio: ${documento.data().titulo}<p>
+                        <p id="procedencia">Procedencia cultural: ${documento.data().procedencia}<p>
+                        <p id="narrador">Nombre del narrador: ${documento.data().narrador}<p>
+                        <p id="musica_fondo">Musica de fondo: ${documento.data().musica}</p>
                     </div> 
                     <div id="confirmacion">
                         <h3 class="texto">Estas seguro de eliminar?</h3>
@@ -51,12 +51,12 @@ const cargarCuentos = (documentos) => {
                 <div class="campL1" id="campL1"> 
                     <div class="imageDos">
                         <button class="reproducirDos" onclick ="enviar('${documento.id}')">
-                            <img src="${documento.data().imageURL}" width="90px" height="90px">
+                            <img src="${documento.data().imageURL}" width="150px" height="150px">
                         </button>
                     </div>
                     <div id="iconoUno">
                         <button class="deleteC" onclick ="genConfirmar('${documento.data().tipoAudio}')">
-                             <i class="fas fa-trash-can fa"></i>
+                             <i class="fas fa-trash-can"></i>
                         </button> 
                         <button class="editC" onclick ="editar('${documento.id}','${documento.data().titulo}','${documento.data().procedencia}',
                         '${documento.data().narrador}','${documento.data().musica}')">
@@ -65,10 +65,10 @@ const cargarCuentos = (documentos) => {
                     </div> 
                      
                     <div class="contenidoDos" id="contenidoDos">
-                        <p id="tituloAudio">${documento.data().titulo}<p>
-                        <p id="procedencia">${documento.data().procedencia}<p>
-                        <p id="narrador">${documento.data().narrador}<p>
-                        <p id="musica_fondo">${documento.data().musica}</p>
+                        <p id="tituloAudio">Titulo del audio: ${documento.data().titulo}<p>
+                        <p id="procedencia">Procedencia cultural: ${documento.data().procedencia}<p>
+                        <p id="narrador">Nombre del narrador: ${documento.data().narrador}<p>
+                        <p id="musica_fondo">Musica de fondo: ${documento.data().musica}</p>
                     </div> 
                     <div id="confirmacionDos">
                         <h3 class="texto">Estas seguro de eliminar?</h3>
@@ -82,87 +82,87 @@ const cargarCuentos = (documentos) => {
  
     }
 }
-function eliminar(id,cadena){
-    db.collection("audio").doc(id).delete();
+async function eliminar(id,cadena){
+    await db.collection('audio').doc(id).delete();
     hideConfirma(cadena);
     window.location.reload();
 }
 
 function editar(id,titulo,procedenciaSE,narradorSE,muscia_fondoSE){
     document.getElementById('editarAll').style.display = 'block';   
-    
+    document.getElementById('editarAll').style.zIndex = '9999';   
+
     document.getElementById('titulo_audio').value = titulo;
     document.getElementById('procedenciaCul').value = procedenciaSE;
     document.getElementById('narradorE').value = narradorSE;
     document.getElementById('musicafondo').value = muscia_fondoSE;
-    document.getElementById('all').style.display = 'block';
-    document.getElementById('all').style.background = 'linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0, 0.5))';
+    document.getElementById('pantalla').style.display = 'block';
+    document.getElementById('pantalla').style.zIndex = '7';
+
+
     const subirAc =document.getElementById('submitButton');
-    subirAc.onclick=function(){
-        var cambio = db.collection("audio").doc(id);
+    subirAc.onclick= async function(){
+        const cambiar = db.collection('audio').doc(id);
         var tituloT = document.getElementById('titulo_audio').value;
         var procedenciaP = document.getElementById('procedenciaCul').value;
         var narradorN = document.getElementById('narradorE').value;
         var muscia_fondoM = document.getElementById('musicafondo').value;
-        cambio.update({
-        titulo: tituloT.value,
-        procedencia: procedenciaP.value,
-        narrador: narradorN.value,
-        muscia_fondo: muscia_fondoM.value
-    })
-    
+
+        await cambiar.update({titulo: tituloT});
+        await cambiar.update({procedencia: procedenciaP});
+        await cambiar.update({narrador: narradorN});
+        await cambiar.update({muscia_fondo: muscia_fondoM});
+
+        window.location.reload();
+
     }
     
 }
-
-/**
- * db.collection("audio").doc(docId).get().then((doc) => {
-  if (doc.exists) {
-    // Incrementar el contador de reproducciones cuando se reproduzca el audio
-    const audioDocRef = db.collection("audio").doc(docId);
-    audioDocRef.update({
-      reproducciones: firebase.firestore.FieldValue.increment(1)
-    });
-  } else {
-    console.log("No se encontró el documento en Firestore.");
-  }
-});
- */
 function genConfirmar(cadena){
-    document.getElementById('pantalla').style.display = 'block';
 
     if(cadena=="Cuento"){
         document.getElementById('confirmacion').style.display = 'block'; 
-        document.getElementById('confirmacion').style.zIndex = '9999';
+        document.getElementById('confirmacion').style.zIndex = '9998';
+        document.getElementById('pantalla').style.display = 'block';
+        document.getElementById('pantalla').style.zIndex = '7';
     }else{ 
         if(cadena=="Leyenda"){
             document.getElementById('confirmacionDos').style.display = 'block'; 
-            document.getElementById('confirmacionDos').style.zIndex = '9999';
-    }
-        
+            document.getElementById('confirmacionDos').style.zIndex = '9998';
+            document.getElementById('pantalla').style.display = 'block';
+            document.getElementById('pantalla').style.zIndex = '7';
+        }
     }
 }
 
 function hideConfirma(cadena){ 
     if(cadena=="Cuento"){
         document.getElementById('confirmacion').style.display = 'none';
+        document.getElementById('confirmacion').style.zIndex = '10';
+
     }   
     else{
         if(cadena=="Leyenda"){
             document.getElementById('confirmacionDos').style.display = 'none';
+            document.getElementById('confirmacionDos').style.zIndex = '10';
+
 
         }   
-
     }
-    document.getElementById('pantalla').style.display = 'none';        
+    document.getElementById('pantalla').style.display = 'none';
+    document.getElementById('pantalla').style.zIndex = '0';
+
 }
 
 function hideEdita(){
     document.getElementById('editarAll').style.display = 'none';
-    document.getElementById('pantalla').style.display = 'none';    
+    document.getElementById('editarAll').style.zIndex = '';   
 
+    document.getElementById('pantalla').style.display = 'none';
+    document.getElementById('pantalla').style.zIndex = '0';
 
 }
+
 function enviar(doc) {
     window.location.href = `./../pages/html/reproduccirAdm.html?doc=${doc}`;
 }
