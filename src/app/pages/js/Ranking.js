@@ -29,7 +29,7 @@ audioCollection.orderBy("reproducciones", "desc").limit(10).get().then((querySna
     <div class="caja">
       <a onclick="enviar('${doc.id}')">
         <div class="imagen" id="imagen${index}">
-          <img src="${audio.imageURL}" alt="" height="90px" width="100px" class="imageF">
+          <img src="${audio.imageURL}" alt="" height="100px" width="100px" class="imageF">
         </div>
       </a>
     </div> 

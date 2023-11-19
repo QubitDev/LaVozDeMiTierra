@@ -7,7 +7,6 @@ const tipo = document.getElementById("tipo__audio");
 const  titulo = document.getElementById("titulo__audio");
 const narradorAudio = document.getElementById("narrador");
 const musicaF = document.getElementById("musica");
-
 const audioElement = document.getElementById("audioE");
 const textContentElement = document.getElementById("text_content");
 const endSesion = document.querySelector(".sesion");
@@ -64,7 +63,6 @@ function getDocument(direccion){
       return "./../../../assets/textos/"+ direccionT+".txt";      
     }
   }
-  
 
 }
 function restriccion(cadena){
@@ -82,42 +80,25 @@ db.collection('audio').onSnapshot((snapshot) => {
 const iddoc = {};
 
 const cargarDocumentos = (documentos) => {
-  if (documentos.length > 0) {
-      contenedorCards.innerHTML = '';
+  if (documentos.length > 0) {     
 
+      contenedorCards.innerHTML = '';
       documentos.forEach(documento => {
           //iddoc1.doc1 = documento.data().id;
           contenedorCards.innerHTML += `
           <div class="carta" id="carta" onClick="enviar('${documento.id}')">
-            <div class="contenido-card" style="margin-top: 0%;">
+          <div class="contenido-card" style="margin-top: 0%;">
               <h4 style="margin: 1%;">${documento.data().titulo}</h4>
             </div>
             <figure>
-              <img src="${documento.data().imageURL}" width="160px" height="160px" class = "imagenesCard">
-            </figure>
-            
-          </div>
-          
+              <img src="${documento.data().imageURL}" width="160px" height="160px">
+            </figure>            
+          </div>          
           `;
       });
   }
 }
 
-
 function enviar(doc) {
   window.location.href = `../html/reproducir.html?doc=${doc}`;
 }
-
-//---------------------------------CONTADOR DE REPRODUCCIONES-------------------------------
-db.collection("audio").doc(docId).get().then((doc) => {
-  if (doc.exists) {
-    // Incrementar el contador de reproducciones cuando se reproduzca el audio
-    const audioDocRef = db.collection("audio").doc(docId);
-    audioDocRef.update({
-      reproducciones: firebase.firestore.FieldValue.increment(1)
-    });
-  } else {
-    console.log("No se encontró el documento en Firestore.");
-  }
-});
-

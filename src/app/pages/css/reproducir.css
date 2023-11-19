@@ -248,6 +248,7 @@ a {
 .audio {
   text-align: center;
 }
+
 .imagenesCard:hover{
   cursor: pointer;
   transition: background-color 0.3s;  
@@ -256,6 +257,8 @@ a {
 
 /*---------------------------------------------------------- share, favorites and add-----------------------------------------------*/
 /* Encinas Quispe Jhonatan */
+
+
 .__button_favorites,
 .__button_add_list,
 .__button_share {
@@ -282,7 +285,10 @@ a {
   margin-right: 5px;
 }
 
-
+.__button_favorites:hover {
+  color: #810202;
+  z-index: 2;
+}
 
 .__button_add_list:hover {
   color: #0a0909;
@@ -334,7 +340,7 @@ a {
 
 }
 
-.__share__content h3 {
+.__share__content{
   font-size: 24px;
   font-family: Arial, Helvetica, sans-serif;
   color: #fff;
@@ -362,12 +368,11 @@ a {
 
 
 .__link__content .__link__share {
-  white-space: nowrap;
+  /* white-space: nowrap; */
   /* Evita el salto de línea automático */
-  overflow: auto;
   /* Permite el desbordamiento y agrega una barra de desplazamiento si es necesario */
-  width: 380px;
-  min-height: 50px;
+  width: 400px;
+  min-height: 30px;
   /* Altura mínima, ajusta según sea necesario */
   max-height: none;
   /* Permite que la altura crezca según el contenido */
@@ -375,7 +380,7 @@ a {
   padding: 10px;
   background-color: #fff;
   border: 1px solid #01081d;
-  font-size: 16px;
+  font-size: 14px;
   font-family: Arial, Helvetica, sans-serif;
   color: #070707;
 }
@@ -384,7 +389,6 @@ a {
 .button__copy {
 
   padding: 10px 20px;
-
   font-size: 13px;
   background: radial-gradient(ellipse at left top, #01081d, #011c38 80%);
   color: #fff;
@@ -395,7 +399,6 @@ a {
 
   width: 100px;
   height: 30px;
-
   cursor: pointer;
   transition: background-color 0.3s;
 }
@@ -416,6 +419,8 @@ a {
 .__social_networks {
   align-items: center;
   justify-content: center;
+  position: relative;
+  top: -60px;
 }
 
 .__social_networks ul {
@@ -424,7 +429,18 @@ a {
   margin: 0;
   display: flex;
 }
+.marca{
+  position: relative;
+  top: -35px;
+  height: 15px;
+  color: white;
+}
 
+.titleSocial{
+  position: relative;
+  top: -70px;
+  height: 20px;
+}
 .__social_networks ul li {
   width: 75px;
   height: 75px;
@@ -440,18 +456,14 @@ a {
 
 .__social_networks ul li .fa-facebook,
 .__social_networks ul li .fa-whatsapp,
-.__social_networks ul li .fa-google {
+.__social_networks ul li .fa-envelope {
   font-size: 35px;
 }
 
 .__social_networks ul li .facebook {
   color: #d8e2dc;
-  margin-top: 10px;
+  margin-top: 20px;
   transition: all 0.5s ease;
-}
-.titleLiks{
-  position: relative;
-  height: 20px;
 }
 
 .__social_networks ul li:hover.facebook {
@@ -462,7 +474,6 @@ a {
 
 .__social_networks ul li:hover .fa-facebook {
   color: #3b5998;
-  box-shadow: 0 0 15px #3b5998;
   transition: all 0.5s ease;
 }
 
@@ -480,7 +491,6 @@ a {
 
 .__social_networks ul li:hover .fa-whatsapp {
   color: #017c08;
-  box-shadow: 0 0 15px #017c08;
   transition: all 0.5s ease;
 }
 
@@ -496,8 +506,7 @@ a {
   transition: all 0.5s ease;
 }
 
-.__social_networks ul li:hover .fa-google {
+.__social_networks ul li:hover .fa-envelope {
   color: #520404;
-  box-shadow: 0 0 15px #520404;
   transition: all 0.5s ease;
 }
