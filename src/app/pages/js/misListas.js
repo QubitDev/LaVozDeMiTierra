@@ -40,60 +40,60 @@ function cerrarSesion(){
 }
 
 const db = firebase.firestore();
-    const auth = firebase.auth();
+const auth = firebase.auth();
 
-    // Referencia a las colecciones 'audio' y 'playlist'
-    const audioCollection = db.collection("audio");
-    const playlistCollection = db.collection("playlist");
+// Referencia a las colecciones 'audio' y 'playlist'
+const audioCollection = db.collection("audio");
+const playlistCollection = db.collection("playlist");
 
-    // Función para cargar y mostrar los audios disponibles
-    function cargarAudiosDisponibles() {
-      const audioListElement = document.getElementById('audioList');
+// Función para cargar y mostrar los audios disponibles
+function cargarAudiosDisponibles() {
+    const audioListElement = document.getElementById('audioList');
 
-      audioCollection.get().then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-          const audio = doc.data();
-          const audioItem = document.createElement('div');
-          audioItem.classList.add('audio-item');
-          audioItem.innerHTML = `
+    audioCollection.get().then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+        const audio = doc.data();
+        const audioItem = document.createElement('div');
+        audioItem.classList.add('audio-item');
+        audioItem.innerHTML = `
             <input type="checkbox" id="audio_${doc.id}">
             <label for="audio_${doc.id}">${audio.titulo}</label>
-          `;
-          audioListElement.appendChild(audioItem);
+            `;
+            audioListElement.appendChild(audioItem);
         });
-      }).catch((error) => {
+    }).catch((error) => {
         console.error("Error al obtener audios:", error);
-      });
-    }
+    });
+}
 
-    // Llama a la función para cargar los audios cuando se carga la página
-    document.addEventListener("DOMContentLoaded", cargarAudiosDisponibles);
+// Llama a la función para cargar los audios cuando se carga la página
+document.addEventListener("DOMContentLoaded", cargarAudiosDisponibles);
 
-    // Función para crear una playlist con los audios seleccionados
-    function crearPlaylist() {
-      const playlistName = document.getElementById('playlistName').value;
+// Función para crear una playlist con los audios seleccionados
+function crearPlaylist() {
+    const playlistName = document.getElementById('playlistName').value;
 
-      if (!playlistName) {
+    if (!playlistName) {
         alert("Por favor, ingrese un nombre para la playlist.");
         return;
-      }
+    }
 
-      const selectedAudios = [];
-      const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
-      checkboxes.forEach((checkbox) => {
+    const selectedAudios = [];
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+    checkboxes.forEach((checkbox) => {
         const audioId = checkbox.id.split('_')[1];
         selectedAudios.push(audioId);
-      });
+    });
 
-      if (selectedAudios.length === 0) {
+    if (selectedAudios.length === 0) {
         alert("Seleccione al menos un audio para la playlist.");
         return;
-      }
+    }
 
-      // Obtiene el usuario actualmente autenticado
-      const user = auth.currentUser;
+    // Obtiene el usuario actualmente autenticado
+    const user = auth.currentUser;
 
-      if (user) {
+    if (user) {
         // Crea la playlist en la base de datos
         playlistCollection.add({
           nombre: playlistName,
@@ -106,7 +106,7 @@ const db = firebase.firestore();
         .catch((error) => {
           console.error("Error al crear la playlist:", error);
         });
-      } else {
+    } else {
         alert("Usuario no autenticado. Inicie sesión para crear una playlist.");
-      }
     }
+}
