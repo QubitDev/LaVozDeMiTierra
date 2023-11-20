@@ -128,7 +128,7 @@ a {
 	top: 95px;
 	left: 84%;
 	width: 150px;
-	height: 125px;
+	height: 145px;
 	font-size: 16;
 	font-family: Arial, Helvetica, sans-serif;
 	display: none;
@@ -168,10 +168,10 @@ a {
 /*-------------------------------------------------MisListas-------------------------------------------------------------*/
 
 #contenedor{
-  padding: 14px;
+    padding: 14px;
     margin-left: 1%;
     position: fixed;
-    top: 102px;
+    top: 109px;
     left: 205px;
     height: 100%;    
     width: 100%;     
@@ -185,9 +185,9 @@ a {
 }
 
 .titleList{
-  position: relative;
-  left: 195px;
-  top: -75px;  
+  position: fixed;
+  left: 450px;
+  top: 130px;  
   width: 200px;
   height: 45px;
   font-size: 25px;
@@ -196,43 +196,39 @@ a {
 }
 .iconList{
   position: relative;
-  left: 90px;
-  top: 10px;
+  left: 120px;
+  top: 30px;
   width: 90px;
 }
-
-
-
 
 #newList{
   width: 32px;
   height: 32px;
-  position: relative;
-  top: -120px;
-  left: 78%;
+  position: fixed;
+  top: 160px;
+  left: 85%;
   background: #00000000;
   border: #00000000;
 }
-#newList:hover{
-  cursor: pointer;
-  transition: background-color 0.3s;
-  box-shadow: 1px 1px 30px rgba(12, 74, 131, 0.925)
+
+#auxAdd:hover{
+	cursor: pointer;
+	transition: background-color 0.3s;  
+	box-shadow: 1px 1px 18px rgba(255, 255, 255, 0.925)
 }
 
 .container_list{
   border-radius: 4%;
-  background-color: #ffffff2d;
-  position: relative;
-  top: -70px;
-  left: 5%;
+  background-color: #0000006b;
+  position: fixed;
+  top: 230px;
+  left: 18%;
   width: 77%;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   height: 72%;
   overflow: hidden;
   overflow-y: scroll;
-
-
 }
 
 .list{
@@ -249,13 +245,14 @@ a {
     cursor: pointer;
     border-radius:10px;
     transition: background-color 0.3s;
-    background: radial-gradient(ellipse at left top, #01081d, #011c38 80%);
+    background: radial-gradient(ellipse at left top, #01081dbc, #011c38 80%);
 }
 
 .imageList{
   position: relative;
-  top: 15px;
-  left: 2%;
+  margin-top: 20px;
+  left: 4%;
+  width: 50px;
   height: 50px;
   border-radius: 50%;
 }
@@ -289,11 +286,10 @@ a {
   border:#ffffff2d ;
   border-radius: 50%;
 }
-
 .deleteC:hover{
-  cursor: pointer;
-  transition: background-color 0.3s;  
-  box-shadow: 1px 1px 18px rgba(255, 255, 255, 0.925)
+	cursor: pointer;
+  	transition: background-color 0.3s;  
+  	box-shadow: 1px 1px 18px rgba(255, 255, 255, 0.925)
 }
 
 

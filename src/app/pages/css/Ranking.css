@@ -170,8 +170,8 @@ h2{
   font-size: 38px;
   text-shadow: none;
   position: absolute; /* You can also use 'relative' depending on your layout needs */
-  top: 13%; /* Adjust as needed */
-  left: 23%; /* Adjust as needed */
+  top: 10%; /* Adjust as needed */
+  left: 20%; /* Adjust as needed */
   transform: translate(-50%, -50%); /* Center the element */
 }
 
@@ -421,7 +421,7 @@ width: 12px; /* Ancho de la barra de desplazamiento */
 }
 
 .scroll-container::-webkit-scrollbar-thumb {
-background-color: rgb(104, 207, 137); /* Color de la barra de desplazamiento */
+background-color: rgb(42, 113, 65); /* Color de la barra de desplazamiento */
 }
 
 .scroll-container::-webkit-scrollbar-track {
