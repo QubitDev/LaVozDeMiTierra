@@ -18,7 +18,7 @@ const cargarCuentos = (documentos) => {
                 <div class="campC1" id="campC1">                
                     <div class="imageUno">
                         <button class="reproducirUno" onclick ="enviar('${documento.id}')">
-                            <img src="${documento.data().imageURL}" width="120px" height="120px">
+                            <img src="${documento.data().imageURL}" width="120px" height="120px"  id="imgCL">
                         </button>
                     </div>
                     <div id="iconoUno">
@@ -51,7 +51,7 @@ const cargarCuentos = (documentos) => {
                 <div class="campL1" id="campL1"> 
                     <div class="imageDos">
                         <button class="reproducirDos" onclick ="enviar('${documento.id}')">
-                            <img src="${documento.data().imageURL}" width="150px" height="150px">
+                            <img src="${documento.data().imageURL}" width="150px" height="150px" id="imgCL">
                         </button>
                     </div>
                     <div id="iconoUno">
@@ -112,7 +112,18 @@ function editar(id,titulo,procedenciaSE,narradorSE,muscia_fondoSE){
         await cambiar.update({procedencia: procedenciaP});
         await cambiar.update({narrador: narradorN});
         await cambiar.update({musica: muscia_fondoM});
-        window.location.reload();
+        document.getElementById('editarAll').style.display = 'none';   
+        document.getElementById('editarAll').style.zIndex = '';   
+
+
+        document.getElementById('message__exito').style.display = 'block';
+        document.getElementById('message__exito').style.zIndex = '9998';
+
+        setTimeout(() => {            
+            document.getElementById("message__exito").style.display = 'none';
+            document.getElementById('message__exito').style.zIndex = '';
+            window.location.reload();
+          },2500); 
 
     }
     

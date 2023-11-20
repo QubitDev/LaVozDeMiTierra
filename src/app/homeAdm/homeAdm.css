@@ -1,3 +1,15 @@
+.message__exito{
+  color: white;
+  background: radial-gradient(ellipse at bottom right, #647c74, #587a7c, #15242e, #3a615e, #749e8a 80%);
+  position: fixed;
+  width: 280px;
+  height: 90px;
+  text-align: center;
+  left: 50%;
+  top: 50%;  
+  display: none;
+}
+
 .logo {
 	border-radius: 50%;
 	padding-top: 0px;
@@ -202,7 +214,7 @@ img{
     width: 120px;
     height: 120px;   
 }  
-img:hover{
+#imgCL:hover{
   cursor: pointer;
   transition: background-color 0.3s;  
   box-shadow: 1px 1px 18px rgba(255, 255, 255, 0.925)
@@ -301,11 +313,7 @@ h3{
   margin-top: 11%;  
 }
 
-.message__exito{
-  position: relative;
-  left: 50%;
-  top: 50%;
-}
+
 
 #campC1{
   position: relative; 

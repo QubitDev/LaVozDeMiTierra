@@ -91,7 +91,7 @@ const cargarDocumentos = (documentos) => {
               <h4 style="margin: 1%;">${documento.data().titulo}</h4>
             </div>
             <figure>
-              <img src="${documento.data().imageURL}" width="160px" height="160px">
+              <img src="${documento.data().imageURL}" width="160px" height="160px" id="imagenesCard">
             </figure>            
           </div>          
           `;
