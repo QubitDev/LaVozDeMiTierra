@@ -90,9 +90,14 @@
 	padding: 20px;
 
 }
+img{
+	position: relative;
+	width: 90px;
+	height: 90px;
+}
 
 
-.carta img {
+.carta{
 	width: 100%;
 	height: 210px;
 
@@ -247,7 +252,7 @@ button:active {
 	flex-basis: 100px ;
 }
 
-.contenedor_div img{
+.contenedor_div{
 	margin-top: 50px;
 	border-top: 50%;
 	border-radius: 5px;
