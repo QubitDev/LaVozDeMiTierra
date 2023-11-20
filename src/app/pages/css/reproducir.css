@@ -66,7 +66,9 @@
 }
 
 .greeting {  
-  font-family: Arial, Helvetica, sans-serif; 
+  font-family: Arial, Helvetica, sans-serif;
+  color: #fff;
+ 
   padding-right: 600px;
   padding-left: 250px;
   display: inline-block;
@@ -141,7 +143,7 @@ a {
 
 .play {
   top: 102px;
-  left: 200px;
+  left: 205px;
   background: radial-gradient(ellipse at bottom, #647c74, #587a7c, #15242e, #3a615e, #749e8a, #15242e 80%);
   background-size: 150% 150%;
   background-position: top center;

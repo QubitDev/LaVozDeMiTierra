@@ -32,10 +32,10 @@ const cargarCuentos = (documentos) => {
                     </div> 
                     
                     <div class="contenidoUno" id="contenidoUno">
-                        <p id="tituloAudio">Titulo del audio: ${documento.data().titulo}<p>
+                        <p id="tituloAudio">Título del audio: ${documento.data().titulo}<p>
                         <p id="procedencia">Procedencia cultural: ${documento.data().procedencia}<p>
                         <p id="narrador">Nombre del narrador: ${documento.data().narrador}<p>
-                        <p id="musica_fondo">Musica de fondo: ${documento.data().musica}</p>
+                        <p id="musica_fondo">Música de fondo: ${documento.data().musica}</p>
                     </div> 
                     <div id="confirmacion">
                         <h3 class="texto">Estas seguro de eliminar?</h3>
@@ -65,10 +65,10 @@ const cargarCuentos = (documentos) => {
                     </div> 
                      
                     <div class="contenidoDos" id="contenidoDos">
-                        <p id="tituloAudio">Titulo del audio: ${documento.data().titulo}<p>
+                        <p id="tituloAudio">Título del audio: ${documento.data().titulo}<p>
                         <p id="procedencia">Procedencia cultural: ${documento.data().procedencia}<p>
                         <p id="narrador">Nombre del narrador: ${documento.data().narrador}<p>
-                        <p id="musica_fondo">Musica de fondo: ${documento.data().musica}</p>
+                        <p id="musica_fondo">Música de fondo: ${documento.data().musica}</p>
                     </div> 
                     <div id="confirmacionDos">
                         <h3 class="texto">Estas seguro de eliminar?</h3>
@@ -111,8 +111,7 @@ function editar(id,titulo,procedenciaSE,narradorSE,muscia_fondoSE){
         await cambiar.update({titulo: tituloT});
         await cambiar.update({procedencia: procedenciaP});
         await cambiar.update({narrador: narradorN});
-        await cambiar.update({muscia_fondo: muscia_fondoM});
-
+        await cambiar.update({musica: muscia_fondoM});
         window.location.reload();
 
     }
