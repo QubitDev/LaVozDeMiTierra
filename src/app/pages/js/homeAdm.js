@@ -4,9 +4,7 @@ const cargarCuentos = (documentos) => {
     const cancelarEdi = document.getElementById('cancelBtn');
     const contenedorAll = document.getElementById('contenedor');
     
-    if (cancelarEdi !== null) {
-        cancelarEdi.addEventListener('click',hideEdita);
-    }
+    
 
     if (documentos.length > 0){  
         
@@ -86,78 +84,96 @@ const cargarCuentos = (documentos) => {
         cargarCuentos()
     }
 }
-function eliminar(id,cadena){
-    db.collection("audio").doc(id).delete();
+if (cancelarEdi !== null) {
+    cancelarEdi.addEventListener('click',hideEdita);
+}
+async function eliminar(id,cadena){
+    await db.collection('audio').doc(id).delete();
     hideConfirma(cadena);
-    window.location.href("homeAdm.html");
+    window.location.reload();
 }
 
 function editar(id,titulo,procedenciaSE,narradorSE,muscia_fondoSE){
-    document.getElementById('editarAll').style.display = 'block';
-    document.getElementById('all').style.display = 'block';
-    document.getElementById('all').style.background = 'linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0, 0.5))';
-    
+    document.getElementById('editarAll').style.display = 'block';   
+    document.getElementById('editarAll').style.zIndex = '9999';   
+
     document.getElementById('titulo_audio').value = titulo;
     document.getElementById('procedenciaCul').value = procedenciaSE;
     document.getElementById('narradorE').value = narradorSE;
     document.getElementById('musicafondo').value = muscia_fondoSE;
+    document.getElementById('pantalla').style.display = 'block';
+    document.getElementById('pantalla').style.zIndex = '7';
 
-    const subirAc =document.getElementById('submitBtn');
-    subirAc.onclick=function(){
-        var cambio = db.collection('audio').doc(id);
+
+    const subirAc =document.getElementById('submitButton');
+    subirAc.onclick= async function(){
+        const cambiar = db.collection('audio').doc(id);
         var tituloT = document.getElementById('titulo_audio').value;
         var procedenciaP = document.getElementById('procedenciaCul').value;
         var narradorN = document.getElementById('narradorE').value;
         var muscia_fondoM = document.getElementById('musicafondo').value;
-        return cambio.update({
-        titulo: tituloT,
-        procedencia: procedenciaP,
-        narrador: narradorN,
-        muscia_fondo: muscia_fondoM
-    })
-    
+
+        await cambiar.update({titulo: tituloT});
+        await cambiar.update({procedencia: procedenciaP});
+        await cambiar.update({narrador: narradorN});
+        await cambiar.update({musica: muscia_fondoM});
+        document.getElementById('editarAll').style.display = 'none';   
+        document.getElementById('editarAll').style.zIndex = '';   
+
+
+        document.getElementById('message__exito').style.display = 'block';
+        document.getElementById('message__exito').style.zIndex = '9998';
+
+        setTimeout(() => {            
+            document.getElementById("message__exito").style.display = 'none';
+            document.getElementById('message__exito').style.zIndex = '';
+            window.location.reload();
+          },2500); 
+
     }
     
 }
 function genConfirmar(cadena){
+
     if(cadena=="Cuento"){
         document.getElementById('confirmacion').style.display = 'block'; 
-        document.getElementById('confirmacion').style.zIndex = '9999';
-    }else
-    {
+        document.getElementById('confirmacion').style.zIndex = '9998';
+        document.getElementById('pantalla').style.display = 'block';
+        document.getElementById('pantalla').style.zIndex = '7';
+    }else{ 
         if(cadena=="Leyenda"){
             document.getElementById('confirmacionDos').style.display = 'block'; 
-            document.getElementById('confirmacionDos').style.zIndex = '9999';
+            document.getElementById('confirmacionDos').style.zIndex = '9998';
+            document.getElementById('pantalla').style.display = 'block';
+            document.getElementById('pantalla').style.zIndex = '7';
         }
-        
     }
-   
-    document.getElementById('all').style.display = 'block';
-    document.getElementById('all').style.background = 'linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0, 0.5))';
 }
 
 function hideConfirma(cadena){ 
     if(cadena=="Cuento"){
         document.getElementById('confirmacion').style.display = 'none';
-        document.getElementById('confirmacion').style.zIndex = '0';
+        document.getElementById('confirmacion').style.zIndex = '10';
 
     }   
     else{
-        document.getElementById('confirmacionDos').style.display = 'none';
-        document.getElementById('confirmacionDos').style.zIndex = '0';
+        if(cadena=="Leyenda"){
+            document.getElementById('confirmacionDos').style.display = 'none';
+            document.getElementById('confirmacionDos').style.zIndex = '10';
 
-
+        }   
     }
-    document.getElementById('all').style.display = 'none';    
-    document.getElementById('all').style.background = '';
-    document.getElementById('all').style.zIndex = '0';
+    document.getElementById('pantalla').style.display = 'none';
+    document.getElementById('pantalla').style.zIndex = '0';
 
-    
 }
+
 function hideEdita(){
     document.getElementById('editarAll').style.display = 'none';
-    document.getElementById('all').style.display = 'none';    
-    document.getElementById('all').style.background = '';
+    document.getElementById('editarAll').style.zIndex = '';   
+
+    document.getElementById('pantalla').style.display = 'none';
+    document.getElementById('pantalla').style.zIndex = '0';
 
 }
 function enviar(doc) {

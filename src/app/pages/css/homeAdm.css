@@ -1,236 +1,250 @@
-#all {
-  height: 100%;
-  width: 100%;
-  font-size: 16;
-  font-family: Arial, Helvetica, sans-serif;
-  position: absolute;
-  top: 0%;
-  left: 0%;
-  z-index: 9998;
-  display: none;
-}
 
-#confirmacionDos {
-  padding-left: 50px;
-  height: 80px;
-  width: 300px;
-  font-size: 16;
-  font-family: Arial, Helvetica, sans-serif;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  display: none;
-  background: radial-gradient(ellipse at right top, #647c74, #587a7c, #15242e, #3a615e, #749e8a 80%);
-  background-size: 150% 150%;
-  background-position: top center;
-  color: #fff;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
-
-  .boton2 {
-    position: relative;
-    left: 2%;
-  }
-
-  .botonDos {
-    position: relative;
-    left: 45%;
-    top: 0px;
-  }
-
-}
-
-.texto {
-  position: relative;
-  top: 2px;
-  left: 9%;
-  margin-bottom: 10px;
-}
-
-#confirmacion {
-  padding-left: 50px;
-  height: 80px;
-  width: 300px;
-  font-size: 16;
-  font-family: Arial, Helvetica, sans-serif;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  display: none;
-  background: radial-gradient(ellipse at right top, #647c74, #587a7c, #15242e, #3a615e, #749e8a 80%);
-  background-size: 150% 150%;
-  background-position: top center;
-  color: #fff;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
-
-  .boton1 {
-    position: relative;
-    left: 2%;
-  }
-
-  .boton {
-    position: relative;
-    left: 45%;
-    top: 0px;
-  }
-}
-
-#contenedor {
+/* Estilos para el margen superior del contenido principal para dejar espacio para el encabezado */
+#pantalla{
   padding: 14px;
   margin-left: 1%;
-  position: fixed;
-  top: 107px;
-  left: 208px;
-  height: 100%;
-  width: 100%;
-  padding: 10px;
-  background: radial-gradient(ellipse at bottom, #647c74, #587a7c, #15242e, #3a615e, #749e8a, #15242e 80%);
-  background-size: 150% 150%;
-  background-position: top center;
-  color: #fff;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
+  position: absolute;
+  top: 0px;
+  left: -20px;
+  height: 85%;
+  width: 85%;   
+  background : linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0, 0.5));
+  z-index: 1;
+  display: none;
 }
 
-img {
-  width: 90px;
-  height: 90px;
+
+
+.form__control{
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 2.5px;
 }
 
-h2 {
-  font-family: sans-serif;
-  font-size: 20px;
-  margin-top: 10px;
-  margin-left: 10px;
-  color: rgb(255, 255, 255);
+#contenedor{
+    padding: 14px;
+    margin-left: 1%;
+    position: fixed;
+    top: 107px;
+    left: 208px;
+    height: 100%;
+    width: 100%;     
+    padding: 10px; 
+    background: radial-gradient(ellipse at bottom, #647c74, #587a7c, #15242e,  #3a615e,#749e8a, #15242e 80%);
+    background-size: 150% 150%;
+    background-position: top center;
+    color: #fff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
+}  
+
+
+img{
+    width: 120px;
+    height: 120px;   
+}  
+#imgCL:hover{
+  cursor: pointer;
+  transition: background-color 0.3s;  
+  box-shadow: 1px 1px 18px rgba(255, 255, 255, 0.925)
 }
 
-#camp {
+h2{
+    font-family: sans-serif;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-left: 10px;
+    color: rgb(255, 255, 255);
+}
+ 
+#camp{
   display: block;
-}
+}  
 
 
-
-.scrollDiv {
+.scrollDiv{
+  padding: auto;
   border-radius: 4%;
-  background-color: #ffffff2d;
-  position: relative;
+  background-color: #0000006b;
+  position: absolute;
   top: 3%;
   left: 4%;
-  width: 37%;
+  width: 38%;
   height: 75%;
   overflow: hidden;
   overflow-y: scroll;
-}
+  padding: 20px;
+} 
 
-.DosScrollDiv {
+.DosScrollDiv{
   border-radius: 4%;
-  background-color: #ffffff2d;
-  position: relative;
-  z-index: 2;
-  top: -72%;
+  background-color: #0000006b;
+  position: absolute;
+  top: 3%;
   left: 45%;
-  width: 37%;
+  width: 38%;
   height: 75%;
   overflow: hidden;
   overflow-y: scroll;
+  padding: 20px;
 }
 
-.audioContainer {
+.Object{   
   color: rgb(255, 255, 255);
   font-family: Arial, Helvetica, sans-serif;
   font-size: 13px;
+}  
+
+.imageUno{
+  position: relative;  
+  left: 3%;
+  top: 15px;
 
 }
 
-.imageUno {
-  position: relative;
-  left: 2%;
-  top: 20px;
+.imageDos{
+  position: relative;  
+  left: 3%;
+  top: 15px;
 }
 
-.imageDos {
-  position: relative;
-  left: 2%;
-  top: 20px;
-}
-
-#contenidoUno {
-  position: relative;
-  top: 2%;
-  left: 10%;
-  margin-top: 5px;
-
-}
-
-#contenidoDos {
+#contenidoUno{
   position: relative;
   top: 2%;
-  left: 10%;
+  left: 1%;
   margin-top: 5px;
-
+  font-size: 16px;
 }
 
-h3 {
+#contenidoDos{
+  position: relative;
+  top: 2%;
+  left: 1%;
+  font-size: 16px;
+  margin-top: 5px;
+}
+
+h3{
   position: relative;
   margin-top: 5px;
 }
 
-#iconoUno {
+#iconoUno{
   position: relative;
-  left: 70%;
+  left:70%;
   top: 5px;
-  margin-top: 5%;
+  margin-top: 5%;  
 }
 
-#iconoEdit {
+#iconoEdit{
   position: relative;
-  left: 66%;
-  margin-top: 11%;
+  left:66%;
+  margin-top: 11%;  
 }
 
-#campC1 {
-  position: relative;
+
+
+#campC1{
+  position: relative; 
   width: 693px;
   height: 100px;
   display: flex;
-  margin-top: 40px;
+  margin-top: 60px;
 }
 
-#campL1 {
-  position: relative;
+#campL1{
+  position: relative; 
   width: 693px;
   height: 100px;
   display: flex;
-  margin-top: 40px;
+  margin-top: 60px;
+  margin-bottom: 20px;
 }
 
-#titulo {
+#titulo{
   position: relative;
   top: 10px;
   left: 29%;
   font-size: 25px;
 }
 
-.container__b {
-  position: fixed;
+.texto{
+  position: relative;
+  top: 2px;
+  left: 9%;
+  margin-bottom: 10px;
+}
 
+#confirmacion{
+  padding-left: 50px;
+  height: 80px;
+  width: 300px;
+  font-size: 16;
+  font-family: Arial, Helvetica, sans-serif;
+  position: fixed;
+  top: 50%; 
+  left: 50%; 
+  z-index: 5;
   display: none;
+  background: radial-gradient(ellipse at right top, #647c74, #587a7c,#15242e,  #3a615e,#749e8a 80%);  
+  color: #fff;
+  border-radius: 20px; 
+}
+
+.boton1{
+  position: relative;
+  left: 2%;
+  top: 10%;
+}
+.boton{
+  position: relative;
+  left: 45%;
+  top: 10%;
+}
+#confirmacionDos{
+  padding-left: 50px;
+  height: 80px;
+  width: 300px;
+  font-size: 16;
+  font-family: Arial, Helvetica, sans-serif;
+  position: fixed;
+  top: 50%; 
+  left: 50%; 
+  display: none;
+  z-index: 5;
+  background: radial-gradient(ellipse at right top, #647c74, #587a7c,#15242e,  #3a615e,#749e8a 80%);
+  border-radius: 20px;
+  color: #fff;
+}
+.boton2{
+  position: relative;
+  left: 2%;
+  top: 10%;
+}
+.botonDos{
+  position: relative;
+  left: 45%;
+  top: 10%;
+}
+/****************************************************************EDITAR****************************************************/
+.container__body{
+  position: fixed;  
+  display: none; 
   background-position: top center;
   color: #fff;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
 }
 
-.container__f {
+.container__form{
   position: fixed;
   top: 30%;
   left: 43%;
   width: 30%;
   height: 42%;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
-
-  background-color: #0000006b;
+  background: radial-gradient(ellipse at right top, #647c74, #587a7c,#15242e,  #3a615e,#749e8a 80%);
   color: #fff;
   font-size: 16px;
   font-family: Arial, Helvetica, sans-serif;
@@ -246,7 +260,7 @@ form {
   justify-content: space-between;
 }
 
-.form__c {
+.form__control{
   padding: 5px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -254,19 +268,26 @@ form {
   width: 500px;
 }
 
+.form__control__time{
+  padding: 5px;
+  height: 30px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 2.5px;
+}
 
-.form__l {
+.form__label {
   font-weight: bold;
   margin-bottom: 5px;
   font-size: 16px;
   color: #ffffff;
   /* text-shadow: 0 0 5px rgb(3, 103, 53) ,0 0 5px red, 0 0 5px rgb(89, 0, 255); */
-  text-shadow: 2px 2px 5px #4a0c0c;
+ text-shadow: 2px 2px 5px #4a0c0c;
 }
 
 
 /* stilo de botones */
-.button-c {
+.button-container {
   display: fixed;
   bottom: 20px;
   right: 22px;
@@ -274,19 +295,16 @@ form {
   justify-content: flex-end;
   align-items: center;
 }
-
-#submitBtn {
+#submitButton{
   width: 120px;
 }
-
-.button__sub button,
-.button__can button {
+.button__submit button,
+.button__cancel button {
   padding: 10px 20px;
   margin-right: 20px;
   margin-bottom: 10px;
   font-size: 13px;
 
-  /* background: linear-gradient(to top left, #01081d, #185a9d); */
   background: radial-gradient(ellipse at left top, #01081d, #011c38 80%);
   color: #fff;
   border: none;
@@ -298,17 +316,20 @@ form {
   height: 35px;
   transition: background-color 0.3s;
 }
+.custom_bael{
+  margin-bottom: 10px;
+}
 
-.button__can,
-.button__sub {
+.button__cancel,
+.button__submit {
   margin-left: 20px;
   transition: all 0.2s;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); 
   z-index: 1;
 }
 
-.button__can button:hover,
-.button__sub button:hover {
+.button__cancel button:hover,
+.button__submit button:hover {
   background: #ffffff8f;
   color: #070064dc;
   transform: translate(0, -3px);
@@ -316,95 +337,4 @@ form {
   z-index: 2;
 }
 
-/* Estilo para cada contenedor de selección de archivos */
 
-
-
-
-#frase {
-  text-align: center;
-  padding: 5px;
-  font-weight: bold;
-  font-size: 14px;
-}
-
-.error-message {
-  color: #810202;
-  font-size: 13px;
-}
-
-
-/* Estilo para el contenedor de la ventana emergente */
-.popup {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
-
-/* Estilo para la ventana emergente */
-.window__acept__or__error {
-  display: flex;
-  flex-direction: column;
-
-  width: 242px;
-  height: 160px;
-
-  background: radial-gradient(ellipse at bottom right, #647c74, #587a7c, #15242e, #3a615e, #749e8a 80%);
-  background-size: 150% 150%;
-  background-position: top center;
-
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
-  padding: 20px;
-
-  color: #fff;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
-
-  align-items: center;
-  text-align: center;
-  justify-content: space-around;
-}
-
-.window__acept__or__error p {
-  font-size: 24px;
-  font-family: Arial, Helvetica, sans-serif;
-  color: #fff;
-}
-
-/* Estilo para el botón Verificar */
-.button__verify,
-.button__ok {
-
-  padding: 10px 20px;
-
-  font-size: 13px;
-  background: radial-gradient(ellipse at left top, #01081d, #011c38 80%);
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: bold;
-
-  width: 100px;
-  height: 30px;
-
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.button__verify:hover {
-  background: #0978c2b0;
-  color: #fff;
-}
-
-.button__ok:hover {
-  background: #e90000a6;
-  color: #fff;
-}
