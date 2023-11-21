@@ -239,7 +239,6 @@ p{
   box-shadow: 0 0 1%; 
   justify-content: center;
   padding-top: 2%;
-
 }
 .ranking-list {
     list-style-type: none;
@@ -417,6 +416,7 @@ h1 {
   margin-top: 0.1%; 
   scrollbar-color: rgb(248, 246, 246) rgb(73, 155, 104);
   border-radius: 1.8%;
+
 }
 .scroll-content{
   padding-left: -34px;
