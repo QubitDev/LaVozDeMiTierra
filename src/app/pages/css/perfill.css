@@ -158,7 +158,7 @@ header {
     box-sizing: border-box;
 }
 
-main {
+.contPerfil{
   top: 102px;
   left: 200px;
   background: radial-gradient(ellipse at bottom, #647c74, #587a7c, #15242e, #3a615e, #749e8a, #15242e 80%);
@@ -168,71 +168,81 @@ main {
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
   position: fixed;
   flex-direction: column;
-  top: 102px;
-  left: 200px;
   width: 100%;
   height: 100%;
 }
 
-#userProfile {
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    margin-top: 10%; /* Ajusta este valor según tu preferencia */
+.container{
+  width: 90%;
+  height: 30%;
+  margin-top: 0%;
+  display: flex;
+  flex-direction: row;
 }
 
-#profilePictureContainer,
-#userNameContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
+.imagenPerfil{
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  transform: translate(400%,-90%);
+  border: 5px solid #151515;
+  overflow: hidden;
+ 
+}
+.container2{
+  width: 90%;
+  height: 50%;
+  margin-top: -9%;
+  margin-left: 10px;
+  overflow: hidden;
 }
 
-#profilePicture {
-    /*max-width: 100px;*/
-    height: 150px;
-    width: 150px;
-    border-radius: 50%;
-    margin-bottom: 10px;
-    cursor: pointer;
+.datos{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+.imagenes{
+  margin-top: 1%;
+  margin-left: 1%;
+  background-color: rgba(52, 51, 51, 0.273);
+  width: 92%;
+  height: 64%;
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 45);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
 }
 
-
-    
-
-button {
-    padding: 10px;
-    background-color: #01081d;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+.buttonEditar{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
-button:hover {
-    background-color: #01081d
+.container i {
+  position: absolute;
+  width: 2px;
+  height: 10px;
+  top: -10px;
+  background: #d3d3d3;
+  animation: rain linear infinite;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+@keyframes rain {
+  0% {
+      top: -10px;
+  }
+  100% {
+      top: 100vh;
+  }
+}

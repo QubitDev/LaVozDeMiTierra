@@ -5,9 +5,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" type="image/x-icon" href="./../../assets/images/LogoLDMT.ico"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"/>
-        <link rel="stylesheet" href="./../css/Perfil.css" />
+        <link rel="stylesheet" href="./../css/perfill.css" />
         <title>Perfil Usuario</title>
-        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet">
         <!-- Firebase App (la biblioteca base) - es obligatorio siempre -->
         <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
     </head>
@@ -60,23 +62,23 @@
                 </div>
             </div>
         </div>
-        <main>
-            <div class="containerr">
-                <section id="userProfile">
-                    <div id="profilePictureContainer">
-                        <img src="./../../../assets/images/Mascara.jpg" alt="Profile Picture" id="profilePicture">
-                        <button id="changePictureButton" onclick="changeProfilePicture()">&#9998;</button>
+        <div class="contPerfil">
+            <div class="container">
+                 <img src="https://i.pinimg.com/564x/26/bd/a2/26bda2051dc1acabf9c445e700c00984.jpg" alt="" width="1350px" height="700px">
+            </div>
+            <div class="imagenPerfil" id="imagenU">
+                <img src="./../../../assets/images/perfilAguila.jpg" class="imagenLC" height="160px" width="160px">
+            </div><div class="container2">
+                <div class="datos">
+                    <h1 class="nombre" id = "nombreU"> USUARIO </h1>
+                    <button class="buttonEditar" type="button" id="cancelBtn">Editar</button>
+                    <div class="imagenes"> 
+                    
                     </div>
-                    <div id="userNameContainer">
-                        <span id="userName">Nombre de Usuario</span>
-                        <button id="changeNameButton" onclick="changeUserName()">&#9998;</button>
-                        <input type="text" id="newUserName" style="display: none;">
-                    </div>
-                    <button id="saveChangesButton" onclick="saveChanges()">Guardar Cambios</button>
-                </section>
+                </div>
             </div>
             
-        </main>
+        </div>
     
  
         <!-- Firebase Storage -->
@@ -88,7 +90,7 @@
         <script src="./../homeUsu/search.js"></script>
        -->
 
-       <script src="./../../pages/js/Perfil.js"></script>
+       <script src="./../../pages/js/perfill.js"></script>
     </body>   
 </html>
  
