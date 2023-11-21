@@ -343,7 +343,13 @@ button {
   overflow-x: scroll;
 
 }
+.containerImages::-webkit-scrollbar{
+  width: 3px;
 
+}
+.containerImages::-webkit-scrollbar-thumb{
+  box-shadow: 1px 1px 18px rgba(255, 255, 255, 0.925);
+}
 
 /*-------------------------------------------------BUSCADOR-------------------------------------------------------------*/
 .container__search {

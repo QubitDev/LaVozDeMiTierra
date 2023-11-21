@@ -58,7 +58,11 @@ function getDocument(direccion){
   const fileList =  ["Elorigendelguajojó","Elabueloyelraton","Elabueloylaquinuita","Elquirquinchomúsico","ElSapoyelCóndor",
   "Elzorroyelcuy","Laancianayelsapo","Lahijadelricoyelcondenado","Laleyendadelacoca","Laleyendadelapapa","Laleyendadelaquinuaylasal",
   "Laleyendadelcóndorylacholita","Leyendadelayuca","leyendaweenhayekdelorigendelfuegoylosvegetales",
-  "Laleyendadelsajama","LaleyendadelToborochi","Laabuelagrillo","Laleyendadeeltíodelamina"]
+  "Laleyendadelsajama","LaleyendadelToborochi","Laabuelagrillo","Laleyendadeeltíodelamina","Cuandomarchabanlasmontañas","Elbibosienmotacú",
+  "Elcuentodelhilodeagua","Eljichi","Elpájarodefuego","Eltigreylashormigas","Laabuelasolitariaylospájaros",
+  "Laleyendadelapapa","Laleyendadelaquena","Laleyendadelsajjrawhipina","Laleyendademancocapacymamaocllo","Lanoviadeláguila",
+  "Laviudita","Lazorrayelcóndor","Leyenda del maíz","Leyendadelavirgendeurkupiña","Leyendadelosmonolitos",
+  "LeyendadePapat","Ruperta","Topacorderito"]
   for(let i=0;i<fileList.length;i++){
     if(direccionT == restriccion(fileList[i])){
       return "./../../../assets/textos/"+ direccionT+".txt";      
