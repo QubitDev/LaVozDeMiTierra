@@ -18,6 +18,7 @@ const messagePopup = document.getElementById("message");
 const formatoSelect = document.getElementById("formato_audio");
 const durationField = document.getElementById("duracion");
 
+var idDoc='';
 const datos = {};
 var bandera = true;
 
@@ -331,7 +332,6 @@ async function isTitleUnique(title){
 }
 
 /*-----------------------------------------------KEVIN----------------------------------------------------- */
-var idDoc='';
 
 function uploadFile(file, path) {
   return new Promise((resolve, reject) => {
