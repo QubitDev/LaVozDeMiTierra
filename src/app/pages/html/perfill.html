@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" type="image/x-icon" href="./../../assets/images/LogoLDMT.ico"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"/>
+        <link rel="stylesheet" href="./../css/perfill.css" />
+        <title>Perfil Usuario</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+        <!-- Firebase App (la biblioteca base) - es obligatorio siempre -->
+        <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
+    </head>
+
+
+    <body>   
+        <div id="container">
+            <div class="LogoLDMT">
+                <img src="./../../../assets/images/LogoLDMT.ico" alt="Logo"class="logo"/>
+            </div>
+            <header id="header">
+                <div class="greeting">
+                    <p><font size="16">La voz de mi Tierra</font></p>
+                </div>
+                <div class="sesionEnd">
+                        <img src="./../../assets/images/IconoUsu.png" alt="Sesion" class="sesion"/>
+                </div>
+                <div id="sesionMenu">
+                    <ul class="opciones" id="opciones">
+                        <a href="./../pages/html/Login.html">cerrar sesion</a>                        
+                    </ul>
+                    <ul class="opciones" id="opciones">
+                        <a href="./../homeUsu/homeUsu.html">perfil usuario</a>                        
+                    </ul>
+                </div>
+            </header>
+            <div id="menu">
+                <div class="content">
+                    <div class="menu__item" data-page="app">
+                        <i class="fas fa-home"></i> 
+                        <a href="./../homeUsu/homeUsu.html">Inicio</a>
+                    </div>
+                    <div class="menu__item" data-page="registro" id="searchButton" onClick="mostrarBuscar()">
+                        <i class="fa-solid fa-magnifying-glass"></i> 
+                        <a href="javascript:void(0)" nclick="mostrarBuscar()">Buscar</a>
+                    </div>
+                    <div class="menu__item" data-page="app">
+                        <i class="fa-regular fa-heart"></i>
+                        <a href="./../pages/html/favoritos.html">Favoritos</a>
+                    </div>
+                    <div class="menu__item" data-page="app">
+                        <i class="fa-solid fa-ranking-star"></i>
+                        <a href="./../pages/html/Ranking.html">Ranking</a>
+                    </div>
+                    <div class="menu__item" data-page="app">
+                        <i class="fa-solid fa-table-list"></i>
+                        <a href="MisListas.html">Mis listas</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="contPerfil">
+            <div class="container">
+                 <img src="https://i.pinimg.com/564x/26/bd/a2/26bda2051dc1acabf9c445e700c00984.jpg" alt="" width="1350px" height="700px">
+            </div>
+            <div class="imagenPerfil" id="imagenU">
+                <img src="./../../../assets/images/perfilAguila.jpg" class="imagenLC" height="160px" width="160px">
+            </div><div class="container2">
+                <div class="datos">
+                    <h1 class="nombre" id = "nombreU"> USUARIO </h1>
+                    <button class="buttonEditar" type="button" id="cancelBtn">Editar</button>
+                    <div class="imagenes"> 
+                    
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    
+ 
+        <!-- Firebase Storage -->
+        <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+        <script src="./../../api/configuracion.js"></script>
+       <!-- 
+        <script src="MisListas.js"></script>
+        <script src="./../homeUsu/search.js"></script>
+       -->
+
+       <script src="./../../pages/js/perfill.js"></script>
+    </body>   
+</html>
+ 
