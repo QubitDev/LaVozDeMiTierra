@@ -243,9 +243,9 @@ p{
 .ranking-list {
     list-style-type: none;
     padding: 0;
-    margin-top: 34px;
-    margin-left: 8px;
+    margin-top: 4%;
     align-items:center;
+    padding-left: -80%;
 
 
 }
@@ -380,7 +380,7 @@ h1 {
   
 .line {
   margin-left: -23.5%; 
-  width: 147.1%; 
+  width: 1099999.90%; 
   height: 0.6%; 
   background-color: rgb(255, 255, 255);
   margin-top: 11%; 
@@ -396,8 +396,6 @@ h1 {
   display: flex;
   align-items: center;
   font-size: 16px;
-  padding-left: 259px;
-  margin-left: -220px;
 
 }
 .scroll-container {
@@ -405,12 +403,12 @@ h1 {
   background: #ffff;
   overflow: hidden;
   overflow-y: scroll;
-  width: 889%; 
-  height: 130.5%; 
+  width: 51090%; 
+  height: 130.10%; 
   margin: -23.4%; 
   background-color: rgba(0, 0, 0, 0.273);
   color: rgb(255, 255, 255);
-  padding-left: 10%; 
+  padding-left: 146.3%; 
   border-radius: 1.8%; 
   box-shadow: 0 0 1%; 
   margin-top: 11.2%; 
@@ -419,7 +417,7 @@ h1 {
 
 }
 .scroll-content{
-  padding-left: -34px;
+  padding-left: 64px;
 }
 .scroll-container::-webkit-scrollbar {
     
