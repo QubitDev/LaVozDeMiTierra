@@ -1,3 +1,5 @@
+
+
 document.getElementById("cancelButton").addEventListener("click", onCancel);
 document.getElementById("submitButton").addEventListener("click", onSubmit);
 document.getElementById("okButton").addEventListener("click",closePopup);
@@ -16,7 +18,6 @@ const messagePopup = document.getElementById("message");
 const formatoSelect = document.getElementById("formato_audio");
 const durationField = document.getElementById("duracion");
 
-var idDoc='';
 const datos = {};
 var bandera = true;
 
@@ -322,6 +323,7 @@ function getAudioDuration(file) {
   });
 }
 
+
 // verificacion de documento con el mismo titulo
 async function isTitleUnique(title){
   const querySnapshot = await db.collection('audio').where('titulo','==',title).get();
@@ -329,6 +331,7 @@ async function isTitleUnique(title){
 }
 
 /*-----------------------------------------------KEVIN----------------------------------------------------- */
+var idDoc='';
 
 function uploadFile(file, path) {
   return new Promise((resolve, reject) => {
@@ -360,10 +363,6 @@ async function handleSubmit() {
       const textURL = await uploadFile(textFile, 'texto/' + textFile.name);
       const imageURL = await uploadFile(imageFile, 'images/' + imageFile.name);
       
-      console.log("Documento escrito con ID: ", audioURL);
-      console.log("Documento escrito con ID: ", textURL);
-      console.log("Documento escrito con ID: ", imageURL);
-
       datos.audioURL = audioURL;
       datos.textURL = textURL;
       datos.imageURL = imageURL;
@@ -382,10 +381,13 @@ async function handleSubmit() {
     alert(`Error: ${error}`);
   }
 }
+
 function onVerifyButton() {
-  window.location.href = `./../html/reproduccirAdm.html?doc=${idDoc}`;
+  window.location.href = `./../html/reproduccirAdm.html?doc=${idDoc}`;  
+  //window.location.href = `./../html/reproduccirAdm.html?doc=${doc}`;
   resetForm();
 }
+
 const endSesion = document.querySelector(".sesion");
 endSesion.addEventListener('click',cerrarSesion);
 

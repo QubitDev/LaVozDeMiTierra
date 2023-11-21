@@ -77,8 +77,6 @@ function restriccion(cadena){
 }
 
 db.collection('audio').onSnapshot((snapshot) => {
-  //console.log(snapshot.docs[0].data());
-
   cargarDocumentos(snapshot.docs);
 });
 
