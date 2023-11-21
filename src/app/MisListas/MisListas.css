@@ -210,7 +210,9 @@ a {
   background: #00000000;
   border: #00000000;
 }
-
+#auxAdd{
+	color: white;
+}
 #auxAdd:hover{
 	cursor: pointer;
 	transition: background-color 0.3s;  
