@@ -262,10 +262,7 @@ function closePopup(){
   popup.style.display = 'none';
 }
 
-function onVerifyButton() {
-  window.location.href = `./../html/reproducir.html?doc=${idDoc}`;
-  resetForm();
-}
+
 
 function validateInput(inputElement) {
   const inputValue = inputElement.value.trim(); // Eliminar espacios en blanco al principio y al final
@@ -385,7 +382,10 @@ async function handleSubmit() {
     alert(`Error: ${error}`);
   }
 }
-
+function onVerifyButton() {
+  window.location.href = `./../html/reproduccirAdm.html?doc=${idDoc}`;
+  resetForm();
+}
 const endSesion = document.querySelector(".sesion");
 endSesion.addEventListener('click',cerrarSesion);
 

@@ -61,6 +61,7 @@
 	padding-left: 250px;
 	display: inline-block;
 	text-align: left;
+	text-shadow: 4px 4px 10px black;
 }
 
 .greeting p {
@@ -152,6 +153,9 @@ a {
 	border-radius: 10px;
 	transition: background-color 0.3s;
 	background: radial-gradient(ellipse at left top, #01081d, #011c38 80%);
+}
+#tipo__audioAdm{
+  color: white;
 }
   /*******************************************************Reproductor**********************************************************/
 

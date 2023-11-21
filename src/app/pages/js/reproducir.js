@@ -55,9 +55,10 @@ db.collection("audio").doc(docId).get().then((doc) => {
 
 function getDocument(direccion){
   const direccionT = restriccion(direccion);
-  const fileList = ["Elorigendelguajojó","Elabueloyelraton","Elabueloylaquinuita","Elquirquinchomúsico","ElSapoyelCóndor",
+  const fileList =  ["Elorigendelguajojó","Elabueloyelraton","Elabueloylaquinuita","Elquirquinchomúsico","ElSapoyelCóndor",
   "Elzorroyelcuy","Laancianayelsapo","Lahijadelricoyelcondenado","Laleyendadelacoca","Laleyendadelapapa","Laleyendadelaquinuaylasal",
-  "Laleyendadelcóndorylacholita","Leyendadelayuca","leyendaweenhayekdelorigendelfuegoylosvegetales","Laleyendadelsajama","LaleyendadelToborochi"]
+  "Laleyendadelcóndorylacholita","Leyendadelayuca","leyendaweenhayekdelorigendelfuegoylosvegetales",
+  "Laleyendadelsajama","LaleyendadelToborochi","Laabuelagrillo","Laleyendadeeltíodelamina"]
   for(let i=0;i<fileList.length;i++){
     if(direccionT == restriccion(fileList[i])){
       return "./../../../assets/textos/"+ direccionT+".txt";      
@@ -91,7 +92,7 @@ const cargarDocumentos = (documentos) => {
               <h4 style="margin: 1%;">${documento.data().titulo}</h4>
             </div>
             <figure>
-              <img src="${documento.data().imageURL}" width="160px" height="160px">
+              <img src="${documento.data().imageURL}" width="160px" height="160px" id="imagenesCard">
             </figure>            
           </div>          
           `;
