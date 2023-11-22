@@ -37,7 +37,7 @@ function showListL(){
     document.getElementById("contenedor").style.display = 'none';
     document.getElementById("contenedor_Lista").style.display = 'block';
 }
-
+/*
 const db = firebase.firestore();
 const auth = firebase.auth();
 
@@ -108,4 +108,4 @@ function crearPlaylist() {
     } else {
         alert("Usuario no autenticado. Inicie sesión para crear una playlist.");
     }
-}
+}*/

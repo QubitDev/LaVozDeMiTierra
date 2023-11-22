@@ -23,7 +23,7 @@ loginForm.addEventListener("submit", function (e) {
         errorContainer.innerText = "El correo electrónico no debe exceder los 64 caracteres";
         return;
     }
-    if (password.length > 25) {
+    if (password.length > 32) {
         errorContainer.innerText = "La contraseña no debe exceder los 32 caracteres";
         return;
     }
@@ -35,7 +35,7 @@ loginForm.addEventListener("submit", function (e) {
             const user = userCredential.user;
             if (correoElectronico === "trabajosoftware201@gmail.com") {
                 // Redirige a la página homeAdm.html si el correo es "trabajosoftware201@gmail.com"
-                window.location.href = `./../../pages/app.html?user=${'homeAdm'}`;
+                window.location.href = "./../../homeAdm/homeAdm.html";
             } else {
                 // Redirige a la página homeUsu.html para otros correos
                 window.location.href = "./../../homeUsu/homeUsu.html";
@@ -54,4 +54,3 @@ loginForm.addEventListener("submit", function (e) {
         });        
        
 });
-
