@@ -5,75 +5,54 @@ document.getElementById("submitButton").addEventListener("click", onSubmit);
 document.getElementById("okButton").addEventListener("click",closePopup);
 document.getElementById("verifyButton").addEventListener("click",onVerifyButton);
 
-  return {
-    cancel,
-    submit,
-    close_Popup,
-    verify_Button,
-    audioInput,
-    textInput,
-    imageInput,
-    okButton,
-    verifyButton,
-    popup,
-    overlay,
-    windowAorE,
-    messagePopup,
-    formatoSelect,
-    durationField,
-    idDoc,
-    datos,
-    bandera,
-  };
-})();
+const audioInput = document.getElementById("audioFileInput");
+const textInput = document.getElementById("textFileInput");
+const imageInput = document.getElementById("imageInput");
 
-if (getAttributes.cancel !== null) {
-  getAttributes.cancel.addEventListener('click', onCancel);
-}
+const okButton = document.getElementById('okButton');
+const verifyButton = document.getElementById('verifyButton');
+const popup = document.getElementById('popup');
+const overlay = document.getElementById('overlay');
+const windowAorE =document.getElementById('window_A_E');
+const messagePopup = document.getElementById("message");
+const formatoSelect = document.getElementById("formato_audio");
+const durationField = document.getElementById("duracion");
 
-if (getAttributes.submit !== null){
-  getAttributes.submit.addEventListener('click', onSubmit);
-}
+var idDoc='';
+const datos = {};
+var bandera = true;
 
-if (getAttributes.close_Popup != null) {
-  getAttributes.close_Popup.addEventListener("click", closePopup);
-}
+imageInput.addEventListener("change", function () {
+  const selectedImage = this.files[0]; // Obtén el archivo de imagen seleccionado
 
-if (getAttributes.verify_Button !== null) {
-  getAttributes.verify_Button.addEventListener("click",onVerifyButton);
-}
+  const imagePreview = document.getElementById("imagePreview");
+  const frase = document.getElementById("frase");
 
-if (getAttributes.imageInput !== null) {
-  getAttributes.imageInput.addEventListener("change", function () {
-    const selectedImage = this.files[0];
+  frase.style.display = "none";
+  imagePreview.style.display = "block";
 
-    const imagePreview = document.getElementById("imagePreview");
-    const frase = document.getElementById("frase");
-
-    frase.style.display = "none";
-    imagePreview.style.display = "block";
-
-    if (selectedImage) {
-      const reader = new FileReader();
-      reader.onload = function (e) {
-        imagePreview.src = e.target.result;
-      };
-      reader.readAsDataURL(selectedImage);
-    } else {
-      imagePreview.src = "";
-    }
-  });
-    
-}
+  if (selectedImage) {
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      imagePreview.src = e.target.result;
+    };
+    reader.readAsDataURL(selectedImage);
+  } else {
+    imagePreview.src = "";
+  }
+});
 
 // Captura de audio
+audioInput.addEventListener("change", function () {
+  const selectedAudioFile = this.files[0];
+  
+  durationField.style.display ='inline-block';
+  textInput.disabled = false;
 
-if (getAttributes.audioInput !== null) {
-  getAttributes.audioInput.addEventListener("change", function () {
-    const selectedAudioFile = this.files[0];
-    
-    getAttributes.durationField.style.display ='inline-block';
-    getAttributes.textInput.disabled = false;
+  if (selectedAudioFile) {
+    // obtener duracion del audio
+    getAudioDuration(selectedAudioFile).then((duration) => {
+      const minutes = parseFloat(duration);
 
       if (!isNaN(minutes) && minutes >= 3 && minutes <= 20) {
         durationField.textContent = duration;         
@@ -81,94 +60,91 @@ if (getAttributes.audioInput !== null) {
       const maxSizeInBytes = 30 * 1024 * 1024*2; 
       const peso = selectedAudioFile.size;
 
-        const maxSizeInBytes = 20 * 1024 * 1024; 
-        const peso = selectedAudioFile.size;
-
-        if (selectedAudioFile.size > maxSizeInBytes) {
-          let sizeArch =parseInt( (peso /1024)/1024);
-          onMessagePopup(`❌¡Error!\nEl archivo exede el peso con: ${sizeArch} MB`, 400);
-          this.value = null;
-          getAttributes.durationField.textContent = ""; 
-          document.getElementById("formato_audio").value = "";
-          bandera = false;
-          return;
-        } else if(isNaN(minutes) || !(minutes >= 2 && minutes <= 20)){
-          onMessagePopup(`❌¡Error!\nSubir audio de 3 a 10 minutos`, 400);
-          this.value = null;
-          getAttributes.durationField.textContent = ""; 
-          document.getElementById("formato_audio").value = "";
-          getAttributes.bandera = false;
-          return;
-        }
-      });
-    }else {
-      getAttributes.durationField.value = "";
-    }
-  });
-}
-
-// Captura de texto
-
-if (getAttributes.textInput!==null) {
-  getAttributes.textInput.addEventListener("change", function () {
-    const selectedTextFile = this.files[0];
-    if (selectedTextFile) {
-      // Validar el peso del archivo de texto
-      const maxSizeInBytes = 500 * 1024; // 500KB en bytes
-      if (selectedTextFile.size > maxSizeInBytes) {
-        onMessagePopup(`❌¡Error!\nDebe ser menor o igual a 500 KB.`,400);
+      if (selectedAudioFile.size > maxSizeInBytes) {
+        let sizeArch =parseInt( (peso /1024)/1024);
+        onMessagePopup(`❌¡Error!\nEl archivo exede el peso con: ${sizeArch} MB`, 400);
         this.value = null;
+        durationField.textContent = ""; 
+        document.getElementById("formato_audio").value = "";
+        bandera = false;
+        return;
+      } else if(isNaN(minutes) || !(minutes >= 3 && minutes <= 20)){
+        onMessagePopup(`❌¡Error!\nSubir audio de 3 a 10 minutos`, 400);
+        this.value = null;
+        durationField.textContent = ""; 
+        document.getElementById("formato_audio").value = "";
+        bandera = false;
         return;
       }
-    }
-  });
-}
+    });
+  }else {
+    durationField.value = "";
+  }
+});
 
+// Captura de texto
+textInput.addEventListener("change", function () {
+  const selectedTextFile = this.files[0];
+
+  if (selectedTextFile) {
+    // Validar el peso del archivo de texto
+    const maxSizeInBytes = 500 * 1024; // 500KB en bytes
+    if (selectedTextFile.size > maxSizeInBytes) {
+      onMessagePopup(`❌¡Error!\nDebe ser menor o igual a 500 KB.`,400);
+      this.value = null;
+      return;
+    }
+
+    // Aquí puedes trabajar con el archivo de texto seleccionado
+    console.log("Nombre del archivo de texto:", selectedTextFile.name);
+    console.log("Tipo del archivo de texto:", selectedTextFile.type);
+  }
+});
 
 
 
 // Validación de elección de elemento en el file chooser de audio
 function updateAcceptAttribute() {
-  getAttributes.audioInput.value = '';
-  getAttributes.textInput.value = '';
-  getAttributes.textInput.disabled = true;
-  getAttributes.durationField.textContent = '';
-  getAttributes.durationField.style.display='none';
+  audioInput.value = null;
+  textInput.value = null;
+  textInput.disabled = true;
+  durationField.textContent = '';
+  durationField.style.display='none';
 
-  switch (getAttributes.formatoSelect.value) {
+  switch (formatoSelect.value) {
     case "MP3":
-      getAttributes.audioInput.disabled = false;
-      getAttributes.audioInput.accept = ".mp3";
+      audioInput.disabled = false;
+      audioInput.accept = ".mp3";
       break;
     case "WAV":
-      getAttributes.audioInput.disabled = false;
-      getAttributes.audioInput.accept = ".wav";
+      audioInput.disabled = false;
+      audioInput.accept = ".wav";
       break;
     case "AIFF":
-      getAttributes.audioInput.disabled = false;
-      getAttributes.audioInput.accept = ".aiff";
+      audioInput.disabled = false;
+      audioInput.accept = ".aiff";
       break;
     default:
-      getAttributes.audioInput.disabled = true;
-      getAttributes.audioInput.accept = "";
+      audioInput.disabled = true;
+      audioInput.accept = "";
   }
 }
 
 
 function onCancel() {
   resetForm();
-  window.location.reload();
+  window.location.href = "./../../homeAdm/homeAdm.html";
 }
 
 function resetForm() {
   document.getElementById("audio__form").reset();
-  getAttributes.audioInput.disabled = true;
-  getAttributes.textInput.disabled = true;
+  audioInput.disabled = true;
+  textInput.disabled = true;
 }
 
 async function onSubmit(event) {
   event.preventDefault();
-  getAttributes.overlay.style.display = 'block';
+  overlay.style.display = 'block';
   
   let sendData = true;
   
@@ -178,14 +154,14 @@ async function onSubmit(event) {
   const formato = getValue("formato_audio");
   const narrador = getValue("narrador");
   
-  const duracion = getAttributes.durationField.textContent;
+  const duracion = durationField.textContent;
   const isUnique = await isTitleUnique(titulo);
 
   
   
   if(!isUnique){
     onMessagePopup(`❌¡Error!\nEl título ya existe en la base de datos.`, 450);
-    getAttributes.overlay.style.display = 'none';
+    overlay.style.display = 'none';
     return
   }
 
@@ -199,22 +175,22 @@ async function onSubmit(event) {
   }
 
   // // Obtén el archivo de audio y el archivo de texto seleccionados
-  const audio = getAttributes.audioInput.files[0];
-  const text = getAttributes.textInput.files[0];
-  const image = getAttributes.imageInput.files[0];
+  const audio = audioInput.files[0];
+  const text = textInput.files[0];
+  const image = imageInput.files[0];
 
 
   // Validar longitud mínima de los campos
   if (!titulo || !musica || !procedencia || !formato || !narrador || !audio || !text || !image) {
     onMessagePopup(`❌¡Error! Faltan Datos.`,350);
-    getAttributes.overlay.style.display = 'none';
+    overlay.style.display = 'none';
     return;
   }
   
   // validar que este seleccionado un tipo de audio
   if (!tipoAudio) {
     onMessagePopup(`❌¡Error!\nPor favor, seleccione un tipo de audio.`,400);
-    getAttributes.overlay.style.display = 'none';
+    overlay.style.display = 'none';
     return;
   }
   
@@ -230,7 +206,7 @@ async function onSubmit(event) {
     const messageError = document.getElementById(field.errorElement);
     if (field.valor.length < field.minimumLength) {
       messageError.textContent = `El campo '${field.name}' debe tener al menos ${field.minimumLength} caracteres.`;
-      getAttributes.overlay.style.display = 'none';
+      overlay.style.display = 'none';
       sendData = false;
     } else {
       messageError.textContent = "";
@@ -239,16 +215,28 @@ async function onSubmit(event) {
   
   // Verifica si se deben enviar los datos o no
   if (!sendData) {
-    getAttributes.overlay.style.display = 'none';
+    overlay.style.display = 'none';
     return;
   }
   
-  Object.assign(getAttributes.datos,{titulo, musica, procedencia, formato, tipoAudio, narrador, duracion});
+  Object.assign(datos,{titulo, musica, procedencia, formato, tipoAudio, narrador, duracion});
   
   handleSubmit();
+ 
+
+  // Realizar lógica de envío o procesamiento aquí
+  console.log("Título:", titulo);
+  console.log("Música de Fondo:", musica);
+  console.log("Procedencia:", procedencia);
+  console.log("Formato de Audio:", formato);
+  console.log("Tipo de Audio:", tipoAudio);
+  console.log("Narrador:", narrador);
+  console.log("Duracion:", duracion )
   
+  
+
   setTimeout(() => {
-    getAttributes.overlay.style.display = 'none';
+    overlay.style.display = 'none';
     document.querySelector(".wavi").style.display = 'none';
     onMessagePopup(`✅¡Se subió correctamente el audio!🎉`, 450); 
   }, 15000); // 15 segundos de espera
@@ -257,23 +245,23 @@ async function onSubmit(event) {
 
 
 function onMessagePopup(messageX, length){
-  getAttributes.messagePopup.textContent = `${messageX}`;
-  getAttributes.windowAorE.style.width = `${length}px`;
-  getAttributes.messagePopup.style.whiteSpace = 'pre-line'; 
-  getAttributes.popup.style.display = 'flex';
+  messagePopup.textContent = `${messageX}`;
+  windowAorE.style.width = `${length}px`;
+  messagePopup.style.whiteSpace = 'pre-line'; 
+  popup.style.display = 'flex';
   if(messageX.includes("❌")){
-    getAttributes.okButton.style.display = 'block';
-    getAttributes.verifyButton.style.display = 'none';
+    okButton.style.display = 'block';
+    verifyButton.style.display = 'none';
     
   } else{
-    getAttributes.verifyButton.style.display = 'block';
-    getAttributes.okButton.style.display = 'none';
+    verifyButton.style.display = 'block';
+    okButton.style.display = 'none';
   }
 }
 
 // cerrar popup
 function closePopup(){
-  getAttributes.popup.style.display = 'none';
+  popup.style.display = 'none';
 }
 
 
@@ -283,6 +271,8 @@ function validateInput(inputElement) {
   const placeholderText = inputElement.getAttribute("placeholder");
 
   if (!inputValue) {
+    // // El campo está vacío después de eliminar espacios en blanco
+    // onMessagePopup(`❌¡Error!\nFaltan Datos.`, 450);
     inputElement.value = '';
     return;
   }
@@ -309,7 +299,6 @@ function validateInput(inputElement) {
   }*/
 }
 
-}
 
 // obtener el valor del elemento por id
 function getValue(id) {
@@ -365,9 +354,9 @@ function uploadFile(file, path) {
 }
 
 async function handleSubmit() {
-  const audioFile = getAttributes.audioInput.files[0];
-  const textFile = getAttributes.textInput.files[0];
-  const imageFile = getAttributes.imageInput.files[0];
+  const audioFile = audioInput.files[0];
+  const textFile = textInput.files[0];
+  const imageFile = imageInput.files[0];
 
   try {
       const audioURL = await uploadFile(audioFile, 'audio/' + audioFile.name);
@@ -378,17 +367,15 @@ async function handleSubmit() {
       datos.textURL = textURL;
       datos.imageURL = imageURL;
       
-      await db.collection("audio").add(getAttributes.datos)
-        .then((docRef) => {
-        console.log(`id:${docRef.id}`)
-          getAttributes.idDoc.push(docRef.id);
-          console.log("Documento escrito con ID: ", getAttributes.idDoc[0]);
+      await db.collection("audio").add(datos)
+      .then((docRef) => {
+          idDoc = docRef.id;
+          console.log("Documento escrito con ID: ", idDoc);
       })
       .catch((error) => {
           alert(`Error al agregar el documento: ${error}`);
-      });
-    
-    console.log("id__doc",getAttributes.idDoc[0]);
+      });
+  console.log("id__doc",idDoc);
 
   } catch (error) {
     alert(`Error: ${error}`);
