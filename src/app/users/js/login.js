@@ -1,3 +1,4 @@
+
 const loginForm = document.getElementById("login-form");
 const emailInput = document.getElementById("email");
 const passwordInput = document.getElementById("password");
@@ -37,7 +38,7 @@ loginForm.addEventListener("submit", function (e) {
                 window.location.href = `./../../pages/app.html?user=${'homeAdm'}`;
             } else {
                 // Redirige a la página homeUsu.html para otros correos
-                window.location.href = `./../../pages/app.html?user=${'homeUsu'}`;
+                window.location.href = "./../../homeUsu/homeUsu.html";
             }
         })
         .catch((error) => {
@@ -50,8 +51,7 @@ loginForm.addEventListener("submit", function (e) {
               // Otros errores
               errorContainer.innerText = "Error de inicio de sesión";
           }
-        });
+        });        
        
 });
-
 

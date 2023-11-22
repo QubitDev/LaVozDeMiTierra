@@ -1,24 +1,9 @@
-const getAttributes = (function () {
-  const cancel = document.getElementById("cancelButton");
-  const submit = document.getElementById("submitButton");
-  const close_Popup = document.getElementById("okButton");
-  const verify_Button = document.getElementById("verifyButton");
-  
-  const audioInput = document.getElementById("audioFileInput");
-  const textInput = document.getElementById("textFileInput");
-  const imageInput = document.getElementById("imageInput");
-  
-  const okButton = document.getElementById('okButton');
-  const verifyButton = document.getElementById('verifyButton');
-  const popup = document.getElementById('popup');
-  const overlay = document.getElementById('overlay');
-  const windowAorE = document.getElementById('window_A_E');
-  const messagePopup = document.getElementById("message");
-  const formatoSelect = document.getElementById("formato_audio");
-  const durationField = document.getElementById("duracion");
-  var idDoc = [];
-  const datos = {};
-  var bandera = true;
+
+
+document.getElementById("cancelButton").addEventListener("click", onCancel);
+document.getElementById("submitButton").addEventListener("click", onSubmit);
+document.getElementById("okButton").addEventListener("click",closePopup);
+document.getElementById("verifyButton").addEventListener("click",onVerifyButton);
 
   return {
     cancel,
@@ -90,15 +75,11 @@ if (getAttributes.audioInput !== null) {
     getAttributes.durationField.style.display ='inline-block';
     getAttributes.textInput.disabled = false;
 
-    if (selectedAudioFile) {
-      // obtener duracion del audio
-      getAudioDuration(selectedAudioFile).then((duration) => {
-        const minutes = parseFloat(duration);
-
-        if (!isNaN(minutes) && minutes >= 3 && minutes <= 20) {
-          getAttributes.durationField.textContent = duration; 
-          
-        }
+      if (!isNaN(minutes) && minutes >= 3 && minutes <= 20) {
+        durationField.textContent = duration;         
+      }
+      const maxSizeInBytes = 30 * 1024 * 1024*2; 
+      const peso = selectedAudioFile.size;
 
         const maxSizeInBytes = 20 * 1024 * 1024; 
         const peso = selectedAudioFile.size;
@@ -270,7 +251,7 @@ async function onSubmit(event) {
     getAttributes.overlay.style.display = 'none';
     document.querySelector(".wavi").style.display = 'none';
     onMessagePopup(`✅¡Se subió correctamente el audio!🎉`, 450); 
-  }, 10000); // 10 segundos de espera
+  }, 15000); // 15 segundos de espera
 }
 
 
@@ -295,13 +276,8 @@ function closePopup(){
   getAttributes.popup.style.display = 'none';
 }
 
-function onVerifyButton() {
-  getAttributes.idDoc.push(user);
-  const encodedArray = getAttributes.idDoc.map(item => encodeURIComponent(item)).join(",");
-  window.location.href = `./html/reproducirAdm.html?data=${encodedArray}`;
-  resetForm();
-}
-// 
+
+
 function validateInput(inputElement) {
   const inputValue = inputElement.value.trim(); // Eliminar espacios en blanco al principio y al final
   const placeholderText = inputElement.getAttribute("placeholder");
@@ -318,12 +294,20 @@ function validateInput(inputElement) {
     return;
   }
 
-  // Comprueba si el valor contiene números
-  if (/\d/.test(inputValue)) {
-    onMessagePopup(`❌¡Error!\n${placeholderText} no puede contener números.`, 450);
+    // Comprueba si el valor contiene números
+    if (/\d/.test(inputValue)) {
+      onMessagePopup(`❌¡Error!\n${placeholderText} no puede contener números.`, 450);
+      inputElement.value = '';
+      return;
+    }
+
+  // Comprueba si el valor contiene caracteres no válidos después de eliminar un carácter
+  /*if (!/^[a-zA-Z\s]+$/.test(inputValue)) {
+    onMessagePopup(`❌¡Error!\nNo puede contener caracteres especiales.`, 450);
     inputElement.value = '';
     return;
-  }
+  }*/
+}
 
 }
 
@@ -350,6 +334,7 @@ function getAudioDuration(file) {
     });
   });
 }
+
 
 // verificacion de documento con el mismo titulo
 async function isTitleUnique(title){
@@ -389,14 +374,9 @@ async function handleSubmit() {
       const textURL = await uploadFile(textFile, 'texto/' + textFile.name);
       const imageURL = await uploadFile(imageFile, 'images/' + imageFile.name);
       
-      console.log("Documento escrito con ID: ", audioURL);
-      console.log("Documento escrito con ID: ", textURL);
-      console.log("Documento escrito con ID: ", imageURL);
-
-      getAttributes.datos.audioURL = audioURL;
-      getAttributes.datos.reproducciones = 0;
-      getAttributes.datos.textURL = textURL;
-      getAttributes.datos.imageURL = imageURL;
+      datos.audioURL = audioURL;
+      datos.textURL = textURL;
+      datos.imageURL = imageURL;
       
       await db.collection("audio").add(getAttributes.datos)
         .then((docRef) => {
@@ -415,3 +395,22 @@ async function handleSubmit() {
   }
 }
 
+function onVerifyButton() {
+  window.location.href = `./../html/reproduccirAdm.html?doc=${idDoc}`;  
+  //window.location.href = `./../html/reproduccirAdm.html?doc=${doc}`;
+  resetForm();
+}
+
+const endSesion = document.querySelector(".sesion");
+endSesion.addEventListener('click',cerrarSesion);
+
+let cont = 1;
+function cerrarSesion(){
+    if(cont % 2 == 0){
+        document.getElementById('sesionMenu').style.display= 'none';
+    }
+    else{
+        document.getElementById('sesionMenu').style.display= 'block';
+    }
+    cont++;
+}

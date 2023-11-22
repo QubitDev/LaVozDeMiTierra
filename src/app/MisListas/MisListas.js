@@ -38,6 +38,9 @@ function showListL(){
     document.getElementById("contenedor_Lista").style.display = 'block';
 }
 
+const db = firebase.firestore();
+const auth = firebase.auth();
+
 // Referencia a las colecciones 'audio' y 'playlist'
 const audioCollection = db.collection("audio");
 const playlistCollection = db.collection("playlist");
@@ -61,9 +64,6 @@ function cargarAudiosDisponibles() {
         console.error("Error al obtener audios:", error);
     });
 }
-
-
-
 
 // Llama a la función para cargar los audios cuando se carga la página
 document.addEventListener("DOMContentLoaded", cargarAudiosDisponibles);

@@ -1,9 +1,168 @@
+
+.logo {
+	border-radius: 50%;
+	padding-top: 0px;
+	height: 150px;
+	width: 150px;
+	position: absolute;
+	top: 60px;
+	left: 20px;
+	z-index: 9999;
+	display: inline-block;
+	box-sizing: border-box;
+	text-align: center;
+	box-shadow: 10px 10px 15px 5px black;
+}
+
+.menu {
+	font-family: Arial, Helvetica, sans-serif;
+
+	width: 200px;
+	height: 100%;
+	/* background: linear-gradient(to left bottom, #43cea2, #185a9d); */
+
+	background: radial-gradient(ellipse at bottom right, #647c74, #587a7c, #15242e, #3a615e, #749e8a 80%);
+	background-size: 150% 150%;
+	background-position: top center;
+	color: #fff;
+	text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
+
+	padding: 14px;
+	position: fixed;
+	top: 102px;
+	left: 0;
+	display: flex;
+	flex-direction: column;
+}
+
+.header {
+	position: fixed;
+	height: 102px;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 999;
+
+	background: radial-gradient(ellipse at right top, #647c74, #587a7c, #15242e, #3a615e, #749e8a 80%);
+	background-size: 150% 150%;
+	background-position: top center;
+	color: #fff;
+	text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
+	padding: 10px 20px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+
+.greeting {
+
+	font-family: Arial, Helvetica, sans-serif;
+	padding-right: 600px;
+	padding-left: 250px;
+	display: inline-block;
+	text-align: left;
+	text-shadow: 4px 4px 10px black;
+}
+
+.greeting p {
+	color: #fff;
+	text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
+}
+
+/* Estilos para el margen superior del contenido principal para dejar espacio para el encabezado */
+.content {
+	margin-top: 120px;
+	/* Ajusta la altura del encabezado más un margen */
+}
+
+/* Estilos de los elementos del menú */
+.menu__item {
+	padding: 18px;
+	cursor: pointer;
+	border-radius: 10px;
+	transition: background-color 0.3s;
+}
+
+.menu__item:hover {
+	/* background: linear-gradient(to top left, #01081d, #185a9d); */
+	background: radial-gradient(ellipse at left top, #01081d, #011c38 80%);
+	/* background-color:#01081d; */
+}
+
+/* Estilos para resaltar el elemento "Inicio" como activo (se puede usar una clase adicional para esto) */
+.menu__item--active {
+	background-color: #43cea2;
+}
+
+a {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	color: #ffffff;
+	text-decoration: none;
+}
+
+.sesion {
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    position: fixed;
+    top: 23px;
+    left: 90%;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+.sesion:hover {
+    cursor: pointer;
+    transition: background-color 0.3s;
+    background: radial-gradient(ellipse at left top, #01081d, #011c38 80%);
+    border-radius: 50%;
+	box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.856);
+}
+
+#sesionMenu {
+	position: fixed;
+	top: 95px;
+	left: 84%;
+	width: 150px;
+	height: 80px;
+	font-size: 16;
+	font-family: Arial, Helvetica, sans-serif;
+	display: none;
+	padding: 5px;
+	cursor: pointer;
+	border-radius: 10px;
+	transition: background-color 0.3s;
+	text-decoration: none;
+	background: radial-gradient(ellipse at right top, #647c74, #587a7c, #15242e, #3a615e, #749e8a 80%);
+}
+
+#sesionSalir {
+	background-color: #01081d;
+}
+
+#opciones {
+	padding: 18px;
+	cursor: pointer;
+	border-radius: 10px;
+}
+
+#opciones:hover {
+	padding: 18px;
+	cursor: pointer;
+	border-radius: 10px;
+	transition: background-color 0.3s;
+	background: radial-gradient(ellipse at left top, #01081d, #011c38 80%);
+}
+
 /*---------------------------------------------------------- Body ------------------------------------------------------------- */
 .container__body {
   position: fixed;
   top: 102px;
   left: 200px;
-
+  width: calc(100% - 200px);
+  height: calc(100% - 102px);
   display: flex;
   justify-content: center;
   align-items: center;

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -35,38 +36,32 @@
         </p>
       </div>
       <div class="sesionEnd">
-        <img src="./../../assets/images/IconoUsu.png" alt="Sesion" class="sesion" />
+        <img src="./../../assets/images/IconoUsu.png" alt="Sesion" class="sesion" onclick="cerrarSesion()" />
       </div>
       <div id="sesionMenu">
         <ul class="opciones" id="opciones">
           <a href="./../users/html/Login.html">cerrar sesion</a>
         </ul>
-        <ul class="opciones" id="opciones">
-          <a href="./html/Perfil.html">perfil usuario</a>
-        </ul>
+
       </div>
+
     </header>
 
     <div class="menu">
       <div class="content">
-        <div class="menu__item" data-page="app" id="home" onclick="showFile('home')">
+        <div class="menu__item" data-page="app" id="home" onClick="showFile('home')">
           <i class="fas fa-home"></i> Inicio
         </div>
-        <div class="menu__item" data-page="registro" id="registrar_audio" onclick="showFile('registro')">
+        <div class="menu__item" data-page="registro" id="registrar_audio" onClick="showFile('registro')">
           <i class="fa-solid fa-plus"></i> Registrar Audio
         </div>
-        <div class="menu__item" data-page="registro" id="searchButton" onclick="mostrarBuscar()">
+        <div class="menu__item" data-page="registro" id="searchButton" onClick="mostrarBuscar()">
           <i class="fa-solid fa-magnifying-glass"></i> <a href="javascript:void(0)" onclick="mostrarBuscar()">Buscar</a>
-        </div>
-        <div class="menu__item" data-page="app" id="favoritos" onclick="showFile('favorito')">
-          <i class="fa-regular fa-heart"></i> Favoritos
         </div>
         <div class="menu__item" data-page="ranking" id="ranking_audios" onClick="showFile('ranking')">
           <i class="fa-solid fa-ranking-star"></i> Ranking
         </div>
-        <div class="menu__item" data-page="app" id="mis_listas" onclick="showFile('misListas')">
-          <i class="fa-solid fa-table-list"></i> Mis listas
-        </div>
+
       </div>
     </div>
   </div>

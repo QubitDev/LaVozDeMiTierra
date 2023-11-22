@@ -1,29 +1,16 @@
-// const endSesion = document.querySelector(".sesion");
-// endSesion.addEventListener('click',cerrarSesion);
-// let cont = 1;
-// function cerrarSesion(){
-//     if(cont % 2 == 0){
-//         document.getElementById('sesionMenu').style.display= 'none';
-//     }
-//     else{
-//         document.getElementById('sesionMenu').style.display= 'block';
-//     }
-//     cont++;
-// }
-// const firebaseConfig = {
-//   apiKey: "AIzaSyAldLR7JcdW58mZ_Dtr7HQku8Pn648_3f4",
-//   authDomain: "qubit-2499b.firebaseapp.com",
-//   projectId: "qubit-2499b",
-//   storageBucket: "qubit-2499b.appspot.com",
-//   messagingSenderId: "154442139152",
-//   appId: "1:154442139152:web:14a0201532e21545006c95"
-// };
 
-// // Initialize Firebase
-// firebase.initializeApp(firebaseConfig);
-// const db = firebase.firestore();
-// const storage = firebase.storage();
-// const auth = firebase.auth();
+const endSesion = document.querySelector(".sesion");
+endSesion.addEventListener('click',cerrarSesion);
+let cont = 1;
+function cerrarSesion(){
+    if(cont % 2 == 0){
+        document.getElementById('sesionMenu').style.display= 'none';
+    }
+    else{
+        document.getElementById('sesionMenu').style.display= 'block';
+    }
+    cont++;
+}
 
 
 // Obtener referencia a la colección 'audio'
@@ -42,7 +29,7 @@ audioCollection.orderBy("reproducciones", "desc").limit(10).get().then((querySna
     <div class="caja">
       <a onclick="enviar('${doc.id}')">
         <div class="imagen" id="imagen${index}">
-          <img src="${audio.imageURL}" alt="" height="90px" width="100px" class="imageF">
+          <img src="${audio.imageURL}" alt="" height="100px" width="100px" class="imageF">
         </div>
       </a>
     </div> 

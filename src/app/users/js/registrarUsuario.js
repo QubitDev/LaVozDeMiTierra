@@ -1,3 +1,4 @@
+
 document.getElementById("registration-form").addEventListener("submit", (e) => {
   e.preventDefault();
   registrarUsuario();
@@ -146,7 +147,7 @@ function registrarUsuario() {
               usersCollection.add(datos)
                 .then(() => {
                   // Redirige a la pantalla de inicio de la plataforma
-                  window.location.href = "Login.html";
+                  window.location.href = "./../html/Login.html";
                 })
                 .catch((error) => {
                   // Maneja cualquier error relacionado con Firestore aquí

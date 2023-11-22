@@ -58,6 +58,7 @@
   left: 250px;
 }
 
+
 .greeting  {
 
 	font-family: Arial, Helvetica, sans-serif;
@@ -129,7 +130,7 @@ a {
 	top: 95px;
 	left: 84%;
 	width: 150px;
-	height: 125px;
+	height: 145px;
 	font-size: 16;
 	font-family: Arial, Helvetica, sans-serif;
 	display: none;
@@ -433,7 +434,6 @@ background-color: rgb(221, 230, 231); /* Color del riel de la barra de desplazam
 .ranking-item .descripcion {
 flex-grow: 1; /* Permite que la descripción ocupe el espacio restante */
 }
-
 /*-------------------------------------------------BUSCADOR-------------------------------------------------------------*/
 .container__search {
 	display: none;
@@ -606,9 +606,6 @@ flex-grow: 1; /* Permite que la descripción ocupe el espacio restante */
 
 	cursor: pointer;
 }
-
-
-
 .mensaje-error {
 	display: flex;
 	justify-content: center;
