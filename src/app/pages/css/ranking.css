@@ -163,16 +163,17 @@ a {
 
 /********************************************************Ranking*******************************************************/
 
-
+.form__control{
+	font-size: 20px;
+}
 h2{
   color: #fbfbfc;
   font-family: Arial, Helvetica;
   font-size: 38px;
   text-shadow: none;
   position: absolute; /* You can also use 'relative' depending on your layout needs */
-
-  top: 14.1%; /* Adjust as needed */
-  left: 23%; /* Adjust as needed */
+  top: 10%; /* Adjust as needed */
+  left: 20%; /* Adjust as needed */
   transform: translate(-50%, -50%); /* Center the element */
 }
 
@@ -186,8 +187,8 @@ h2{
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
   position: fixed;
   flex-direction: column;
-  top: 102px;
-  left: 205px;
+  top: 107px;
+  left: 208px;
   width: 33%;
   height: 100%;
 }
@@ -215,14 +216,9 @@ margin-top: 4px;
 }
 
 .ranking-container {
-<<<<<<< HEAD
 max-width: 940px;
 width: 62%; 
 height: 46%; 
-=======
-width: 90%; 
-height: 77%; 
->>>>>>> 672070c0e79cdf07c58e703e35dd41d3db4b7ef8
 margin: 3%; 
 background-color: rgba(0, 0, 0, 0.273);
 color: rgb(255, 255, 255);
@@ -236,16 +232,8 @@ padding-top: 2%;
 .ranking-list {
   list-style-type: none;
   padding: 0;
-<<<<<<< HEAD
   margin-top: -12px;
-=======
-  width: 690%;
-  height: 30%;
-  max-width: 1000%;
-  max-height: 1000%;
-  margin-top: 2%;
->>>>>>> 672070c0e79cdf07c58e703e35dd41d3db4b7ef8
-  margin-left: 35px;
+  margin-left: 30px;
   align-items:center;
 
 
@@ -255,7 +243,7 @@ padding-top: 2%;
   display: flex;
   justify-content: space-around;
   padding: 11px 0;
-  margin-top: 11px;
+  margin-top: 40px;
   text-align: center;
   flex-wrap: nowrap;
   flex-direction: row;
@@ -306,11 +294,7 @@ font-size: 17px;
 margin-left: 300px;
 margin-right: 5px; 
 margin-top: 17px;
-<<<<<<< HEAD
 padding-left: 361px;
-=======
-padding-left: 275px;
->>>>>>> 672070c0e79cdf07c58e703e35dd41d3db4b7ef8
 margin-bottom: 10px;
 display: flex;
 flex-wrap: nowrap;
@@ -328,11 +312,7 @@ align-items: center;
 justify-content: flex-start;
 flex-wrap: nowrap;
 flex-direction: row;
-<<<<<<< HEAD
 margin-left: 20px;
-=======
-margin-left: 50px;
->>>>>>> 672070c0e79cdf07c58e703e35dd41d3db4b7ef8
 
 
 }
@@ -344,11 +324,7 @@ margin-left: 89px;
 margin-right: 5px;
 display: inline-block; 
 margin-top: 10px;
-<<<<<<< HEAD
 padding-left: 387px;
-=======
-padding-left: 380px;
->>>>>>> 672070c0e79cdf07c58e703e35dd41d3db4b7ef8
 margin-bottom: 10px;
 margin: -37px;
 display: flex;
@@ -366,12 +342,7 @@ align-items: center;
 justify-content: flex-start;
 flex-wrap: nowrap;
 flex-direction: row;
-<<<<<<< HEAD
 margin-left: 90%;
-=======
-padding-left:380px;
-margin-left: 6.5%;
->>>>>>> 672070c0e79cdf07c58e703e35dd41d3db4b7ef8
 }
 h1 {
   font-weight: bold;
@@ -404,13 +375,8 @@ height: 100%;
 }
 
 .line {
-<<<<<<< HEAD
-margin-left: -23.5%; 
-width: 147.1%; 
-=======
-margin-left: -24%; 
-width: 148.1%; 
->>>>>>> 672070c0e79cdf07c58e703e35dd41d3db4b7ef8
+margin-left: -26.7%; 
+width: 153.6%; 
 height: 0.6%; 
 background-color: rgb(255, 255, 255);
 margin-top: 11%; 
@@ -435,27 +401,15 @@ font-family: Arial, Helvetica, sans-serif;
 background: #ffff;
 overflow: hidden;
 overflow-y: scroll;
-<<<<<<< HEAD
-width: 147%; 
-height: 130.5%; 
-margin: -23.4%; 
+width: 153.5%; 
+height: 135%; 
+margin: -26.7%; 
 background-color: rgba(0, 0, 0, 0.273);
 color: rgb(255, 255, 255);
 padding-left: -10%; 
 border-radius: 1.8%; 
 box-shadow: 0 0 1%; 
 margin-top: 0.1%; 
-=======
-width: 148%; 
-height: 131.4%; 
-margin: -24%; 
-background-color: rgba(0, 0, 0, 0.273);
-color: rgb(255, 255, 255);
-padding-left: -10px; 
-border-radius: 1.8%; 
-box-shadow: 0 0 1%; 
-margin-top: 0%; 
->>>>>>> 672070c0e79cdf07c58e703e35dd41d3db4b7ef8
 scrollbar-color: rgb(248, 246, 246) rgb(73, 155, 104);
 border-radius: 1.8%;
 }
@@ -469,11 +423,7 @@ width: 12px; /* Ancho de la barra de desplazamiento */
 }
 
 .scroll-container::-webkit-scrollbar-thumb {
-<<<<<<< HEAD
-background-color: rgb(104, 207, 137); /* Color de la barra de desplazamiento */
-=======
 background-color: rgb(42, 113, 65); /* Color de la barra de desplazamiento */
->>>>>>> 672070c0e79cdf07c58e703e35dd41d3db4b7ef8
 }
 
 .scroll-container::-webkit-scrollbar-track {
@@ -483,6 +433,7 @@ background-color: rgb(221, 230, 231); /* Color del riel de la barra de desplazam
 .ranking-item .descripcion {
 flex-grow: 1; /* Permite que la descripción ocupe el espacio restante */
 }
+
 /*-------------------------------------------------BUSCADOR-------------------------------------------------------------*/
 .container__search {
 	display: none;
