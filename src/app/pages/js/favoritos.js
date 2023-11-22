@@ -22,31 +22,32 @@ const cargarDocumentoCuento = (documentos) => {
     if (documentos.length > 0) {
         
         documentos.forEach(documento => {
-            if (/*documento.data().tipoAudio == "Cuento" && */ contenedorCards !== null) {
-                contenedorCards.innerHTML += `
+            contenedorCards.innerHTML += `
                 <div class="contenedora">
-                <div class="contenedor_div">
-                    <img src="${documento.data().imageURL}">
+                    <div class="contenedor_div">
+                      <img src="${documento.data().imageURL}">
+                    </div>
+            
+                    <div class="contenedor_div">
+                       <h2>${documento.data().titulo}</h2>
+                    </div>
+                    <div class="contenedor_div">
+                        <h2>${documento.data().procedencia}</h2>
+                    </div>
+                    <div class="contenedor_div">
+                       <h2>${documento.data().narrador}</h2>
+                    </div>
+                    <div class="contenedor_div">
+                       <h2>${documento.data().duracion}</h2>
+                    </div>
+                    <div class="contenedor_div">
+                       <h2>♥️</h2>
+                    </div>
                 </div>
             
-                <div class="contenedor_div">
-                    <h2>${documento.data().titulo}</h2>
-                 </div>
-                 <div class="contenedor_div">
-                    <h2>${documento.data().procedencia}</h2>
-                 </div>
-                 <div class="contenedor_div">
-                    <h2>${documento.data().narrador}</h2>
-                 </div>
-                 <div class="contenedor_div">
-                    <h2>${documento.data().duracion}</h2>
-                 </div>
-                 <div class="contenedor_div">
-                    <h2>♥️</h2>
-                 </div>
-            </div>
-            
                 `;
+            if (/*documento.data().tipoAudio == "Cuento" && */ contenedorCards !== null) {
+                
             }
         });
 
