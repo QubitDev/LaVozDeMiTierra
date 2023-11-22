@@ -239,7 +239,7 @@ async function onSubmit(event) {
     overlay.style.display = 'none';
     document.querySelector(".wavi").style.display = 'none';
     onMessagePopup(`✅¡Se subió correctamente el audio!🎉`, 450); 
-  }, 10000); // 10 segundos de espera
+  }, 15000); // 15 segundos de espera
 }
 
 
