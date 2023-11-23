@@ -1,4 +1,5 @@
 
+
 document.getElementById("registration-form").addEventListener("submit", (e) => {
   e.preventDefault();
   registrarUsuario();
@@ -168,3 +169,6 @@ function registrarUsuario() {
     });
   }
 }
+
+
+
