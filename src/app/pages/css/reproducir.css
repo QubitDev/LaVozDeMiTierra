@@ -4,19 +4,14 @@
   height: 150px;
   width: 150px;
   position: absolute;
-  top: 50px;
-  /* Ajusta la posición vertical según sea necesario */
-  left: 20px;
-  /* Ajusta la posición horizontal según sea necesario */
+  top:3%; 
+  left: 2%; 
   z-index: 9999;
-  /* Asegura que esté por encima de todo */
   display: inline-block;
   box-sizing: border-box;
-  text-align: center;
   box-shadow: 10px 10px 15px 5px black;
 }
-
-.sesion {
+.sesion{
   border-radius: 50%;
   height: 40px;
   width: 40px;
@@ -26,60 +21,17 @@
   display: inline-block;
   box-sizing: border-box;
 }
-
-.sesion:hover {
+.sesion:hover{
   cursor: pointer;
   transition: background-color 0.3s;
   background: radial-gradient(ellipse at left top, #01081d, #011c38 80%);
   border-radius: 50%;
-  box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.856);
+  box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.856); 
 }
 
-
-#sesionMenu {
-  position: fixed;
-  top: 95px;
-  left: 84%;
-  width: 150px;
-  height: 125px;
-  font-size: 16;
-  font-family: Arial, Helvetica, sans-serif;
-  display: none;
-  padding: 5px;
-  cursor: pointer;
-  border-radius: 10px;
-  transition: background-color 0.3s;
-  text-decoration: none;
-  background: radial-gradient(ellipse at right top, #647c74, #587a7c, #15242e, #3a615e, #749e8a 80%);
-}
-
-#sesionSalir {
-  background-color: #01081d;
-}
-
-#opciones {
-  padding: 18px;
-  cursor: pointer;
-  border-radius: 10px;
-}
-
-#opciones:hover {
-  padding: 18px;
-  cursor: pointer;
-  border-radius: 10px;
-  transition: background-color 0.3s;
-  background: radial-gradient(ellipse at left top, #01081d, #011c38 80%);
-}
-
-
-.menu {
-  font-family: Arial, Helvetica, sans-serif;
-  width: 200px;
-  background: radial-gradient(ellipse at bottom right, #647c74, #587a7c, #15242e, #3a615e, #749e8a 80%);
-  background-size: 150% 150%;
-  background-position: top center;
-  color: #fff;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
+.menu {  
+  font-family: Arial, Helvetica, sans-serif;  
+  width: 220px;  
   padding: 14px;
   position: fixed;
   top: 102px;
@@ -87,31 +39,36 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-}
-
-.header {
-  font-family: Arial, Helvetica, sans-serif;
-  height: 102px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 999;
-  /* Asegura que esté por delante de otros elementos */
-  background: radial-gradient(ellipse at right top, #647c74, #587a7c, #15242e, #3a615e, #749e8a 80%);
+    /* justify-content: ; */
+  background: radial-gradient(ellipse at bottom right, #647c74, #587a7c, #15242e,  #3a615e,#749e8a 80%);
   background-size: 150% 150%;
   background-position: top center;
   color: #fff;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999; /* Asegura que esté por delante de otros elementos */
   padding: 10px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  z-index: 9998;
+  background: radial-gradient(ellipse at right top, #647c74, #587a7c,#15242e,  #3a615e,#749e8a 80%);
+  background-size: 150% 150%;
+  background-position: top center;
+  color: #fff;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
 }
 
-.greeting {
-
+.greeting {  
   font-family: Arial, Helvetica, sans-serif;
+  color: #fff;
+ 
   padding-right: 600px;
   padding-left: 250px;
   display: inline-block;
@@ -148,15 +105,52 @@ a {
   color: #ffffff;
   text-decoration: none;
 }
+#sesionMenu{
+  position: fixed;  
+  top: 95px;
+  left: 90%;
+  width: 150px;
+  height: 150px;
+  font-size: 16;
+  font-family: Arial, Helvetica, sans-serif;
+  display: none;
+  padding: 5px;
+  cursor: pointer;
+  border-radius:10px;
+  transition: background-color 0.3s;
+  text-decoration: none;
+  background: radial-gradient(ellipse at right top, #647c74, #587a7c,#15242e,  #3a615e,#749e8a 80%);
+}
+#sesionSalir{
+  background-color: #01081d;
+}
+#opciones{
+  padding: 18px;
+  cursor: pointer;
+  border-radius:10px;
+ }
+#opciones:hover{
+  padding: 18px;
+  cursor: pointer;
+  border-radius:10px;
+  transition: background-color 0.3s;
+  background: radial-gradient(ellipse at left top, #01081d, #011c38 80%);
+}
+#tipo__audioAdm{
+  color: white;
+}
+
+
+/*******************************************************Reproductor**********************************************************/
+
 
 .play {
-  top: 102px;
-  left: 200px;
+  top: 107px;
+  left: 208px;
   background: radial-gradient(ellipse at bottom, #647c74, #587a7c, #15242e, #3a615e, #749e8a, #15242e 80%);
   background-size: 150% 150%;
   background-position: top center;
   color: #fff;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
   position: fixed;
   flex-direction: column;
   top: 102px;
@@ -168,29 +162,26 @@ a {
 p {
   color: #01081d;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 16px;
+  font-size: 24px;
   text-align: justify;
 }
 
 .container-card {
-  float: right;
   background: radial-gradient(ellipse at bottom, #647c74, #587a7c, #15242e, #3a615e, #749e8a, #15242e 80%);
   background-size: 150% 150%;
   background-position: top center;
   color: #fff;
+  overflow: hidden;
+  overflow-y: scroll;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
   position: fixed;
-  flex-direction: column;
   top: 12%;
   left: 82%;
   width: 20%;
-  max-width: 500px;
-  height: 100%;
-  max-height: 1000px;
-  overflow: hidden;
-  overflow-y: scroll;
+  height: 88%;  
   border-radius: 5px;
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 45);
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .caja {
@@ -206,6 +197,7 @@ p {
   padding-left: 129px;
 }
 
+
 .descripcion {
   margin-top: 3%;
   margin-left: 3%;
@@ -219,6 +211,7 @@ p {
 
 .h4 {
   font-size: 15px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 
@@ -262,8 +255,16 @@ a {
   text-align: center;
 }
 
+#imagenesCard:hover{
+  cursor: pointer;
+  transition: background-color 0.3s;  
+  box-shadow: 1px 1px 50px rgba(255, 255, 255, 0.925)
+}
+
 /*---------------------------------------------------------- share, favorites and add-----------------------------------------------*/
 /* Encinas Quispe Jhonatan */
+
+
 .__button_favorites,
 .__button_add_list,
 .__button_share {
@@ -345,7 +346,7 @@ a {
 
 }
 
-.__share__content h3 {
+.__share__content{
   font-size: 24px;
   font-family: Arial, Helvetica, sans-serif;
   color: #fff;
@@ -394,7 +395,6 @@ a {
 .button__copy {
 
   padding: 10px 20px;
-
   font-size: 13px;
   background: radial-gradient(ellipse at left top, #01081d, #011c38 80%);
   color: #fff;
@@ -405,7 +405,6 @@ a {
 
   width: 100px;
   height: 30px;
-
   cursor: pointer;
   transition: background-color 0.3s;
 }
@@ -426,6 +425,8 @@ a {
 .__social_networks {
   align-items: center;
   justify-content: center;
+  position: relative;
+  top: -60px;
 }
 
 .__social_networks ul {
@@ -434,7 +435,18 @@ a {
   margin: 0;
   display: flex;
 }
+.marca{
+  position: relative;
+  top: -35px;
+  height: 15px;
+  color: white;
+}
 
+.titleSocial{
+  position: relative;
+  top: -70px;
+  height: 20px;
+}
 .__social_networks ul li {
   width: 75px;
   height: 75px;
@@ -450,7 +462,7 @@ a {
 
 .__social_networks ul li .fa-facebook,
 .__social_networks ul li .fa-whatsapp,
-.__social_networks ul li .fa-google {
+.__social_networks ul li .fa-envelope {
   font-size: 35px;
 }
 
@@ -500,7 +512,199 @@ a {
   transition: all 0.5s ease;
 }
 
-.__social_networks ul li:hover .fa-google {
+.__social_networks ul li:hover .fa-envelope {
   color: #520404;
   transition: all 0.5s ease;
+}
+
+/*-------------------------------------------------BUSCADOR-------------------------------------------------------------*/
+.container__search {
+	display: none;
+	/* display: absolute; */
+	position: fixed;
+
+	top: 13%;
+	left: 14%;
+	width: 83%;
+	height: 80%;
+
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	justify-content: center;
+	background-color: #0000007a;
+
+	/* background: radial-gradient(ellipse at bottom right, #647c74, #587a7c, #15242e,  #3a615e,#749e8a 80%); */
+	background-size: 150% 150%;
+	background-position: top center;
+
+	z-index: 1000;
+
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.5s ease;
+}
+
+.show-container {
+	max-height: 100%;
+	/* Ajusta la altura deseada */
+}
+
+.searchButton {
+	padding: 18px;
+	cursor: pointer;
+	border-radius: 10px;
+	transition: background-color 0.3s;
+	text-align: center;
+}
+
+
+.searchButton:hover {
+	background: linear-gradient(to top left, #01081d, #185a9d);
+}
+
+
+.container__search .header__c {
+	color: #fff;
+	text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.856);
+	font-size: 24px;
+}
+
+.search__content {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	top: 8%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 300px;
+
+	margin-bottom: 50px;
+
+	background-color: #ffffff;
+	border: 2px solid #000000;
+	text-decoration: none;
+	border-radius: 50px;
+	box-shadow: 0 0 10px #000000c5;
+}
+
+.search {
+	width: 90%;
+	height: 37px;
+
+	background-color: #fafafa;
+	border-radius: 50px 0 0 50px;
+	color: #000000;
+	border: none;
+	padding-left: 20px;
+	padding-right: 10px;
+	transition: border 0.3s;
+
+}
+
+.search:focus {
+	outline: none;
+	border: none;
+}
+
+.search__button {
+	background-color: #fafafa;
+	color: #000000;
+	border: none;
+	border-radius: 0 50px 50px 0;
+	width: 10%;
+	height: 37px;
+	cursor: pointer;
+}
+
+
+
+.coincident__container {
+
+	width: 100%;
+	height: 80%;
+	overflow: auto;
+
+	background-color: #0000000a;
+	border: 1px solid #ddd;
+	overflow-y: auto;
+
+	border-radius: 5px;
+
+}
+
+.header__cards {
+	width: 97.5%;
+	max-width: 99%;
+	color: white;
+	text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
+	text-align: center;
+	justify-content: center;
+	padding: 10px;
+	display: flex;
+	align-items: center;
+	font-size: 16px;
+
+	padding-left: 75px;
+
+}
+
+.header__c {
+	flex-basis: 30%;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	/* margin-left: 100px;  */
+}
+
+.card__c {
+	flex-basis: 30%;
+	margin: 0;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin-left: 120px;
+}
+
+.card__c {
+	font-size: 16px;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #fff;
+	text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.856);
+}
+
+.card__s {
+	max-width: 100%;
+	margin-bottom: 5px;
+
+	background: radial-gradient(ellipse at left top, #01081d, #011c38 80%);
+
+	color: white;
+	text-align: center;
+	justify-content: center;
+	padding: 10px;
+	display: flex;
+	align-items: center;
+	font-size: 16px;
+
+	cursor: pointer;
+}
+
+
+
+.mensaje-error {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	color: #ffffff;
+	text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.856);
+	font-size: 24px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.resaltado {
+	background-color: #00aff579;
 }
