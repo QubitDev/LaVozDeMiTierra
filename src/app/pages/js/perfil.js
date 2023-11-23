@@ -1,3 +1,4 @@
+
 const container = document.querySelector('.container')
 
 const rain = () => {
@@ -46,3 +47,4 @@ function cambiar(){
 function cerrar(){
     document.getElementById("userProfileEditar").style.display = "none";
 }
+
