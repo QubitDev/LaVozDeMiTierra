@@ -13,5 +13,15 @@ const db = firebase.firestore();
 const storage = firebase.storage();
 const auth = firebase.auth();
 
-
+// Observador de autenticación
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    // El usuario está autenticado
+    console.log('Usuario autenticado:', user.email);
+    // Puedes realizar operaciones relacionadas con Firebase Realtime Database aquí
+  } else {
+    // No hay usuario autenticado
+    console.log('Usuario no autenticado');
+  }
+});
 
