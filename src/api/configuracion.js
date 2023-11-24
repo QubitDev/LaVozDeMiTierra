@@ -13,5 +13,17 @@ const db = firebase.firestore();
 const storage = firebase.storage();
 const auth = firebase.auth();
 
-
+// Observador de autenticación
+auth.onAuthStateChanged(user => {
+  if (user) {
+    // El usuario ha iniciado sesión, puedes redirigirlo a la página principal o a donde necesites.
+    console.log("El usuario ha iniciado sesión:", user);
+    loadUserPlaylists(user.uid);
+  } else {
+    // El usuario no ha iniciado sesión, redirigirlo al formulario de inicio de sesión.
+    console.log("El usuario no ha iniciado sesión");
+    // Puedes redirigir al usuario a la página de inicio de sesión aquí, por ejemplo:
+    window.location.href = "./../pages/html/Login.html";
+  }
+});
 

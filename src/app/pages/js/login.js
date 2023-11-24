@@ -31,13 +31,17 @@ loginForm.addEventListener("submit", function (e) {
     // Iniciar sesión con Firebase
     firebase.auth().signInWithEmailAndPassword(correoElectronico, contrasena)
         .then((userCredential) => {
+            
             // Usuario autenticado con éxito
             const user = userCredential.user;
+            
             if (correoElectronico === "trabajosoftware201@gmail.com") {
                 // Redirige a la página homeAdm.html si el correo es "trabajosoftware201@gmail.com"
                 window.location.href = "./../../homeAdm/homeAdm.html";
             } else {
                 // Redirige a la página homeUsu.html para otros correos
+                const email = correoElectronico;
+                localStorage.setItem('email', email);
                 window.location.href = "./../../homeUsu/homeUsu.html";
             }
         })

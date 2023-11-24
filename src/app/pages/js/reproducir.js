@@ -51,6 +51,8 @@ db.collection("audio").doc(docId).get().then((doc) => {
   }
 });
 
+
+
 //barra lateral
 
 function getDocument(direccion){
@@ -108,4 +110,62 @@ function enviar(doc) {
   window.location.href = `../html/reproducir.html?doc=${doc}`;
 }
 
+// Button Favorite
+
+async function toggleHeart() {
+  const emptyHeart = document.getElementById('__empty_heart');
+  const fullHeart = document.getElementById('__full_heart');
+  const creationDate = generationDate(); 
+  emptyHeart.style.display = (emptyHeart.style.display === 'none') ? 'inline' : 'none';
+  fullHeart.style.display = (fullHeart.style.display === 'none') ? 'inline' : 'none';
+
+  const receivedEmail= localStorage.getItem('email');
+  if (emptyHeart.style.display === 'none') {
+
+    // Obtener el timestamp actual
+    const timestampActual = Date.now();
+
+    // Agregar a la colección 'favorito' en Firebase
+    const db = firebase.firestore();
+    const favoritosCollection = db.collection('favorito');
+
+    const datos = {
+      email: receivedEmail,
+      idNarracion: docId,
+      fechaCreacion: creationDate
+    };
+
+    favoritosCollection.add(datos)
+      .then(function(docRef) {
+        console.log('Favorito agregado con ID:', docRef.id);
+      })
+      .catch(function(error) {
+        console.error('Error al agregar favorito:', error);
+      });
+  }
+    // eliminar
+//     await db.collection("favorito").remove(datos)
+//     .then((docRef) => {
+//         console.log("Documento escrito con ID: ", docRef);
+//     })
+//     .catch((error) => {
+//         alert(`Error al agregar el documento: ${error}`);
+//     });
+}
+
+const generationDate = () => {
+  return new Date();
+}
+//---------------------------------CONTADOR DE REPRODUCCIONES-------------------------------
+db.collection("audio").doc(docId).get().then((doc) => {
+  if (doc.exists) {
+    // Incrementar el contador de reproducciones cuando se reproduzca el audio
+    const audioDocRef = db.collection("audio").doc(docId);
+    audioDocRef.update({
+      reproducciones: firebase.firestore.FieldValue.increment(1)
+    });
+  } else {
+    console.log("No se encontró el documento en Firestore.");
+  }
+});
 

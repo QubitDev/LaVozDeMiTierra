@@ -1,3 +1,5 @@
+
+/*-------------------------------------------------Header y menu-------------------------------------------------------------*/
 .logo {
 	border-radius: 50%;
 	padding-top: 0px;
@@ -52,13 +54,9 @@
 	align-items: center;
 	justify-content: space-between;
 }
-.titleRan {
-  position: fixed;
-  top: 20px;
-  left: 250px;
-}
 
-.greeting  {
+
+.greeting {
 
 	font-family: Arial, Helvetica, sans-serif;
 	padding-right: 600px;
@@ -68,7 +66,7 @@
 	text-shadow: 4px 4px 10px black;
 }
 
-.greeting {
+.greeting p {
 	color: #fff;
 	text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
 }
@@ -158,198 +156,16 @@ a {
 	transition: background-color 0.3s;
 	background: radial-gradient(ellipse at left top, #01081d, #011c38 80%);
 }
-/***********************************************Perfil******************************************************/
-
-#imageUsu{
-  position: fixed;
-  top: 107px;
-  left: 200px;
-  width: 90%;
-  height: 89%;
-}
-
-.contPerfil{
-  font-family: Arial, Helvetica, sans-serif;
-
-  top: 107px;
-  left: 208px;
-  background: radial-gradient(ellipse at bottom, #647c74, #587a7c, #15242e, #3a615e, #749e8a, #15242e 80%);
-  background-size: 150% 150%;
-  background-position: top center;
-  color: #fff;
-  position: fixed;
-  flex-direction: column;
-  top: 102px;
-  left: 200px;
-  width: 100%;
-  height: 100%;
-}
-
-.container{
-  width: 90%;
-  height: 30%;
-  margin-top: 0%;
-  display: flex;
-  flex-direction: row;
-}
-
-.imagenPerfil{
-  position: fixed;
-  background : linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0, 0.5));
-  width: 500px;
-  height: 320px;
-  top: 15%;
-  left: 40%;
-  border: 5px solid #151515;
-  overflow: hidden;
-}
-.datos{
-  position: relative;
-  width: 400px;
-  height: 140px;
-  top: 0%;
-  left: 28%;
-}
-
-#imagePerfil{
-  position: relative;
-  width: 160px;
-  top: 2%;
-  height: 160px;
-  left: 32%;
-  border-radius: 50%; 
-
-}
-.nombre{
-  position: relative;
-  top: -45%;
-  left: 37%;
-}
-#edit{
-  color: white;  
-}
-
-#edit:hover{
-  cursor: pointer;
-  transition: background-color 0.3s;  
-  box-shadow: 1px 1px 20px rgb(255, 255, 255)
-}
-.buttonEditar{
-  background: rgba(255, 255, 255, 0);
-  position: relative;
-  width: 52px;
-  height: 48px;
-  top: -40%;
-  left: 65%;
-}
-.container i {
-position: absolute;
-width: 2px;
-height: 10px;
-top: -10px;
-background: #d3d3d3;
-animation: rain linear infinite;
-}
-
-@keyframes rain {
-0% {
-    top: -10px;
-}
-100% {
-    top: 100vh;
-}
-}
-
-.titleChage{
-  position: relative;
-  top: -20px;
-}
-button {
-  padding: 10px;
-  background-color: rgba(0, 0, 0, 0);
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  border-radius: 50%;
-}
-
-#profilePicture:hover {
-  cursor: pointer;
-  transition: background-color 0.3s;  
-  box-shadow: 1px 1px 20px rgb(255, 255, 255)
-}
-
-.titleChage{
-  position: relative;
-  left: 35%;
-}
-
-.button__submit{
-  position: relative;
-  left: 80%;
-  top: -10px;
-  width: 100px;
-}
-#submitButton:hover{
-    cursor: pointer;
-    border-radius:10px;
-    transition: background-color 0.3s;
-    border: 4px 4px 10px rgba(3, 3, 3, 0.595);
-    box-shadow: 1px 1px 18px rgba(255, 255, 255, 0.925)
 
 
-}
 
-.button__cancel{
-  position: relative;
-  left: 69%;
-  top: 25px;
-  width: 95px;
-}
-#cancelButton:hover{
-    cursor: pointer;
-    border-radius:10px;
-    transition: background-color 0.3s;
-    box-shadow: 1px 1px 18px rgba(255, 255, 255, 0.925)
 
-}
 
-#userProfileEditar{
-  
-  position: fixed;
-  font-family: Arial, Helvetica, sans-serif;
 
-  left: 30%;
-  padding: 30px;
-  top: 52%;
-  width: 44%;
-  height: 38%;
-  box-shadow: 1px 1px 18px rgba(255, 255, 255, 0.925);
-  display: none;
 
-}
-#profilePicture{
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-}
-.form__label{
-  font-size: 20px;
-}
-.containerImages{
-  display: flex;
-  overflow: hidden;
-  overflow-x: scroll;
 
-}
-.containerImages::-webkit-scrollbar{
-  width: 3px;
+/*-------------------------------------------------LISTA-------------------------------------------------------------*/
 
-}
-.containerImages::-webkit-scrollbar-thumb{
-  box-shadow: 1px 1px 18px rgba(255, 255, 255, 0.925);
-}
 
 /*-------------------------------------------------BUSCADOR-------------------------------------------------------------*/
 .container__search {
@@ -479,9 +295,7 @@ button {
 	display: flex;
 	align-items: center;
 	font-size: 16px;
-
 	padding-left: 75px;
-
 }
 
 .header__c {
