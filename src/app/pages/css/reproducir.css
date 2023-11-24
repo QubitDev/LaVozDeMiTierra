@@ -708,3 +708,21 @@ a {
 .resaltado {
 	background-color: #00aff579;
 }
+
+.playlist-item {
+  cursor: pointer;
+  padding-left: 30px;
+  position: relative;
+}
+
+.playlist-item .check-mark {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: none; /* Inicialmente oculto */
+}
+
+.playlist-item.selected .check-mark {
+  display: block; /* Mostrar cuando está seleccionado */
+}
