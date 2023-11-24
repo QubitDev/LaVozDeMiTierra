@@ -1,42 +1,112 @@
 const endSesion = document.querySelector(".sesion");
-endSesion.addEventListener('click',cerrarSesion);
+endSesion.addEventListener('click', cerrarSesion);
 
 let cont = 1;
-function cerrarSesion(){
-    if(cont % 2 == 0){
-        document.getElementById('sesionMenu').style.display= 'none';
-    }
-    else{
-        document.getElementById('sesionMenu').style.display= 'block';
+function cerrarSesion() {
+    if (cont % 2 == 0) {
+        document.getElementById('sesionMenu').style.display = 'none';
+    } else {
+        document.getElementById('sesionMenu').style.display = 'block';
     }
     cont++;
 }
-const addList = document.getElementById("newList");
-const conteiner = document.getElementById("container_list");
-addList.addEventListener("click",addLista);
+
 let number = 1;
-function addLista(){
-    conteiner.innerHTML +=`
-    <div class="list">
-        <div class = "imageList">
-            <i class="fa-solid fa-headphones fa-3x" class="imageList"></i>
-        </div>
-        <h1 class="titleLi">Lista numero ${number}</h1>
-        <h1 class="Audios">Numero de audios:</h1>
-        <h1 class="number" type="number">0</h1>
-        <button class="deleteC">
-            <i class="fa-solid fa-trash-can fa-2x" class="deletedLis"></i>
-        </button>
-    </div>    
-    `;
-    number++;
-}
-const showList = document.querySelectorAll(".imageList");
-showList.addEventListener("click", showListL);
-function showListL(){
-    document.getElementById("contenedor").style.display = 'none';
-    document.getElementById("contenedor_Lista").style.display = 'block';
-}
+const addList = document.getElementById("newList");
+  const container = document.getElementById("container_list");
+
+  addList.addEventListener("click", addLista);
+
+  function addLista() {
+    const playlistName = prompt("Ingresa el nombre de la lista:");
+
+    if (!playlistName) {
+      return;
+    }
+
+    const playlistData = {
+      name: playlistName,
+      numberOfAudios: 0,
+      userId: auth.currentUser.uid
+    };
+
+    // Añade la lista a Firebase
+    db.collection("playlists")
+      .add(playlistData)
+      .then(docRef => {
+        // Almacena el ID del documento en el contenedor HTML
+        renderPlaylist({ ...playlistData, id: docRef.id });
+      })
+      .catch(error => {
+        console.error("Error al agregar la lista:", error);
+      });
+  }
+
+  function loadUserPlaylists(userId) {
+    db.collection("playlists")
+      .where("userId", "==", userId)
+      .get()
+      .then(querySnapshot => {
+        console.log("Listas cargadas correctamente.");
+        querySnapshot.forEach(doc => {
+          const playlistData = doc.data();
+          // Almacena el ID del documento en el contenedor HTML
+          renderPlaylist({ ...playlistData, id: doc.id });
+        });
+      })
+      .catch(error => {
+        console.error("Error al cargar las listas del usuario:", error);
+      });
+  }
+
+  function renderPlaylist(playlistData) {
+    container.innerHTML += `
+      <div class="list" data-doc-id="${playlistData.id}">
+          <div class="imageList" onclick="showListL('${playlistData.id}')">
+              <i class="fa-solid fa-headphones fa-3x"></i>
+          </div>
+          <h1 class="titleLi" contenteditable="true" oninput="updatePlaylistName('${playlistData.id}', this)">${playlistData.name}</h1>
+          <h1 class="Audios">Número de audios:</h1>
+          <h1 class="number" type="number">${playlistData.numberOfAudios}</h1>
+          <button class="deleteC" onclick="eliminarLista('${playlistData.id}')">
+              <i class="fa-solid fa-trash-can fa-2x"></i>
+          </button>
+      </div>`;
+  }
+
+  function updatePlaylistName(docId, element) {
+    const playlistName = element.textContent;
+
+    db.collection("playlists")
+      .doc(docId)
+      .update({ name: playlistName })
+      .catch(error => {
+        console.error("Error al actualizar el nombre de la lista:", error);
+      });
+  }
+
+  function eliminarLista(docId) {
+    // Elimina la lista de Firebase
+    db.collection("playlists")
+      .doc(docId)
+      .delete()
+      .then(() => {
+        // Elimina la lista del contenedor HTML
+        const listItem = document.querySelector(`[data-doc-id="${docId}"]`);
+        listItem.remove();
+        console.log("Lista eliminada correctamente.");
+      })
+      .catch(error => {
+        console.error("Error al eliminar la lista:", error);
+      });
+  }
+
+  function showListL(docId) {
+    // Implementa la lógica para redirigir a lista.html
+    window.location.href = "lista.html"
+    console.log("Redirige a lista.html con el ID del documento:", docId);
+  }
+
 /*
 const db = firebase.firestore();
 const auth = firebase.auth();
