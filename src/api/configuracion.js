@@ -16,12 +16,13 @@ const auth = firebase.auth();
 // Observador de autenticación
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
-    // El usuario está autenticado
-    console.log('Usuario autenticado:', user.email);
-    // Puedes realizar operaciones relacionadas con Firebase Realtime Database aquí
+    // El usuario ha iniciado sesión, puedes redirigirlo a la página principal o a donde necesites.
+    console.log("El usuario ha iniciado sesión:", user);
   } else {
-    // No hay usuario autenticado
-    console.log('Usuario no autenticado');
+    // El usuario no ha iniciado sesión, redirigirlo al formulario de inicio de sesión.
+    console.log("El usuario no ha iniciado sesión");
+    // Puedes redirigir al usuario a la página de inicio de sesión aquí, por ejemplo:
+    window.location.href = "login.html";
   }
 });
 
