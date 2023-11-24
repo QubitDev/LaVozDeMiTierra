@@ -1,4 +1,3 @@
-
 const loginForm = document.getElementById("login-form");
 const emailInput = document.getElementById("email");
 const passwordInput = document.getElementById("password");
@@ -6,7 +5,6 @@ const errorContainer = document.getElementById("errorContainer");
 
 loginForm.addEventListener("submit", function (e) {
     e.preventDefault();
-
     const correoElectronico = emailInput.value;
     const contrasena = passwordInput.value;
 
@@ -56,5 +54,4 @@ loginForm.addEventListener("submit", function (e) {
               errorContainer.innerText = "Error de inicio de sesión";
           }
         });        
-       
 });
