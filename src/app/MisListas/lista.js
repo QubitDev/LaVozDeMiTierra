@@ -25,29 +25,28 @@ playlistCollection.get().then((querySnapshot) => {
 
     audioIds.forEach(async (audioId) => {
       // Obtener referencia al documento de audio
-    const audioDoc = await db.collection("audio").doc(audioId).get();
-    numberList = 1;
+      const audioDoc = await db.collection("audio").doc(audioId).get();
+
+      if (audioDoc.exists) {
         const audio = audioDoc.data();
         const audioItem = document.createElement("div");
         audioItem.classList.add("audio-item");
         audioItem.innerHTML = `
-        <h1>${numberList}</h1>
-        <div class="caja">
-            <a onclick="enviar('${doc.id}')">
-                <div class="imagen" id="imagen${index}">
-                <img src="${audio.imageURL}" alt="" height="100px" width="100px" class="imageF">
-                </div>
-            </a>
-        </div> 
-        <div class="descripcion">
-            <h3 id="titulo${index}" style="text-align: right;">${audio.titulo}</h3>
-            <h5 id="procedencia${index}" style="text-align: right;">${audio.procedencia}</h5>
-            <h4 id="narrador${index}" style="text-align: right;">${audio.narrador}</h4>
-            <h6 id="reproducciones${index}" style="text-align: right;">${audio.duracion}</h6>
+        <div class="imagen" id="imagen${index}>
+            <img src="${audio.imageURL}" alt="" height="100px" width="100px" class="imageF">
         </div>
+        <h3 class="part1" id="titulo${index}">${audio.titulo}</h3>
+        <h4 class="part2" id="Cultura">${audio.procedencia}</h4>
+        <h5 class="part3" id="narrador">${audio.narrador}</h5>
+        <h6 class="part4" id="duracion">${audio.duracion}</h6>
+        <button class="deleteC">
+            <i class="fas fa-trash-can fa-2x" id="deleteLis"></i>
+       </button> 
         `;
         audioList.appendChild(audioItem);
-        numberList++;
+      } else {
+        console.error(`El documento de audio con ID ${audioId} no existe.`);
+      }
     });
   });
 }).catch((error) => {
