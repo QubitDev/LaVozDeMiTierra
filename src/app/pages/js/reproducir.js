@@ -169,6 +169,7 @@ db.collection("audio").doc(docId).get().then((doc) => {
   }
 });
 //-------------------------------ENVIAR A UNA PLAYLIST--------------------------------------
+// Variable para almacenar el ID del audio seleccionado
 let audioIdSeleccionado;
 
   function mostrarPlaylists() {
