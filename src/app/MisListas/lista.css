@@ -177,7 +177,7 @@ a {
 	font-family: Arial, Helvetica, sans-serif;
    
 }
-.container_favorite{
+.container_listas{
 	background-color: rgba(0, 0, 0, 0.273);
 	border-radius: 5%;
   	color: #fff;
@@ -194,7 +194,7 @@ a {
 	top: 50px;
 	left: 100px;
 }
-.titleFavorite{
+.titleList{
 	position: relative;
 	top: -30px;
 	width: 500px;
@@ -240,23 +240,26 @@ a {
 
 .container_audios{
 	position: relative;
+	background-color: rgba(0, 0, 0, 0.273);
+	border-radius: 5%;
 	top: 30px;
 	left: 30px;
 	width: 95%;
 	height: 65%;
-	text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
 	overflow: hidden;
   	overflow-y: scroll;
 	display: -webkit-box;
   -webkit-box-orient: vertical;
 }
-
+.container_audios::-webkit-scrollbar{
+	width: 3px;
+  
+  }
   .container_audios::-webkit-scrollbar-thumb{
-	box-shadow: 1px 1px 18px rgba(255, 255, 255, 0.925);
+	box-shadow: 1px 1px 5px rgba(255, 255, 255, 0);
   }
   
 .contenido{
-	background: rgba(0, 0, 0, 0.44);
 	display: flex;
 	width: 100%;
 	height: 120px;
