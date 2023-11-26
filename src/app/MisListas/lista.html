@@ -67,7 +67,8 @@
             <div class="container_listas">
                 <i class="fa-solid fa-headphones fa-4x" id="iconphone"></i>
                 <div class="titleList">
-                    <h1></h1>
+                    <h1 id="playlistInfo"></h1>
+
                 </div>
                 <div class="line"></div>
                 <div class="partUp">
@@ -115,9 +116,13 @@
         const params = new URLSearchParams(window.location.search);
         const docId = params.get('docId');
         const playlistName = decodeURIComponent(params.get('playlistName'));
-        
+      
         // Usa docId y playlistName según sea necesario
         console.log("ID del documento:", docId);
         console.log("Nombre de la lista:", playlistName);
-    </script>
+      
+        // Muestra la información en el elemento h1
+        const playlistInfoElement = document.getElementById('playlistInfo');
+        playlistInfoElement.textContent = `${playlistName}`;
+      </script>
 </html>
