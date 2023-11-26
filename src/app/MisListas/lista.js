@@ -15,47 +15,109 @@ function cerrarSesion() {
 // Obtener referencia a la colección 'playlists'
 const playlistCollection = db.collection("playlists");
 
-// Obtener y mostrar los datos de los audios almacenados en el campo 'audios'
-playlistCollection.get().then((querySnapshot) => {
-  const audioList = document.querySelector('.container_audios');
+// Obtener el ID de la lista de reproducción desde los parámetros de la URL
+const params = new URLSearchParams(window.location.search);
+const docId = params.get('docId');
 
-  querySnapshot.forEach((doc, index) => {
-    const playlist = doc.data();
-    const audioIds = playlist.audios;
+// Verificar si se proporcionó un ID de lista de reproducción
+if (!docId) {
+  console.error("No se proporcionó un ID de lista de reproducción.");
+} else {
+  // Obtener la lista de reproducción específica
+  playlistCollection.doc(docId).get().then((playlistDoc) => {
+    if (playlistDoc.exists) {
+      const playlist = playlistDoc.data();
+      const audioList = document.querySelector('.container_audios');
 
-    audioIds.forEach(async (audioId) => {
-      // Obtener referencia al documento de audio
-      const audioDoc = await db.collection("audio").doc(audioId).get();
+      const audioIds = playlist.audios || [];
 
-      if (audioDoc.exists) {
-        const audioData = audioDoc.data();
-        const audioItem = document.createElement("div");
-        audioItem.classList.add("audio-item");
-        audioItem.innerHTML = `
-          <div class="contenido" id="contenido">
-          <a onclick="enviar('${doc.id}')">
-            <figure class="image"><img src="${audioData.imageURL}" width="80px" height="80px" id="imagenLis"></figure>
-          </a>
-            <p class="part1" id="titulo">${audioData.titulo}</p>
-            <p class="part2" id="Cultura">${audioData.procedencia}</p>
-            <p class="part3" id="narrador">${audioData.narrador}</p>
-            <p class="part4" id="duracion">${audioData.duracion}</p>
-            <button class="deleteC">
-                <i class="fas fa-trash-can fa-2x" id="deleteLis"></i>
-            </button>
-          </div>
-        `;
-
-        audioList.appendChild(audioItem);
-      } else {
-        console.error(`El documento de audio con ID ${audioId} no existe.`);
+      if (audioIds.length === 0) {
+        console.warn("La lista de reproducción no tiene audios.");
       }
-    });
-  });
-}).catch((error) => {
-  console.error("Error al obtener datos de Firebase:", error);
-});
 
-function enviar(doc) {
-    window.location.href = `./reproducir.html?doc=${doc}`;
+      audioIds.forEach(async (audioId) => {
+        try {
+          // Obtener referencia al documento de audio
+          const audioDoc = await db.collection("audio").doc(audioId).get();
+
+          if (audioDoc.exists) {
+            const audioData = audioDoc.data();
+            const audioItem = document.createElement("div");
+            audioItem.classList.add("audio-item");
+            audioItem.innerHTML = `
+              <div class="contenido" id="contenido">
+                <a onclick="redirigirReproducir('${audioDoc.id}')">
+                  <figure class="image"><img src="${audioData.imageURL}" width="80px" height="80px" id="imagenLis"></figure>
+                </a>
+                <p class="part1" id="titulo">${audioData.titulo}</p>
+                <p class="part2" id="Cultura">${audioData.procedencia}</p>
+                <p class="part3" id="narrador">${audioData.narrador}</p>
+                <p class="part4" id="duracion">${audioData.duracion}</p>
+                <button class="deleteC" onclick="eliminarAudio('${audioId}')">
+                  <i class="fas fa-trash-can fa-2x" id="deleteLis"></i>
+                </button>
+              </div>
+            `;
+
+            audioList.appendChild(audioItem);
+          } else {
+            console.error(`El documento de audio con ID ${audioId} no existe.`);
+          }
+        } catch (error) {
+          console.error("Error al obtener datos de Firebase:", error);
+        }
+      });
+    } else {
+      console.error(`El documento de lista con ID ${docId} no existe.`);
+    }
+  }).catch((error) => {
+    console.error("Error al obtener datos de Firebase:", error);
+  });
+}
+
+// Función para redirigir a la página de reproducción
+function redirigirReproducir(audioId) {
+  window.location.href = `./reproducir.html?doc=${audioId}`;
+}
+
+// Función para eliminar un audio de la lista de reproducción
+function eliminarAudio(audioId) {
+    // Obtener referencia al documento de la lista de reproducción
+    const playlistDocRef = db.collection("playlists").doc(docId);
+  
+    // Obtener la lista de reproducción actual
+    playlistDocRef.get().then((playlistDoc) => {
+      if (playlistDoc.exists) {
+        // Obtener los IDs actuales de audios
+        const audioIds = playlistDoc.data().audios || [];
+  
+        // Filtrar el audio que se va a eliminar
+        const nuevosAudios = audioIds.filter((id) => id !== audioId);
+  
+        // Actualizar la lista de reproducción con los nuevos audios
+        playlistDocRef.update({ audios: nuevosAudios }).then(() => {
+          console.log(`Audio con ID ${audioId} eliminado de la lista.`);
+          
+          // Actualizar la interfaz de usuario eliminando el elemento correspondiente
+          const audioItem = document.querySelector(`[data-audio-id="${audioId}"]`);
+          if (audioItem) {
+            audioItem.remove();
+          } else {
+            console.warn(`Elemento del audio con ID ${audioId} no encontrado en la interfaz.`);
+          }
+        }).catch((error) => {
+          console.error("Error al actualizar la lista de reproducción:", error);
+        });
+      } else {
+        console.error(`El documento de lista con ID ${docId} no existe.`);
+      }
+    }).catch((error) => {
+      console.error("Error al obtener datos de Firebase:", error);
+    });
   }
+
+// Obtiene los parámetros de la URL
+const playlistName = decodeURIComponent(params.get('playlistName'));
+// Muestra la información en el elemento h1
+const playlistInfoElement = document.getElementById('playlistInfo');
+ playlistInfoElement.textContent = `${playlistName}`;

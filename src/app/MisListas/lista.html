@@ -111,18 +111,4 @@
         <script src="./lista.js"></script>
 
     </body>
-    <script>
-        // Obtiene los parámetros de la URL
-        const params = new URLSearchParams(window.location.search);
-        const docId = params.get('docId');
-        const playlistName = decodeURIComponent(params.get('playlistName'));
-      
-        // Usa docId y playlistName según sea necesario
-        console.log("ID del documento:", docId);
-        console.log("Nombre de la lista:", playlistName);
-      
-        // Muestra la información en el elemento h1
-        const playlistInfoElement = document.getElementById('playlistInfo');
-        playlistInfoElement.textContent = `${playlistName}`;
-      </script>
 </html>
