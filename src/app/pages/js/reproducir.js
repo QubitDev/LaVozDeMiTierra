@@ -11,7 +11,6 @@ const audioElement = document.getElementById("audioE");
 const textContentElement = document.getElementById("text_content");
 const endSesion = document.querySelector(".sesion");
 endSesion.addEventListener('click',cerrarSesion);
-
 let cont = 1;
 function cerrarSesion(){
     if(cont % 2 == 0){
@@ -172,88 +171,118 @@ db.collection("audio").doc(docId).get().then((doc) => {
 // Variable para almacenar el ID del audio seleccionado
 let audioIdSeleccionado;
 
-  function mostrarPlaylists() {
-    // Obtiene todas las playlists desde Firebase
-    db.collection("playlists")
-      .get()
-      .then(querySnapshot => {
-        const playlistsList = document.getElementById("playlistsList");
+// Obtener el ID del primer documento de la colección 'audio'
+db.collection('audio')
+  .limit(1)
+  .get()
+  .then(querySnapshot => {
+    if (!querySnapshot.empty) {
+      const primerDocumento = db.collection("audio").doc(docId);
+      audioIdSeleccionado = primerDocumento.id;
 
-        // Limpia la lista existente
-        playlistsList.innerHTML = "";
+    } else {
+      console.error("La colección 'audio' está vacía.");
+    }
+  })
+  .catch(error => {
+    console.error("Error al obtener el primer documento de la colección 'audio':", error);
+  });
 
-        // Llena la lista con las playlists disponibles
-        querySnapshot.forEach(doc => {
-          const playlistData = doc.data();
-          const listItem = document.createElement("li");
-          listItem.classList.add("playlist-item");
-          listItem.textContent = playlistData.name;
-          listItem.dataset.playlistId = doc.id;
+function mostrarPlaylists() {
+  // Obtiene todas las playlists desde Firebase
+  db.collection("playlists")
+    .get()
+    .then(querySnapshot => {
+      const playlistsList = document.getElementById("playlistsList");
 
-          // Agrega un check mark para indicar la selección
-          const checkMark = document.createElement("span");
-          checkMark.classList.add("check-mark");
-          checkMark.innerHTML = "&#10003;"; // Símbolo de check
+      // Limpia la lista existente
+      playlistsList.innerHTML = "";
 
-          listItem.appendChild(checkMark);
-          
-          // Agrega el evento de clic
-          listItem.addEventListener("click", () => toggleSeleccionPlaylist(listItem));
+      // Llena la lista con las playlists disponibles
+      querySnapshot.forEach(doc => {
+        const playlistData = doc.data();
+        const listItem = document.createElement("li");
+        listItem.classList.add("playlist-item");
+        listItem.textContent = playlistData.name;
+        listItem.dataset.playlistId = doc.id;
 
-          playlistsList.appendChild(listItem);
-        });
+        // Agrega un check mark para indicar la selección
+        const checkMark = document.createElement("span");
+        checkMark.classList.add("check-mark");
+        checkMark.innerHTML = "&#10003;"; // Símbolo de check
 
-        // Muestra el modal
-        mostrarModal();
+        listItem.appendChild(checkMark);
+
+        // Agrega el evento de clic
+        listItem.addEventListener("click", () => toggleSeleccionPlaylist(listItem));
+
+        playlistsList.appendChild(listItem);
+      });
+
+      // Muestra el modal
+      mostrarModal();
+    })
+    .catch(error => {
+      console.error("Error al obtener las playlists:", error);
+    });
+}
+
+function toggleSeleccionPlaylist(listItem) {
+  // Cambia la clase "selected" para cambiar el estado de selección
+  listItem.classList.toggle("selected");
+}
+
+function aceptarSeleccion() {
+  // Encuentra la playlist seleccionada
+  const playlistSeleccionada = document.querySelector(".playlist-item.selected");
+  
+  if (playlistSeleccionada) {
+    // Obtiene el ID de la playlist seleccionada
+    const playlistId = playlistSeleccionada.dataset.playlistId;
+
+    // Guarda el ID del audio en la playlist seleccionada
+    if (audioIdSeleccionado && playlistId) {
+      // Agrega el ID del audio a la playlist en Firestore
+      db.collection("playlists").doc(playlistId).update({
+        audios: firebase.firestore.FieldValue.arrayUnion(audioIdSeleccionado)
+      })
+      .then(() => {
+        console.log("ID del audio agregado correctamente a la playlist.");
+        // Restablece la variable de audioIdSeleccionado
+        audioIdSeleccionado = null;
+        // Cierra el modal después de aceptar la selección
+        cerrarModal();
+        // Muestra el mensaje
+        mostrarMensaje("Audio agregado a la lista correctamente.");
       })
       .catch(error => {
-        console.error("Error al obtener las playlists:", error);
+        console.error("Error al agregar el ID del audio a la playlist:", error);
       });
-  }
-
-  function toggleSeleccionPlaylist(listItem) {
-    // Cambia la clase "selected" para cambiar el estado de selección
-    listItem.classList.toggle("selected");
-  }
-
-  function aceptarSeleccion() {
-    // Encuentra la playlist seleccionada
-    const playlistSeleccionada = document.querySelector(".playlist-item.selected");
-    
-    if (playlistSeleccionada) {
-      // Obtiene el ID de la playlist seleccionada
-      const playlistId = playlistSeleccionada.dataset.playlistId;
-
-      // Guarda el ID del audio en la playlist seleccionada
-      if (audioIdSeleccionado && playlistId) {
-        // Agrega el ID del audio a la playlist en Firestore
-        db.collection("playlists").doc(playlistId).update({
-          audios: firebase.firestore.FieldValue.arrayUnion(audioIdSeleccionado)
-        })
-        .then(() => {
-          console.log("ID del audio agregado correctamente a la playlist.");
-          // Restablece la variable de audioIdSeleccionado
-          audioIdSeleccionado = null;
-          // Cierra el modal después de aceptar la selección
-          cerrarModal();
-        })
-        .catch(error => {
-          console.error("Error al agregar el ID del audio a la playlist:", error);
-        });
-      } else {
-        console.warn("No hay ID de audio o playlist seleccionada.");
-      }
     } else {
-      console.warn("Ninguna playlist seleccionada.");
+      console.warn("No hay ID de audio o playlist seleccionada.");
     }
+  } else {
+    console.warn("Ninguna playlist seleccionada.");
   }
+}
 
-  function mostrarModal() {
-    const modal = document.getElementById("modal");
-    modal.style.display = "block";
-  }
+function mostrarModal() {
+  const modal = document.getElementById("modal");
+  modal.style.display = "block";
+}
 
-  function cerrarModal() {
-    const modal = document.getElementById("modal");
-    modal.style.display = "none";
-  }
+function cerrarModal() {
+  const modal = document.getElementById("modal");
+  modal.style.display = "none";
+}
+
+function mostrarMensaje(mensaje) {
+  const mensajeElemento = document.getElementById("mensaje");
+  mensajeElemento.textContent = mensaje;
+  mensajeElemento.style.display = "block";
+  
+  // Oculta el mensaje después de unos segundos (ajusta según tus necesidades)
+  setTimeout(() => {
+    mensajeElemento.style.display = "none";
+  }, 3000);
+}
