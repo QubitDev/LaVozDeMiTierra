@@ -62,7 +62,7 @@ function loadUserPlaylists(userId) {
 function renderPlaylist(playlistData) {
   container.innerHTML += `
     <div class="list" data-doc-id="${playlistData.id}">
-        <div class="imageList" onclick="showListL('${playlistData.id}')">
+        <div class="imageList" onclick="showListL('${playlistData.id}', '${playlistData.name}')">
             <i class="fa-solid fa-headphones fa-3x"></i>
         </div>
         <h1 class="titleLi" contenteditable="true" oninput="updatePlaylistName('${playlistData.id}', this)">${playlistData.name}</h1>
@@ -101,8 +101,14 @@ function eliminarLista(docId) {
     });
 }
 
-function showListL(docId) {
-  // Implementa la lógica para redirigir a lista.html
-  window.location.href = "lista.html";
-  console.log("Redirige a lista.html con el ID del documento:", docId);
+function showListL(docId, playlistName) {
+  // Escapa el nombre de la lista para asegurar que no haya caracteres problemáticos en la URL
+  const escapedPlaylistName = encodeURIComponent(playlistName);
+
+  // Construye la URL con el ID del documento y el nombre de la lista
+  const url = `lista.html?docId=${docId}&playlistName=${escapedPlaylistName}`;
+
+  // Redirige a la nueva URL
+  window.location.href = url;
+  console.log("Redirige a lista.html con el ID del documento y el nombre de la lista:", docId, playlistName);
 }
