@@ -69,7 +69,7 @@ const addList = document.getElementById("newList");
           <h1 class="Audios">Número de audios:</h1>
           <h1 class="number" type="number">${playlistData.numberOfAudios}</h1>
           <button class="deleteC" onclick="eliminarLista('${playlistData.id}')">
-              <i class="fa-solid fa-trash-can fa-2x"></i>
+              <i class="fa-solid fa-trash-can fa-2x" id = "eliminar"></i>
           </button>
       </div>`;
   }

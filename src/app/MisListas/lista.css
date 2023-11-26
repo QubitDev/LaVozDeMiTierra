@@ -165,6 +165,158 @@ a {
 
 
 /*-------------------------------------------------LISTA-------------------------------------------------------------*/
+.container_main{
+	padding: 14px;
+    margin-left: 1%;
+    position: fixed;
+    top: 107px;
+    left: 208px;
+    height: 100%;
+    width: 100%;     
+    background: radial-gradient(ellipse at bottom, #647c74, #587a7c, #15242e,  #3a615e,#749e8a, #15242e 80%);
+	font-family: Arial, Helvetica, sans-serif;
+   
+}
+.container_favorite{
+	background-color: rgba(0, 0, 0, 0.273);
+	border-radius: 5%;
+  	color: #fff;
+  	text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
+  	position: fixed;
+  	flex-direction: column;
+  	top: 150px;
+  	left: 290px;
+  	width: 80%;
+  	height: 79%;
+}
+#iconphone{
+	position: relative;
+	top: 50px;
+	left: 100px;
+}
+.titleFavorite{
+	position: relative;
+	top: -30px;
+	width: 500px;
+	height: 40px;
+	left: 230px;
+	font-size: 21px;
+	
+}
+.line{
+	position: relative;
+	width: 100%; 
+	height: 0.6%; 
+	top: 30px;
+	background-color: rgba(255, 255, 255, 0.468);
+}
+.partUp{
+	position: relative;
+	top: 40px;
+	width: 88%;
+	height: 60px;
+	display: flex;
+	left: 50px;
+	min-width: 800px;
+	max-width: 1500px;
+}
+.partUps1{
+	position: relative;
+	left: 11%;
+}
+.partUps2{
+	position: relative;
+	left:25%;
+}
+.partUps3{
+	position: relative;
+	left: 36%;
+}
+.partUps4{
+	position: relative;
+	left: 48%;
+}
+
+
+.container_audios{
+	position: relative;
+	top: 30px;
+	left: 30px;
+	width: 95%;
+	height: 65%;
+	text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
+	overflow: hidden;
+  	overflow-y: scroll;
+	display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+
+  .container_audios::-webkit-scrollbar-thumb{
+	box-shadow: 1px 1px 18px rgba(255, 255, 255, 0.925);
+  }
+  
+.contenido{
+	background: rgba(0, 0, 0, 0.44);
+	display: flex;
+	width: 100%;
+	height: 120px;
+}
+
+.part1{
+	position: relative;
+	left: 2%;
+	top: 25px;
+}
+.part2{
+	position: relative;
+	left: 18%;
+	top: 25px;
+
+}
+.part3{
+	position: relative;
+	left: 40%;
+	top: 25px;
+
+}
+.part4{
+	position: relative;
+	left: 64%;
+	top: 25px;
+
+}
+#imagenLis:hover{
+	cursor: pointer;
+	transition: background-color 0.3s;  
+	box-shadow: 1px 1px 18px rgba(255, 255, 255, 0.925)
+}
+.deleteC{
+	position: relative;
+	height: 30px;
+	width: 37px;
+	left: 72%;
+	top: 34px;
+	background: rgba(0, 0, 0, 0);
+
+}
+#deleteLis{
+	color: white;
+}
+#deleteLis:hover{
+	cursor: pointer;
+	transition: background-color 0.3s;  
+	box-shadow: 1px 1px 18px rgba(255, 255, 255, 0.925)
+}
+
+
+
+
+
+
+
+
+
+
 
 
 /*-------------------------------------------------BUSCADOR-------------------------------------------------------------*/
