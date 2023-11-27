@@ -58,10 +58,10 @@ audioInput.addEventListener("change", function () {
   durationField.style.display ='inline-block';
   textInput.disabled = false;
   if (selectedAudioFile) {
-    const allowedAudioTypes = ["audio/mpeg","audio/aiff", "audio/wav", "audio/mp3"];
+    // const allowedAudioTypes = ["audio/mpeg","audio/aiff", "audio/wav", "audio/mp3"];
     console.log(`type;${selectedAudioFile.type}`);
-    if (!allowedAudioTypes.includes(selectedAudioFile.type)) {
-      onMessagePopup(`❌¡Error!\nTipo de archivo de audio no permitido.`, 400);
+    if (this.accept !== selectedAudioFile.type) {
+      // onMessagePopup(`❌¡Error!\nTipo de archivo de audio no permitido.`, 400);
       this.value = null;
       durationField.textContent = ""; 
       formatoSelect.value = "null";
@@ -126,15 +126,15 @@ function updateAcceptAttribute() {
   switch (formatoSelect.value) {
     case "MP3":
       audioInput.disabled = false;
-      audioInput.accept = ".mp3";
+      audioInput.accept = "audio/mpeg";
       break;
     case "WAV":
       audioInput.disabled = false;
-      audioInput.accept = ".wav";
+      audioInput.accept = "audio/wav";
       break;
     case "AIFF":
       audioInput.disabled = false;
-      audioInput.accept = ".aiff";
+      audioInput.accept = "audio/aiff";
       break;
     default:
       audioInput.disabled = true;
