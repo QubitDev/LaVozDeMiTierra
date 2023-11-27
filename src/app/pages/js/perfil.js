@@ -30,6 +30,8 @@ function cerrarSesion(){
 }
 const buttonImg = document.querySelectorAll(".loadImg");
 const imagenesPerfil = document.querySelectorAll(".imagenes");
+const subirAc =document.getElementById('submitButton');
+
 
 for(let i = 0; i < buttonImg.length; i++) {
   buttonImg[i].addEventListener("click", function() {
@@ -41,10 +43,13 @@ for(let i = 0; i < buttonImg.length; i++) {
 const choosee = document.querySelector(".buttonEditar");
 const cerrarChos = document.getElementById("cancelButton");
 
-choosee.addEventListener("click",editar);
+choosee.addEventListener("click",open);
 cerrarChos.addEventListener("click",cerrar);
 
+function open(){
+  document.getElementById("userProfileEditar").style.display = "block";
 
+}
 function cerrar(){
     document.getElementById("userProfileEditar").style.display = "none";
 }
@@ -55,6 +60,15 @@ function onUsuarioAutenticado(user) {
     // El usuario está autenticado
     console.log("Usuario autenticado:", user.email);
     searchUsu(user.email);
+    subirAc.onclick= async function(){
+      const cambiar = db.collection('users').doc(getIdUsu(user.email));
+      var nombreUsu = document.getElementById('nombreU').textContent;
+      var imagenPer = document.getElementById('imageUsuario').src;
+
+      await cambiar.update({nombreDeUsuario: nombreUsu});
+      await cambiar.update({imagenURL: imagenPer});       
+      window.location.reload();
+  }
     return user.email;
   } else {
     // No hay un usuario autenticado
@@ -107,18 +121,7 @@ function searchUsu(correoUsu){
 
 
 function editar(id){
-    document.getElementById("userProfileEditar").style.display = "block";
-    const subirAc =document.getElementById('submitButton');
-    subirAc.onclick= async function(){
-        const cambiar = db.collection('users').doc(id);
-        var nombreUsu = document.getElementById('nombreU').textContent;
-        var imagenPer = document.getElementById('imageUsuario').src;
-
-        await cambiar.update({nombreDeUsuario: nombreUsu});
-        await cambiar.update({imagenURL: imagenPer});       
-        document.getElementById("userProfileEditar").style.display = "none";
-        window.location.reload();
-    }
+    
     
 }
 /*

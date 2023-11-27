@@ -96,8 +96,10 @@
 
 
     
-    <!-- reproducir -->
+    <!-- ------------------------------------------------------------------reproducir----------------------------------------------- -->
     <div class="play">
+      <img src="https://i.pinimg.com/originals/44/6e/3b/446e3b79395a287ca32f7977dd83b290.jpg" alt="imageFon" id="imageFon" >
+
       <div class="caja">
         <div class="imagen" id="imgenC">
           <img src="" class="imagenLC" height="171px" width="153px">
@@ -125,8 +127,6 @@
           </button>
         </div>
 
-
-
         <div class="__add_list">
           <button class="__button_add_list" onclick="mostrarPlaylists()">
             <i class="fa-solid fa-plus"></i>
@@ -148,7 +148,7 @@
 
         <div class="audio" id="audioPlayer">
           <audio controls="controls" loop="loop" id="audioE">
-            <source type="audio/mp3">
+            <source type="audio/mp3" id="audioRes">
           </audio>
         </div>
 
@@ -201,7 +201,8 @@
             <button class="button__cancel" id="cancel" onclick="togglePopup()">Cancelar</button>
           </div>
         </div>
-      </div>
+      </div>    
+    </div>
  <!-------------------------------------------------------Buscador------------------------------------------------>
  <div class="container__search">
   <div class="search__content">

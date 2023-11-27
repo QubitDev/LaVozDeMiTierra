@@ -143,13 +143,18 @@ a {
 
 /*******************************************************Reproductor**********************************************************/
 
+#imageFon{
+  position: fixed;
+  top: 107px;
+  left: 200px;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+}
 
 .play {
   top: 107px;
   left: 208px;
-  background: radial-gradient(ellipse at bottom, #647c74, #587a7c, #15242e, #3a615e, #749e8a, #15242e 80%);
-  background-size: 150% 150%;
-  background-position: top center;
   color: #fff;
   position: fixed;
   flex-direction: column;
@@ -158,18 +163,36 @@ a {
   width: 75%;
   height: 100%;
 }
+.play o{
+  position: fixed;
+  width: 2px;
+  height: 10px;
+  top: -10px;
+  background: rgb(211, 211, 211);
+  animation: rain linear infinite;
+  }
+i{
+  z-index: 2;
+}
+@keyframes rain {
+  0% {
+      top: -10px;
+  }
+  100% {
+      top: 100vh;
+  }
+  }
 
 p {
-  color: #01081d;
+  color: #ffffff;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 24px;
   text-align: justify;
 }
 
 .container-card {
-  background: radial-gradient(ellipse at bottom, #647c74, #587a7c, #15242e, #3a615e, #749e8a, #15242e 80%);
-  background-size: 150% 150%;
-  background-position: top center;
+  background : linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0, 0.5));
+
   color: #fff;
   overflow: hidden;
   overflow-y: scroll;
@@ -222,12 +245,20 @@ p {
   max-width: 60%;
   margin: auto;
   margin-top: 2%;
-  background: #ffff;
+  background : linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0, 0.5));
   padding: 15px;
   height: 200px;
   overflow-y: scroll;
   border-radius: 5px;
-  box-shadow: 0px 1px 10px rgba(0, 0, 0, 45);
+  box-shadow: 1px 1px 18px rgba(255, 255, 255, 0.925);
+}
+.contenedor::-webkit-scrollbar{
+  width: 10px;
+
+}
+.contenedor::-webkit-scrollbar-thumb{
+  box-shadow: 1px 1px 18px rgba(255, 255, 255, 0.925);
+  width: 10px;
 }
 
 a {
@@ -254,6 +285,7 @@ a {
 .audio {
   text-align: center;
 }
+
 
 #imagenesCard:hover{
   cursor: pointer;
@@ -294,6 +326,7 @@ a {
 .__button_favorites:hover {
   color: #810202;
   z-index: 2;
+  
 }
 
 .__button_add_list:hover {
@@ -303,9 +336,9 @@ a {
 
 .__button_share:hover {
   color: #027281;
+
   z-index: 2;
 }
-
 /* popup */
 .popup {
   display: none;
@@ -516,6 +549,7 @@ a {
   color: #520404;
   transition: all 0.5s ease;
 }
+
 
 /*-------------------------------------------------BUSCADOR-------------------------------------------------------------*/
 .container__search {
