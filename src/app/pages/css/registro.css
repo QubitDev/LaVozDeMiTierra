@@ -15,23 +15,21 @@
 
 .menu {
   font-family: Arial, Helvetica, sans-serif;
-
-  width: 200px;
-  height: 100%;
-  /* background: linear-gradient(to left bottom, #43cea2, #185a9d); */
-
-  background: radial-gradient(ellipse at bottom right, #647c74, #587a7c, #15242e, #3a615e, #749e8a 80%);
-  background-size: 150% 150%;
-  background-position: top center;
-  color: #fff;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
-
+  width: 202px;
   padding: 14px;
   position: fixed;
   top: 102px;
   left: 0;
+  height: 100%;
   display: flex;
   flex-direction: column;
+  /* justify-content: ; */
+  background: radial-gradient(ellipse at bottom right, #647c74, #587a7c, #15242e, #3a615e, #749e8a 80%);
+  background-size: 150% 150%;
+  background-position: top center;
+  color: #fff;
+  z-index: 1;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
 }
 
 .header {
@@ -155,6 +153,17 @@ a {
   background: radial-gradient(ellipse at left top, #01081d, #011c38 80%);
 }
 
+#imageFon {
+  position: fixed;
+  top: 107px;
+  left: 200px;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+}
+
+
+
 /*---------------------------------------------------------- Body ------------------------------------------------------------- */
 .container__body {
   position: fixed;
@@ -171,6 +180,25 @@ a {
   color: #fff;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
   position: fixed;
+}
+
+.container__body o {
+  position: fixed;
+  width: 1px;
+  height: 10px;
+  top: -10px;
+  background: rgb(211, 211, 211);
+  animation: rain linear infinite;
+}
+
+@keyframes rain {
+  0% {
+    top: -10px;
+  }
+
+  100% {
+    top: 100vh;
+  }
 }
 
 .container__form {
