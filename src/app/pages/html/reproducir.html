@@ -128,11 +128,23 @@
 
 
         <div class="__add_list">
-          <button class="__button_add_list">
+          <button class="__button_add_list" onclick="mostrarPlaylists()">
             <i class="fa-solid fa-plus"></i>
           </button>
         </div>
-
+        
+        <!-- Modal para mostrar las playlists -->
+        <div id="modal" class="modal" style="display: none;">
+          <div class="modal-content">
+            <span class="close" onclick="cerrarModal()">&times;</span>
+            <h2>Seleccionar Playlist</h2>
+            <ul id="playlistsList"></ul>
+            <button onclick="aceptarSeleccion()">Aceptar</button>
+          </div>
+        </div>
+        
+        <!-- Elemento para mostrar el mensaje -->
+        <div id="mensaje" style="display: none;"></div>
 
         <div class="audio" id="audioPlayer">
           <audio controls="controls" loop="loop" id="audioE">
