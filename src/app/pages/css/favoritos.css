@@ -1,5 +1,3 @@
-
-
 /*-------------------------------------------------Header y menu-------------------------------------------------------------*/
 
 .logo {
@@ -106,21 +104,21 @@ a {
 }
 
 .sesion {
-    border-radius: 50%;
-    height: 40px;
-    width: 40px;
-    position: fixed;
-    top: 23px;
-    left: 90%;
-    display: inline-block;
-    box-sizing: border-box;
+	border-radius: 50%;
+	height: 40px;
+	width: 40px;
+	position: fixed;
+	top: 23px;
+	left: 90%;
+	display: inline-block;
+	box-sizing: border-box;
 }
 
 .sesion:hover {
-    cursor: pointer;
-    transition: background-color 0.3s;
-    background: radial-gradient(ellipse at left top, #01081d, #011c38 80%);
-    border-radius: 50%;
+	cursor: pointer;
+	transition: background-color 0.3s;
+	background: radial-gradient(ellipse at left top, #01081d, #011c38 80%);
+	border-radius: 50%;
 	box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.856);
 }
 
@@ -168,11 +166,12 @@ a {
 	box-sizing: border-box;
 	font-family: 'Montserrat', sans-serif;
 }
+
 /*  contenedor de todo el favorito*/
 
 .contenedor_todo {
-    flex-direction: row;
-    display: flex;
+	flex-direction: row;
+	display: flex;
 	position: fixed;
 	top: 102px;
 	left: 200px;
@@ -193,19 +192,20 @@ a {
 	border-radius: 5px;
 	box-shadow: 0px 1px 10px
 }
+
 /*  contenedor del el favorito de la carta*/
 
 .container-favorito {
 	flex-direction: row;
-    display: flex;
+	display: flex;
 	width: 90%;
 	height: 60%;
 	/* width: 60%;
 	height: 70%; */
 	/* max-width: 900px; */
 	margin: 60px;
-    margin-left: 50px;
-    margin-right: 1px;
+	margin-left: 50px;
+	margin-right: 1px;
 	top: auto;
 	font-family: Arial, Helvetica, sans-serif;
 
@@ -214,17 +214,18 @@ a {
 	display: flex;
 
 }
+
 /*  titulo de los favoritos*/
 .titulo-favorito {
-	
+
 	width: 100%;
 	height: 100px;
-   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-   display: flex;
-   gap: 4px;
-   
-   flex-direction: row;
-   background-color: #00000052;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	display: flex;
+	gap: 4px;
+
+	flex-direction: row;
+	background-color: #00000052;
 
 	/*flex-direction: row;
 	display: flex;
@@ -236,6 +237,7 @@ a {
 	font-size: 18;*/
 
 }
+
 /*sub titulo del favorito*/
 .subTitu-Favorito {
 	overflow-y: hidden;
@@ -245,12 +247,12 @@ a {
 	align-items: center;
 	justify-content: center;
 	flex-grow: 1;
-	flex-basis: 100px ;
+	flex-basis: 100px;
 }
 
 .card,
 .card1 {
-	
+
 	width: 100%;
 	overflow-x: auto;
 	/* white-space: nowrap; */
@@ -272,7 +274,7 @@ a {
 
 .carta .contenido-card {
 	flex-direction: row;
-    display: flex;
+	display: flex;
 	padding: 15px;
 	text-align: center;
 }
@@ -305,7 +307,7 @@ a {
 
 .carta {
 	flex-direction: row;
-    display: flex;
+	display: flex;
 	width: 30%;
 	height: 100%;
 	border-radius: 6px;
@@ -335,7 +337,7 @@ a {
 	box-shadow: 0 6px 12px #00000071;
 }
 
-.uno_contenedora{
+.uno_contenedora {
 	width: 100%;
 	height: 100%;
 	flex-direction: column;
@@ -347,21 +349,22 @@ a {
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 	gap: 20px;
 	background-color: #00000052;
-	
- }
-.contenedora{
-	
-	width: 100%;
-	height: 100%;
-   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-   display: flex;
-   gap: 50px;
-   
-   flex-direction: row;
-   background-color: #00000052;
 
 }
-.contenedor_div{
+
+.contenedora {
+
+	width: 100%;
+	height: 40%;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	display: flex;
+	gap: 50px;
+
+	flex-direction: row;
+	background-color: #00000052;
+}
+
+.contenedor_div {
 	overflow-y: hidden;
 	/*font-size: 24px;*/
 	display: flex;
@@ -369,10 +372,11 @@ a {
 	align-items: center;
 	justify-content: center;
 	flex-grow: 1;
-	flex-basis: 100px ;
+	flex-basis: 100px;
+	cursor: pointer;
 }
 
-.contenedor_div img{
+.contenedor_div img {
 	margin-top: 50px;
 	border-top: 50%;
 	border-radius: 5px;
@@ -571,4 +575,33 @@ a {
 
 .resaltado {
 	background-color: #00aff579;
+}
+
+.contenedor_Cor {
+	width: 100px;
+	height: 100px;
+	display: flex;
+	flex-direction: initial;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+
+	background-color: transparent;
+	border: none;
+	border-radius: 100px;
+	cursor: pointer;
+	font-weight: bold;
+
+}
+
+.contenedor_Cor p {
+	font-size: 50px;
+	color: #ffffff;
+	text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.856);
+
+}
+
+.contenedor_Cor p:hover {
+	color: #810202;
+	position: relative;
 }
