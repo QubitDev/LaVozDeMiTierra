@@ -15,11 +15,11 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" />
   <title>Reproduccion</title>
 
-  <!-- Firebase App (la biblioteca base) - es obligatorio siempre -->
-  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
-  <!-- Firebase Storage -->
-  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
+ <!-- Firebase -->
+ <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
 
 
   <!-- estilo del boton de favoritos-->
@@ -54,13 +54,13 @@
       <div class="sesionEnd">
         <img src="./../../../assets/images/IconoUsu.png" alt="Sesion" class="sesion"/>
       </div>
-      <div id="sesionMenu">
-        <ul class="opciones" id="opciones">
-            <a href="Login.html">Cerrar sesion</a>                        
-        </ul>
+      <div id="sesionMenu">        
         <ul class="opciones" id="opciones">
             <a href="perfil.html">Perfil usuario</a>                        
         </ul>
+        <ul class="opciones" id="opciones">
+          <a href="Login.html">Cerrar sesion</a>                        
+      </ul>
       </div>
     </header>
 
@@ -96,8 +96,10 @@
 
 
     
-    <!-- reproducir -->
+    <!-- ------------------------------------------------------------------reproducir----------------------------------------------- -->
     <div class="play">
+      <img src="https://i.pinimg.com/originals/44/6e/3b/446e3b79395a287ca32f7977dd83b290.jpg" alt="imageFon" id="imageFon" >
+
       <div class="caja">
         <div class="imagen" id="imgenC">
           <img src="" class="imagenLC" height="171px" width="153px">
@@ -125,8 +127,6 @@
           </button>
         </div>
 
-
-
         <div class="__add_list">
           <button class="__button_add_list" onclick="mostrarPlaylists()">
             <i class="fa-solid fa-plus"></i>
@@ -148,7 +148,7 @@
 
         <div class="audio" id="audioPlayer">
           <audio controls="controls" loop="loop" id="audioE">
-            <source type="audio/mp3">
+            <source type="audio/mp3" id="audioRes">
           </audio>
         </div>
 
@@ -201,7 +201,8 @@
             <button class="button__cancel" id="cancel" onclick="togglePopup()">Cancelar</button>
           </div>
         </div>
-      </div>
+      </div>    
+    </div>
  <!-------------------------------------------------------Buscador------------------------------------------------>
  <div class="container__search">
   <div class="search__content">
