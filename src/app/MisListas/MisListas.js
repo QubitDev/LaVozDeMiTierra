@@ -11,7 +11,6 @@ function cerrarSesion() {
     cont++;
 }
 
-let number = 1;
 const addList = document.getElementById("newList");
 const container = document.getElementById("container_list");
 

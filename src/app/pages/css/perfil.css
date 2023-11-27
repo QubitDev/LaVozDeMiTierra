@@ -211,7 +211,7 @@ a {
   left: 28%;
 }
 
-#imagePerfil{
+#imageUsuario{
   position: relative;
   width: 160px;
   top: 2%;
@@ -223,7 +223,9 @@ a {
 .nombre{
   position: relative;
   top: -45%;
-  left: 37%;
+  left: 50%;
+  overflow: hidden;
+
 }
 #edit{
   color: white;  
