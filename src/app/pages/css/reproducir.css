@@ -163,18 +163,16 @@ a {
   width: 75%;
   height: 100%;
 }
-.play o{
-  position: fixed;
+.play o {
+  position: absolute;
   width: 2px;
   height: 10px;
   top: -10px;
-  background: rgb(211, 211, 211);
+  background: #d3d3d3;
   animation: rain linear infinite;
   }
-i{
-  z-index: 2;
-}
-@keyframes rain {
+  
+  @keyframes rain {
   0% {
       top: -10px;
   }
@@ -182,6 +180,7 @@ i{
       top: 100vh;
   }
   }
+
 
 p {
   color: #ffffff;
@@ -226,9 +225,10 @@ p {
   margin-left: 3%;
   color: #fff;
   background : linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0, 0.5));
-  height: 180px;
+  height: 230px;
   width: auto;
   font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
 }
 
 .h3 {
@@ -247,7 +247,7 @@ p {
   width: 90%;
   max-width: 60%;
   margin: auto;
-  margin-top: 2%;
+  margin-top: 6%;
   background : linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0, 0.5));
   padding: 15px;
   height: 200px;
