@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -31,11 +30,13 @@
     }
 
     .heart-btn .fa-regular {
-      color: black; /* Color del corazón vacío */
+      color: black;
+      /* Color del corazón vacío */
     }
 
     .heart-btn .fa-solid {
-      color: red; /* Color del corazón lleno */
+      color: red;
+      /* Color del corazón lleno */
       display: none;
     }
   </style>
@@ -49,17 +50,19 @@
     </div>
     <header class="header">
       <div class="greeting">
-				<p id="tipo__audioAdm"><font size="8">La voz de mi Tierra</font></p>
+        <p id="tipo__audioAdm">
+          <font size="8">La voz de mi Tierra</font>
+        </p>
       </div>
       <div class="sesionEnd">
-        <img src="./../../../assets/images/IconoUsu.png" alt="Sesion" class="sesion"/>
+        <img src="./../../../assets/images/IconoUsu.png" alt="Sesion" class="sesion" />
       </div>
       <div id="sesionMenu">
         <ul class="opciones" id="opciones">
-            <a href="Login.html">Cerrar sesion</a>                        
+          <a href="Login.html">Cerrar sesion</a>
         </ul>
         <ul class="opciones" id="opciones">
-            <a href="perfil.html">Perfil usuario</a>                        
+          <a href="perfil.html">Perfil usuario</a>
         </ul>
       </div>
     </header>
@@ -67,11 +70,11 @@
     <div class="menu">
       <div class="content">
         <div class="menu__item" data-page="app">
-          <i class="fas fa-home"></i> 
+          <i class="fas fa-home"></i>
           <a href="./../../homeUsu/homeUsu.html">Inicio</a>
         </div>
         <div class="menu__item" data-page="registro" id="searchButton" onClick="mostrarBuscar()">
-          <i class="fa-solid fa-magnifying-glass"></i> 
+          <i class="fa-solid fa-magnifying-glass"></i>
           <a href="javascript:void(0)" nclick="mostrarBuscar()">Buscar</a>
         </div>
         <div class="menu__item" data-page="app">
@@ -95,7 +98,7 @@
     </div>
 
 
-    
+
     <!-- reproducir -->
     <div class="play">
       <div class="caja">
@@ -132,7 +135,7 @@
             <i class="fa-solid fa-plus"></i>
           </button>
         </div>
-        
+
         <!-- Modal para mostrar las playlists -->
         <div id="modal" class="modal" style="display: none;">
           <div class="modal-content">
@@ -142,7 +145,7 @@
             <button onclick="aceptarSeleccion()">Aceptar</button>
           </div>
         </div>
-        
+
         <!-- Elemento para mostrar el mensaje -->
         <div id="mensaje" style="display: none;"></div>
 
@@ -174,23 +177,24 @@
                 <a href="#" onclick="shareOnFacebook()">
                   <i class=" fa-brands fa-facebook fa-3x" aria-hidden="true"></i>
                 </a>
-                <p class="marca">Facebook</p>
               </li>
               <li class="gmail">
                 <a href="#" onclick="shareOnGmail()">
                   <i class="fa-regular fa-envelope fa-3x" aria-hidden="true"></i>
                 </a>
-                <p class="marca">Correo</p>
-
               </li>
               <li class="whatsapp">
                 <a href="#" onclick="shareOnWhatsApp()">
                   <i class=" fa-brands fa-whatsapp fa-3x" aria-hidden="true"></i>
                 </a>
-                <p class="marca">whatsApp</p>
               </li>
-             
+
             </ul>
+          </div>
+          <div class="name__rs">
+            <p class="marca" id="__fb">Facebook</p>
+            <p class="marca" id="__gm">Correo</p>
+            <p class="marca" id="__wt">whatsApp</p>
           </div>
 
           <div class="__link__content">
@@ -202,26 +206,26 @@
           </div>
         </div>
       </div>
- <!-------------------------------------------------------Buscador------------------------------------------------>
- <div class="container__search">
-  <div class="search__content">
-      <input type="search" class="search" id="search" placeholder="Search" />
-      <button class="search__button" id="search__button"><i class="fa-solid fa-magnifying-glass"></i></button>
-  </div>
-  <div class="popup__cards">    
-  </div>
-  <div class="header__cards">
-      <p class="header__c">Titúlo:</p>
-      <p class="header__c">Procedencia Cultural:</p>
-      <p class="header__c">Narrado por:</p>
-      <p class="header__c">duración:</p>
-  </div>    
-  <div class="coincident__container" id="coincident__container">    
-  </div>    
-  <div class="searchButton" id="searchButton" onClick="mostrarBuscar()">
-      <a href="javascript:void(0)" onclick="mostrarBuscar()"><i class="fa-solid fa-arrow-up"></i></a>
-  </div>
-</div>
+      <!-------------------------------------------------------Buscador------------------------------------------------>
+      <div class="container__search">
+        <div class="search__content">
+          <input type="search" class="search" id="search" placeholder="Search" />
+          <button class="search__button" id="search__button"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+        <div class="popup__cards">
+        </div>
+        <div class="header__cards">
+          <p class="header__c">Titúlo:</p>
+          <p class="header__c">Procedencia Cultural:</p>
+          <p class="header__c">Narrado por:</p>
+          <p class="header__c">duración:</p>
+        </div>
+        <div class="coincident__container" id="coincident__container">
+        </div>
+        <div class="searchButton" id="searchButton" onClick="mostrarBuscar()">
+          <a href="javascript:void(0)" onclick="mostrarBuscar()"><i class="fa-solid fa-arrow-up"></i></a>
+        </div>
+      </div>
 
       <script src="./../../../api/configuracion.js"></script>
       <script src="./../js/reproducir.js"></script>
