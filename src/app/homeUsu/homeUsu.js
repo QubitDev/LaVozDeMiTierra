@@ -1,3 +1,21 @@
+
+const container = document.querySelector('.contenedor_todo');
+const rain = () => {
+    let j = 0;
+    while (j <= 80){
+        let gout = document.createElement('o');
+        let x = innerWidth * Math.random();
+        let time = 1 * Math.random();
+        gout.style.animationDuration = time <= 0.4 ? (time + 0.4) + 's'  : time + 's';
+        gout.style.animationDelay = time + 's';
+        gout.style.left = x + 'px';
+        container.appendChild(gout);
+        j++;
+    }
+}
+rain();
+
+// ********************************************** home usu **************************************************
 const contenedorCards = document.getElementById('card');
 const botonAnterior = document.getElementById('botonAnterior');
 const botonSiguiente = document.getElementById('botonSiguiente');
@@ -26,10 +44,8 @@ const cargarDocumentoCuento = (documentos) => {
             if (documento.data().tipoAudio == "Cuento" && contenedorCards !== null) {
                 contenedorCards.innerHTML += `
                     <div class="carta" id="carta" onClick="enviar('${documento.id}')">
-                        <figure>
-					        <img src="${documento.data().imageURL}"
+                        <img src="${documento.data().imageURL}"
 						    alt="La-leyenda-de-la-quinua-y-la-sal">
-				        </figure>
 			
 				        <div class="contenido-card">
 					        <h3>${documento.data().titulo}</h3>
@@ -59,10 +75,8 @@ const cargarDocumentoLeyenda = (documentos) => {
             if (documento.data().tipoAudio == "Leyenda" && contenedorCards1 !== null) {
                 contenedorCards1.innerHTML += `
                     <div class="carta" id="carta" onClick="enviar('${documento.id}')">
-                        <figure>
-                            <img src="${documento.data().imageURL}"
+                         <img src="${documento.data().imageURL}"
                             alt="La-leyenda-de-la-quinua-y-la-sal">
-                        </figure>
                         <div class="contenido-card">
                             <h3>${documento.data().titulo}</h3>
                             <p>${documento.data().musica}</p>
@@ -89,5 +103,4 @@ firebase.auth().onAuthStateChanged(function(user) {
       window.location.href = "Login.html";
     }
   });
-  //**/////////////////////////////////////// */
 
