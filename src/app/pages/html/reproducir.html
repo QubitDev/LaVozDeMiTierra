@@ -15,11 +15,11 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" />
   <title>Reproduccion</title>
 
-  <!-- Firebase App (la biblioteca base) - es obligatorio siempre -->
-  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
-  <!-- Firebase Storage -->
-  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
+ <!-- Firebase -->
+ <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
 
 
   <!-- estilo del boton de favoritos-->
@@ -54,13 +54,13 @@
       <div class="sesionEnd">
         <img src="./../../../assets/images/IconoUsu.png" alt="Sesion" class="sesion"/>
       </div>
-      <div id="sesionMenu">
-        <ul class="opciones" id="opciones">
-            <a href="Login.html">Cerrar sesion</a>                        
-        </ul>
+      <div id="sesionMenu">        
         <ul class="opciones" id="opciones">
             <a href="perfil.html">Perfil usuario</a>                        
         </ul>
+        <ul class="opciones" id="opciones">
+          <a href="Login.html">Cerrar sesion</a>                        
+      </ul>
       </div>
     </header>
 

@@ -11,7 +11,6 @@ function cerrarSesion() {
     cont++;
 }
 
-let number = 1;
 const addList = document.getElementById("newList");
   const container = document.getElementById("container_list");
 
@@ -43,10 +42,7 @@ const addList = document.getElementById("newList");
   }
 
   function loadUserPlaylists(userId) {
-    db.collection("playlists")
-      .where("userId", "==", userId)
-      .get()
-      .then(querySnapshot => {
+    db.collection("playlists").where("userId", "==", userId).get().then(querySnapshot => {
         console.log("Listas cargadas correctamente.");
         querySnapshot.forEach(doc => {
           const playlistData = doc.data();

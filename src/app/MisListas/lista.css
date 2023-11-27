@@ -175,6 +175,8 @@ a {
     width: 100%;     
     background: radial-gradient(ellipse at bottom, #647c74, #587a7c, #15242e,  #3a615e,#749e8a, #15242e 80%);
 	font-family: Arial, Helvetica, sans-serif;
+	min-width: 800px;
+	max-width: 2500px;
    
 }
 .container_listas{
@@ -188,7 +190,9 @@ a {
   	left: 290px;
   	width: 80%;
   	height: 79%;
-}
+	  min-width: 800px;
+	  max-width: 2500px;
+	}
 #iconphone{
 	position: relative;
 	top: 50px;
@@ -200,15 +204,34 @@ a {
 	width: 500px;
 	height: 40px;
 	left: 230px;
+	min-width: 800px;
+	max-width: 2500px;
 	font-size: 21px;
-	
 }
+.editList{
+	position: relative;
+	top: -50px;
+	left: 85%;
+	background: rgba(0, 0, 0, 0);
+
+}
+#editList{
+	color: white;
+}
+#editList:hover{
+	cursor: pointer;
+	transition: background-color 0.3s;  
+	box-shadow: 1px 1px 18px rgba(255, 255, 255, 0.925)
+}
+
 .line{
 	position: relative;
 	width: 100%; 
 	height: 0.6%; 
 	top: 30px;
 	background-color: rgba(255, 255, 255, 0.468);
+	min-width: 800px;
+	max-width: 2500px;
 }
 .partUp{
 	position: relative;
@@ -218,7 +241,7 @@ a {
 	display: flex;
 	left: 50px;
 	min-width: 800px;
-	max-width: 1500px;
+	max-width: 2500px;
 }
 .partUps1{
 	position: relative;
@@ -250,6 +273,8 @@ a {
   	overflow-y: scroll;
 	display: -webkit-box;
   -webkit-box-orient: vertical;
+  min-width: 800px;
+	max-width: 2500px;
 }
 .container_audios::-webkit-scrollbar{
 	width: 3px;
@@ -263,12 +288,15 @@ a {
 	display: flex;
 	width: 100%;
 	height: 120px;
+	min-width: 800px;
+	max-width: 2500px;
 }
 
 .part1{
 	position: relative;
 	left: 2%;
 	top: 25px;
+
 }
 .part2{
 	position: relative;
