@@ -1,5 +1,3 @@
-
-
 /*-------------------------------------------------Header y menu-------------------------------------------------------------*/
 .logo {
 	border-radius: 50%;
@@ -105,21 +103,21 @@ a {
 }
 
 .sesion {
-    border-radius: 50%;
-    height: 40px;
-    width: 40px;
-    position: fixed;
-    top: 23px;
-    left: 90%;
-    display: inline-block;
-    box-sizing: border-box;
+	border-radius: 50%;
+	height: 40px;
+	width: 40px;
+	position: fixed;
+	top: 23px;
+	left: 90%;
+	display: inline-block;
+	box-sizing: border-box;
 }
 
 .sesion:hover {
-    cursor: pointer;
-    transition: background-color 0.3s;
-    background: radial-gradient(ellipse at left top, #01081d, #011c38 80%);
-    border-radius: 50%;
+	cursor: pointer;
+	transition: background-color 0.3s;
+	background: radial-gradient(ellipse at left top, #01081d, #011c38 80%);
+	border-radius: 50%;
 	box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.856);
 }
 
@@ -167,132 +165,141 @@ a {
 
 /*-------------------------------------------------MisListas-------------------------------------------------------------*/
 
-#contenedor{
-    padding: 14px;
-    margin-left: 1%;
-    position: fixed;
-    top: 109px;
-    left: 205px;
-    height: 100%;    
-    width: 100%;     
-    padding: 10px; 
-    background: radial-gradient(ellipse at bottom, #647c74, #587a7c, #15242e,  #3a615e,#749e8a, #15242e 80%);
-    background-size: 150% 150%;
-    background-position: top center;
-    color: #fff;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
-    display: block;
+#contenedor {
+	padding: 14px;
+	margin-left: 1%;
+	position: fixed;
+	top: 109px;
+	left: 205px;
+	height: 100%;
+	width: 100%;
+	padding: 10px;
+	background: radial-gradient(ellipse at bottom, #647c74, #587a7c, #15242e, #3a615e, #749e8a, #15242e 80%);
+	background-size: 150% 150%;
+	background-position: top center;
+	color: #fff;
+	text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
+	display: block;
 }
 
-.titleList{
-  position: fixed;
-  left: 450px;
-  top: 130px;  
-  width: 200px;
-  height: 45px;
-  font-size: 25px;
-  font-family: Arial, Helvetica, sans-serif;
-  
-}
-.iconList{
-  position: relative;
-  left: 120px;
-  top: 30px;
-  width: 90px;
+.titleList {
+	position: fixed;
+	left: 450px;
+	top: 130px;
+	width: 200px;
+	height: 45px;
+	font-size: 25px;
+	font-family: Arial, Helvetica, sans-serif;
+
 }
 
-#newList{
-  width: 32px;
-  height: 32px;
-  position: fixed;
-  top: 160px;
-  left: 85%;
-  background: #00000000;
-  border: #00000000;
+.iconList {
+	position: relative;
+	left: 120px;
+	top: 30px;
+	width: 90px;
 }
-#auxAdd{
+
+#newList {
+	width: 32px;
+	height: 32px;
+	position: fixed;
+	top: 160px;
+	left: 85%;
+	background: #00000000;
+	border: #00000000;
+}
+
+#auxAdd {
 	color: white;
 }
-#auxAdd:hover{
+
+#auxAdd:hover {
 	cursor: pointer;
-	transition: background-color 0.3s;  
+	transition: background-color 0.3s;
 	box-shadow: 1px 1px 18px rgba(255, 255, 255, 0.925)
 }
 
-.container_list{
-  border-radius: 4%;
-  background-color: #0000006b;
-  position: fixed;
-  top: 230px;
-  left: 18%;
-  width: 77%;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  height: 72%;
-  overflow: hidden;
-  overflow-y: scroll;
+.container_list {
+	border-radius: 4%;
+	background-color: #0000006b;
+	position: fixed;
+	top: 230px;
+	left: 18%;
+	width: 77%;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	height: 72%;
+	overflow: hidden;
+	overflow-y: scroll;
 }
 
-.list{
-  border-radius: 4%;
-  background-color: #ffffff2d;
-  position: relative;
-  margin-top: 20px;
-  left: 5%;
-  width: 89%;
-  height: 90px;  
-  display: flex;
-}
-.list:hover{
-    cursor: pointer;
-    border-radius:10px;
-    transition: background-color 0.3s;
-    background: radial-gradient(ellipse at left top, #01081dbc, #011c38 80%);
+.list {
+	border-radius: 4%;
+	background-color: #ffffff2d;
+	position: relative;
+	margin-top: 20px;
+	left: 5%;
+	width: 89%;
+	height: 90px;
+	display: flex;
 }
 
-.imageList{
-  position: relative;
-  margin-top: 20px;
-  left: 4%;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
+.list:hover {
+	cursor: pointer;
+	border-radius: 10px;
+	transition: background-color 0.3s;
+	background: radial-gradient(ellipse at left top, #01081dbc, #011c38 80%);
 }
-.imageList:hover{
-  cursor: pointer;
-  transition: background-color 0.3s;
-  box-shadow: 1px 1px 30px rgba(255, 255, 255, 0.925)
+
+.imageList {
+	position: relative;
+	margin-top: 20px;
+	left: 4%;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+}
+
+.imageList:hover {
+	cursor: pointer;
+	transition: background-color 0.3s;
+	box-shadow: 1px 1px 30px rgba(255, 255, 255, 0.925)
+}
+
+.titleLi {
+	position: relative;
+	left: 8%;
+}
+
+.Audios {
+	position: relative;
+	left: 200px;
 
 }
-.titleLi{
-  position: relative;
-  left: 8%;
-}
-.Audios{
-  position: relative;
-  left: 200px;
 
-}
-#eliminar{
+#eliminar {
 	color: white;
 }
-#eliminar:hover{
+
+#eliminar:hover {
 	cursor: pointer;
-  	transition: background-color 0.3s;  
-  	box-shadow: 1px 1px 18px rgba(255, 255, 255, 0.925)
-}
-.number{
-  position: relative;
-  left: 220px;
+	transition: background-color 0.3s;
+	box-shadow: 1px 1px 18px rgba(255, 255, 255, 0.925)
 }
 
-.deleteC{
-  position: relative;
-  height: 40px;
-  left: 500px;
-  top: 20px;
-  background: rgba(0, 0, 0, 0);
-  border-radius: 50%;
+.number {
+	position: relative;
+	left: 220px;
+}
+
+.deleteC {
+	position: relative;
+	height: 40px;
+	left: 500px;
+	top: 20px;
+	background: rgba(0, 0, 0, 0);
+	border-radius: 50%;
 }
 
 
@@ -303,16 +310,16 @@ a {
 	/* display: absolute; */
 	position: fixed;
 
-	top: 13%;
-	left: 14%;
-	width: 83%;
-	height: 80%;
+	top: 102px;
+	left: 240px;
+	width: calc(100% - 20%);
+	height: calc(100% - 20%);
 
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
 	justify-content: center;
-	background-color: #0000007a;
+	background-color: #000000a2;
 
 	/* background: radial-gradient(ellipse at bottom right, #647c74, #587a7c, #15242e,  #3a615e,#749e8a 80%); */
 	background-size: 150% 150%;
@@ -323,11 +330,12 @@ a {
 	max-height: 0;
 	overflow: hidden;
 	transition: max-height 0.5s ease;
+
+
 }
 
 .show-container {
 	max-height: 100%;
-	/* Ajusta la altura deseada */
 }
 
 .searchButton {
@@ -415,6 +423,10 @@ a {
 }
 
 .header__cards {
+	margin-left: 50px;
+}
+
+.header__cards {
 	width: 97.5%;
 	max-width: 99%;
 	color: white;
@@ -424,8 +436,10 @@ a {
 	padding: 10px;
 	display: flex;
 	align-items: center;
-	font-size: 16px;
+	font-size: 14px;
+
 	padding-left: 75px;
+
 }
 
 .header__c {
@@ -435,15 +449,16 @@ a {
 	flex-direction: column;
 	align-items: center;
 	/* margin-left: 100px;  */
+
 }
 
 .card__c {
 	flex-basis: 30%;
 	margin: 0;
-	display: flex;
+	display: inline-block;
 	flex-direction: row;
-	align-items: center;
-	margin-left: 120px;
+	align-items: flex-start;
+	margin-left: 100px;
 }
 
 .card__c {
@@ -454,23 +469,32 @@ a {
 }
 
 .card__s {
+	display: flex;
+
 	max-width: 100%;
 	margin-bottom: 5px;
+	padding: 10px;
+	font-size: 14px;
 
 	background: radial-gradient(ellipse at left top, #01081d, #011c38 80%);
-
 	color: white;
+
+	/* flex-direction: ; */
 	text-align: center;
 	justify-content: center;
-	padding: 10px;
-	display: flex;
 	align-items: center;
-	font-size: 16px;
 
 	cursor: pointer;
 }
 
+.image {
+	max-width: 100px;
+	vertical-align: middle;
+}
 
+.image img {
+	border-radius: 10px;
+}
 
 .mensaje-error {
 	display: flex;

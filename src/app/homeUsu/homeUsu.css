@@ -100,21 +100,21 @@ a {
 }
 
 .sesion {
-    border-radius: 50%;
-    height: 40px;
-    width: 40px;
-    position: fixed;
-    top: 23px;
-    left: 90%;
-    display: inline-block;
-    box-sizing: border-box;
+	border-radius: 50%;
+	height: 40px;
+	width: 40px;
+	position: fixed;
+	top: 23px;
+	left: 90%;
+	display: inline-block;
+	box-sizing: border-box;
 }
 
 .sesion:hover {
-    cursor: pointer;
-    transition: background-color 0.3s;
-    background: radial-gradient(ellipse at left top, #01081d, #011c38 80%);
-    border-radius: 50%;
+	cursor: pointer;
+	transition: background-color 0.3s;
+	background: radial-gradient(ellipse at left top, #01081d, #011c38 80%);
+	border-radius: 50%;
 	box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.856);
 }
 
@@ -189,7 +189,7 @@ a {
 }
 
 .container-card {
-	width: 60%;
+	width: 80%;
 	height: auto;
 	/* width: 60%;
 	height: 70%; */
@@ -234,7 +234,7 @@ a {
 	white-space: nowrap;
 	flex-wrap: wrap;
 	display: flex;
-	gap: 25px;
+	gap: 60px;
 	background-color: #00000052;
 	padding: 20px;
 
@@ -254,12 +254,25 @@ a {
 }
 
 .carta .contenido-card h3 {
+	white-space: wrap;
+	width: 100%;
+	min-height: 30px;
+	max-height: none;
+	margin: auto;
+	padding: 5px;
+	background-color: #fff;
+	/*border: 1px solid #01081d;*/
+	font-size: 14px;
+	/* font-family: Arial, Helvetica, sans-serif; */
+	/* color: #070707; */
 	margin-bottom: 15px;
 	color: #131212;
-	overflow-x: hidden;
+	overflow: hidden;
 }
 
 .carta .contenido-card p {
+	white-space: wrap;
+	overflow: hidden;
 	line-height: 1.8;
 	color: #0c0c0c;
 	font-size: 14px;
@@ -280,8 +293,8 @@ a {
 
 
 .carta {
-	width: 30%;
-	height: 100%;
+	width: 20%;
+	/* height: 100%; */
 	border-radius: 6px;
 	background: #fff;
 	box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
@@ -358,16 +371,16 @@ button:active {
 	/* display: absolute; */
 	position: fixed;
 
-	top: 13%;
-	left: 14%;
-	width: 83%;
-	height: 80%;
+	top: 102px;
+	left: 240px;
+	width: calc(100% - 20%);
+	height: calc(100% - 20%);
 
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
 	justify-content: center;
-	background-color: #0000007a;
+	background-color: #000000a2;
 
 	/* background: radial-gradient(ellipse at bottom right, #647c74, #587a7c, #15242e,  #3a615e,#749e8a 80%); */
 	background-size: 150% 150%;
@@ -378,11 +391,12 @@ button:active {
 	max-height: 0;
 	overflow: hidden;
 	transition: max-height 0.5s ease;
+
+
 }
 
 .show-container {
 	max-height: 100%;
-	/* Ajusta la altura deseada */
 }
 
 .searchButton {
@@ -470,6 +484,10 @@ button:active {
 }
 
 .header__cards {
+	margin-left: 50px;
+}
+
+.header__cards {
 	width: 97.5%;
 	max-width: 99%;
 	color: white;
@@ -479,7 +497,7 @@ button:active {
 	padding: 10px;
 	display: flex;
 	align-items: center;
-	font-size: 16px;
+	font-size: 14px;
 
 	padding-left: 75px;
 
@@ -492,15 +510,16 @@ button:active {
 	flex-direction: column;
 	align-items: center;
 	/* margin-left: 100px;  */
+
 }
 
 .card__c {
 	flex-basis: 30%;
 	margin: 0;
-	display: flex;
+	display: inline-block;
 	flex-direction: row;
-	align-items: center;
-	margin-left: 120px;
+	align-items: flex-start;
+	margin-left: 100px;
 }
 
 .card__c {
@@ -511,23 +530,32 @@ button:active {
 }
 
 .card__s {
+	display: flex;
+
 	max-width: 100%;
 	margin-bottom: 5px;
+	padding: 10px;
+	font-size: 14px;
 
 	background: radial-gradient(ellipse at left top, #01081d, #011c38 80%);
-
 	color: white;
+
+	/* flex-direction: ; */
 	text-align: center;
 	justify-content: center;
-	padding: 10px;
-	display: flex;
 	align-items: center;
-	font-size: 16px;
 
 	cursor: pointer;
 }
 
+.image {
+	max-width: 100px;
+	vertical-align: middle;
+}
 
+.image img {
+	border-radius: 10px;
+}
 
 .mensaje-error {
 	display: flex;

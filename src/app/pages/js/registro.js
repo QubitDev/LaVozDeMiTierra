@@ -1,5 +1,21 @@
 
+const container = document.querySelector('.container__body');
+const rain = () => {
+    let j = 0;
+    while (j <= 80){
+        let gout = document.createElement('o');
+        let x = innerWidth * Math.random();
+        let time = 1 * Math.random();
+        gout.style.animationDuration = time <= 0.4 ? (time + 0.4) + 's'  : time + 's';
+        gout.style.animationDelay = time + 's';
+        gout.style.left = x + 'px';
+        container.appendChild(gout);
+        j++;
+    }
+}
+rain();
 
+//*********************************************** REGISTRO AUDIO ********************************************* */ 
 document.getElementById("cancelButton").addEventListener("click", onCancel);
 document.getElementById("submitButton").addEventListener("click", onSubmit);
 document.getElementById("okButton").addEventListener("click",closePopup);
@@ -32,6 +48,15 @@ imageInput.addEventListener("change", function () {
   imagePreview.style.display = "block";
 
   if (selectedImage) {
+    const allowedImageTypes = ["image/jpeg", "image/png"];
+
+    if (!allowedImageTypes.includes(selectedImage.type)) {
+      onMessagePopup(`❌¡Error!\nTipo de archivo de imagen no permitido.`, 400);
+      this.value = null;
+      imagePreview.src = "";
+      return;
+    }
+
     const reader = new FileReader();
     reader.onload = function (e) {
       imagePreview.src = e.target.result;
@@ -48,33 +73,30 @@ audioInput.addEventListener("change", function () {
   
   durationField.style.display ='inline-block';
   textInput.disabled = false;
-
   if (selectedAudioFile) {
-    // obtener duracion del audio
+    // const allowedAudioTypes = ["audio/mpeg","audio/aiff", "audio/wav", "audio/mp3"];
+    console.log(`type;${selectedAudioFile.type}`);
+    if (this.accept !== selectedAudioFile.type) {
+      // onMessagePopup(`❌¡Error!\nTipo de archivo de audio no permitido.`, 400);
+      this.value = null;
+      durationField.textContent = ""; 
+      formatoSelect.value = "null";
+      audioInput.disabled = true;
+      textInput.disabled = true;
+      return;
+    }
+
+    // obtener duración del audio
     getAudioDuration(selectedAudioFile).then((duration) => {
       const minutes = parseFloat(duration);
 
       if (!isNaN(minutes) && minutes >= 3 && minutes <= 20) {
-        durationField.textContent = duration;         
-      }
-      const maxSizeInBytes = 30 * 1024 * 1024*2; 
-      const peso = selectedAudioFile.size;
-
-      if (selectedAudioFile.size > maxSizeInBytes) {
-        let sizeArch =parseInt( (peso /1024)/1024);
-        onMessagePopup(`❌¡Error!\nEl archivo exede el peso con: ${sizeArch} MB`, 400);
+        durationField.textContent = duration;
+      } else {
+        onMessagePopup(`❌¡Error!\nSubir audio de 3 a 20 minutos`, 400);
         this.value = null;
         durationField.textContent = ""; 
-        document.getElementById("formato_audio").value = "";
-        bandera = false;
-        return;
-      } else if(isNaN(minutes) || !(minutes >= 3 && minutes <= 20)){
-        onMessagePopup(`❌¡Error!\nSubir audio de 3 a 10 minutos`, 400);
-        this.value = null;
-        durationField.textContent = ""; 
-        document.getElementById("formato_audio").value = "";
-        bandera = false;
-        return;
+        formatoSelect.value = "null";
       }
     });
   }else {
@@ -85,20 +107,25 @@ audioInput.addEventListener("change", function () {
 // Captura de texto
 textInput.addEventListener("change", function () {
   const selectedTextFile = this.files[0];
-
   if (selectedTextFile) {
-    // Validar el peso del archivo de texto
+    const allowedTextTypes = ["text/plain"];
+
+    if (!allowedTextTypes.includes(selectedTextFile.type)) {
+      // onMessagePopup(`❌¡Error!\nTipo de archivo de texto no permitido.`, 400);
+      this.value = null;
+      imageInput.disabled = true;
+      return;
+    }
+
     const maxSizeInBytes = 500 * 1024; // 500KB en bytes
     if (selectedTextFile.size > maxSizeInBytes) {
-      onMessagePopup(`❌¡Error!\nDebe ser menor o igual a 500 KB.`,400);
+      // onMessagePopup(`❌¡Error!\nDebe ser menor o igual a 500 KB.`,400);
       this.value = null;
       return;
     }
 
-    // Aquí puedes trabajar con el archivo de texto seleccionado
-    console.log("Nombre del archivo de texto:", selectedTextFile.name);
-    console.log("Tipo del archivo de texto:", selectedTextFile.type);
   }
+  imageInput.disabled = false;
 });
 
 
@@ -108,21 +135,22 @@ function updateAcceptAttribute() {
   audioInput.value = null;
   textInput.value = null;
   textInput.disabled = true;
+  imageInput.disabled = true;
   durationField.textContent = '';
   durationField.style.display='none';
 
   switch (formatoSelect.value) {
     case "MP3":
       audioInput.disabled = false;
-      audioInput.accept = ".mp3";
+      audioInput.accept = "audio/mpeg";
       break;
     case "WAV":
       audioInput.disabled = false;
-      audioInput.accept = ".wav";
+      audioInput.accept = "audio/wav";
       break;
     case "AIFF":
       audioInput.disabled = false;
-      audioInput.accept = ".aiff";
+      audioInput.accept = "audio/aiff";
       break;
     default:
       audioInput.disabled = true;
