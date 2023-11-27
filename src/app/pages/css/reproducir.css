@@ -151,7 +151,7 @@ a {
 
 /*******************************************************Reproductor**********************************************************/
 
-#imageFon{
+#imageFon {
   position: fixed;
   top: 107px;
   left: 200px;
@@ -171,25 +171,29 @@ a {
   width: 75%;
   height: 100%;
 }
-.play o{
+
+.play o {
   position: fixed;
   width: 2px;
   height: 10px;
   top: -10px;
   background: rgb(211, 211, 211);
   animation: rain linear infinite;
-  }
-i{
+}
+
+i {
   z-index: 2;
 }
+
 @keyframes rain {
   0% {
-      top: -10px;
+    top: -10px;
   }
+
   100% {
-      top: 100vh;
+    top: 100vh;
   }
-  }
+}
 
 p {
   color: #ffffff;
@@ -199,7 +203,7 @@ p {
 }
 
 .container-card {
-  background : linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0, 0.5));
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
 
   color: #fff;
   overflow: hidden;
@@ -233,7 +237,7 @@ p {
   margin-top: 5%;
   margin-left: 3%;
   color: #fff;
-  background : linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0, 0.5));
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
   height: 180px;
   width: auto;
   font-family: Arial, Helvetica, sans-serif;
@@ -256,18 +260,20 @@ p {
   max-width: 60%;
   margin: auto;
   margin-top: 2%;
-  background : linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0, 0.5));
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
   padding: 15px;
   height: 200px;
   overflow-y: scroll;
   border-radius: 5px;
   box-shadow: 1px 1px 18px rgba(255, 255, 255, 0.925);
 }
-.contenedor::-webkit-scrollbar{
+
+.contenedor::-webkit-scrollbar {
   width: 10px;
 
 }
-.contenedor::-webkit-scrollbar-thumb{
+
+.contenedor::-webkit-scrollbar-thumb {
   box-shadow: 1px 1px 18px rgba(255, 255, 255, 0.925);
   width: 10px;
 }
@@ -337,7 +343,7 @@ a {
 .__button_favorites:hover {
   color: #810202;
   z-index: 2;
-  
+
 }
 
 .__button_add_list:hover {
@@ -350,6 +356,7 @@ a {
 
   z-index: 2;
 }
+
 /* popup */
 .popup {
   display: none;
@@ -586,16 +593,16 @@ a {
   /* display: absolute; */
   position: fixed;
 
-  top: 13%;
-  left: 14%;
-  width: 83%;
-  height: 80%;
+  top: 102px;
+  left: 240px;
+  width: calc(100% - 20%);
+  height: calc(100% - 20%);
 
   display: flex;
   flex-direction: column;
   gap: 10px;
   justify-content: center;
-  background-color: #0000007a;
+  background-color: #000000a2;
 
   /* background: radial-gradient(ellipse at bottom right, #647c74, #587a7c, #15242e,  #3a615e,#749e8a 80%); */
   background-size: 150% 150%;
@@ -606,11 +613,12 @@ a {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.5s ease;
+
+
 }
 
 .show-container {
   max-height: 100%;
-  /* Ajusta la altura deseada */
 }
 
 .searchButton {
@@ -698,6 +706,10 @@ a {
 }
 
 .header__cards {
+  margin-left: 50px;
+}
+
+.header__cards {
   width: 97.5%;
   max-width: 99%;
   color: white;
@@ -707,7 +719,7 @@ a {
   padding: 10px;
   display: flex;
   align-items: center;
-  font-size: 16px;
+  font-size: 14px;
 
   padding-left: 75px;
 
@@ -720,15 +732,16 @@ a {
   flex-direction: column;
   align-items: center;
   /* margin-left: 100px;  */
+
 }
 
 .card__c {
   flex-basis: 30%;
   margin: 0;
-  display: flex;
+  display: inline-block;
   flex-direction: row;
-  align-items: center;
-  margin-left: 120px;
+  align-items: flex-start;
+  margin-left: 100px;
 }
 
 .card__c {
@@ -739,20 +752,31 @@ a {
 }
 
 .card__s {
+  display: flex;
+
   max-width: 100%;
   margin-bottom: 5px;
+  padding: 10px;
+  font-size: 14px;
 
   background: radial-gradient(ellipse at left top, #01081d, #011c38 80%);
-
   color: white;
+
+  /* flex-direction: ; */
   text-align: center;
   justify-content: center;
-  padding: 10px;
-  display: flex;
   align-items: center;
-  font-size: 16px;
 
   cursor: pointer;
+}
+
+.image {
+  max-width: 100px;
+  vertical-align: middle;
+}
+
+.image img {
+  border-radius: 10px;
 }
 
 .mensaje-error {
@@ -770,6 +794,7 @@ a {
   background-color: #00aff579;
 }
 
+/*-------------------------------------------------- play list----------------------------------------------------- */
 .playlist-item {
   cursor: pointer;
   padding-left: 30px;
