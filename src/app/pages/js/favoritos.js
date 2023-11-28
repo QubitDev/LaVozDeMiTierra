@@ -1,17 +1,18 @@
-const endSesion = document.querySelector(".sesion");
-endSesion.addEventListener('click',cerrarSesion);
-
-let cont = 1;
-function cerrarSesion(){
-    if(cont % 2 == 0){
-        document.getElementById('sesionMenu').style.display= 'none';
+const container = document.querySelector('.contenedor_todo');
+const rain = () => {
+    let j = 0;
+    while (j <= 80){
+        let gout = document.createElement('o');
+        let x = innerWidth * Math.random();
+        let time = 1 * Math.random();
+        gout.style.animationDuration = time <= 0.4 ? (time + 0.4) + 's'  : time + 's';
+        gout.style.animationDelay = time + 's';
+        gout.style.left = x + 'px';
+        container.appendChild(gout);
+        j++;
     }
-    else{
-        document.getElementById('sesionMenu').style.display= 'block';
-    }
-    cont++;
 }
-
+rain();
 /* --------------------- la lista de los favoritos ----------------------------------------------------*/ 
 
 // referencias a las collecciones
