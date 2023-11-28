@@ -166,6 +166,18 @@ a {
 
 /********************************************************Ranking*******************************************************/
 
+#imageFon {
+	position: fixed;
+	top: 107px;
+	left: 200px;
+	z-index: -1;
+	width: 95%;
+	height: 95%;
+  }
+
+
+
+
 .form__control {
 	font-size: 20px;
 }
@@ -184,23 +196,6 @@ h2 {
 	transform: translate(-50%, -50%);
 	/* Center the element */
 }
-
-
-.container-card {
-	float: right;
-	background: radial-gradient(ellipse at bottom, #647c74, #587a7c, #15242e, #3a615e, #749e8a, #15242e 80%);
-	background-size: 150% 150%;
-	background-position: top center;
-	color: #fff;
-	text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
-	position: fixed;
-	flex-direction: column;
-	top: 107px;
-	left: 208px;
-	width: 33%;
-	height: 100%;
-}
-
 .card {
 	margin-top: 8%;
 	margin-left: 0%;
@@ -239,14 +234,13 @@ p {
 
 }
 
+
 .ranking-list {
 	list-style-type: none;
 	padding: 0;
 	margin-top: -12px;
 	margin-left: 30px;
 	align-items: center;
-
-
 }
 
 .ranking-item {
@@ -388,6 +382,22 @@ h1 {
 	width: 90%;
 	height: 100%;
 }
+.lista o {
+	position: fixed;
+	width: 2px;
+	height: 10px;
+	top: -10px;
+	background: #d3d3d3;
+	animation: rain linear infinite;
+  }  
+  @keyframes rain {
+	0% {
+	  top: -10px;
+	}  
+	100% {
+	  top: 100vh;
+	}
+  }
 
 .line {
 	margin-left: -26.7%;
@@ -407,8 +417,6 @@ h1 {
 	display: flex;
 	align-items: center;
 	font-size: 16px;
-	padding-left: 259px;
-	margin-left: 25px;
 
 }
 
@@ -434,21 +442,11 @@ h1 {
 	padding-left: -34px;
 }
 
-.scroll-container::-webkit-scrollbar {
-
-
-	width: 12px;
-	/* Ancho de la barra de desplazamiento */
+.scroll-container::-webkit-scrollbar{
+	width: 8px;  
 }
-
-.scroll-container::-webkit-scrollbar-thumb {
-	background-color: rgb(42, 113, 65);
-	/* Color de la barra de desplazamiento */
-}
-
-.scroll-container::-webkit-scrollbar-track {
-	background-color: rgb(221, 230, 231);
-	/* Color del riel de la barra de desplazamiento */
+.scroll-container::-webkit-scrollbar-thumb{
+	box-shadow: 1px 1px 18px rgba(255, 255, 255, 0.925);
 }
 
 .ranking-item .descripcion {
