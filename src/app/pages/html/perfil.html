@@ -8,8 +8,11 @@
         <link rel="stylesheet" href="./../css/perfil.css" />
         <title>Perfil Usuario</title>
         
-        <!-- Firebase App (la biblioteca base) - es obligatorio siempre -->
-        <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
+         <!-- Firebase -->
+         <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+         <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+         <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
+         <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
     </head>
 
 
@@ -25,12 +28,12 @@
                 <div class="sesionEnd">
                         <img src="./../../../assets/images/IconoUsu.png" alt="Sesion" class="sesion"/>
                 </div>
-                <div id="sesionMenu">
-                    <ul class="opciones" id="opciones">
-                        <a href="./../../pages/html/Login.html">Cerrar sesion</a>                        
-                    </ul>
+                <div id="sesionMenu">                    
                     <ul class="opciones" id="opciones">
                         <a href="perfil.html">Perfil usuario</a>                        
+                    </ul>
+                    <ul class="opciones" id="opciones">
+                        <a href="./../../pages/html/Login.html">Cerrar sesión</a>                        
                     </ul>
                 </div>
             </header>
@@ -72,10 +75,10 @@
             </div>
 
             <div class="imagenPerfil" id="imagenU">        
-                <img src="./../../../assets/imagenesUsu/perfilAguila.jpeg" id="imagePerfil">
+                <img src="./../../../assets/imagenesUsu/capibara.png" alt="imageUsuario" id="imageUsuario">
             </div>
-            <div class="datos">
-                <h1 class="nombre" id = "nombreU"> Nombre de usuario </h1>
+            <div class="datos" id="datos">
+                <h1 class="nombre" id = "nombreU">Nombre de usuario </h1>
                 <button class="buttonEditar" id="buttonEditar"> 
                     <i class="fa-regular fa-pen-to-square fa-3x" id="edit"></i>
                 </button>            
@@ -84,7 +87,7 @@
             
             <div id="userProfileEditar">
                 <h1 class="titleChage">Cambiar datos del usuario</h1>
-                <label for="Nombe Usario" class="form__label">Nombe Usario:</label>
+                <label for="Nombe Usario" class="form__label">Nombre usuario:</label>
                   <input type="text" class="form__control" id="NombeUsario" name="Nombe Usario" required maxlength="50"
                     minlength="2"
                     placeholder="Nombe Usario"
@@ -94,52 +97,52 @@
                   </div>
                   <h2>Seleciona una imagen:</h2>
                   <div class="containerImages">
-                    <button class="primero">
+                    <button class="loadImg">
                         <img src="./../../../assets/imagenesUsu/llama.jpg" alt="Profile Picture" id="profilePicture" class="imagenes">
                     </button>
-                    <button class="segundo">
+                    <button class="loadImg">
                         <img src="./../../../assets/imagenesUsu/capibara.png" alt="Profile Picture" id="profilePicture" class="imagenes">
                     </button>
-                    <button class="tercero">
+                    <button class="loadImg">
                         <img src="./../../../assets/imagenesUsu/CÓNDOR.png" alt="Profile Picture" id="profilePicture" class="imagenes">
                     </button>
-                    <button class="cuarto">
+                    <button class="loadImg">
                         <img src="./../../../assets/imagenesUsu/Mascara.jpg" alt="Profile Picture" id="profilePicture" class="imagenes">
                     </button>
-                    <button class="quinto">
+                    <button class="loadImg">
                         <img src="./../../../assets/imagenesUsu/sapo.jpg" alt="Profile Picture" id="profilePicture" class="imagenes">
                     </button> 
-                    <button class="quinto">
+                    <button class="loadImg">
                         <img src="./../../../assets/imagenesUsu/imagenUno.jpeg" alt="Profile Picture" id="profilePicture" class="imagenes">
                     </button>
-                    <button class="quinto">
+                    <button class="loadImg">
                         <img src="./../../../assets/imagenesUsu/imagenDos.jpeg" alt="Profile Picture" id="profilePicture" class="imagenes">
                     </button>
-                    <button class="quinto">
+                    <button class="loadImg">
                         <img src="./../../../assets/imagenesUsu/imagenTres.jpeg" alt="Profile Picture" id="profilePicture" class="imagenes">
                     </button>
-                    <button class="quinto">
+                    <button class="loadImg">
                         <img src="./../../../assets/imagenesUsu/imagenCuatro.jpg" alt="Profile Picture" id="profilePicture" class="imagenes">
                     </button>
-                    <button class="quinto">
+                    <button class="loadImg">
                         <img src="./../../../assets/imagenesUsu/imagenCinco.jpeg" alt="Profile Picture" id="profilePicture" class="imagenes">
                     </button>
-                    <button class="quinto">
+                    <button class="loadImg">
                         <img src="./../../../assets/imagenesUsu/imagenSeis.jpeg" alt="Profile Picture" id="profilePicture" class="imagenes">
                     </button>
-                    <button class="quinto">
+                    <button class="loadImg">
                         <img src="./../../../assets/imagenesUsu/Leon.jpeg" alt="Profile Picture" id="profilePicture" class="imagenes">
                     </button>
-                    <button class="quinto">
+                    <button class="loadImg">
                         <img src="./../../../assets/imagenesUsu/Lobo.jpeg" alt="Profile Picture" id="profilePicture" class="imagenes">
                     </button>
-                    <button class="quinto">
+                    <button class="loadImg">
                         <img src="./../../../assets/imagenesUsu/Wallpapers _ Fondos _ Art.jpeg" alt="Profile Picture" id="profilePicture" class="imagenes">
                     </button> 
-                    <button class="quinto">
+                    <button class="loadImg">
                         <img src="./../../../assets/imagenesUsu/Turtle1.jpeg" alt="Profile Picture" id="profilePicture" class="imagenes">
                     </button> 
-                    <button class="quinto">
+                    <button class="loadImg">
                         <img src="./../../../assets/imagenesUsu/perfilAguila.jpeg" alt="Profile Picture" id="profilePicture" class="imagenes">
                     </button>                              
                   </div>
@@ -197,9 +200,7 @@
         
 
  
-        <!-- Firebase Storage -->
-        <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+        
         <script src="./../../../api/configuracion.js"></script>       
         <script src="./../../homeUsu/search.js"></script>
        <script src="./../js/perfil.js" ></script>

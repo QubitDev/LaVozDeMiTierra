@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -15,11 +14,11 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" />
   <title>Reproduccion</title>
 
-  <!-- Firebase App (la biblioteca base) - es obligatorio siempre -->
-  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
-  <!-- Firebase Storage -->
-  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
+ <!-- Firebase -->
+ <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
 
 
   <!-- estilo del boton de favoritos-->
@@ -31,11 +30,13 @@
     }
 
     .heart-btn .fa-regular {
-      color: black; /* Color del corazón vacío */
+      color: black;
+      /* Color del corazón vacío */
     }
 
     .heart-btn .fa-solid {
-      color: red; /* Color del corazón lleno */
+      color: red;
+      /* Color del corazón lleno */
       display: none;
     }
   </style>
@@ -49,17 +50,19 @@
     </div>
     <header class="header">
       <div class="greeting">
-				<p id="tipo__audioAdm"><font size="8">La voz de mi Tierra</font></p>
+        <p id="tipo__audioAdm">
+          <font size="8">La voz de mi Tierra</font>
+        </p>
       </div>
       <div class="sesionEnd">
-        <img src="./../../../assets/images/IconoUsu.png" alt="Sesion" class="sesion"/>
+        <img src="./../../../assets/images/IconoUsu.png" alt="Sesion" class="sesion" />
       </div>
-      <div id="sesionMenu">
+      <div id="sesionMenu">           
         <ul class="opciones" id="opciones">
-            <a href="Login.html">Cerrar sesion</a>                        
+          <a href="perfil.html">Perfil usuario</a>
         </ul>
         <ul class="opciones" id="opciones">
-            <a href="perfil.html">Perfil usuario</a>                        
+          <a href="Login.html">Cerrar sesión</a>                        
         </ul>
       </div>
     </header>
@@ -67,11 +70,11 @@
     <div class="menu">
       <div class="content">
         <div class="menu__item" data-page="app">
-          <i class="fas fa-home"></i> 
+          <i class="fas fa-home"></i>
           <a href="./../../homeUsu/homeUsu.html">Inicio</a>
         </div>
         <div class="menu__item" data-page="registro" id="searchButton" onClick="mostrarBuscar()">
-          <i class="fa-solid fa-magnifying-glass"></i> 
+          <i class="fa-solid fa-magnifying-glass"></i>
           <a href="javascript:void(0)" nclick="mostrarBuscar()">Buscar</a>
         </div>
         <div class="menu__item" data-page="app">
@@ -96,11 +99,15 @@
 
 
     
+    <!-- ------------------------------------------------------------------reproducir----------------------------------------------- -->
+
     <!-- reproducir -->
     <div class="play">
+      <img src="https://i.pinimg.com/originals/44/6e/3b/446e3b79395a287ca32f7977dd83b290.jpg" alt="imageFon" id="imageFon" >
+
       <div class="caja">
         <div class="imagen" id="imgenC">
-          <img src="" class="imagenLC" height="171px" width="153px">
+          <img src="" class="imagenLC" height="220px" width="220px">
         </div>
         <div class="descripcion">
           <h2 id="tipo__audio"></h2>
@@ -125,18 +132,28 @@
           </button>
         </div>
 
-
-
         <div class="__add_list">
-          <button class="__button_add_list">
+          <button class="__button_add_list" onclick="mostrarPlaylists()">
             <i class="fa-solid fa-plus"></i>
           </button>
         </div>
 
+        <!-- Modal para mostrar las playlists -->
+        <div id="modal" class="modal" style="display: none;">
+          <div class="modal-content">
+            <span class="close" onclick="cerrarModal()">&times;</span>
+            <h2>Seleccionar Playlist</h2>
+            <ul id="playlistsList"></ul>
+            <button onclick="aceptarSeleccion()">Aceptar</button>
+          </div>
+        </div>
+
+        <!-- Elemento para mostrar el mensaje -->
+        <div id="mensaje" style="display: none;"></div>
 
         <div class="audio" id="audioPlayer">
           <audio controls="controls" loop="loop" id="audioE">
-            <source type="audio/mp3">
+            <source type="audio/mp3" id="audioRes">
           </audio>
         </div>
 
@@ -162,34 +179,36 @@
                 <a href="#" onclick="shareOnFacebook()">
                   <i class=" fa-brands fa-facebook fa-3x" aria-hidden="true"></i>
                 </a>
-                <p class="marca">Facebook</p>
               </li>
               <li class="gmail">
                 <a href="#" onclick="shareOnGmail()">
                   <i class="fa-regular fa-envelope fa-3x" aria-hidden="true"></i>
                 </a>
-                <p class="marca">Correo</p>
-
               </li>
               <li class="whatsapp">
                 <a href="#" onclick="shareOnWhatsApp()">
                   <i class=" fa-brands fa-whatsapp fa-3x" aria-hidden="true"></i>
                 </a>
-                <p class="marca">whatsApp</p>
               </li>
-             
+
             </ul>
+          </div>
+          <div class="name__rs">
+            <p class="marca" id="__fb">Facebook</p>
+            <p class="marca" id="__gm">Correo</p>
+            <p class="marca" id="__wt">WhatsApp</p>
           </div>
 
           <div class="__link__content">
             <div class="__link__share" id="__link__share">
 
             </div>
-            <button class="button__copy" id="copy__link" onclick="copyToClipboard()">copiar</button>
+            <button class="button__copy" id="copy__link" onclick="copyToClipboard()">Copiar</button>
             <button class="button__cancel" id="cancel" onclick="togglePopup()">Cancelar</button>
           </div>
         </div>
-      </div>
+      </div>    
+    </div>
  <!-------------------------------------------------------Buscador------------------------------------------------>
  <div class="container__search">
   <div class="search__content">
@@ -199,10 +218,10 @@
   <div class="popup__cards">    
   </div>
   <div class="header__cards">
-      <p class="header__c">Titúlo:</p>
+      <p class="header__c">Título:</p>
       <p class="header__c">Procedencia Cultural:</p>
       <p class="header__c">Narrado por:</p>
-      <p class="header__c">duración:</p>
+      <p class="header__c">Duración:</p>
   </div>    
   <div class="coincident__container" id="coincident__container">    
   </div>    
@@ -210,6 +229,29 @@
       <a href="javascript:void(0)" onclick="mostrarBuscar()"><i class="fa-solid fa-arrow-up"></i></a>
   </div>
 </div>
+          </div>
+        </div>
+      </div>
+      <!-------------------------------------------------------Buscador------------------------------------------------>
+      <div class="container__search">
+        <div class="search__content">
+          <input type="search" class="search" id="search" placeholder="Search" />
+          <button class="search__button" id="search__button"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+        <div class="popup__cards">
+        </div>
+        <div class="header__cards">
+          <p class="header__c">Título :</p>
+          <p class="header__c">Procedencia Cultural:</p>
+          <p class="header__c">Narrado por:</p>
+          <p class="header__c">Duración:</p>
+        </div>
+        <div class="coincident__container" id="coincident__container">
+        </div>
+        <div class="searchButton" id="searchButton" onClick="mostrarBuscar()">
+          <a href="javascript:void(0)" onclick="mostrarBuscar()"><i class="fa-solid fa-arrow-up"></i></a>
+        </div>
+      </div>
 
       <script src="./../../../api/configuracion.js"></script>
       <script src="./../js/reproducir.js"></script>

@@ -18,6 +18,9 @@ auth.onAuthStateChanged(user => {
   if (user) {
     // El usuario ha iniciado sesión, puedes redirigirlo a la página principal o a donde necesites.
     console.log("El usuario ha iniciado sesión:", user);
+    const userId = user.uid;
+    localStorage.setItem('userId', userId);
+    
     loadUserPlaylists(user.uid);
   } else {
     // El usuario no ha iniciado sesión, redirigirlo al formulario de inicio de sesión.
@@ -26,4 +29,5 @@ auth.onAuthStateChanged(user => {
     window.location.href = "./../pages/html/Login.html";
   }
 });
+
 

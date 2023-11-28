@@ -8,8 +8,11 @@
         <link rel="stylesheet" href="homeAdm.css" />
         <title>Home de Administrador</title>
         
-        <!-- Firebase App (la biblioteca base) - es obligatorio siempre -->
-        <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
+         <!-- Firebase -->
+         <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+         <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+         <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
+         <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
     </head>
     <body>   
       
@@ -18,7 +21,7 @@
             <div class="profile-picture">
                 <img src="./../../assets/images/LogoLDMT.jpg" alt="Logo"class="logo"/>
             </div>
-            <header id="header">
+            <header class="header">
                 <div class="greeting">
                     <p><font size="16">La voz de mi Tierra</font></p>
                 </div>
@@ -27,12 +30,12 @@
               </div>
           <div id="sesionMenu">
               <ul class="opciones" id="opciones">
-                  <a href="./../pages/html/Login.html">Cerrar sesion</a>                        
+                  <a href="./../pages/html/Login.html">Cerrar sesión</a>                        
               </ul>
               
           </div>
             </header>
-            <div id="menu">
+            <div class="menu">
                 <div class="content">
                  <div class="menu__item" data-page="app">
                    <i class="fas fa-home"></i> 
@@ -51,7 +54,9 @@
         <div class="message__exito" id="message__exito">
           <h2>✅¡Se actulizo correctamente el audio!🎉</h2>
         </div>
-        <div id="contenedor"> 
+        <div class="contenedor">
+          <img src="https://i.pinimg.com/originals/44/6e/3b/446e3b79395a287ca32f7977dd83b290.jpg" alt="imageFon" id="imageFon" >
+
           <div id="pantalla"></div>
                 <div class="scrollDiv">
                     <div class="CUENTOS">
@@ -60,9 +65,7 @@
                     <div class="Object" id="campoUno">
                                                
                     </div>
-                </div>
-            
-            
+                </div>           
                 <div class="DosScrollDiv">
                     <div class="LEYENDAS">
                         <h2>Leyendas:</h2>
@@ -153,9 +156,7 @@
             </div>
           </div>
           
-        <!-- Firebase Storage -->
-        <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+        
         <script src="./../../api/configuracion.js"></script>
         <script src="homeAdm.js"></script>
     </body>   

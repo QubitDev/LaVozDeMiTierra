@@ -1,3 +1,4 @@
+
 const endSesion = document.querySelector(".sesion");
 endSesion.addEventListener('click',cerrarSesion);
 
@@ -12,6 +13,21 @@ function cerrarSesion(){
     cont++;
 }
 
+const container = document.querySelector('.contenedor_todo');
+const rain = () => {
+    let j = 0;
+    while (j <= 80){
+        let gout = document.createElement('o');
+        let x = innerWidth * Math.random();
+        let time = 1 * Math.random();
+        gout.style.animationDuration = time <= 0.4 ? (time + 0.4) + 's'  : time + 's';
+        gout.style.animationDelay = time + 's';
+        gout.style.left = x + 'px';
+        container.appendChild(gout);
+        j++;
+    }
+}
+rain();
 /* --------------------- la lista de los favoritos ----------------------------------------------------*/ 
 
 // referencias a las collecciones
@@ -28,28 +44,27 @@ refFav.onSnapshot((snapshot) => {
             refAudio.doc(document.data().idNarracion).get().then((doc) => {
                 if (doc.exists) {
                     contenedorCards.innerHTML += `
-                    <div class="contenedora">
-                        <div class="contenedor_div">
-                          <img src="${doc.data().imageURL}">
+                    <div class="contenedora" >
+                        <div class="contenedor_div" onClick="enviar('${document.data().idNarracion}')">
+                          <img src="${doc.data().imageURL}" id="imagenesFav">
                         </div>
                 
-                        <div class="contenedor_div">
+                        <div class="contenedor_div" onClick="enviar('${document.data().idNarracion}')">
                            <h2>${doc.data().titulo}</h2>
                         </div>
-                        <div class="contenedor_div">
+                        <div class="contenedor_div" >
                             <h2>${doc.data().procedencia}</h2>
                         </div>
-                        <div class="contenedor_div">
+                        <div class="contenedor_div" >
                            <h2>${doc.data().narrador}</h2>
                         </div>
                         <div class="contenedor_div">
                            <h2>${doc.data().duracion}</h2>
                         </div>
-                        <div class="contenedor_div">
-                           <h2>♥️</h2>
+                        <div class="contenedor_Cor">
+                           <p id="Cora_fav" onClick="eliminarFav('${document.id}')" >♥️</p>
                         </div>
                     </div>
-                
                     `;
                 } 
             });
@@ -58,41 +73,12 @@ refFav.onSnapshot((snapshot) => {
 });
 
 
-/*
-const cargarDocumentoCuento = (documentos) => {
-    const contenedorCards = document.getElementById('card');
-    if (documentos.length > 0) {
-        
-        documentos.forEach(documento => {
-            contenedorCards.innerHTML += `
-                <div class="contenedora">
-                    <div class="contenedor_div">
-                      <img src="${documento.data().imageURL}">
-                    </div>
-            
-                    <div class="contenedor_div">
-                       <h2>${documento.data().titulo}</h2>
-                    </div>
-                    <div class="contenedor_div">
-                        <h2>${documento.data().procedencia}</h2>
-                    </div>
-                    <div class="contenedor_div">
-                       <h2>${documento.data().narrador}</h2>
-                    </div>
-                    <div class="contenedor_div">
-                       <h2>${documento.data().duracion}</h2>
-                    </div>
-                    <div class="contenedor_div">
-                       <h2>♥️</h2>
-                    </div>
-                </div>
-            
-                `;
-            if ( contenedorCards !== null) {
-                
-            }
-        });
-
-    }
+async function eliminarFav(id) {
+    await refFav.doc(id).delete();
+    window.location.reload();
 }
-*/
+
+function enviar(doc) {
+    window.location.href = `./../html/reproducir.html?doc=${doc}`;
+}
+
