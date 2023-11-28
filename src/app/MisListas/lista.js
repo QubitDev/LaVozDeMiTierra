@@ -122,6 +122,7 @@ function eliminarAudio(audioId) {
           } else {
             console.warn(`Elemento del audio con ID ${audioId} no encontrado en la interfaz.`);
           }
+          location.reload();
         }).catch((error) => {
           console.error("Error al actualizar la lista de reproducción:", error);
         });
