@@ -46,6 +46,7 @@ const usuarios = (documentos,email) => {
       }); 
   }
 }
+console.log(getIdUsu(emailRef));
 
 const buttonImg = document.querySelectorAll(".loadImg");
 const imagenesPerfil = document.querySelectorAll(".imagenes");
@@ -93,10 +94,29 @@ function searchUsu(correoUsu){
       console.error("Error al leer la colección 'usuarios':", error);
     });
   }
+  const subirUsu = document.getElementById('submitButton');
+  subirUsu.addEventListener("click", () => {
+    const idUsuario = getIdUsu(emailRef);
+    actualizarUsu(idUsuario);
+});
 
+async function actualizarUsu(id) {
+    const cambiar = db.collection('users').doc(id);
+    var nombre = document.getElementById('NombeUsario').value;
+    //var imagen = document.getElementById('imageUsuario').src;
+
+    await cambiar.update({ nombreDeUsuario: nombre});
+
+    setTimeout(() => {
+        cerrar();
+        window.location.reload();
+    }, 2500);
+}
+
+/*
   const subirUsu = document.getElementById('submitButton');
   searchUsu.addEventListener("click",actualizarUsu(getIdUsu(emailRef)));
-  
+
   async function actualizarUsu(id){
     const cambiar = db.collection('users').doc(id);
       var nombre = document.getElementById('NombeUsario').value;
@@ -110,6 +130,8 @@ function searchUsu(correoUsu){
           window.location.reload();
         },2500); 
   }
+
+  
 /*function editar(id) {  
     // El usuario está autenticado
     console.log("Usuario autenticado:", user.email);

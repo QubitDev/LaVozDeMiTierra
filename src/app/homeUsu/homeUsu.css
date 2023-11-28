@@ -286,13 +286,12 @@ a {
 	/* max-height: none; */
 	margin: auto;
 	padding: 5px;
-	background-color: #fff;
-	border: 1px solid #01081d;
-	font-size: 14px;
+	background-color: #ffffff17;
+	font-size: 18px;
 	/* font-family: Arial, Helvetica, sans-serif; */
 	/* color: #070707; */
 	margin-bottom: 15px;
-	color: #131212;
+	color: #fcfcfc;
 	/* overflow: hidden; */
 	justify-content: center;
 	text-align: center;
@@ -304,7 +303,7 @@ a {
 	white-space: wrap;
 	overflow: hidden;
 	line-height: 1.8;
-	color: #0c0c0c;
+	color: #ffffff;
 	font-size: 14px;
 	margin-bottom: 5px;
 }
@@ -326,7 +325,8 @@ a {
 	width: 20%;
 	/* height: 100%; */
 	border-radius: 6px;
-	background: #fff;
+	border: 2px solid white;
+	background: #ffffff00;
 	box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
 	transition: all 400ms ease-out;
 	cursor: pointer;
@@ -349,7 +349,9 @@ a {
 
 .carta:hover {
 	transform: translate(0, -3px);
-	box-shadow: 0 6px 12px #00000071;
+	cursor: pointer;
+  	transition: background-color 0.3s;  
+  	box-shadow: 1px 1px 20px rgb(255, 255, 255);
 }
 
 button {
@@ -402,7 +404,7 @@ button:active {
 	position: fixed;
 
 	top: 102px;
-	left: 240px;
+	left: 280px;
 	width: calc(100% - 20%);
 	height: calc(100% - 20%);
 

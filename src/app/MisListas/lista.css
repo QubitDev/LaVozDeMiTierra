@@ -14,7 +14,7 @@
 	box-shadow: 10px 10px 15px 5px black;
 }
 
-#menu {
+.menu {
 	font-family: Arial, Helvetica, sans-serif;
 
 	width: 200px;
@@ -35,7 +35,7 @@
 	flex-direction: column;
 }
 
-#header {
+.header {
 	position: fixed;
 	height: 102px;
 	top: 0;
@@ -164,6 +164,14 @@ a {
 
 
 /*-------------------------------------------------LISTA-------------------------------------------------------------*/
+#imageFon {
+	position: fixed;
+	top: 107px;
+	left: 208px;
+	z-index: -2;
+	width: 100%;
+	height: 100%;
+  }
 .container_main {
 	padding: 14px;
 	margin-left: 1%;
@@ -172,13 +180,28 @@ a {
 	left: 208px;
 	height: 100%;
 	width: 100%;
-	background: radial-gradient(ellipse at bottom, #647c74, #587a7c, #15242e, #3a615e, #749e8a, #15242e 80%);
 	font-family: Arial, Helvetica, sans-serif;
 	min-width: 800px;
 	max-width: 2500px;
-
 }
-
+.container_main o {
+	position: fixed;
+	width: 2px;
+	height: 10px;
+	top: -10px;
+	background: #d3d3d3;
+	animation: rain linear infinite;
+  }
+    
+  @keyframes rain {
+	0% {
+	  top: -10px;
+	}
+  
+	100% {
+	  top: 100vh;
+	}
+  }
 .container_listas {
 	background-color: rgba(0, 0, 0, 0.273);
 	border-radius: 5%;
@@ -252,12 +275,12 @@ a {
 
 .partUps1 {
 	position: relative;
-	left: 11%;
+	left: 16%;
 }
 
 .partUps2 {
 	position: relative;
-	left: 25%;
+	left: 27%;
 }
 
 .partUps3 {
@@ -306,28 +329,28 @@ a {
 
 .part1 {
 	position: relative;
-	left: 2%;
+	left: 1%;
 	top: 25px;
 
 }
 
 .part2 {
 	position: relative;
-	left: 18%;
+	left: 10%;
 	top: 25px;
 
 }
 
 .part3 {
 	position: relative;
-	left: 40%;
+	left: 25%;
 	top: 25px;
 
 }
 
 .part4 {
 	position: relative;
-	left: 64%;
+	left: 38%;
 	top: 25px;
 
 }
@@ -342,7 +365,7 @@ a {
 	position: relative;
 	height: 30px;
 	width: 37px;
-	left: 72%;
+	left: 48%;
 	top: 34px;
 	background: rgba(0, 0, 0, 0);
 

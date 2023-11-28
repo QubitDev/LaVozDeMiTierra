@@ -1,3 +1,21 @@
+
+const container = document.querySelector('.contenedor_todo');
+const rain = () => {
+    let j = 0;
+    while (j <= 80){
+        let gout = document.createElement('o');
+        let x = innerWidth * Math.random();
+        let time = 1 * Math.random();
+        gout.style.animationDuration = time <= 0.4 ? (time + 0.4) + 's'  : time + 's';
+        gout.style.animationDelay = time + 's';
+        gout.style.left = x + 'px';
+        container.appendChild(gout);
+        j++;
+    }
+}
+rain();
+
+
 const endSesion = document.querySelector(".sesion");
 endSesion.addEventListener('click',cerrarSesion);
 
@@ -30,7 +48,7 @@ refFav.onSnapshot((snapshot) => {
                     contenedorCards.innerHTML += `
                     <div class="contenedora" >
                         <div class="contenedor_div" onClick="enviar('${document.data().idNarracion}')">
-                          <img src="${doc.data().imageURL}">
+                          <img src="${doc.data().imageURL}" id="imagenesFav">
                         </div>
                 
                         <div class="contenedor_div" onClick="enviar('${document.data().idNarracion}')">

@@ -47,6 +47,7 @@
   background-position: top center;
   color: #fff;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
+  z-index: 1;
 }
 
 .header {
@@ -596,7 +597,7 @@ a {
   position: fixed;
 
   top: 102px;
-  left: 240px;
+	left: 280px;
   width: calc(100% - 20%);
   height: calc(100% - 20%);
 
@@ -734,7 +735,6 @@ a {
   flex-direction: column;
   align-items: center;
   /* margin-left: 100px;  */
-
 }
 
 .card__c {
