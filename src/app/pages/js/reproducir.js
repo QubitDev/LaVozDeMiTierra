@@ -297,23 +297,44 @@ function aceptarSeleccion() {
     // Obtiene el ID de la playlist seleccionada
     const playlistId = playlistSeleccionada.dataset.playlistId;
 
-    // Guarda el ID del audio en la playlist seleccionada
+    // Verifica si el audio ya existe en la playlist
     if (audioIdSeleccionado && playlistId) {
-      // Agrega el ID del audio a la playlist en Firestore
-      db.collection("playlists").doc(playlistId).update({
-        audios: firebase.firestore.FieldValue.arrayUnion(audioIdSeleccionado)
-      })
-        .then(() => {
-          console.log("ID del audio agregado correctamente a la playlist.");
-          // Restablece la variable de audioIdSeleccionado
-          audioIdSeleccionado = null;
-          // Cierra el modal después de aceptar la selección
-          cerrarModal();
-          // Muestra el mensaje
-          mostrarMensaje("Audio agregado a la lista correctamente.");
+      const playlistRef = db.collection("playlists").doc(playlistId);
+
+      // Obtiene la lista actual de audios en la playlist
+      playlistRef.get()
+        .then(doc => {
+          if (doc.exists) {
+            const audiosEnPlaylist = doc.data().audios || [];
+
+            // Verifica si el audio ya está en la playlist
+            if (audiosEnPlaylist.includes(audioIdSeleccionado)) {
+              alert("El audio ya existe en la playlist.");
+              // Puedes mostrar un mensaje o realizar otras acciones según sea necesario
+            } else {
+              // Agrega el ID del audio a la playlist en Firestore
+              playlistRef.update({
+                audios: firebase.firestore.FieldValue.arrayUnion(audioIdSeleccionado)
+              })
+                .then(() => {
+                  console.log("ID del audio agregado correctamente a la playlist.");
+                  // Restablece la variable de audioIdSeleccionado
+                  audioIdSeleccionado = null;
+                  // Cierra el modal después de aceptar la selección
+                  cerrarModal();
+                  // Muestra el mensaje
+                  mostrarMensaje("Audio agregado a la lista correctamente.");
+                })
+                .catch(error => {
+                  console.error("Error al agregar el ID del audio a la playlist:", error);
+                });
+            }
+          } else {
+            console.warn("La playlist no existe.");
+          }
         })
         .catch(error => {
-          console.error("Error al agregar el ID del audio a la playlist:", error);
+          console.error("Error al obtener la información de la playlist:", error);
         });
     } else {
       console.warn("No hay ID de audio o playlist seleccionada.");
