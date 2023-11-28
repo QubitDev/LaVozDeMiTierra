@@ -1,4 +1,18 @@
 
+const endSesion = document.querySelector(".sesion");
+endSesion.addEventListener('click',cerrarSesion);
+
+let cont = 1;
+function cerrarSesion(){
+    if(cont % 2 == 0){
+        document.getElementById('sesionMenu').style.display= 'none';
+    }
+    else{
+        document.getElementById('sesionMenu').style.display= 'block';
+    }
+    cont++;
+}
+
 const container = document.querySelector('.contenedor_todo');
 const rain = () => {
     let j = 0;
@@ -14,22 +28,6 @@ const rain = () => {
     }
 }
 rain();
-
-
-const endSesion = document.querySelector(".sesion");
-endSesion.addEventListener('click',cerrarSesion);
-
-let cont = 1;
-function cerrarSesion(){
-    if(cont % 2 == 0){
-        document.getElementById('sesionMenu').style.display= 'none';
-    }
-    else{
-        document.getElementById('sesionMenu').style.display= 'block';
-    }
-    cont++;
-}
-
 /* --------------------- la lista de los favoritos ----------------------------------------------------*/ 
 
 // referencias a las collecciones

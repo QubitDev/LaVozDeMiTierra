@@ -34,6 +34,7 @@
 	left: 0;
 	display: flex;
 	flex-direction: column;
+	z-index: 1;
 }
 
 #header {
@@ -167,11 +168,24 @@ a {
 	height: 95%;
   }
 * {
+/*----------------------------------------- body------------------------------------------------------------------- */
+/*----------------------------------------- body------------------------------------------------------------------- */
+
+#imageFon {
+	position: fixed;
+	top: 107px;
+	left: 200px;
+	z-index: -1;
+	width: 100%;
+	height: 100%;
+}
+
+/* * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 	font-family: 'Montserrat', sans-serif;
-}
+} */
 
 /*  contenedor de todo el favorito*/
 
@@ -213,6 +227,29 @@ a {
 	  top: 100vh;
 	}
   }
+}
+
+.contenedor_todo o {
+	position: fixed;
+	width: 1px;
+	height: 10px;
+	top: -10px;
+	background: rgb(211, 211, 211);
+	animation: rain linear infinite;
+}
+
+@keyframes rain {
+	0% {
+		top: -10px;
+	}
+
+	100% {
+		top: 100vh;
+	}
+}
+
+
+
 
 /*  contenedor del el favorito de la carta*/
 
