@@ -34,7 +34,6 @@ const cargarDocumentoCuento = (documentos) => {
 				        <div class="contenido-card">
 					        <h3>${documento.data().titulo}</h3>
 					        <p>${documento.data().musica}</p>
-
 				        </div>
 
                     </div>
