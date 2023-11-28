@@ -235,7 +235,6 @@ db.collection('audio')
     if (!querySnapshot.empty) {
       const primerDocumento = db.collection("audio").doc(docId);
       audioIdSeleccionado = primerDocumento.id;
-
     } else {
       console.error("La colección 'audio' está vacía.");
     }
@@ -246,7 +245,9 @@ db.collection('audio')
 
 function mostrarPlaylists() {
   // Obtiene todas las playlists desde Firebase
+  const userId = localStorage.getItem('userId');
   db.collection("playlists")
+    .where("userId", "==", userId)
     .get()
     .then(querySnapshot => {
       const playlistsList = document.getElementById("playlistsList");
