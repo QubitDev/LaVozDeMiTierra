@@ -30,10 +30,12 @@
 		</div>
 		<header class="header">
 			<div class="greeting">
-				<p><font size="8">La voz de mi Tierra</font></p>
+				<p>
+					<font size="8">La voz de mi Tierra</font>
+				</p>
 			</div>
 			<div class="sesionEnd">
-				<img src="./../../assets/images/IconoUsu.png" alt="Sesion" class="sesion"/>
+				<img src="./../../assets/images/IconoUsu.png" alt="Sesion" class="sesion" />
 			</div>
 			
 		<div id="sesionMenu">			
@@ -45,16 +47,16 @@
 			</ul>
 		</div>		
 		</header>
-		
+
 
 		<div class="menu">
 			<div class="content">
 				<div class="menu__item" data-page="app">
-					<i class="fas fa-home"></i> 
+					<i class="fas fa-home"></i>
 					<a href="homeUsu.html">Inicio</a>
 				</div>
 				<div class="menu__item" data-page="registro" id="searchButton" onClick="mostrarBuscar()">
-					<i class="fa-solid fa-magnifying-glass"></i> 
+					<i class="fa-solid fa-magnifying-glass"></i>
 					<a href="javascript:void(0)" nclick="mostrarBuscar()">Buscar</a>
 				</div>
 				<div class="menu__item" data-page="app">
@@ -72,33 +74,34 @@
 			</div>
 		</div>
 	</div>
-
 	<!-- ------------------------------------------------------------main del home usuario -->
+	
+	<!--   la argeta--->
+	<div class="contenedor_todo">
+		<img src="https://i.pinimg.com/originals/44/6e/3b/446e3b79395a287ca32f7977dd83b290.jpg" alt="imageFon"
+		id="imageFon">
+		
+		<!--   Tarjetas de los cuentos-->
+		<div class="container-card">
+			<div class="title-cards">
+				<h2 class="subTituloCard">Cuentos</h2>
+			</div>
+			<div class="card" id="card"></div>
 
-<!--   la argeta--->
-<div class="contenedor_todo">
-
-	<!--   Tarjetas de los cuentos-->
-	<div class="container-card">
-		<div class="title-cards">
-			<h2 class="subTituloCard">Cuentos</h2>
 		</div>
-		<div class="card" id="card"></div>
+		<!--Fin   Tarjetas-->
 
-	</div>
-	<!--Fin   Tarjetas-->
+		<!--   Tarjetas de las leyendas-->
 
-	<!--   Tarjetas de las leyendas-->
+		<div class="container-card">
+			<div class="title-cards">
+				<h2 class="subTituloCard">Leyendas</h2>
+			</div>
+			<div class="card1" id="card1"></div>
 
-	<div class="container-card">
-		<div class="title-cards">
-			<h2 class="subTituloCard">Leyendas</h2>
 		</div>
-		<div class="card1" id="card1"></div>
-
+		<!--Fin   Tarjetas-->
 	</div>
-	<!--Fin   Tarjetas-->
-</div>
 
 	<!-- -------------------------------------------------Buscador------------------------------------------- -->
 	<div class="container__search">
