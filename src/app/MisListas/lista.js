@@ -77,7 +77,7 @@ if (!docId) {
 
 // Función para redirigir a la página de reproducción
 function redirigirReproducir(audioId) {
-  window.location.href = `./reproducir.html?doc=${audioId}`;
+  window.location.href = `../../app/pages/html/reproducir.html?doc=${audioId}`;
 }
 
 // Función para eliminar un audio de la lista de reproducción
