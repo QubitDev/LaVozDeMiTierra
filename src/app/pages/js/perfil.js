@@ -31,38 +31,6 @@ function cerrarSesion(){
     cont++;
 }
 
-//Obtenemos el id del usario
-function getIdUsu(email){
-  db.collection('users').onSnapshot((snapshot) => {
-    usuarios(snapshot.docs,email);
-  })
-}
-const usuarios = (documentos,email) => {
-  if (documentos.length > 0){        
-      documentos.forEach(documento => {
-          if(documento.data().correoElectronico == email){
-            return(documento.id); 
-          }
-      }); 
-  }
-}
-console.log(getIdUsu(emailRef));
-
-const buttonImg = document.querySelectorAll(".loadImg");
-const imagenesPerfil = document.querySelectorAll(".imagenes");
-const subirAc =document.getElementById('submitButton');
-
-
-for(let i = 0; i < buttonImg.length; i++) {
-  buttonImg[i].addEventListener("click", function() {
-    document.getElementById('imageUsuario').src = imagenesPerfil[i].src;
-  });
-}
-
-
-console.log(emailRef);
-searchUsu(emailRef);
-
 const choosee = document.getElementById("buttonEditar");
 const cerrarChos = document.getElementById("cancelButton");
 
@@ -76,6 +44,46 @@ function open(){
 
   document.getElementById("userProfileEditar").style.display = "block";
 }
+
+// Función que devuelve una Promesa con el ID del usuario.
+function getIdUsu() {
+  return new Promise((resolve) => {
+    const unsubscribe = db.collection('users').onSnapshot((snapshot) => {
+      const userId = obtenerIdUsuario(snapshot.docs, emailRef);
+      unsubscribe(); // Detener el listener después de obtener el ID.
+      resolve(userId);
+      return userId;
+    });
+  });
+}
+// Función para obtener el ID del usuario.
+const obtenerIdUsuario = (documentos, email) => {
+  for (const documento of documentos) {
+    if (documento.data().correoElectronico === email) {
+      return documento.id;
+    }
+  }
+  // Si no se encuentra ninguna coincidencia, puedes devolver un valor nulo o indicar que no se encontró.
+  return null;
+};
+
+
+const buttonImg = document.querySelectorAll(".loadImg");
+const imagenesPerfil = document.querySelectorAll(".imagenes");
+const subirAc = document.getElementById("submitButton");
+
+
+for(let i = 0; i < buttonImg.length; i++) {
+  buttonImg[i].addEventListener("click", function() {
+    document.getElementById('imageUsuario').src = imagenesPerfil[i].src;
+  });
+}
+
+
+console.log(emailRef);
+searchUsu(emailRef);
+
+
 
 //Cargamos los datos del usario;
 function searchUsu(correoUsu){
@@ -94,95 +102,24 @@ function searchUsu(correoUsu){
       console.error("Error al leer la colección 'usuarios':", error);
     });
   }
-  const subirUsu = document.getElementById('submitButton');
-  subirUsu.addEventListener("click", () => {
-    const idUsuario = getIdUsu(emailRef);
-    actualizarUsu(idUsuario);
+
+subirAc.addEventListener("click", async () => {
+    try {
+        const userId = await getIdUsu();
+        await actualizarUsu(userId);
+    } catch (error) {
+        console.error('Error al actualizar el usuario:', error);
+    }
 });
 
 async function actualizarUsu(id) {
-    const cambiar = db.collection('users').doc(id);
-    var nombre = document.getElementById('NombeUsario').value;
-    //var imagen = document.getElementById('imageUsuario').src;
-
-    await cambiar.update({ nombreDeUsuario: nombre});
-
-    setTimeout(() => {
-        cerrar();
+    try {
+        const cambiar = db.collection('users').doc(id);
+        var nombre = document.getElementById('NombeUsario').value;
+        var imagen = document.getElementById('imageUsuario').src;
+        await cambiar.update({ nombreDeUsuario: nombre, imagenURL: imagen });
         window.location.reload();
-    }, 2500);
+    } catch (error) {
+        console.error('Error al actualizar el usuario:', error);
+    }
 }
-
-/*
-  const subirUsu = document.getElementById('submitButton');
-  searchUsu.addEventListener("click",actualizarUsu(getIdUsu(emailRef)));
-
-  async function actualizarUsu(id){
-    const cambiar = db.collection('users').doc(id);
-      var nombre = document.getElementById('NombeUsario').value;
-      var imagen = document.getElementById('imageUsuario').src;     
-
-      await cambiar.update({nombreDeUsuario: nombre});
-      await cambiar.update({imagenURL: imagen});        
-
-      setTimeout(() => {            
-          cerrar();
-          window.location.reload();
-        },2500); 
-  }
-
-  
-/*function editar(id) {  
-    // El usuario está autenticado
-    console.log("Usuario autenticado:", user.email);
-    searchUsu(user.email);
-    subirAc.onclick= async function(){
-      const cambiar = db.collection('users').doc(id);
-      var nombreUsu = document.getElementById('nombreU').textContent;
-      var imagenPer = document.getElementById('imageUsuario').src;
-
-      await cambiar.update({nombreDeUsuario: nombreUsu});
-      await cambiar.update({imagenURL: imagenPer});       
-      window.location.reload();
-  }
-    return user.email;
-  
-}
-*/
-/*
-// Función para manejar el caso cuando el usuario está autenticado
-
-// Función para manejar el cambio en el estado de autenticación
-function handleAuthStateChanged(user) {
-  onUsuarioAutenticado(user);
-}
-// Escuchar cambios en el estado de autenticación
-firebase.auth().onAuthStateChanged(handleAuthStateChanged);
-editar(getIdUsu(onUsuarioAutenticado(user)));
-/*
-// Verificar el estado de autenticación en cualquier momento
-firebase.auth().onAuthStateChanged(function(user) {
-    if (user) {
-      // El usuario está autenticado
-      console.log("Usuario autenticado:", user.email);
-      searchUsu(user.email); 
-      return user.email;
-       } else {
-          // No hay un usuario autenticado
-          console.log("No hay usuario autenticado.");
-        }
-});*/
-
-/*
-async function editarUsu(id){
-  const cambiar = db.collection('users').doc(id);
-  const nombreUsu = document.getElementById('NombeUsario').value;
-  //const imagenUsu = document.getElementById('imagePerfil').src;
-  await cambiar.update({nombreDeUsuario: nombreUsu});
-  await cambiar.update({imagenURL: imagenUsu}); 
-  document.getElementById("userProfileEditar").style.display = "none";
-  window.location.reload();
-}
-*/
-
-
