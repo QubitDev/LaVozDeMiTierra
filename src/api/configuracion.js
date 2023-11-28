@@ -20,6 +20,8 @@ auth.onAuthStateChanged(user => {
     console.log("El usuario ha iniciado sesión:", user);
     const userId = user.uid;
     localStorage.setItem('userId', userId);
+    
+    loadUserPlaylists(user.uid);
   } else {
     // El usuario no ha iniciado sesión, redirigirlo al formulario de inicio de sesión.
     console.log("El usuario no ha iniciado sesión");

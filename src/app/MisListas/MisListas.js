@@ -41,8 +41,7 @@ function addLista() {
     });
 }
 
-function loadUserPlaylists() {
-  const userId = localStorage.getItem('userId');
+function loadUserPlaylists(userId) {
   db.collection("playlists")
     .where("userId", "==", userId)
     .get()
