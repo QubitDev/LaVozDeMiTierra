@@ -210,10 +210,10 @@ a {
 }
 .datos{
   position: relative;
-  width: 400px;
-  height: 140px;
-  top: 0%;
-  left: 28%;
+  width: 520px;
+  height: 150px;
+  top: -8%;
+  left: 29.5%;
 }
 
 #imageUsuario{
@@ -227,9 +227,10 @@ a {
 }
 .nombre{
   position: relative;
-  top: -45%;
-  left: 50%;
-  overflow: hidden;
+  top: 1%;
+  left: 1%;
+  width: 100%;
+  text-align: center;
 
 }
 #edit{
@@ -246,8 +247,8 @@ a {
   position: relative;
   width: 52px;
   height: 48px;
-  top: -40%;
-  left: 65%;
+  top: 10%;
+  left: 45%;
 }
 .container i {
 position: absolute;

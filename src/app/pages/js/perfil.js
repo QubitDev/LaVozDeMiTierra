@@ -40,6 +40,7 @@ cerrarChos.addEventListener("click",cerrar);
 
 function cerrar(){
     document.getElementById("userProfileEditar").style.display = "none";
+    loadUsuImg(emailRef);
 }
 function open(){
 
@@ -103,6 +104,23 @@ function searchUsu(correoUsu){
     });
   }
 
+
+  function loadUsuImg(correoUsu){
+    var usuariosRef = db.collection('users');
+    usuariosRef.get().then(function(querySnapshot) {
+       querySnapshot.forEach(function(doc) {
+            var datosUsuario = doc.data().correoElectronico;
+            if(datosUsuario == correoUsu){
+              if(doc.data().imagenURL != ""){
+                document.getElementById('imageUsuario').src = doc.data().imagenURL;
+              }
+            }          
+        });
+      }).catch(function(error) {
+        console.error("Error al leer la colección 'usuarios':", error);
+      });
+    }
+
 subirAc.addEventListener("click", async () => {
     try {
         const userId = await getIdUsu();
@@ -114,13 +132,15 @@ subirAc.addEventListener("click", async () => {
 
 async function actualizarUsu(id) {
     try {
+
         const cambiar = db.collection('users').doc(id);
         var nombre = document.getElementById('NombeUsario').value;
-        var imagen = document.getElementById('imageUsuario').src;
-        /*if(nameUsu.value==""){
+        var imagen = document.getElementById('imageUsuario').src; 
+        if(nombre==""){
           await cambiar.update({imagenURL: imagen });
-        }*/
-        await cambiar.update({ nombreDeUsuario: nombre, imagenURL: imagen });
+        }else{
+          await cambiar.update({nombreDeUsuario: nombre, imagenURL: imagen });
+        }
         window.location.reload();
     } catch (error) {
         console.error('Error al actualizar el usuario:', error);
