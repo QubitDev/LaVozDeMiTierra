@@ -84,7 +84,6 @@ console.log(emailRef);
 searchUsu(emailRef);
 
 
-
 //Cargamos los datos del usario;
 function searchUsu(correoUsu){
   var usuariosRef = db.collection('users');
@@ -123,3 +122,20 @@ async function actualizarUsu(id) {
         console.error('Error al actualizar el usuario:', error);
     }
 }
+searchIconUsu(emailRef);
+//Cargamos los datos del usario;
+function searchIconUsu(correoUsu){
+  var usuariosRef = db.collection('users');
+  usuariosRef.get().then(function(querySnapshot) {
+     querySnapshot.forEach(function(doc) {
+          var datosUsuario = doc.data().correoElectronico;
+          if(datosUsuario == correoUsu){
+            if(doc.data().imagenURL != ""){
+              document.getElementById('imagenUsu').src = doc.data().imagenURL;
+            }
+          }          
+      });
+    }).catch(function(error) {
+      console.error("Error al leer la colección 'usuarios':", error);
+    });
+  }

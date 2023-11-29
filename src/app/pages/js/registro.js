@@ -267,7 +267,7 @@ async function onSubmit(event) {
     overlay.style.display = 'none';
     document.querySelector(".wavi").style.display = 'none';
     onMessagePopup(`✅¡Se subió correctamente el audio!🎉`, 450); 
-  }, 15000); // 15 segundos de espera
+  }, 20000); // 20 segundos de espera
 }
 
 
@@ -412,7 +412,6 @@ async function handleSubmit() {
 
 function onVerifyButton() {
   window.location.href = `./../html/reproduccirAdm.html?doc=${idDoc}`;  
-  //window.location.href = `./../html/reproduccirAdm.html?doc=${doc}`;
   resetForm();
 }
 

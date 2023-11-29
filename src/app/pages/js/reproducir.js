@@ -15,7 +15,25 @@ const rain = () => {
 }
 rain();
 
+const emailRef = localStorage.getItem("email");
 
+searchUsu(emailRef);
+//Cargamos los datos del usario;
+function searchUsu(correoUsu){
+  var usuariosRef = db.collection('users');
+  usuariosRef.get().then(function(querySnapshot) {
+     querySnapshot.forEach(function(doc) {
+          var datosUsuario = doc.data().correoElectronico;
+          if(datosUsuario == correoUsu){
+            if(doc.data().imagenURL != ""){
+              document.getElementById('imagenUsu').src = doc.data().imagenURL;
+            }
+          }          
+      });
+    }).catch(function(error) {
+      console.error("Error al leer la colección 'usuarios':", error);
+    });
+  }
 
 const urlParams = new URLSearchParams(window.location.search);
 const docId = urlParams.get("doc");
