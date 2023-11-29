@@ -55,6 +55,10 @@
 	align-items: center;
 	justify-content: space-between;
 }
+#imagenUsu{
+	width: 60px;
+	height: 60px;
+}
 
 
 .greeting {

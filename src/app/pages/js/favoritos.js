@@ -13,6 +13,8 @@ function cerrarSesion(){
     cont++;
 }
 
+
+
 const container = document.querySelector('.contenedor_todo');
 const rain = () => {
     let j = 0;
@@ -35,7 +37,23 @@ const refAudio = db.collection('audio');
 const refFav = db.collection('favorito');
 const emailRef = localStorage.getItem("email");
 const contenedorCards = document.getElementById('card');
-
+searchUsu(emailRef);
+//Cargamos los datos del usario;
+function searchUsu(correoUsu){
+  var usuariosRef = db.collection('users');
+  usuariosRef.get().then(function(querySnapshot) {
+     querySnapshot.forEach(function(doc) {
+          var datosUsuario = doc.data().correoElectronico;
+          if(datosUsuario == correoUsu){
+            if(doc.data().imagenURL != ""){
+              document.getElementById('imagenUsu').src = doc.data().imagenURL;
+            }
+          }          
+      });
+    }).catch(function(error) {
+      console.error("Error al leer la colección 'usuarios':", error);
+    });
+  }
 refFav.onSnapshot((snapshot) => {
     snapshot.docs.forEach(document => {
         const emailFb = document.data().email;
