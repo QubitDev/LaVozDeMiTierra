@@ -175,6 +175,7 @@ a {
   left: 200px;
   width: 75%;
   height: 100%;
+  z-index: -1;
 }
 
 .play o {
@@ -186,15 +187,11 @@ a {
   animation: rain linear infinite;
 }
 
-i {
-  z-index: 2;
-}
 
 @keyframes rain {
   0% {
     top: -10px;
   }
-
   100% {
     top: 100vh;
   }
@@ -234,20 +231,21 @@ p {
 
 .imagen {
   margin-top: 5%;
-  margin-left: 8%;
+  margin-left: 9%;
   padding-left: 129px;
 }
 
 
 .descripcion {
-  margin-top: 5%;
+  position: relative;
+  margin-top: 3%;
   margin-left: 3%;
   color: #fff;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
   height: 220px;
   width: auto;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 20px;
+  font-size: 22px;
+  z-index: 5;
 }
 
 .h3 {
@@ -262,6 +260,7 @@ p {
 
 
 .contenedor {
+  position: relative;
   font-family: Arial, Helvetica, sans-serif;
   width: 90%;
   max-width: 60%;
@@ -269,10 +268,11 @@ p {
   margin-top: 2%;
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
   padding: 15px;
-  height: 200px;
+  height: 270px;
   overflow-y: scroll;
   border-radius: 5px;
   box-shadow: 1px 1px 18px rgba(255, 255, 255, 0.925);
+  z-index: 2;
 }
 
 .contenedor::-webkit-scrollbar {
@@ -293,12 +293,12 @@ a {
 }
 
 .card {
-  margin-top: 8%;
-  margin-left: 0%;
+  margin-top: 10%;
+  margin-left: 16%;
 }
 
 .__container_audio {
-  margin-top: 2%;
+  margin-top: 4%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -819,4 +819,52 @@ a {
 .playlist-item.selected .check-mark {
   display: block;
   /* Mostrar cuando está seleccionado */
+}
+
+/*-------------------------------------------------- ADD list----------------------------------------------------- */
+.modal{
+  position: fixed;
+  top: 70%;
+  left: 26%;
+  z-index: 9997;
+  background: radial-gradient(ellipse at bottom right, #647c74, #587a7c, #15242e, #3a615e, #749e8a 80%);
+  color: rgb(255, 255, 255);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  border-radius:10% ;
+  width: 300px;
+  height: auto;
+}
+
+#addList{
+  position: relative;
+  left: 60%;
+  margin-bottom: 10px;
+  background: radial-gradient(ellipse at left top, #01081d, #011c38 80%);
+  color: white;
+  border-radius: 10%;
+
+}
+#cancelList{
+  position: relative;
+  left: 10%;
+  margin-bottom: 10px;
+  background: radial-gradient(ellipse at left top, #01081d, #011c38 80%);
+  color: white;
+  border-radius: 10%;
+
+}
+#addList:hover{ 
+  cursor: pointer;
+  transition: background-color 0.3s;  
+  background: #00aff579;
+}
+#cancelList:hover{
+  cursor: pointer;
+  transition: background-color 0.3s;  
+  background: red; 
+}
+.titelList{
+  position: relative;
+  left: 15%;
 }

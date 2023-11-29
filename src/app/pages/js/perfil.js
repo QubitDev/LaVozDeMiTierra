@@ -20,6 +20,7 @@ rain();
 const endSesion = document.querySelector(".sesion");
 endSesion.addEventListener('click',cerrarSesion);
 const cagarName =document.getElementById("userNameContainer");
+const nameUsu = document.getElementById("NombeUsario");
 let cont = 1;
 function cerrarSesion(){
     if(cont % 2 == 0){
@@ -116,6 +117,9 @@ async function actualizarUsu(id) {
         const cambiar = db.collection('users').doc(id);
         var nombre = document.getElementById('NombeUsario').value;
         var imagen = document.getElementById('imageUsuario').src;
+        /*if(nameUsu.value==""){
+          await cambiar.update({imagenURL: imagen });
+        }*/
         await cambiar.update({ nombreDeUsuario: nombre, imagenURL: imagen });
         window.location.reload();
     } catch (error) {
