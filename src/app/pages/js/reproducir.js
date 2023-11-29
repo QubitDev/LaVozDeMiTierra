@@ -323,7 +323,7 @@ function aceptarSeleccion() {
                   // Cierra el modal después de aceptar la selección
                   cerrarModal();
                   // Muestra el mensaje
-                  mostrarMensaje("Audio agregado a la lista correctamente.");
+                  mostrarMensaje("Cuento/Leyenda añadido correctamente.");
                 })
                 .catch(error => {
                   console.error("Error al agregar el ID del audio a la playlist:", error);
