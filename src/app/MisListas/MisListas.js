@@ -13,7 +13,25 @@ const rain = () => {
     }
 }
 rain();
+const emailRef = localStorage.getItem("email");
 
+searchUsu(emailRef);
+//Cargamos los datos del usario;
+function searchUsu(correoUsu){
+  var usuariosRef = db.collection('users');
+  usuariosRef.get().then(function(querySnapshot) {
+     querySnapshot.forEach(function(doc) {
+          var datosUsuario = doc.data().correoElectronico;
+          if(datosUsuario == correoUsu){
+            if(doc.data().imagenURL != ""){
+              document.getElementById('imagenUsu').src = doc.data().imagenURL;
+            }
+          }          
+      });
+    }).catch(function(error) {
+      console.error("Error al leer la colección 'usuarios':", error);
+    });
+  }
 
 
 const endSesion = document.querySelector(".sesion");
@@ -82,8 +100,8 @@ function renderPlaylist(playlistData) {
         <div class="imageList" onclick="showListL('${playlistData.id}', '${playlistData.name}')">
             <i class="fa-solid fa-headphones fa-3x"></i>
         </div>
-        <h1 class="titleLi" contenteditable="true" oninput="updatePlaylistName('${playlistData.id}', this)">${playlistData.name}</h1>
-        <h1 class="Audios">Número de audios:</h1>
+        <h1 class="titleLi" contenteditable="true" oninput="updatePlaylistName('${playlistData.id}', this)" id="nameList">${playlistData.name}</h1>
+        <h1 class="Audios" id="numberList">Número de audios:</h1>
         <h1 class="number" type="number" id="numberOfAudios_${playlistData.id}">${playlistData.audios.length || 0}</h1>
         <button class="deleteC" onclick="eliminarLista('${playlistData.id}')">
             <i class="fa-solid fa-trash-can fa-2x" id="eliminar"></i>

@@ -53,6 +53,10 @@
 	color: #fff;
 	text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
 }
+#imagenUsu{
+	width: 60px;
+	height: 60px;
+}
 
 .titleRan {
 	position: fixed;
@@ -417,7 +421,13 @@ h1 {
 	display: flex;
 	align-items: center;
 	font-size: 16px;
+	position: relative;
+	left: 1%;
 
+}
+.header__c{
+	position: relative;
+	left: -5%;
 }
 
 .scroll-container {

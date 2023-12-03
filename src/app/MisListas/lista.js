@@ -14,6 +14,26 @@ const rain = () => {
 }
 rain();
 
+const emailRef = localStorage.getItem("email");
+
+searchUsu(emailRef);
+//Cargamos los datos del usario;
+function searchUsu(correoUsu){
+  var usuariosRef = db.collection('users');
+  usuariosRef.get().then(function(querySnapshot) {
+     querySnapshot.forEach(function(doc) {
+          var datosUsuario = doc.data().correoElectronico;
+          if(datosUsuario == correoUsu){
+            if(doc.data().imagenURL != ""){
+              document.getElementById('imagenUsu').src = doc.data().imagenURL;
+            }
+          }          
+      });
+    }).catch(function(error) {
+      console.error("Error al leer la colección 'usuarios':", error);
+    });
+  }
+
 
 
 const endSesion = document.querySelector(".sesion");
@@ -122,6 +142,7 @@ function eliminarAudio(audioId) {
           } else {
             console.warn(`Elemento del audio con ID ${audioId} no encontrado en la interfaz.`);
           }
+          location.reload();
         }).catch((error) => {
           console.error("Error al actualizar la lista de reproducción:", error);
         });

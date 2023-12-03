@@ -53,7 +53,10 @@
 	align-items: center;
 	justify-content: space-between;
 }
-
+#imagenUsu{
+	width: 60px;
+	height: 60px;
+}
 
 .greeting {
 
@@ -272,24 +275,20 @@ a {
 	position: relative;
 	margin-top: 20px;
 	left: 5%;
-	width: 89%;
+	width: 90%;
 	height: 90px;
 	display: flex;
+	text-align: center;
 }
 
-.list:hover {
-	cursor: pointer;
-	border-radius: 10px;
-	transition: background-color 0.3s;
-	background: radial-gradient(ellipse at left top, #01081dbc, #011c38 80%);
-}
+
 
 .imageList {
 	position: relative;
 	margin-top: 20px;
 	left: 4%;
-	width: 50px;
-	height: 50px;
+	width: 55px;
+	height: 55px;
 	border-radius: 50%;
 }
 
@@ -312,6 +311,21 @@ a {
 
 #eliminar {
 	color: white;
+	text-align: center;
+}
+#nameList{
+	text-align: left;
+	width: 350px;
+
+}
+#numberList{
+	text-align: center;
+	width: 300px;
+
+
+}
+#numberOfAudios_{
+	text-align: center;
 }
 
 #eliminar:hover {
@@ -328,7 +342,8 @@ a {
 .deleteC {
 	position: relative;
 	height: 40px;
-	left: 500px;
+	width: 50px;
+	left: 30%;
 	top: 20px;
 	background: rgba(0, 0, 0, 0);
 	border-radius: 50%;
@@ -469,6 +484,7 @@ a {
 	display: flex;
 	align-items: center;
 	font-size: 14px;
+	font-family: Arial, Helvetica, sans-serif;
 
 	padding-left: 75px;
 

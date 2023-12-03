@@ -20,6 +20,7 @@ rain();
 const endSesion = document.querySelector(".sesion");
 endSesion.addEventListener('click',cerrarSesion);
 const cagarName =document.getElementById("userNameContainer");
+const nameUsu = document.getElementById("NombeUsario");
 let cont = 1;
 function cerrarSesion(){
     if(cont % 2 == 0){
@@ -39,6 +40,7 @@ cerrarChos.addEventListener("click",cerrar);
 
 function cerrar(){
     document.getElementById("userProfileEditar").style.display = "none";
+    loadUsuImg(emailRef);
 }
 function open(){
 
@@ -84,7 +86,6 @@ console.log(emailRef);
 searchUsu(emailRef);
 
 
-
 //Cargamos los datos del usario;
 function searchUsu(correoUsu){
   var usuariosRef = db.collection('users');
@@ -103,6 +104,23 @@ function searchUsu(correoUsu){
     });
   }
 
+
+  function loadUsuImg(correoUsu){
+    var usuariosRef = db.collection('users');
+    usuariosRef.get().then(function(querySnapshot) {
+       querySnapshot.forEach(function(doc) {
+            var datosUsuario = doc.data().correoElectronico;
+            if(datosUsuario == correoUsu){
+              if(doc.data().imagenURL != ""){
+                document.getElementById('imageUsuario').src = doc.data().imagenURL;
+              }
+            }          
+        });
+      }).catch(function(error) {
+        console.error("Error al leer la colección 'usuarios':", error);
+      });
+    }
+
 subirAc.addEventListener("click", async () => {
     try {
         const userId = await getIdUsu();
@@ -114,12 +132,34 @@ subirAc.addEventListener("click", async () => {
 
 async function actualizarUsu(id) {
     try {
+
         const cambiar = db.collection('users').doc(id);
         var nombre = document.getElementById('NombeUsario').value;
-        var imagen = document.getElementById('imageUsuario').src;
-        await cambiar.update({ nombreDeUsuario: nombre, imagenURL: imagen });
+        var imagen = document.getElementById('imageUsuario').src; 
+        if(nombre==""){
+          await cambiar.update({imagenURL: imagen });
+        }else{
+          await cambiar.update({nombreDeUsuario: nombre, imagenURL: imagen });
+        }
         window.location.reload();
     } catch (error) {
         console.error('Error al actualizar el usuario:', error);
     }
 }
+searchIconUsu(emailRef);
+//Cargamos los datos del usario;
+function searchIconUsu(correoUsu){
+  var usuariosRef = db.collection('users');
+  usuariosRef.get().then(function(querySnapshot) {
+     querySnapshot.forEach(function(doc) {
+          var datosUsuario = doc.data().correoElectronico;
+          if(datosUsuario == correoUsu){
+            if(doc.data().imagenURL != ""){
+              document.getElementById('imagenUsu').src = doc.data().imagenURL;
+            }
+          }          
+      });
+    }).catch(function(error) {
+      console.error("Error al leer la colección 'usuarios':", error);
+    });
+  }

@@ -15,7 +15,25 @@ const rain = () => {
 }
 rain();
 
+const emailRef = localStorage.getItem("email");
 
+searchUsu(emailRef);
+//Cargamos los datos del usario;
+function searchUsu(correoUsu){
+  var usuariosRef = db.collection('users');
+  usuariosRef.get().then(function(querySnapshot) {
+     querySnapshot.forEach(function(doc) {
+          var datosUsuario = doc.data().correoElectronico;
+          if(datosUsuario == correoUsu){
+            if(doc.data().imagenURL != ""){
+              document.getElementById('imagenUsu').src = doc.data().imagenURL;
+            }
+          }          
+      });
+    }).catch(function(error) {
+      console.error("Error al leer la colección 'usuarios':", error);
+    });
+  }
 
 const urlParams = new URLSearchParams(window.location.search);
 const docId = urlParams.get("doc");
@@ -323,7 +341,7 @@ function aceptarSeleccion() {
                   // Cierra el modal después de aceptar la selección
                   cerrarModal();
                   // Muestra el mensaje
-                  mostrarMensaje("Audio agregado a la lista correctamente.");
+                  mostrarMensaje("Cuento/Leyenda añadido correctamente.");
                 })
                 .catch(error => {
                   console.error("Error al agregar el ID del audio a la playlist:", error);

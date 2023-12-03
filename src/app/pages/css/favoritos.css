@@ -55,6 +55,10 @@
 	align-items: center;
 	justify-content: space-between;
 }
+#imagenUsu{
+	width: 60px;
+	height: 60px;
+}
 
 
 .greeting {
@@ -128,7 +132,7 @@ a {
 	top: 95px;
 	left: 84%;
 	width: 150px;
-	height: 125px;
+	height: 140px;
 	font-size: 16;
 	font-family: Arial, Helvetica, sans-serif;
 	display: none;
@@ -167,36 +171,15 @@ a {
 	width: 95%;
 	height: 95%;
   }
-* {
-/*----------------------------------------- body------------------------------------------------------------------- */
-/*----------------------------------------- body------------------------------------------------------------------- */
-
-#imageFon {
-	position: fixed;
-	top: 107px;
-	left: 200px;
-	z-index: -1;
-	width: 100%;
-	height: 100%;
-}
-
-/* * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	font-family: 'Montserrat', sans-serif;
-} */
-
-/*  contenedor de todo el favorito*/
 
 .contenedor_todo {
 	flex-direction: row;
 	display: flex;
 	position: fixed;
-	top: 102px;
-	left: 200px;
+	top: 150px;
+	left: 220px;
 	width: 95%;
-	height: 95%;
+	height: 100%;
 	background: radial-gradient(ellipse at bottom, #647c74, #587a7c, #15242e, #3a615e, #749e8a, #15242e 80%);
 	background-size: 150% 150%;
 	background-position: top center;
@@ -227,7 +210,7 @@ a {
 	  top: 100vh;
 	}
   }
-}
+
 
 .contenedor_todo o {
 	position: fixed;
@@ -237,30 +220,12 @@ a {
 	background: rgb(211, 211, 211);
 	animation: rain linear infinite;
 }
-
-@keyframes rain {
-	0% {
-		top: -10px;
-	}
-
-	100% {
-		top: 100vh;
-	}
-}
-
-
-
-
 /*  contenedor del el favorito de la carta*/
 
 .container-favorito {
-	flex-direction: row;
-	display: flex;
+	flex-direction: row;	
 	width: 90%;
-	height: 90%;
-	/* width: 60%;
-	height: 70%; */
-	/* max-width: 900px; */
+	height: 80%;
 	margin: 60px;
 	margin-left: 50px;
 	margin-right: 1px;
@@ -269,11 +234,24 @@ a {
 	display: flex;
 }
 
+.titleFavorite{
+	color: #fbfbfc;
+	font-family: Arial, Helvetica;
+	font-size: 50px;
+	position: relative;
+	display: flex;
+	top: -8%;
+	height: 100px;
+	left: 5%;	
+}
+#procesos{
+	z-index: -5;
+}
+
 /*  titulo de los favoritos*/
 .titulo-favorito {
-
 	width: 100%;
-	height: 20%;
+	height: 10%;
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 	display: flex;
 	gap: 30px;
@@ -283,23 +261,14 @@ a {
 	text-align: center;
 	background-color: #00000052;
 	font-size: 14px;
-
-
-	/*flex-direction: row;
-	display: flex;
-	width: 100%;
-	margin-bottom: 20px;
-	margin-top: 20px;
-	text-align: left;
-	color: #7a7a7a;
-	font-size: 18;*/
-
+	position: relative;
+	top: -16%;
 }
+
 
 /*sub titulo del favorito*/
 .subTitu-Favorito {
 	overflow-y: hidden;
-	/*font-size: 24px;*/
 	display: flex;
 	height: 88px;
 	align-items: center;
@@ -345,21 +314,6 @@ a {
 	box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
 	transition: all 400ms ease-out;
 	cursor: pointer;
-
-
-	/* width: 100%;
-	margin: 20px;
-	border-radius: 6px;
-	overflow: hidden;
-	background: #fff;
-	box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
-	transition: all 400ms ease-out;
-	cursor: default;
-	flex-direction: column;
-	display: flex;
-	transition: all 0.2s;
-	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); */
-
 }
 
 .carta:hover {
@@ -373,10 +327,11 @@ a {
 	flex-direction: column;
 	display: flex;
 	overflow-x: auto;
-
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 	gap: 20px;
 	background-color: #00000052;
+	position: relative;
+	top: -15%;
 
 }
 .uno_contenedora::-webkit-scrollbar{
@@ -593,7 +548,7 @@ a {
 	display: flex;
 	align-items: center;
 	font-size: 14px;
-
+	font-family: Arial, Helvetica, sans-serif;
 	padding-left: 75px;
 
 }
