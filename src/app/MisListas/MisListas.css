@@ -314,11 +314,15 @@ a {
 	text-align: center;
 }
 #nameList{
-	text-align: center;
-	left: 80%;
+	text-align: left;
+	width: 350px;
+
 }
 #numberList{
 	text-align: center;
+	width: 300px;
+
+
 }
 #numberOfAudios_{
 	text-align: center;
@@ -338,7 +342,8 @@ a {
 .deleteC {
 	position: relative;
 	height: 40px;
-	left: 45%;
+	width: 50px;
+	left: 30%;
 	top: 20px;
 	background: rgba(0, 0, 0, 0);
 	border-radius: 50%;

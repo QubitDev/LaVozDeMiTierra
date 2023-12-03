@@ -421,7 +421,13 @@ h1 {
 	display: flex;
 	align-items: center;
 	font-size: 16px;
+	position: relative;
+	left: 1%;
 
+}
+.header__c{
+	position: relative;
+	left: -5%;
 }
 
 .scroll-container {
