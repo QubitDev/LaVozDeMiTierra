@@ -40,7 +40,7 @@ loginForm.addEventListener("submit", function (e) {
                 // Redirige a la página homeUsu.html para otros correos
                 const email = correoElectronico;
                 localStorage.setItem('email', email);
-                window.location.href = "./../../../../homeUsu/homeUsu.html";
+                window.location.href = "./../../homeUsu/homeUsu.html";
             }
         })
         .catch((error) => {
