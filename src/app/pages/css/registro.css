@@ -173,10 +173,7 @@ a {
   height: calc(100% - 102px);
   display: flex;
   justify-content: center;
-  align-items: center;
-  background: radial-gradient(ellipse at bottom, #647c74, #587a7c, #15242e, #3a615e, #749e8a, #15242e 80%);
-  background-size: 150% 150%;
-  background-position: top center;
+  align-items: center;  
   color: #fff;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
   position: fixed;

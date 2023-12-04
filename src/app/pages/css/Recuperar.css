@@ -21,7 +21,7 @@ body {
 
 /* Contenedor principal para el formulario */
 .container {
-    background-color: rgba(255, 255, 255, 0.85); /* Fondo semi-transparente para el formulario */
+    background-color: #ffffff6b;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sutil sombra */
@@ -72,11 +72,18 @@ label {
 /* Estilo para los campos de entrada del formulario */
 input[type="text"],
 input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
+    width: 95%;
+    padding: 8px;
+    border: 1px solid #ccccccd2;
     border-radius: 5px;
     margin-bottom: 15px; /* Espaciado inferior para separar los campos */
+}
+#email{
+    width: 95%;
+    padding: 8px;
+    border: 1px solid #ccccccd2;
+    border-radius: 5px;
+
 }
 
 
