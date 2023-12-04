@@ -197,18 +197,20 @@ a {
     top: 100vh;
   }
 }
-
+.titleResgistrer{
+  position: relative;
+  top: -50px;
+}
 .container__form {
   position: fixed;
 
-  width: 60%;
-  height: 70%;
+  width: 55%;
+  height: 65%;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   /* align-items: center; */
-
   background-color: #0000006b;
   color: #fff;
   font-size: 14px;
@@ -239,6 +241,12 @@ form {
   justify-content: space-between;
   padding: 0 60px;
   gap: 20px;
+  position: relative;
+  left: 11%;
+}
+.container__files{
+  position: relative;
+  left: -6%;
 }
 
 .container__input1,
@@ -252,7 +260,10 @@ form {
 .container__files {
   margin-bottom: 0px;
 }
-
+.form__control{
+  position: relative;
+  width: 350px;
+}
 .form__control,
 .form-select {
   border: 1px solid #ccc;
@@ -284,7 +295,10 @@ form {
 .form__radio__input {
   margin-right: 20px;
 }
-
+#formato_audio{
+  position: relative;
+  width: 350px;
+}
 
 .radio-group input[type="radio"] {
   margin-right: 10px;
@@ -348,6 +362,8 @@ form {
 .file__chooser {
   display: flex;
   align-items: start;
+  position: relative;
+  width: 350px;
 }
 
 .container__text .file__chooser,

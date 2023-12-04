@@ -60,6 +60,11 @@ h2 {
     margin: 10px 0; /* Espaciado adicional en la parte inferior */
     text-align: center;
 }
+a {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #ffffff;
+	text-decoration: none;
+}
 
 /* Estilo para las etiquetas del formulario */
 label {
@@ -88,7 +93,7 @@ input[type="password"] {
 
 
 /* Estilo para los botones del formulario */
-.btn {
+#buttonSheap {
     background-color: #007BFF;
     color: #fff;
     border: none;
@@ -100,21 +105,30 @@ input[type="password"] {
     text-align: center;
 }
 
-.btn:hover {
+#buttonSheap:hover {
     background-color: #0056b3;
 }
 
 /* Estilo para el enlace de cancelación */
 #cancelButton {
-    display: inline-block;
-    margin-top: 10px; /* Agrega un pequeño espaciado superior */
-    text-decoration: none; /* Elimina la subraya del enlace */
-    color: #007BFF; /* Color de enlace */
+    color: #ffffff;
+    background-color: rgb(229, 13, 13);
+
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
     font-weight: bold;
-    transition: color 0.2s; /* Transición suave del color del enlace */
+    transition: background-color 0.2s; /* Agrega una transición suave al color de fondo */
     text-align: center;
+    margin-top: 20px;
 }
 
 #cancelButton:hover {
-    color: #0056b3;
+    background-color: rgb(159, 55, 55);
+
+}
+#reset-password-form{
+    position: relative;
+    height: auto;
 }
