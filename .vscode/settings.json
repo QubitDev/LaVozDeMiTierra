@@ -12,5 +12,4 @@
     "prettier.withNodeModules": true,
     "prettier.singleAttributePerLine": true,
     "prettier.singleQuote": true,
-    "prettier.tabWidth": 4,    
 }
