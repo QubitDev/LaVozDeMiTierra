@@ -159,35 +159,58 @@ a {
 }
   /*******************************************************Reproductor**********************************************************/
 
-  
+  #imageFon {
+    position: fixed;
+    top: 107px;
+    left: 200px;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+  }
   
   .play {
     top: 107px;
     left: 208px;
-    background: radial-gradient(ellipse at bottom, #647c74, #587a7c, #15242e, #3a615e, #749e8a, #15242e 80%);
-    background-size: 150% 150%;
-    background-position: top center;
     color: #fff;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.856);
     position: fixed;
     flex-direction: column;
     top: 102px;
     left: 200px;
     width: 75%;
     height: 100%;
+    z-index: -1;
   }
   
+  .play o {
+    position: fixed;
+    width: 2px;
+    height: 10px;
+    top: -10px;
+    background: #d3d3d3;
+    animation: rain linear infinite;
+  }
+  
+  
+  @keyframes rain {
+    0% {
+      top: -10px;
+    }
+    100% {
+      top: 100vh;
+    }
+  }
+  
+  
   p {
-    color: #01081d;
+    color: #ffffff;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
+    font-size: 24px;
     text-align: justify;
   }
   
   .container-card {
-    background: radial-gradient(ellipse at bottom, #647c74, #587a7c, #15242e, #3a615e, #749e8a, #15242e 80%);
-    background-size: 150% 150%;
-    background-position: top center;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  
     color: #fff;
     overflow: hidden;
     overflow-y: scroll;
@@ -196,9 +219,10 @@ a {
     top: 12%;
     left: 82%;
     width: 20%;
-    height: 88%;  
+    height: 88%;
     border-radius: 5px;
     box-shadow: 0px 1px 5px rgba(0, 0, 0, 45);
+    font-family: Arial, Helvetica, sans-serif;
   }
   
   .caja {
@@ -210,15 +234,21 @@ a {
   
   .imagen {
     margin-top: 5%;
-    margin-left: 8%;
+    margin-left: 9%;
     padding-left: 129px;
   }
   
+  
   .descripcion {
+    position: relative;
     margin-top: 3%;
     margin-left: 3%;
     color: #fff;
+    height: 220px;
+    width: auto;
     font-family: Arial, Helvetica, sans-serif;
+    font-size: 22px;
+    z-index: 5;
   }
   
   .h3 {
@@ -227,22 +257,35 @@ a {
   
   .h4 {
     font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
   }
   
   
   
   .contenedor {
+    position: relative;
     font-family: Arial, Helvetica, sans-serif;
     width: 90%;
     max-width: 60%;
     margin: auto;
     margin-top: 2%;
-    background: #ffff;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
     padding: 15px;
-    height: 200px;
+    height: 270px;
     overflow-y: scroll;
     border-radius: 5px;
-    box-shadow: 0px 1px 10px rgba(0, 0, 0, 45);
+    box-shadow: 1px 1px 18px rgba(255, 255, 255, 0.925);
+    z-index: 2;
+  }
+  
+  .contenedor::-webkit-scrollbar {
+    width: 10px;
+  
+  }
+  
+  .contenedor::-webkit-scrollbar-thumb {
+    box-shadow: 1px 1px 18px rgba(255, 255, 255, 0.925);
+    width: 10px;
   }
   
   a {
@@ -253,12 +296,12 @@ a {
   }
   
   .card {
-    margin-top: 8%;
-    margin-left: 0%;
+    margin-top: 10%;
+    margin-left: 16%;
   }
   
   .__container_audio {
-    margin-top: 2%;
+    margin-top: 4%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -269,8 +312,11 @@ a {
   .audio {
     text-align: center;
   }
-  #imagenesCard:hover{
+  
+  
+  #imagenesCard:hover {
     cursor: pointer;
-    transition: background-color 0.3s;  
+    transition: background-color 0.3s;
     box-shadow: 1px 1px 50px rgba(255, 255, 255, 0.925)
   }
+  

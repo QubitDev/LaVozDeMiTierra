@@ -21,7 +21,7 @@ body {
 
 /* Contenedor principal para el formulario */
 .container {
-    background-color: rgba(255, 255, 255, 0.85); /* Fondo semi-transparente para el formulario */
+    background-color: #ffffff6b;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sutil sombra */
@@ -60,6 +60,11 @@ h2 {
     margin: 10px 0; /* Espaciado adicional en la parte inferior */
     text-align: center;
 }
+a {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #ffffff;
+	text-decoration: none;
+}
 
 /* Estilo para las etiquetas del formulario */
 label {
@@ -72,16 +77,23 @@ label {
 /* Estilo para los campos de entrada del formulario */
 input[type="text"],
 input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
+    width: 95%;
+    padding: 8px;
+    border: 1px solid #ccccccd2;
     border-radius: 5px;
     margin-bottom: 15px; /* Espaciado inferior para separar los campos */
+}
+#email{
+    width: 95%;
+    padding: 8px;
+    border: 1px solid #ccccccd2;
+    border-radius: 5px;
+
 }
 
 
 /* Estilo para los botones del formulario */
-.btn {
+#buttonSheap {
     background-color: #007BFF;
     color: #fff;
     border: none;
@@ -93,21 +105,30 @@ input[type="password"] {
     text-align: center;
 }
 
-.btn:hover {
+#buttonSheap:hover {
     background-color: #0056b3;
 }
 
 /* Estilo para el enlace de cancelación */
 #cancelButton {
-    display: inline-block;
-    margin-top: 10px; /* Agrega un pequeño espaciado superior */
-    text-decoration: none; /* Elimina la subraya del enlace */
-    color: #007BFF; /* Color de enlace */
+    color: #ffffff;
+    background-color: rgb(229, 13, 13);
+
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
     font-weight: bold;
-    transition: color 0.2s; /* Transición suave del color del enlace */
+    transition: background-color 0.2s; /* Agrega una transición suave al color de fondo */
     text-align: center;
+    margin-top: 20px;
 }
 
 #cancelButton:hover {
-    color: #0056b3;
+    background-color: rgb(159, 55, 55);
+
+}
+#reset-password-form{
+    position: relative;
+    height: auto;
 }
